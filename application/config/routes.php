@@ -39,7 +39,9 @@
 */
 
 $route['default_controller'] 	= 'home';
-$route['pages/(:any)'] = 'pages/view/$1';
+//$route['pages/(:any)'] = 'pages/view/$1';
+$route['about'] = 'pages/view/about';
+$route['contact'] = 'pages/view/contact';
 $route['404_override'] 			= '';
 
 
