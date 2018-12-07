@@ -5,7 +5,7 @@
  * Date: 07.12.2018
  * Time: 22:36
  */
-class News extends CI_Controller {
+class news extends CI_Controller {
 
 	public function __construct()
 	{
@@ -26,11 +26,9 @@ class News extends CI_Controller {
 			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
 		}
 		$data['news'] = $this->news_model->get_news();
-		$data['title'] = 'News archive';
+		$data['title'] = 'news archive';
 
-		//$this->load->view('templates/header', $data);
 		$this->load->view('news/index', isset($data) ? $data : NULL);
-		//$this->load->view('templates/footer');
 	}
 
 	public function view($slug = NULL)
@@ -44,8 +42,27 @@ class News extends CI_Controller {
 
 		$data['title'] = $data['news_item']['title'];
 
-		$this->load->view('templates/header', $data);
 		$this->load->view('news/view', $data);
-		$this->load->view('templates/footer');
+	}
+
+	public function create() //todo: upravit pro auth/author
+	{
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+
+		$data['title'] = 'Create a news item';
+
+		$this->form_validation->set_rules('title', 'Title', 'required');
+		$this->form_validation->set_rules('text', 'Text', 'required');
+
+		if ($this->form_validation->run() === FALSE)
+		{
+			$this->load->view('news/create');
+		}
+		else
+		{
+			$this->news_model->set_news();
+			$this->load->view('news/success');
+		}
 	}
 }
