@@ -70,7 +70,7 @@
 
 				<div class="media-body">
 					<h4 class="media-heading">
-						<a href="http://getbootstrap.com/2.3.2/" title="Go-to Bootstrap site">
+						<small><p> ikony na facebook, twiter a taak </p></small>
 					</h4>
 				</div>
 			</div>
