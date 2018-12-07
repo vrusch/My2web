@@ -10,7 +10,7 @@
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     <li class="divider-vertical"></li>
-					<li><?php echo anchor('pages/news', 'Novinky'); ?></li>
+					<li><?php echo anchor('news', 'Novinky'); ?></li>
                     <li><?php echo anchor('contact', 'Kontakty'); ?></li>
                     <li><?php echo anchor('about', 'O nas'); ?></li>
                 </ul>
