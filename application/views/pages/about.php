@@ -69,9 +69,9 @@
 				<a class="pull-left" href="#"><img class="media-object" data-src="holder.js/64x64"></a>
 
 				<div class="media-body">
-					<h4 class="media-heading">
-						<a href="http://getbootstrap.com/2.3.2/" title="Go-to Bootstrap site">
-					</h4>
+					<small>
+						mozna mapa ale taak nieco??
+					</small>
 				</div>
 			</div>
 
