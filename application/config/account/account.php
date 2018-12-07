@@ -12,7 +12,7 @@ $config['sign_up_enabled'] 	= TRUE;
 | Sign In
 |--------------------------------------------------------------------------
 */
-$config['sign_in_recaptcha_enabled'] 	= FALSE;
+$config['sign_in_recaptcha_enabled'] 	= TRUE;
 $config['sign_in_recaptcha_offset'] 	= 3;
 
 /*
@@ -20,7 +20,7 @@ $config['sign_in_recaptcha_offset'] 	= 3;
 | Sign Up
 |--------------------------------------------------------------------------
 */
-$config['sign_up_recaptcha_enabled'] 	= FALSE;
+$config['sign_up_recaptcha_enabled'] 	= TRUE;
 $config['sign_up_auto_sign_in'] 		= TRUE;
 
 /*
