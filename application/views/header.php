@@ -11,8 +11,8 @@
                 <ul class="nav">
                     <li class="divider-vertical"></li>
 					<li><?php echo anchor('pages/news', 'Novinky'); ?></li>
-                    <li><?php echo anchor('pages/kontakt', 'Kontakty'); ?></li>
-                    <li><?php echo anchor('pages/about', 'O nas'); ?></li>
+                    <li><?php echo anchor('contact', 'Kontakty'); ?></li>
+                    <li><?php echo anchor('about', 'O nas'); ?></li>
                 </ul>
 
                 <ul class="nav pull-right">
