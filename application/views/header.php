@@ -12,7 +12,7 @@
                     <li class="divider-vertical"></li>
 					<li><?php echo anchor('', 'Novinky'); ?></li>
                     <li><?php echo anchor('', 'Kontakty'); ?></li>
-                    <li><?php echo anchor('', 'O nas'); ?></li>
+                    <li><?php echo anchor('about', 'O nas'); ?></li>
                 </ul>
 
                 <ul class="nav pull-right">
