@@ -45,7 +45,7 @@ class news extends CI_Controller {
 		$this->load->view('news/view', $data);
 	}
 
-	public function create() //todo: upravit pro auth/author
+	public function create() //todo: upravit pro autorizaciu/autetifikaciu
 	{
 		$this->load->helper('form');
 		$this->load->library('form_validation');
