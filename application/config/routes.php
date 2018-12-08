@@ -38,13 +38,16 @@
 |
 */
 
-$route['default_controller'] = 'home';
-$route['news/create'] 		= 'news/create';
-$route['about'] 			= 'pages/view/about';
-$route['contact'] 			= 'pages/view/contact';
-$route['news/(:any)'] 		= 'news/view/$1';
-$route['news'] 				= 'news';
-$route['404_override'] 		= '';
+$route['default_controller']	= 'home';
+$route['enews'] 				= 'news/create';
+$route['earticle'] 				= 'edit/article';
+$route['ecourse'] 				= 'edit/course';
+$route['course'] 				= 'course/playcoursecontrol';
+$route['about'] 				= 'pages/view/about';
+$route['contact'] 				= 'pages/view/contact';
+$route['news/(:any)'] 			= 'news/view/$1';
+$route['news'] 					= 'news';
+$route['404_override'] 			= '';
 
 
 /* End of file routes.php */
