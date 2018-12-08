@@ -12,8 +12,17 @@
                     <li class="divider-vertical"></li>
 					<li><?php echo anchor('news', 'Novinky'); ?></li>
                     <li><?php echo anchor('contact', 'Kontakty'); ?></li>
-                    <li><?php echo anchor('about', 'O nas'); ?></li>
+                    <li><?php echo anchor('about', 'O nás'); ?></li>
                 </ul>
+
+				<!--/admin buttons -->
+				<ul class="nav">
+					<li style="color: #cf3535;font-weight: bold;margin-top: 10px;margin-left: 350px;">>> Admin Edit Panel: </li>
+					<li><?php echo anchor('enews', 'Novinky'); ?></li>
+					<li><?php echo anchor('earticle', 'Články'); ?></li>
+					<li><?php echo anchor('ecourse', 'Kurzy'); ?></li>
+				</ul>
+				<!--/end of admin buttons -->
 
                 <ul class="nav pull-right">
                     <li class="dropdown">
