@@ -5,7 +5,6 @@
  * Date: 08.12.2018
  * Time: 22:52
  */
-//todo: doplnit logiku
 
 class course extends CI_Controller
 {
@@ -22,6 +21,12 @@ class course extends CI_Controller
 	public function play($page = 'playcourse')
 	{
 		maintain_ssl();
+
+
+		if ( ! $this->authentication->is_signed_in())
+		{
+			redirect('account/sign_in/?continue='.urlencode(base_url().'account/manage_users'));
+		}
 
 		if ($this->authentication->is_signed_in())
 		{

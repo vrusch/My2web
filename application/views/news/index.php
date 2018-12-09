@@ -25,11 +25,6 @@
 					If you like this project, please help contribute with <b>bug fixes &amp; enhancements</b> on <a href="https://github.com/donjakobo/A3M">GitHub</a>.
 				</p>
 
-				<p class="pull-right clearfix">
-					<a class="btn btn-info" href="https://github.com/donjakobo/A3M/wiki"><i class="icon-info-sign icon-white"></i> Wiki</a>&nbsp;
-					<a class="btn btn-primary" href="http://stackoverflow.com/questions/tagged/codeigniter-a3m"><i class="icon-comment icon-white"></i> Have questions?</a>&nbsp;
-					<a class="btn btn-danger" href="https://github.com/donjakobo/A3M"><i class="icon-wrench icon-white"></i> Fork it &raquo;</a>
-				</p>
 			</div>
 
 		</div>
