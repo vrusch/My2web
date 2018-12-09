@@ -2,7 +2,6 @@
 <html>
 <head>
 	<?php echo $this->load->view('head'); ?>
-
 </head>
 <body>
 
@@ -13,27 +12,21 @@
 		<div class="span12">
 
 			<!-- Main hero unit for a primary marketing message or call to action -->
-			<div class="hero-unit" style="position: relative;">
-				<div class="ribbon-wrapper-green">
-					<div class="ribbon-green">v1.0.1</div>
-				</div>
 
-				<h1>Welcome to <?php echo lang('website_title_long'); ?></h1>
+			<h1>Welcome to <?php echo lang('website_title_long'); ?></h1>
 
-				<p>
-					to je stranka onas blablabla ...
-				</p>
-			</div>
-
+			<p>
+				to je stranka kurzov ...
+			</p>
 		</div>
-
 
 	</div>
 
-	<!-- /end row -->
 </div>
 
 <?php echo $this->load->view('footer'); ?>
 
 </body>
 </html>
+
+

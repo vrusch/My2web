@@ -28,7 +28,7 @@
                 <p class="pull-right clearfix">
 					<a class="btn btn-info" href="https://github.com/donjakobo/A3M/wiki"><i class="icon-info-sign icon-white"></i> Wiki</a>&nbsp;
 					<a class="btn btn-primary" href="http://stackoverflow.com/questions/tagged/codeigniter-a3m"><i class="icon-comment icon-white"></i> Have questions?</a>&nbsp;
-					<a class="btn btn-danger" href="https://github.com/donjakobo/A3M"><i class="icon-wrench icon-white"></i> Fork it &raquo;</a>
+					<a class="btn btn-danger" href="course"><i class="icon-globe icon-white"></i> Kurzy &raquo;</a>
 				</p>
             </div>
 
