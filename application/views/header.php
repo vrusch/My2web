@@ -16,12 +16,14 @@
                 </ul>
 
 				<!--/admin buttons -->
+				<?php //if ($this->authentication->is_signed_in()) : ?>
 				<ul class="nav">
-					<li style="color: #cf3535;font-weight: bold;margin-top: 10px;margin-left: 350px;">>> Admin Edit Panel: </li>
+					<li style="color: #cf3535;font-weight: bold;margin-top: 10px;margin-left: 350px;">Admin Edit Panel: </li>
 					<li><?php echo anchor('enews', 'Novinky'); ?></li>
 					<li><?php echo anchor('earticle', 'Články'); ?></li>
 					<li><?php echo anchor('ecourse', 'Kurzy'); ?></li>
 				</ul>
+				<?php //endif; ?>
 				<!--/end of admin buttons -->
 
                 <ul class="nav pull-right">
