@@ -13,14 +13,14 @@
 
 			<!-- Main hero unit for a primary marketing message or call to action -->
 
-				<h1>Welcome to <?php echo lang('website_title_long'); ?></h1>
+			<h1>Welcome to <?php echo lang('website_title_long'); ?></h1>
 
-				<p>
-					to je stranka na editaciu a pridavanie clankov ...
-				</p>
-			</div>
-
+			<p>
+				to je stranka na editaciu a pridavanie kurzov ...
+			</p>
 		</div>
+
+	</div>
 
 </div>
 
@@ -28,4 +28,5 @@
 
 </body>
 </html>
+
 
