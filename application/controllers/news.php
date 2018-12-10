@@ -10,11 +10,9 @@ class news extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('news_model');
-		$this->load->helper('url_helper');
-		$this->load->helper(array('language', 'url', 'form', 'account/ssl'));
+		$this->load->helper(array('language', 'url', 'form', 'account/ssl', 'url_helper'));
 		$this->load->library(array('account/authentication', 'account/authorization'));
-		$this->load->model(array('account/account_model'));
+		$this->load->model(array('account/account_model', 'news_model'));
 	}
 
 	public function index()
