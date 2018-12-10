@@ -10,9 +10,9 @@
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     <li class="divider-vertical"></li>
-					<li><?php echo anchor('news', 'Novinky'); ?></li>
-                    <li><?php echo anchor('contact', 'Kontakty'); ?></li>
-                    <li><?php echo anchor('about', 'O nás'); ?></li>
+					<li style="border-left: 1px solid #607eff; border-radius: 15px;"><?php echo anchor('news', 'Novinky'); ?></li>
+                    <li style="border-left: 1px solid #607eff; border-radius: 15px;"><?php echo anchor('contact', 'Kontakty'); ?></li>
+                    <li style="border-left: 1px solid #607eff; border-radius: 15px;"><?php echo anchor('about', 'O nás'); ?></li>
                 </ul>
 
 				<!--/admin buttons -->

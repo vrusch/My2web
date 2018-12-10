@@ -42,7 +42,7 @@
 
 	</div>
 
-	<div style="width: 1170px; height:500px; border: 1px solid; background-color: #f7f7f7; border-radius: 5px;">
+	<div style="width: 1170px; height:500px; border: 1px solid; background-color: #fbfbfb; border-radius: 5px;">
 		<div class="row">
 			<div class="column">
 				<div class="card">..</div>
