@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: vlado
- * Date: 07.12.2018
- * Time: 22:36
- */
+
 class news extends CI_Controller {
 
 	public function __construct()
@@ -45,6 +40,10 @@ class news extends CI_Controller {
 
 	public function create() //todo: upravit pro autorizaciu/autetifikaciu
 	{
+		if ($this->authentication->is_signed_in())
+		{
+			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
+		}
 
 
 		$this->load->helper('form');
@@ -57,12 +56,12 @@ class news extends CI_Controller {
 
 		if ($this->form_validation->run() === FALSE)
 		{
-			$this->load->view('news/create');
+			$this->load->view('news/create', isset($data) ? $data : NULL);
 		}
 		else
 		{
 			$this->news_model->set_news();
-			$this->load->view('news/success');
+			$this->load->view('news/success', isset($data) ? $data : NULL);
 		}
 	}
 }
