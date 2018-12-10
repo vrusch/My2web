@@ -2,11 +2,10 @@
 <html>
 <head>
 	<?php echo $this->load->view('head'); ?>
-
 </head>
 <body>
 
-<?php echo $this->load->view('header'); ?>
+	<?php echo $this->load->view('header'); ?>
 
 <div class="container">
 	<div class="row">
@@ -20,6 +19,9 @@
 				<p>
 					to je stranka na editaciu a pridavanie news ...
 				</p>
+		</div>
+
+	</div>
 
 		<!-- Main hero unit for a primary marketing message or call to action -->
 		<?php echo validation_errors(); ?>
@@ -38,8 +40,6 @@
 
 		<!-- Main hero unit for a primary marketing message or call to action -->
 
-	</div>
-	</div>
 </div>
 
 <?php echo $this->load->view('footer'); ?>

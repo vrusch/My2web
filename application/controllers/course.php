@@ -18,7 +18,7 @@ class course extends CI_Controller
 		$this->load->model(array('account/account_model'));
 	}
 
-	public function play($page = 'playcourse')
+	public function play ($page = 'course')
 	{
 		maintain_ssl();
 
@@ -27,6 +27,27 @@ class course extends CI_Controller
 		{
 			redirect('account/sign_in/?continue='.urlencode(base_url().'account/manage_users'));
 		}
+
+		if ($this->authentication->is_signed_in())
+		{
+			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
+		}
+
+		if ( ! file_exists(APPPATH.'views/course/'.$page.'.php'))
+		{
+			// Whoops, we don't have a page for that!
+			show_404();
+		}
+
+		$data['title'] = ucfirst($page); // Capitalize the first letter
+
+		$this->load->view('course/'.$page, isset($data) ? $data : NULL);
+	}
+
+
+	public function create ($page = 'create')
+	{
+		maintain_ssl();
 
 		if ($this->authentication->is_signed_in())
 		{

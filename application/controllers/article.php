@@ -1,13 +1,11 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: vlado
- * Date: 08.12.2018
- * Time: 22:52
+ * User: vrusc
+ * Date: 10.12.2018
+ * Time: 14:45
  */
-//todo: doplnit logiku
-
-class edit extends CI_Controller
+class article extends CI_Controller
 {
 	function __construct()
 	{
@@ -19,7 +17,8 @@ class edit extends CI_Controller
 		$this->load->model(array('account/account_model'));
 	}
 
-	public function adding($page = 'article')
+
+	public function create ($page = 'create')
 	{
 		maintain_ssl();
 
@@ -28,14 +27,15 @@ class edit extends CI_Controller
 			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
 		}
 
-		if ( ! file_exists(APPPATH.'views/edit/'.$page.'.php'))
+		if ( ! file_exists(APPPATH.'views/articles/'.$page.'.php'))
 		{
 			// Whoops, we don't have a page for that!
 			show_404();
+
 		}
 
 		$data['title'] = ucfirst($page); // Capitalize the first letter
 
-		$this->load->view('edit/'.$page, isset($data) ? $data : NULL);
+		$this->load->view('articles/'.$page, isset($data) ? $data : NULL);
 	}
 }

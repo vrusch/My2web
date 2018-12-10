@@ -40,9 +40,9 @@
 
 $route['default_controller']	= 'home';
 $route['enews'] 				= 'news/create';
-$route['earticle'] 				= 'edit/adding/article';
-$route['ecourse'] 				= 'edit/adding/course';
-$route['course'] 				= 'course/play/playcourse';
+$route['earticle'] 				= 'article/create/create';
+$route['ecourse'] 				= 'course/create/create';
+$route['course'] 				= 'course/play/course';
 $route['about'] 				= 'pages/view/about';
 $route['contact'] 				= 'pages/view/contact';
 $route['news/(:any)'] 			= 'news/view/$1';
