@@ -1,6 +1,8 @@
+<div class="well well-small siteborder" style="height:45px; background-color: #eeeeee;"></div>
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
+			<div class="well well-small sitebordertop" style="height:45px; background-color: #ffffff;"></div>
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -10,11 +12,11 @@
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     <li class="divider-vertical"></li>
-					<li style="border-left: 1px solid #607eff; border-radius: 15px;"><?php echo anchor('', 'Sluzby'); ?></li>
-					<li style="border-left: 1px solid #607eff; border-radius: 15px;"><?php echo anchor('news', 'Novinky'); ?></li>
-					<li style="border-left: 1px solid #607eff; border-radius: 15px;"><?php echo anchor('', 'Reference'); ?></li>
-                    <li style="border-left: 1px solid #607eff; border-radius: 15px;"><?php echo anchor('contact', 'Kontakty'); ?></li>
-                    <li style="border-left: 1px solid #607eff; border-radius: 15px;"><?php echo anchor('about', 'O nás'); ?></li>
+					<li class= 'faw' style="border-left: 1px solid #0981c6; border-radius: 15px;"><?php echo anchor('', 'Sluzby'); ?></li>
+					<li class= 'faw' style="border-left: 1px solid #0981c6; border-radius: 15px;"><?php echo anchor('news', 'Novinky'); ?></li>
+					<li class= 'faw' style="border-left: 1px solid #0981c6; border-radius: 15px;"><?php echo anchor('', 'Reference'); ?></li>
+                    <li class= 'faw' style="border-left: 1px solid #0981c6; border-radius: 15px;"><?php echo anchor('contact', 'Kontakty'); ?></li>
+                    <li class= 'faw' style="border-left: 1px solid #0981c6; border-radius: 15px;"><?php echo anchor('about', 'O nás'); ?></li>
                 </ul>
 
 				<!--/admin buttons -->
