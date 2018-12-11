@@ -42,21 +42,8 @@
 
 	</div>
 
-	<div style="width: 1170px; height:500px; border: 1px solid; background-color: #fbfbfb; border-radius: 5px;">
-		<div class="row">
-			<div class="column">
-				<div class="card">..</div>
-			</div>
-			<div class="column">
-				<div class="card">..</div>
-			</div>
-			<div class="column">
-				<div class="card">..</div>
-			</div>
-			<div class="column">
-				<div class="card">..</div>
-			</div>
-		</div>
+	<div style="width: 1170px; height:500px; border: 1px solid; background-color: #fdfdfd; border-radius: 5px;">
+
 
 	</div>
 </div>

@@ -6,23 +6,25 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-			<?php echo anchor('', lang('website_title'), 'class="brand"'); ?>
+			<?php //echo anchor('', lang('website_title'), 'class="brand"'); ?>
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     <li class="divider-vertical"></li>
+					<li style="border-left: 1px solid #607eff; border-radius: 15px;"><?php echo anchor('', 'Sluzby'); ?></li>
 					<li style="border-left: 1px solid #607eff; border-radius: 15px;"><?php echo anchor('news', 'Novinky'); ?></li>
+					<li style="border-left: 1px solid #607eff; border-radius: 15px;"><?php echo anchor('', 'Reference'); ?></li>
                     <li style="border-left: 1px solid #607eff; border-radius: 15px;"><?php echo anchor('contact', 'Kontakty'); ?></li>
                     <li style="border-left: 1px solid #607eff; border-radius: 15px;"><?php echo anchor('about', 'O nás'); ?></li>
                 </ul>
 
 				<!--/admin buttons -->
-				<?php //if ($this->authentication->is_signed_in()) : ?>
+				<?php if ($this->authentication->is_signed_in()) : ?>
 				<ul class="nav" style="margin-left: 350px;">
 					<li style="border-left: 1px solid red; border-radius: 15px;"><?php echo anchor('enews', 'Novinky'); ?></li>
 					<li style="border-left: 1px solid red; border-radius: 15px;"><?php echo anchor('earticle', 'Články'); ?></li>
 					<li style="border-left: 1px solid red; border-radius: 15px;"><?php echo anchor('ecourse', 'Kurzy'); ?></li>
 				</ul>
-				<?php //endif; ?>
+				<?php endif; ?>
 				<!--/end of admin buttons -->
 
                 <ul class="nav pull-right">

@@ -26,6 +26,9 @@
 			</div>
 
 		</div>
+		<div class="span12" style="width: 80%; height:200px; border: 1px solid; background-color: #fdfdfd; border-radius: 5px;">
+			<p>Napiste nam - kontaktujte nas</p>
+		</div>
 
 
 	</div>

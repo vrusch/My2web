@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php echo $this->load->view('head'); ?>
+	<?php echo $this->load->view('head', array('title' => lang('edit_article'))); ?>
 	<script type="text/javascript" src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
 	<script type="text/javascript">
 		tinymce.init({
 			selector: '#myTextarea',
 			theme: 'modern',
-			width: 1170,
-			height: 500,
+			width: 965,
+			height: 300,
 			plugins: [
 				'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
 				'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
@@ -25,31 +25,40 @@
 
 <div class="container">
 	<div class="row">
-		<div class="span12">
-
-			<!-- Main hero unit for a primary marketing message or call to action -->
-
-			<h1>Welcome to <?php echo lang('website_title_long'); ?></h1>
-
-			<p>
-				to je stranka na editaciu a pridavanie clankov ...
-			</p>
+		<div class="span2">
+			<?php echo $this->load->view('account/account_menu', array('current' => 'manage_users')); ?>
 		</div>
 
+		<div class="span10">
+
+			<h2><?php echo('Editace článku'); ?></h2>
+
+			<div class="well">
+				<?php echo('Editace a přidávaní článků'); ?>
+			</div>
+
+
+			<div class="controls">
+				<?php echo validation_errors(); ?>
+
+				<?php echo form_open('news/create'); ?> <!-- akcia na odoslanie -->
+
+				<textarea id="myTextarea" name="text"></textarea>
+
+			</div>
+
+
+			<?php echo form_fieldset_close(); ?>
+			<?php echo form_close(); ?>
+
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary">Create article item</button>
+			</div>
+
+		</div>
 	</div>
 
-	<?php echo validation_errors(); ?>
-
-	<?php echo form_open('news/create'); ?> <!-- akcia na odoslanie -->
-
-	<textarea id="myTextarea" name="text"></textarea>
-	<input type="submit" name="submit" value="Create article item"/><!-- akcia na odoslanie -->
-	</form>
-
-
-</div>
-
-<?php echo $this->load->view('footer'); ?>
+	<?php echo $this->load->view('footer'); ?>
 
 </body>
 </html>
