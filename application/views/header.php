@@ -1,5 +1,5 @@
 <div class="container mynav">
-	<div class="sitebordertop" style="height:45px; background-color: #ffffff;">
+	<div class="sitebordertop" style="height: 65px; background-color: #ffffff;">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">Logo KTG</a>
 		</div>
@@ -10,11 +10,11 @@
 			<ul class="nav">
 				<li class="divider-vertical"></li>
 				<li class='faw'
-					style="border-left: 2px solid #0981c6; border-radius: 15px;"><?php echo anchor('', 'Sluzby'); ?></li>
+					style="border-left: 2px solid #0981c6; border-radius: 15px;"><?php echo anchor('service', 'Sluzby'); ?></li>
 				<li class='faw'
 					style="border-left: 2px solid #0981c6; border-radius: 15px;"><?php echo anchor('news', 'Novinky'); ?></li>
 				<li class='faw'
-					style="border-left: 2px solid #0981c6; border-radius: 15px;"><?php echo anchor('', 'Reference'); ?></li>
+					style="border-left: 2px solid #0981c6; border-radius: 15px;"><?php echo anchor('reference', 'Reference'); ?></li>
 				<li class='faw'
 					style="border-left: 2px solid #0981c6; border-radius: 15px;"><?php echo anchor('contact', 'Kontakty'); ?></li>
 				<li class='faw'

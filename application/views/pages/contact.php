@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<?php echo $this->load->view('head'); ?>
 
 </head>
@@ -10,15 +11,21 @@
 
 <div class="container">
 	<div class="row">
+
 		<div class="span12">
 
-			<!-- Main hero unit for a primary marketing message or call to action -->
+			<h2><?php echo('Kontakty'); ?></h2>
+
+			<div class="well">
+				<p>kontakty, mozna mapa, a hlavne staranka napiste nam, kontaktujte nas form</p>
+			</div>
+
 
 		</div>
-		<!-- /end row -->
 	</div>
 
 	<?php echo $this->load->view('footer'); ?>
 
 </body>
 </html>
+

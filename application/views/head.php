@@ -22,8 +22,8 @@
 		padding-top: 5px;
 	}
 	.sitebordertop {
-		border-top: 4px solid #076cc5;
-		border-bottom: 4px solid #076cc5;
+		border-top: 0px solid #076cc5;
+		border-bottom: 2px solid #076cc5;
 		border-left: none;
 		border-right: none;
 		border-radius: 0px;
@@ -33,7 +33,7 @@
 		margin-bottom: 10px;
 	}
 	.siteborder{
-		border-top: 4px solid #076cc5;
+		border-top: 2px solid #076cc5;
 		border-left: none;
 		border-right: none;
 		border-radius: 0px;
@@ -49,22 +49,22 @@
 	.blueGlow:hover {
 		font-size: 24px;
 		color: blue;
-		text-shadow: 0 0 10px #7c7aff;
+		text-shadow: 0 0 1px #7c7aff;
 	}
 	.googlrpGlow:hover{
 		font-size: 24px;
 		color: red;
-		text-shadow: 0 0 10px #9c9c9c;;
+		text-shadow: 0 0 1px #9c9c9c;;
 	}
 	.facebGlow:hover{
 		font-size: 24px;
 		color: darkblue;
-		text-shadow: 0 0 10px #9c9c9c;;
+		text-shadow: 0 0 1px #9c9c9c;;
 	}
 	.twiteri:hover{
 		font-size: 24px;
 		color: dodgerblue;
-		text-shadow: 0 0 10px #9c9c9c;;
+		text-shadow: 0 0 1px #9c9c9c;;
 	}
 
 </style>

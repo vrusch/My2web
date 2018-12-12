@@ -34,7 +34,7 @@
 							class="icon-comment icon-white"></i> Have questions?</a>
 				</p>
 				<p class="pull-right clearfix">
-					<a class="btn btn-danger" href="course"><i class="icon-globe icon-white"></i> Kurzy &raquo;</a>
+					<a class="btn btn-danger" href="course"><i class='fas fa-tasks'></i> Kurzy &raquo;</a>
 				</p>
 			</div>
 

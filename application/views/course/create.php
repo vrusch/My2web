@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<?php echo $this->load->view('head'); ?>
+
 </head>
 <body>
 
@@ -9,24 +11,32 @@
 
 <div class="container">
 	<div class="row">
-		<div class="span12">
-
-			<!-- Main hero unit for a primary marketing message or call to action -->
-
-			<h1>Welcome to <?php echo lang('website_title_long'); ?></h1>
-
-			<p>
-				to je stranka na editaciu a pridavanie kurzov ...
-			</p>
+		<div class="span2">
+			<?php echo $this->load->view('account/account_menu', array('current' => 'manage_users')); ?>
 		</div>
 
-	</div>
+		<div class="span10">
 
+			<h2>Editace kurzu</h2>
+
+			<div class="well">
+				<p>Editace a přidávaní kurzu</p>
+			</div>
+			<div class="controls">
+
+				<div class="form-actions">
+					<button type="submit" class="btn btn-primary">vytvorit kurz</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
 </div>
 
 <?php echo $this->load->view('footer'); ?>
 
 </body>
 </html>
+
 
 

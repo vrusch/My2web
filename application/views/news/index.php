@@ -14,16 +14,9 @@
 
 			<!-- Main hero unit for a primary marketing message or call to action -->
 			<div class="hero-unit" style="position: relative;">
-				<div class="ribbon-wrapper-green">
-					<div class="ribbon-green">v1.0.1</div>
-				</div>
 
-				<h1>Welcome to <?php echo lang('website_title_long'); ?></h1>
 
-				<p>
-					This is the homepage for your web-app. You can use this as a starting point for creating with A3M and building the rest of your site.
-					If you like this project, please help contribute with <b>bug fixes &amp; enhancements</b> on <a href="https://github.com/donjakobo/A3M">GitHub</a>.
-				</p>
+
 
 			</div>
 
