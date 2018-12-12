@@ -6,16 +6,17 @@
 
 				<div class="pull-left">
 					<small>
-						<i class='fas fa-envelope' ></i>&nbsp;<a class='fat' href="mailto:">info@kybertechgroup.cz</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='fas fa-phone'>&nbsp;</i><a class='fat' href="call:">+420 777 023 489</a><br>
+						<i class='fas fa-envelope'></i>&nbsp;<a class='fat' href="mailto:">info@kybertechgroup.cz</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
+							class='fas fa-phone'>&nbsp;</i><a class='fat' href="call:">+420 777 023 489</a><br>
 						<b>Kyber Tech Group s.r.o.&nbsp;&nbsp;&nbsp;IČO:123456789&nbsp;&nbsp;DIČ: CZ123456789</b>
 					</small>
 				</div>
 
 				<div class="span4">
 					<a href="#"><i class='fab fa-linkedin blueGlow'></i></a>&nbsp;
-						<a href="#"><i class='fab fa-google-plus-square googlrpGlow'></i></a>&nbsp;
-							<a href="#"><i class='fab fa-facebook-square facebGlow'></i></a>&nbsp;
-								<a href="#"><i class='fab fa-twitter-square twiteri'></i></a>&nbsp;
+					<a href="#"><i class='fab fa-google-plus-square googlrpGlow'></i></a>&nbsp;
+					<a href="#"><i class='fab fa-facebook-square facebGlow'></i></a>&nbsp;
+					<a href="#"><i class='fab fa-twitter-square twiteri'></i></a>&nbsp;
 				</div>
 
 				<div class="pull-right">

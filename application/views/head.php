@@ -14,16 +14,29 @@
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 <link href="<?php echo base_url().RES_DIR; ?>/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 <script src="<?php echo base_url().RES_DIR; ?>/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
 <style>
+	body {
+		padding-top: 5px;
+	}
 	.sitebordertop {
 		border-top: 4px solid #076cc5;
 		border-bottom: 4px solid #076cc5;
+		border-left: none;
+		border-right: none;
+		border-radius: 0px;
+		margin-bottom: 10px;
+	}
+	.mynav {
+		margin-bottom: 10px;
 	}
 	.siteborder{
 		border-top: 4px solid #076cc5;
+		border-left: none;
+		border-right: none;
+		border-radius: 0px;
 	}
 	.fat {
 		color: lightslategrey;
@@ -34,22 +47,22 @@
 		font-size:24px
 	}
 	.blueGlow:hover {
-		font-size: 25px;
+		font-size: 24px;
 		color: blue;
-		text-shadow: 0 0 10px #9c9c9c;
+		text-shadow: 0 0 10px #7c7aff;
 	}
 	.googlrpGlow:hover{
-		font-size: 25px;
+		font-size: 24px;
 		color: red;
 		text-shadow: 0 0 10px #9c9c9c;;
 	}
 	.facebGlow:hover{
-		font-size: 25px;
+		font-size: 24px;
 		color: darkblue;
 		text-shadow: 0 0 10px #9c9c9c;;
 	}
 	.twiteri:hover{
-		font-size: 25px;
+		font-size: 24px;
 		color: dodgerblue;
 		text-shadow: 0 0 10px #9c9c9c;;
 	}

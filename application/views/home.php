@@ -42,10 +42,7 @@
 
 	</div>
 
-	<div style="width: 1170px; height:500px; border: 1px solid; background-color: #fdfdfd; border-radius: 5px;">
 
-
-	</div>
 </div>
 
 

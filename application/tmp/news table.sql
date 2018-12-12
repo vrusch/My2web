@@ -3,9 +3,8 @@ CREATE TABLE news (
         title varchar(128) NOT NULL,
         slug varchar(128) NOT NULL,
         text text NOT NULL,
+        date_publish timestamp NOT NULL,
+        lifetime int(10) NOT NULL,
         PRIMARY KEY (id),
         KEY slug (slug)
 );
-
- date_publish       timestamp         CURRENT_TIMESTAMP
- lifetime           int(10)            30
