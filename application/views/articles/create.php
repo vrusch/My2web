@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php echo $this->load->view('head', array('title' => lang('edit_article'))); ?>
+	<?php echo $this->load->view('head'); ?>
 	<script type="text/javascript" src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
 	<script type="text/javascript">
 		tinymce.init({

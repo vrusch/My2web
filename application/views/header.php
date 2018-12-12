@@ -1,6 +1,9 @@
 <div class="container mynav">
-	<div class="sitebordertop" style="height:45px; background-color: #ffffff;"></div>
-
+	<div class="sitebordertop" style="height:45px; background-color: #ffffff;">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">Logo KTG</a>
+		</div>
+	</div>
 	<div class="navbar">
 
 		<div class="nav-collapse collapse">
@@ -30,9 +33,9 @@
 
 			<ul class="nav pull-right">
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #0000FF">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #0088cc">
 						<?php if ($this->authentication->is_signed_in()) : ?>
-						<i class="fas fa-user" ></i> <?php echo $account->username; ?> <b class="caret"></b></a>
+						<i class="fas fa-user"></i> <?php echo $account->username; ?> <b class="caret"></b></a>
 					<?php else : ?>
 						<i class="fas fa-user-alt-slash"></i> <b class="caret"></b></a>
 					<?php endif; ?>

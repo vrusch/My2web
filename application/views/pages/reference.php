@@ -2,7 +2,6 @@
 <html>
 <head>
 	<?php echo $this->load->view('head'); ?>
-
 </head>
 <body>
 
@@ -15,6 +14,8 @@
 			<!-- Main hero unit for a primary marketing message or call to action -->
 
 		</div>
+
+
 		<!-- /end row -->
 	</div>
 
