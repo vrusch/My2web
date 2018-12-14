@@ -12,7 +12,7 @@
 <div class="container">
 	<div class="row">
 		<div class="span2">
-			<?php echo $this->load->view('account/account_menu', array('current' => 'manage_users')); ?>
+			<?php echo $this->load->view('editSite/manage_site_menu', array('current' => 'manage_course')); ?>
 		</div>
 
 		<div class="span10">
@@ -25,7 +25,7 @@
 			<div class="controls">
 
 				<div class="form-actions">
-					<button type="submit" class="btn btn-primary">vytvorit kurz</button>
+					<button type="submit" class="btn btn-primary">vytvorit kurz <i class='far fa-paper-plane'></i></button>
 				</div>
 
 			</div>

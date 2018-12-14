@@ -26,7 +26,7 @@
 <div class="container">
 	<div class="row">
 		<div class="span2">
-			<?php echo $this->load->view('account/account_menu', array('current' => 'manage_users')); ?>
+			<?php echo $this->load->view('editSite/manage_site_menu', array('current' => 'manage_article')); ?>
 		</div>
 
 		<div class="span10">
@@ -52,7 +52,7 @@
 			<?php echo form_close(); ?>
 
 			<div class="form-actions">
-				<button type="submit" class="btn btn-primary">Create article item</button>
+				<button type="submit" class="btn btn-primary">Create article item <i class='far fa-paper-plane'></i></button>
 			</div>
 
 		</div>
