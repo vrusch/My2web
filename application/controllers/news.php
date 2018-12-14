@@ -5,8 +5,8 @@ class news extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->helper(array('language', 'url', 'form', 'account/ssl', 'url_helper'));
-		$this->load->library(array('account/authentication', 'account/authorization'));
+		$this->load->helper(array('language', 'url', 'form', 'account/ssl', 'url_helper', 'form'));
+		$this->load->library(array('account/authentication', 'account/authorization', 'form_validation'));
 		$this->load->model(array('account/account_model', 'news_model'));
 	}
 
@@ -46,13 +46,15 @@ class news extends CI_Controller {
 		}
 
 
-		$this->load->helper('form');
-		$this->load->library('form_validation');
+		//$this->load->helper('form');
+		//$this->load->library('form_validation');
 
-		$data['title'] = 'Create a news item';
+		//$data['title'] = 'Create a news item';
 
 		$this->form_validation->set_rules('title', 'Title', 'required');
 		$this->form_validation->set_rules('text', 'Text', 'required');
+		$this->form_validation->set_rules('lifetime', 'Životnost', 'required');
+		$this->form_validation->set_message('required', 'Povinne pole');
 
 		if ($this->form_validation->run() === FALSE)
 		{

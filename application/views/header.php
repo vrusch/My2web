@@ -10,23 +10,23 @@
 			<ul class="nav">
 				<li class="divider-vertical"></li>
 				<li class='faw'
-					style="border-left: 2px solid #0981c6; border-radius: 15px;"><?php echo anchor('service', 'Sluzby'); ?></li>
+					style="border-left: 2px solid #0981c6; border-radius: 25px;"><?php echo anchor('service', 'Služby'); ?></li>
 				<li class='faw'
-					style="border-left: 2px solid #0981c6; border-radius: 15px;"><?php echo anchor('news', 'Novinky'); ?></li>
+					style="border-left: 2px solid #0981c6; border-radius: 25px;"><?php echo anchor('news', 'Novinky'); ?></li>
 				<li class='faw'
-					style="border-left: 2px solid #0981c6; border-radius: 15px;"><?php echo anchor('reference', 'Reference'); ?></li>
+					style="border-left: 2px solid #0981c6; border-radius: 25px;"><?php echo anchor('reference', 'Reference'); ?></li>
 				<li class='faw'
-					style="border-left: 2px solid #0981c6; border-radius: 15px;"><?php echo anchor('contact', 'Kontakty'); ?></li>
+					style="border-left: 2px solid #0981c6; border-radius: 25px;"><?php echo anchor('contact', 'Kontakty'); ?></li>
 				<li class='faw'
-					style="border-left: 2px solid #0981c6; border-radius: 15px;"><?php echo anchor('about', 'O nás'); ?></li>
+					style="border-left: 2px solid #0981c6; border-radius: 25px;"><?php echo anchor('about', 'O nás'); ?></li>
 			</ul>
 
 			<!--/admin buttons -->
 			<?php if ($this->authentication->is_signed_in()) : ?>
 				<ul class="nav" style="margin-left: 350px;">
-					<li style="border-left: 1px solid red; border-radius: 15px;"><?php echo anchor('enews', 'Novinky'); ?></li>
-					<li style="border-left: 1px solid red; border-radius: 15px;"><?php echo anchor('earticle', 'Články'); ?></li>
-					<li style="border-left: 1px solid red; border-radius: 15px;"><?php echo anchor('ecourse', 'Kurzy'); ?></li>
+					<li style="border-left: 1px solid red; border-radius: 25px;"><?php echo anchor('news/create', 'Novinky'); ?></li>
+					<li style="border-left: 1px solid red; border-radius: 25px;"><?php echo anchor('earticle', 'Články'); ?></li>
+					<li style="border-left: 1px solid red; border-radius: 25px;"><?php echo anchor('ecourse', 'Kurzy'); ?></li>
 				</ul>
 			<?php endif; ?>
 			<!--/end of admin buttons -->

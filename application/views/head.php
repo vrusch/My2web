@@ -21,6 +21,19 @@
 	body {
 		padding-top: 5px;
 	}
+	.none {
+		all: unset;
+	}
+
+	.inline {
+		float:left
+	}
+	.errors{
+		color: red;
+		font-size: 10px;
+		margin-left : 20px;
+		float:left;
+	}
 	.sitebordertop {
 		border-top: 0px solid #076cc5;
 		border-bottom: 2px solid #076cc5;

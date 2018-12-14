@@ -22,26 +22,31 @@
 			<div class="well">
 				<?php echo('Editace a přidávaní novinek'); ?>
 			</div>
-			<div class="controls">
+			<div class="controls" style="color: #0981c6">
 				<!-- Main hero unit for a primary marketing message or call to action -->
-				<?php echo validation_errors(); ?>
+				<?php //echo validation_errors(); ?>
 
 				<?php echo form_open('news/create'); ?>
 
-				<label for="title">Title</label>
-				<input type="input" name="title"/><br/>
+				<h5>Životnost</h5>
+				<input class="inline" type="input" name="lifetime"/>
+				<div class="errors"><?php echo form_error('lifetime'); ?></div><br>
 
-				<label for="text">Text</label>
-				<textarea name="text"></textarea><br/>
 
+				<h5>Název</h5>
+				<input class="inline" type="input" name="title"/>
+				<div class="errors"><?php echo form_error('title'); ?></div><br>
+
+				<h5>Text</h5>
+				<textarea class="none" name="text" rows="10" cols="60" style = "border: 1px solid #0981c6"></textarea>
+				<br>
 
 				<div class="form-actions">
-					<button type="submit" class="btn btn-primary">Přidání novinky  <i class='far fa-paper-plane'></i></button>
+					<button type="submit" name="submit" class="btn btn-primary">Přidání novinky  <i class='far fa-paper-plane'></i></button>
 				</div>
 
 				</form>
 
-				<!-- Main hero unit for a primary marketing message or call to action -->
 			</div>
 		</div>
 	</div>
