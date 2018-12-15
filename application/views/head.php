@@ -21,12 +21,22 @@
 	body {
 		padding-top: 5px;
 	}
-	.none {
-		all: unset;
+	.seznam {
+		font-size: 13px;
+		color: #08c;
 	}
-
+	textarea {
+		width: 400px;
+	}
 	.inline {
 		float:left
+	}
+	.borderdown {
+		border-left: none;
+		border-right: none;
+		border-top: none;
+		border-radius: 0px;
+		border-bottom: 1px solid #076cc5;
 	}
 	.errors{
 		color: red;

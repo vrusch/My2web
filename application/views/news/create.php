@@ -28,17 +28,19 @@
 
 				<?php echo form_open('news/create'); ?>
 
+				<h5>Datum vydani</h5>
+				<input type="input" name="date_publish" value ="<?php $now = new DateTime(); echo ($now->format('Y-m-d'));?>">
+
 				<h5>Životnost</h5>
 				<input class="inline" type="input" name="lifetime"/>
 				<div class="errors"><?php echo form_error('lifetime'); ?></div><br>
-
 
 				<h5>Název</h5>
 				<input class="inline" type="input" name="title"/>
 				<div class="errors"><?php echo form_error('title'); ?></div><br>
 
 				<h5>Text</h5>
-				<textarea class="none" name="text" rows="10" cols="60" style = "border: 1px solid #0981c6"></textarea>
+				<textarea name="text" rows="10" cols="60" ></textarea>
 				<br>
 
 				<div class="form-actions">

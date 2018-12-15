@@ -34,7 +34,8 @@ class news_model extends CI_Model {
 			'title' => $this->input->post('title'),
 			'slug' => $slug,
 			'text' => $this->input->post('text'),
-			'lifetime' => $this->input->post('lifetime')
+			'lifetime' => $this->input->post('lifetime'),
+			'date_publish' => $this->input->post('date_publish')
 		);
 
 		return $this->db->insert('news', $data);

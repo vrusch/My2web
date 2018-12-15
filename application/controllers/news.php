@@ -19,7 +19,7 @@ class news extends CI_Controller {
 			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
 		}
 		$data['news'] = $this->news_model->get_news();
-		$data['title'] = 'news archive';
+		$data['title'] = 'News archive';
 
 		$this->load->view('news/index', isset($data) ? $data : NULL);
 	}
@@ -45,16 +45,11 @@ class news extends CI_Controller {
 			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
 		}
 
-
-		//$this->load->helper('form');
-		//$this->load->library('form_validation');
-
-		//$data['title'] = 'Create a news item';
-
 		$this->form_validation->set_rules('title', 'Title', 'required');
 		$this->form_validation->set_rules('text', 'Text', 'required');
 		$this->form_validation->set_rules('lifetime', 'Životnost', 'required');
 		$this->form_validation->set_message('required', 'Povinne pole');
+
 
 		if ($this->form_validation->run() === FALSE)
 		{
