@@ -21,7 +21,14 @@
 							<h2><?php echo $title; ?>
 						</td>
 						<td style="width: 50%;" align="right">
-							</h2><button type="button" class="btn btn-info">Nova <i class='fas fa-plus'></i></button>
+
+							<?php if ($this->authentication->is_signed_in()) : ?>
+							<?php if ($this->authorization->is_permitted(array('retrieve_users', 'retrieve_roles', 'retrieve_permissions'))) : ?>
+									<a href="#">
+										</h2><button type="button" class="btn btn-info">Přidat <i class='fas fa-plus'></i></button>
+									</a>
+							<?php endif; ?>
+							<?php endif; ?>
 						</td>
 					</tr>
 					</table>
@@ -39,15 +46,25 @@
 									<p class="seznam" style="line-height: 8px;">Publikovano: <?php echo $news_item['date_publish']; ?></p>
 									<!--<p class="seznam" style="line-height: 8px;">Platne do: <?php echo $news_item['lifetime']; ?></p></td>-->
 								<td style="width: 33.3333%;" align="right">
-									<button type="button" class="btn btn-info">smazat <i class='fas fa-trash-alt'></i></button>
+
+									<?php if ($this->authentication->is_signed_in()) : ?>
+									<?php if ($this->authorization->is_permitted(array('retrieve_users', 'retrieve_roles', 'retrieve_permissions'))) : ?>
+									<a href="#">
+										<button type="button" class="btn btn-info">smazat <i class='fas fa-trash-alt'></i></button>
+									</a>
+										<a href="#">
 									<button type="button" class="btn btn-info">editovat <i class='fas fa-pen'></i></button>
+										</a>
+									<?php endif; ?>
+									<?php endif; ?>
+
 								</td>
 							</tr>
 						</table>
 						<div class="main">
 							<?php echo $news_item['text']; ?>
 						</div>
-						<p><a href="<?php echo site_url('news/' . $news_item['slug']); ?>">View article</a></p>
+						<!--<p><a href="<?php echo site_url('news/' . $news_item['slug']); ?>">View article</a></p>-->
 					</div>
 
 				<?php endforeach; ?>

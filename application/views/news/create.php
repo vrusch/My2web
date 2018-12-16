@@ -31,9 +31,9 @@
 				<h5>Datum vydani</h5>
 				<input type="input" name="date_publish" value ="<?php $now = new DateTime(); echo ($now->format('Y-m-d'));?>">
 
-				<h5>Životnost</h5>
+				<!--<h5>Životnost</h5>
 				<input class="inline" type="input" name="lifetime"/>
-				<div class="errors"><?php echo form_error('lifetime'); ?></div><br>
+				<div class="errors"><?php //echo form_error('lifetime'); ?></div><br>-->
 
 				<h5>Název</h5>
 				<input class="inline" type="input" name="title"/>

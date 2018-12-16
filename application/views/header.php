@@ -8,7 +8,7 @@
 
 		<div class="nav-collapse collapse">
 			<ul class="nav">
-				<li class="divider-vertical"></li>
+
 				<li class='faw'
 					style="border-left: 2px solid #0981c6; border-radius: 25px;"><?php echo anchor('service', 'Služby'); ?></li>
 				<li class='faw'
@@ -19,6 +19,7 @@
 					style="border-left: 2px solid #0981c6; border-radius: 25px;"><?php echo anchor('contact', 'Kontakty'); ?></li>
 				<li class='faw'
 					style="border-left: 2px solid #0981c6; border-radius: 25px;"><?php echo anchor('about', 'O nás'); ?></li>
+
 			</ul>
 
 			<!--/admin buttons -->
@@ -28,6 +29,7 @@
 					<li style="border-left: 1px solid red; border-radius: 25px;"><?php echo anchor('earticle', 'Články'); ?></li>
 					<li style="border-left: 1px solid red; border-radius: 25px;"><?php echo anchor('ecourse', 'Kurzy'); ?></li>
 				</ul>
+
 			<?php endif; ?>
 			<!--/end of admin buttons -->
 
