@@ -191,25 +191,25 @@
 		}
 		.fab {
 			color: lightslategrey;
-			font-size:24px
+			font-size:28px
 		}
 		.blueGlow:hover {
-			font-size: 24px;
+			font-size: 28px;
 			color: blue;
 			text-shadow: 0 0 1px #7c7aff;
 		}
 		.googlrpGlow:hover{
-			font-size: 24px;
+			font-size: 28px;
 			color: red;
 			text-shadow: 0 0 1px #9c9c9c;;
 		}
 		.facebGlow:hover{
-			font-size: 24px;
+			font-size: 28px;
 			color: darkblue;
 			text-shadow: 0 0 1px #9c9c9c;;
 		}
 		.twiteri:hover{
-			font-size: 24px;
+			font-size: 28px;
 			color: dodgerblue;
 			text-shadow: 0 0 1px #9c9c9c;;
 		}
@@ -233,6 +233,7 @@
 				<li><a href="#services">SLUŽBY</a></li>
 				<li><a href="#portfolio">REFERENCE</a></li>
 				<li><a href="#solution">RĚŠENÍ</a></li>
+				<li><a href="#training">ŠKOLENÍ</a></li>
 				<li><a href="#contact">KONTAKTY</a></li>
 			</ul>
 		</div>
@@ -262,7 +263,7 @@
 			<br><button class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal">kontaktujte nás</button>
 		</div>
 		<div class="col-sm-4">
-			<span class="glyphicon glyphicon-signal logo"></span>
+			<span class="glyphicon glyphicon-eye-open logo"></span>
 		</div>
 	</div>
 </div>
@@ -309,13 +310,13 @@
 	<br>
 	<div class="row slideanim">
 		<div class="col-sm-4">
-			<span class="glyphicon glyphicon-off logo-small"></span>
-			<h4>POWER</h4>
+			<span class="glyphicon glyphicon-saved logo-small"></span>
+			<h4>SAFETY</h4>
 			<p>Lorem ipsum dolor sit amet..</p>
 		</div>
 		<div class="col-sm-4">
-			<span class="glyphicon glyphicon-heart logo-small"></span>
-			<h4>LOVE</h4>
+			<span class="glyphicon glyphicon-ok logo-small"></span>
+			<h4>LEARNING</h4>
 			<p>Lorem ipsum dolor sit amet..</p>
 		</div>
 		<div class="col-sm-4">
@@ -327,8 +328,8 @@
 	<br><br>
 	<div class="row slideanim">
 		<div class="col-sm-4">
-			<span class="glyphicon glyphicon-leaf logo-small"></span>
-			<h4>GREEN</h4>
+			<span class="glyphicon glyphicon-cog logo-small"></span>
+			<h4>EASY</h4>
 			<p>Lorem ipsum dolor sit amet..</p>
 		</div>
 		<div class="col-sm-4">
@@ -471,6 +472,44 @@
 			</div>
 		</div>
 	</div>
+</div>
+
+<!-- Container (Training Section) -->
+<div id="training" class="container-fluid">
+	<div class="row">
+		<div class="col-sm-8">
+			<h2>Školení</h2><br>
+			<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			<br><button class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal">kontaktujte nás</button>
+		</div>
+		<div class="col-sm-4">
+			<span class="glyphicon glyphicon-blackboard logo"></span>
+		</div>
+	</div>
+	<div class="row text-center slideanim">
+		<div class="col-sm-4">
+			<div class="thumbnail">
+				<img src="paris.jpg" alt="Paris" width="400" height="300">
+				<p><strong>Paris</strong></p>
+				<p>Yes, we built Paris</p>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="thumbnail">
+				<img src="newyork.jpg" alt="New York" width="400" height="300">
+				<p><strong>New York</strong></p>
+				<p>We built New York</p>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="thumbnail">
+				<img src="sanfran.jpg" alt="San Francisco" width="400" height="300">
+				<p><strong>San Francisco</strong></p>
+				<p>Yes, San Fran is ours</p>
+			</div>
+		</div>
+	</div><br>
 </div>
 
 <!-- Container (Contact Section) -->
