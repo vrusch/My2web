@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -61,14 +62,22 @@
 			height: 100%;
 			margin-bottom: 10px;
 		}
-		.carousel-control.right, .carousel-control.left {
+		.carousel-control.right {
+			margin-right: -120px;
+			background-image: none;
+			color: #076cc5;
+		}
+		.carousel-control.left {
+			margin-left: -120px;
 			background-image: none;
 			color: #076cc5;
 		}
 		.carousel-indicators li {
+			margin-bottom: -60px;
 			border-color: #076cc5;
 		}
 		.carousel-indicators li.active {
+			margin-bottom: -60px;
 			background-color: #076cc5;
 		}
 		.item h4 {
@@ -213,6 +222,12 @@
 			color: dodgerblue;
 			text-shadow: 0 0 1px #9c9c9c;;
 		}
+		#sloganbottom {
+margin-bottom: 30px;
+		}
+		#slogantop {
+
+		}
 	</style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -230,6 +245,7 @@
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#about">O NÁS</a></li>
+				<li><a href="#actual">AKTUÁLNĚ</a></li>
 				<li><a href="#services">SLUŽBY</a></li>
 				<li><a href="#portfolio">REFERENCE</a></li>
 				<li><a href="#solution">RĚŠENÍ</a></li>
@@ -241,16 +257,49 @@
 </nav>
 
 <div class="jumbotron text-center">
-	<h1>Company</h1>
-	<p>We specialize in blablabla</p>
-	<form>
+	<h1><strong>KYBER TECH GROUP</strong></h1>
+	<div id="slogantop" class="w3-container w3-center w3-animate-left">
+		<p>We specialize in blablabla</p>
+	</div>
+	<div id="sloganbottom" class="w3-container w3-center w3-animate-right ">
+		<p>We specialize in blablabla</p>
+	</div>
 		<div class="input-group">
 
 			<div class="input-group-btn">
-				<button type="button" class="btn btn-danger">Subscribe</button>
+				<button type="button" class="btn btn-danger" onclick="document.getElementById('id01').style.display='block'"><i></i>Subscribe</button>
+
+				<!-- LOGIN -->
+				<div id="id01" class="w3-modal">
+					<div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+
+						<div class="w3-center"><br>
+							<span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+							<img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+						</div>
+
+						<form class="w3-container" action="/action_page.php">
+							<div class="w3-section">
+								<label><b>Username</b></label>
+								<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
+								<label><b>Password</b></label>
+								<input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
+								<button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
+								<input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
+							</div>
+						</form>
+
+						<div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+							<button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+							<span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
+						</div>
+
+					</div>
+				</div>
+				<!-- LOGIN -->
+
 			</div>
 		</div>
-	</form>
 </div>
 
 <!-- Container (About Section) -->
@@ -260,45 +309,94 @@
 			<h2>O nás ...</h2><br>
 			<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-			<br><button class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal">kontaktujte nás</button>
 		</div>
-		<div class="col-sm-4">
+		<div class="col-sm-8">
+			<h2>Ešte trochu o nás... budoucnost</h2><br>
+			<h4><strong>Naše cíle:</strong> Our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
+			<h4><strong>Naše vize:</strong> Our vision Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4>
+		</div>
+		<div class="col-sm-4" style="text-align: center;">
 			<span class="glyphicon glyphicon-eye-open logo"></span>
 		</div>
 	</div>
-</div>
+</div><br>
 
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-
-		<!-- Modal content-->
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">Modal Header</h4>
-			</div>
-			<div class="modal-body">
-				<p>Some text in the modal.</p>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			</div>
-		</div>
-
-	</div>
-</div>
-
-<div class="container-fluid bg-grey">
+<div id="actual" class="container-fluid bg-grey">
 	<div class="row">
-		<div class="col-sm-4">
+		<div class="col-sm-4" style="text-align: center;">
 			<span class="glyphicon glyphicon-globe logo slideanim"></span>
 		</div>
 		<div class="col-sm-8">
-			<h2>Ešte trochu o nás...</h2><br>
-			<h4><strong>Naše cíle:</strong> Our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
-			<p><strong>Naše vize:</strong> Our vision Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+			<!-- Carousel -->
+			<div class="container">
+				<h2>Aktuality</h2>
+				<div id="myCarouse2" class="carousel slide" data-ride="carousel">
+					<!-- Indicators -->
+					<ol class="carousel-indicators">
+						<li data-target="#myCarouse2" data-slide-to="0" class="active"></li>
+						<li data-target="#myCarouse2" data-slide-to="1"></li>
+						<li data-target="#myCarouse2" data-slide-to="2"></li>
+					</ol>
+
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner">
+						<div class="item active">
+							<div class="panel panel-primary">
+								<div class="panel-heading">Nadpis - nazev    [datum]</div>
+								<div class="panel-body">
+									<b>Panel Content</b>
+									<p>our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+										laboris nisi ut aliquip ex ea commodo consequat.our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+										eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+										laboris nisi ut aliquip ex ea commodo consequat.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="item">
+							<div class="panel panel-default">
+								<div class="panel-heading">Nadpis - nazev    [datum]</div>
+								<div class="panel-body">
+									<b>Panel Content</b>
+									<p>our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+										laboris nisi ut aliquip ex ea commodo consequat.our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+										eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+										laboris nisi ut aliquip ex ea commodo consequat.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="item">
+							<div class="panel panel-default">
+								<div class="panel-heading">Nadpis - nazev    [datum]</div>
+								<div class="panel-body">
+									<b>Panel Content</b>
+									<p>our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+										laboris nisi ut aliquip ex ea commodo consequat.our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+										eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+										laboris nisi ut aliquip ex ea commodo consequat.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Left and right controls -->
+					<a class="left carousel-control" href="#myCarouse2" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#myCarouse2" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+			<!-- end of carousel -->
 		</div>
 	</div>
 </div>
@@ -351,27 +449,50 @@
 	<h4>Naše realizované projekty</h4>
 	<div class="row text-center slideanim">
 		<div class="col-sm-4">
-			<div class="thumbnail">
-				<img src="paris.jpg" alt="Paris" width="400" height="300">
-				<p><strong>Paris</strong></p>
-				<p>Yes, we built Paris</p>
+			<div class="w3-round-large w3-hover-shadow w3-white w3-hover-light-gray">
+				<!--<img src="paris.jpg" alt="Paris" width="400" height="300">-->
+				<p><strong>Projekt [logo firmy, mesta]</strong></p>
+				<p>Ano, tady jsme poskytly rreseni</p>
 			</div>
 		</div>
 		<div class="col-sm-4">
-			<div class="thumbnail">
-				<img src="newyork.jpg" alt="New York" width="400" height="300">
-				<p><strong>New York</strong></p>
-				<p>We built New York</p>
+			<div class="w3-round-large w3-hover-shadow w3-white w3-hover-light-gray">
+				<!--<img src="newyork.jpg" alt="New York" width="400" height="300">-->
+				<p><strong>Nejaky dalsi projekt [logo firmy, mesta]</strong></p>
+				<p>Ano! i tady jsme se podilely na reseni</p>
 			</div>
 		</div>
 		<div class="col-sm-4">
-			<div class="thumbnail">
-				<img src="sanfran.jpg" alt="San Francisco" width="400" height="300">
-				<p><strong>San Francisco</strong></p>
-				<p>Yes, San Fran is ours</p>
+			<div class="w3-round-large w3-hover-shadow w3-white w3-hover-light-gray">
+				<!--<img src="sanfran.jpg" alt="San Francisco" width="400" height="300">-->
+				<p><strong>Nejaky Projekt [logo firmy, mesta]</strong></p>
+				<p>Tady jsme delaly co jsme mohli</p>
 			</div>
 		</div>
 	</div><br>
+	<div class="row text-center slideanim">
+		<div class="col-sm-4">
+			<div class="w3-round-large w3-hover-shadow w3-white w3-hover-light-gray">
+				<!--<img src="paris.jpg" alt="Paris" width="400" height="300">-->
+				<p><strong>Projekt [logo firmy, mesta]</strong></p>
+				<p>Ano, tady jsme poskytly rreseni</p>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="w3-round-large w3-hover-shadow w3-white w3-hover-light-gray">
+				<!--<img src="newyork.jpg" alt="New York" width="400" height="300">-->
+				<p><strong>Nejaky dalsi projekt [logo firmy, mesta]</strong></p>
+				<p>Ano! i tady jsme se podilely na reseni</p>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="w3-round-large w3-hover-shadow w3-white w3-hover-light-gray">
+				<!--<img src="sanfran.jpg" alt="San Francisco" width="400" height="300">-->
+				<p><strong>Nejaky Projekt [logo firmy, mesta]</strong></p>
+				<p>Tady jsme delaly co jsme mohli</p>
+			</div>
+		</div>
+	</div>
 
 	<h2>Co o nás rěkly naši zákazníci</h2>
 	<div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
@@ -385,7 +506,7 @@
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
 			<div class="item active">
-				<h4>"Tahle firma je úplně nejlepší. Mám velkou radost z výsledku!"<br><span>Michael Roe, Vice President, Comment Box</span></h4>
+				<h4>"Tahle firma je profi. Mám velkou radost z výsledku!"<br><span>Michael Roe, Vice President, Comment Box</span></h4>
 			</div>
 			<div class="item">
 				<h4>"One word... WOW!!"<br><span>John Doe, Salesman, Rep Inc</span></h4>
@@ -427,9 +548,9 @@
 					<p><strong>Endless</strong> Amet</p>
 				</div>
 				<div class="panel-footer">
-					<h3>$19</h3>
+					<h3>bla bla</h3>
 					<h4>per month</h4>
-					<button class="btn btn-lg">Sign Up</button>
+					<button class="btn btn-lg">Chci zjistit podrobnosti</button>
 				</div>
 			</div>
 		</div>
@@ -446,9 +567,9 @@
 					<p><strong>Endless</strong> Amet</p>
 				</div>
 				<div class="panel-footer">
-					<h3>$29</h3>
+					<h3>bla bla</h3>
 					<h4>per month</h4>
-					<button class="btn btn-lg">Sign Up</button>
+					<button class="btn btn-lg">Chci zjistit podrobnosti</button>
 				</div>
 			</div>
 		</div>
@@ -465,9 +586,9 @@
 					<p><strong>Endless</strong> Amet</p>
 				</div>
 				<div class="panel-footer">
-					<h3>$49</h3>
+					<h3>bla bla</h3>
 					<h4>per month</h4>
-					<button class="btn btn-lg">Sign Up</button>
+					<button class="btn btn-lg">Chci zjistit podrobnosti</button>
 				</div>
 			</div>
 		</div>
@@ -481,30 +602,26 @@
 			<h2>Školení</h2><br>
 			<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-			<br><button class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal">kontaktujte nás</button>
 		</div>
-		<div class="col-sm-4">
+		<div class="col-sm-4" style="text-align: center;">
 			<span class="glyphicon glyphicon-blackboard logo"></span>
 		</div>
 	</div>
 	<div class="row text-center slideanim">
 		<div class="col-sm-4">
-			<div class="thumbnail">
-				<img src="paris.jpg" alt="Paris" width="400" height="300">
+			<div class="w3-panel w3-round-large w3-hover-shadow" style="background-color: lightgrey">
 				<p><strong>Paris</strong></p>
 				<p>Yes, we built Paris</p>
 			</div>
 		</div>
 		<div class="col-sm-4">
-			<div class="thumbnail">
-				<img src="newyork.jpg" alt="New York" width="400" height="300">
+			<div class="w3-panel w3-round-large w3-hover-shadow" style="background-color: lightgrey">
 				<p><strong>New York</strong></p>
 				<p>We built New York</p>
 			</div>
 		</div>
 		<div class="col-sm-4">
-			<div class="thumbnail">
-				<img src="sanfran.jpg" alt="San Francisco" width="400" height="300">
+			<div class="w3-panel w3-round-large w3-hover-shadow" style="background-color: lightgrey">
 				<p><strong>San Francisco</strong></p>
 				<p>Yes, San Fran is ours</p>
 			</div>
@@ -549,7 +666,7 @@
 </div>
 
 <!-- Image of location/map -->
-<img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:80%">
+<!--<img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:80%">-->
 
 <footer class="container-fluid text-center">
 	<a href="#myPage" title="To Top">
