@@ -762,6 +762,20 @@
 <!-- Image of location/map -->
 <!--<img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:80%">-->
 
+<div id="googleMap" style="width:100%;height:400px;"></div>
+
+<script>
+	function myMap() {
+		var mapProp= {
+			center:new google.maps.LatLng(51.508742,-0.120850),
+			zoom:5,
+		};
+		var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+	}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFqMLDWtNhGhKpTzHISS0k09ZwLMDlBTQ&callback=myMap"></script>
+
 <footer class="container-fluid text-center">
 	<a href="#myPage" title="To Top">
 		<span class="glyphicon glyphicon-chevron-up"></span>
