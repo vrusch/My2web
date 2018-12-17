@@ -9,7 +9,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+		  integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style>
@@ -18,6 +19,7 @@
 			line-height: 1.8;
 			color: #818181;
 		}
+
 		h2 {
 			font-size: 24px;
 			text-transform: uppercase;
@@ -25,6 +27,7 @@
 			font-weight: 600;
 			margin-bottom: 30px;
 		}
+
 		h4 {
 			font-size: 19px;
 			line-height: 1.375em;
@@ -32,54 +35,66 @@
 			font-weight: 400;
 			margin-bottom: 30px;
 		}
+
 		.jumbotron {
 			background-color: #076cc5;
 			color: #fff;
 			padding: 100px 25px;
 			font-family: Montserrat, sans-serif;
 		}
+
 		.container-fluid {
 			padding: 60px 50px;
 		}
+
 		.bg-grey {
 			background-color: #f6f6f6;
 		}
+
 		.logo-small {
 			color: #076cc5;
 			font-size: 50px;
 		}
+
 		.logo {
 			color: #076cc5;
 			font-size: 200px;
 		}
+
 		.thumbnail {
 			padding: 0 0 15px 0;
 			border: none;
 			border-radius: 0;
 		}
+
 		.thumbnail img {
 			width: 100%;
 			height: 100%;
 			margin-bottom: 10px;
 		}
+
 		.carousel-control.right {
 			margin-right: -120px;
 			background-image: none;
 			color: #076cc5;
 		}
+
 		.carousel-control.left {
 			margin-left: -120px;
 			background-image: none;
 			color: #076cc5;
 		}
+
 		.carousel-indicators li {
 			margin-bottom: -60px;
 			border-color: #076cc5;
 		}
+
 		.carousel-indicators li.active {
 			margin-bottom: -60px;
 			background-color: #076cc5;
 		}
+
 		.item h4 {
 			font-size: 19px;
 			line-height: 1.375em;
@@ -87,22 +102,27 @@
 			font-style: italic;
 			margin: 70px 0;
 		}
+
 		.item span {
 			font-style: normal;
 		}
+
 		.panel {
 			border: 1px solid #076cc5;
-			border-radius:0 !important;
+			border-radius: 0 !important;
 			transition: box-shadow 0.5s;
 		}
+
 		.panel:hover {
-			box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+			box-shadow: 5px 0px 40px rgba(0, 0, 0, .2);
 		}
+
 		.panel-footer .btn:hover {
 			border: 1px solid #076cc5;
 			background-color: #fff !important;
 			color: #076cc5;
 		}
+
 		.panel-heading {
 			color: #fff !important;
 			background-color: #076cc5 !important;
@@ -113,21 +133,26 @@
 			border-bottom-left-radius: 0px;
 			border-bottom-right-radius: 0px;
 		}
+
 		.panel-footer {
 			background-color: white !important;
 		}
+
 		.panel-footer h3 {
 			font-size: 32px;
 		}
+
 		.panel-footer h4 {
 			color: #aaa;
 			font-size: 14px;
 		}
+
 		.panel-footer .btn {
 			margin: 15px 0;
 			background-color: #076cc5;
 			color: #fff;
 		}
+
 		.navbar {
 			margin-bottom: 0;
 			background-color: #076cc5;
@@ -139,23 +164,31 @@
 			border-radius: 0;
 			font-family: Montserrat, sans-serif;
 		}
+
 		.navbar li a, .navbar .navbar-brand {
 			color: #fff !important;
 		}
+
 		.navbar-nav li a:hover, .navbar-nav li.active a {
 			color: #076cc5 !important;
 			background-color: #fff !important;
 		}
+
 		.navbar-default .navbar-toggle {
 			border-color: transparent;
 			color: #fff !important;
 		}
+
 		footer .glyphicon {
 			font-size: 20px;
 			margin-bottom: 20px;
 			color: #076cc5;
 		}
-		.slideanim {visibility:hidden;}
+
+		.slideanim {
+			visibility: hidden;
+		}
+
 		.slide {
 			animation-name: slide;
 			-webkit-animation-name: slide;
@@ -163,6 +196,7 @@
 			-webkit-animation-duration: 1s;
 			visibility: visible;
 		}
+
 		@keyframes slide {
 			0% {
 				opacity: 0;
@@ -173,6 +207,7 @@
 				transform: translateY(0%);
 			}
 		}
+
 		@-webkit-keyframes slide {
 			0% {
 				opacity: 0;
@@ -183,16 +218,19 @@
 				-webkit-transform: translateY(0%);
 			}
 		}
+
 		@media screen and (max-width: 768px) {
 			.col-sm-4 {
 				text-align: center;
 				margin: 25px 0;
 			}
+
 			.btn-lg {
 				width: 100%;
 				margin-bottom: 35px;
 			}
 		}
+
 		@media screen and (max-width: 480px) {
 			.logo {
 				font-size: 150px;
@@ -200,33 +238,37 @@
 		}
 		.fab {
 			color: lightslategrey;
-			font-size:28px
+			font-size: 28px
 		}
 		.blueGlow:hover {
 			font-size: 28px;
 			color: blue;
 			text-shadow: 0 0 1px #7c7aff;
 		}
-		.googlrpGlow:hover{
+		.googlrpGlow:hover {
 			font-size: 28px;
 			color: red;
-			text-shadow: 0 0 1px #9c9c9c;;
+			text-shadow: 0 0 1px #9c9c9c;
 		}
-		.facebGlow:hover{
+		.facebGlow:hover {
 			font-size: 28px;
 			color: darkblue;
-			text-shadow: 0 0 1px #9c9c9c;;
+			text-shadow: 0 0 1px #9c9c9c;
 		}
-		.twiteri:hover{
+		.twiteri:hover {
 			font-size: 28px;
 			color: dodgerblue;
-			text-shadow: 0 0 1px #9c9c9c;;
+			text-shadow: 0 0 1px #9c9c9c;
 		}
 		#sloganbottom {
-margin-bottom: 30px;
+			margin-bottom: 50px;
 		}
-		#slogantop {
-
+		.modaldown {
+			margin-top: 150px;
+		}
+		.centered {
+			margin-right: auto;
+			margin-left: auto;
 		}
 	</style>
 </head>
@@ -257,70 +299,90 @@ margin-bottom: 30px;
 </nav>
 
 <div class="jumbotron text-center">
+
 	<h1><strong>KYBER TECH GROUP</strong></h1>
+
 	<div id="slogantop" class="w3-container w3-center w3-animate-left">
 		<p>We specialize in blablabla</p>
 	</div>
 	<div id="sloganbottom" class="w3-container w3-center w3-animate-right ">
 		<p>We specialize in blablabla</p>
 	</div>
-		<div class="input-group">
+	<div class="input-group-btn">
+		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><i class="fas fa-user"></i>  Přihlásit se</button>
+	</div>
+	<br>
+	<div class="w3-container centered" style="width:15%">
+		<button class="w3-button w3-blue w3-round-large w3-medium w3-hover-light-blue w3-left"><i class="glyphicon glyphicon-blackboard"></i>  Vaše přednášky</button>
+		<button class="w3-button w3-blue w3-round-large w3-medium w3-hover-light-blue w3-right">Vaše kurzy  <i class="glyphicon glyphicon-tasks"></i></button>
+	</div>
+</div>
 
-			<div class="input-group-btn">
-				<button type="button" class="btn btn-danger" onclick="document.getElementById('id01').style.display='block'"><i></i>Subscribe</button>
+<!-- Modal -->
+<div class="modal fade modaldown" id="myModal" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content" ">
+			<div class="modal-header w3-light-grey" style="text-align: center;">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<img src="/resource/img/default-person.png" alt="Avatar" style="width:20%;" class="w3-circle">
+			</div>
 
-				<!-- LOGIN -->
-				<div id="id01" class="w3-modal">
-					<div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+			<div class="modal-body">
 
-						<div class="w3-center"><br>
-							<span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-							<img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
-						</div>
-
-						<form class="w3-container" action="/action_page.php">
-							<div class="w3-section">
-								<label><b>Username</b></label>
-								<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
-								<label><b>Password</b></label>
-								<input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
-								<button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
-								<input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
-							</div>
-						</form>
-
-						<div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-							<button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
-							<span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
-						</div>
-
+				<form class="w3-container" action="/action_page.php">
+					<div class="w3-section">
+						<label><b>Username</b></label>
+						<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
+						<label><b>Password</b></label>
+						<input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
+						<button class="w3-button w3-block w3-blue w3-section w3-padding" type="submit">Login</button>
+						<input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
 					</div>
-				</div>
-				<!-- LOGIN -->
+				</form>
 
 			</div>
+			<div class="w3-container w3-border-top w3-padding-16 w3-light-grey" >
+				<button type="button" class="w3-button w3-red">Cancel</button>
+				<span class="w3-right w3-padding w3-hide-small"><a href="#">Forgot password?</a></span>
+			</div>
 		</div>
+	</div>
 </div>
+
 
 <!-- Container (About Section) -->
 <div id="about" class="container-fluid">
 	<div class="row">
 		<div class="col-sm-8">
 			<h2>O nás ...</h2><br>
-			<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+				dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+				ex ea commodo consequat.</h4><br>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+				dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+				ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+				deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+				labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+				ut aliquip ex ea commodo consequat.</p>
 		</div>
 		<div class="col-sm-8">
 			<h2>Ešte trochu o nás... budoucnost</h2><br>
-			<h4><strong>Naše cíle:</strong> Our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
-			<h4><strong>Naše vize:</strong> Our vision Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4>
+			<h4><strong>Naše cíle:</strong> Our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+				eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+				exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
+			<h4><strong>Naše vize:</strong> Our vision Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+				eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+				exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+				dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+				ex ea commodo consequat.</h4>
 		</div>
 		<div class="col-sm-4" style="text-align: center;">
 			<span class="glyphicon glyphicon-eye-open logo"></span>
 		</div>
 	</div>
-</div><br>
+</div>
+<br>
 
 <div id="actual" class="container-fluid bg-grey">
 	<div class="row">
@@ -344,13 +406,17 @@ margin-bottom: 30px;
 					<div class="carousel-inner">
 						<div class="item active">
 							<div class="panel panel-primary">
-								<div class="panel-heading">Nadpis - nazev    [datum]</div>
+								<div class="panel-heading">Nadpis - nazev [datum]</div>
 								<div class="panel-body">
 									<b>Panel Content</b>
-									<p>our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-										laboris nisi ut aliquip ex ea commodo consequat.our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-										eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+									<p>our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+										eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										quis nostrud exercitation ullamco
+										laboris nisi ut aliquip ex ea commodo consequat.our mission lorem ipsum dolor
+										sit amet, consectetur adipiscing elit, sed do
+										eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+										veniam, quis nostrud exercitation ullamco
 										laboris nisi ut aliquip ex ea commodo consequat.</p>
 								</div>
 							</div>
@@ -358,13 +424,17 @@ margin-bottom: 30px;
 
 						<div class="item">
 							<div class="panel panel-default">
-								<div class="panel-heading">Nadpis - nazev    [datum]</div>
+								<div class="panel-heading">Nadpis - nazev [datum]</div>
 								<div class="panel-body">
 									<b>Panel Content</b>
-									<p>our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-										laboris nisi ut aliquip ex ea commodo consequat.our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-										eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+									<p>our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+										eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										quis nostrud exercitation ullamco
+										laboris nisi ut aliquip ex ea commodo consequat.our mission lorem ipsum dolor
+										sit amet, consectetur adipiscing elit, sed do
+										eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+										veniam, quis nostrud exercitation ullamco
 										laboris nisi ut aliquip ex ea commodo consequat.</p>
 								</div>
 							</div>
@@ -372,13 +442,17 @@ margin-bottom: 30px;
 
 						<div class="item">
 							<div class="panel panel-default">
-								<div class="panel-heading">Nadpis - nazev    [datum]</div>
+								<div class="panel-heading">Nadpis - nazev [datum]</div>
 								<div class="panel-body">
 									<b>Panel Content</b>
-									<p>our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-										laboris nisi ut aliquip ex ea commodo consequat.our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-										eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+									<p>our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+										eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										quis nostrud exercitation ullamco
+										laboris nisi ut aliquip ex ea commodo consequat.our mission lorem ipsum dolor
+										sit amet, consectetur adipiscing elit, sed do
+										eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+										veniam, quis nostrud exercitation ullamco
 										laboris nisi ut aliquip ex ea commodo consequat.</p>
 								</div>
 							</div>
@@ -449,50 +523,51 @@ margin-bottom: 30px;
 	<h4>Naše realizované projekty</h4>
 	<div class="row text-center slideanim">
 		<div class="col-sm-4">
-			<div class="w3-round-large w3-hover-shadow w3-white w3-hover-light-gray">
+			<div class="w3-round-large w3-hover-shadow w3-white" style="border: 1px solid dodgerblue">
 				<!--<img src="paris.jpg" alt="Paris" width="400" height="300">-->
 				<p><strong>Projekt [logo firmy, mesta]</strong></p>
 				<p>Ano, tady jsme poskytly rreseni</p>
 			</div>
 		</div>
 		<div class="col-sm-4">
-			<div class="w3-round-large w3-hover-shadow w3-white w3-hover-light-gray">
+			<div class="w3-round-large w3-hover-shadow w3-white" style="border: 1px solid dodgerblue">
 				<!--<img src="newyork.jpg" alt="New York" width="400" height="300">-->
 				<p><strong>Nejaky dalsi projekt [logo firmy, mesta]</strong></p>
 				<p>Ano! i tady jsme se podilely na reseni</p>
 			</div>
 		</div>
 		<div class="col-sm-4">
-			<div class="w3-round-large w3-hover-shadow w3-white w3-hover-light-gray">
-				<!--<img src="sanfran.jpg" alt="San Francisco" width="400" height="300">-->
-				<p><strong>Nejaky Projekt [logo firmy, mesta]</strong></p>
-				<p>Tady jsme delaly co jsme mohli</p>
-			</div>
-		</div>
-	</div><br>
-	<div class="row text-center slideanim">
-		<div class="col-sm-4">
-			<div class="w3-round-large w3-hover-shadow w3-white w3-hover-light-gray">
-				<!--<img src="paris.jpg" alt="Paris" width="400" height="300">-->
-				<p><strong>Projekt [logo firmy, mesta]</strong></p>
-				<p>Ano, tady jsme poskytly rreseni</p>
-			</div>
-		</div>
-		<div class="col-sm-4">
-			<div class="w3-round-large w3-hover-shadow w3-white w3-hover-light-gray">
-				<!--<img src="newyork.jpg" alt="New York" width="400" height="300">-->
-				<p><strong>Nejaky dalsi projekt [logo firmy, mesta]</strong></p>
-				<p>Ano! i tady jsme se podilely na reseni</p>
-			</div>
-		</div>
-		<div class="col-sm-4">
-			<div class="w3-round-large w3-hover-shadow w3-white w3-hover-light-gray">
+			<div class="w3-round-large w3-hover-shadow w3-white" style="border: 1px solid dodgerblue">
 				<!--<img src="sanfran.jpg" alt="San Francisco" width="400" height="300">-->
 				<p><strong>Nejaky Projekt [logo firmy, mesta]</strong></p>
 				<p>Tady jsme delaly co jsme mohli</p>
 			</div>
 		</div>
 	</div>
+	<br>
+	<div class="row text-center slideanim">
+		<div class="col-sm-4">
+			<div class="w3-round-large w3-hover-shadow w3-white" style="border: 1px solid dodgerblue">
+				<!--<img src="paris.jpg" alt="Paris" width="400" height="300">-->
+				<p><strong>Projekt [logo firmy, mesta]</strong></p>
+				<p>Ano, tady jsme poskytly rreseni</p>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="w3-round-large w3-hover-shadow w3-white" style="border: 1px solid dodgerblue">
+				<!--<img src="newyork.jpg" alt="New York" width="400" height="300">-->
+				<p><strong>Nejaky dalsi projekt [logo firmy, mesta]</strong></p>
+				<p>Ano! i tady jsme se podilely na reseni</p>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="w3-round-large w3-hover-shadow w3-white" style="border: 1px solid dodgerblue">
+				<!--<img src="sanfran.jpg" alt="San Francisco" width="400" height="300">-->
+				<p><strong>Nejaky Projekt [logo firmy, mesta]</strong></p>
+				<p>Tady jsme delaly co jsme mohli</p>
+			</div>
+		</div>
+	</div><br><br>
 
 	<h2>Co o nás rěkly naši zákazníci</h2>
 	<div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
@@ -506,13 +581,15 @@ margin-bottom: 30px;
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
 			<div class="item active">
-				<h4>"Tahle firma je profi. Mám velkou radost z výsledku!"<br><span>Michael Roe, Vice President, Comment Box</span></h4>
+				<h4>"Tahle firma je profi. Mám velkou radost z výsledku!"<br><span>Michael Roe, Vice President, Comment Box</span>
+				</h4>
 			</div>
 			<div class="item">
 				<h4>"One word... WOW!!"<br><span>John Doe, Salesman, Rep Inc</span></h4>
 			</div>
 			<div class="item">
-				<h4>"Could I... BE any more happy with this company?"<br><span>Chandler Bing, Actor, FriendsAlot</span></h4>
+				<h4>"Could I... BE any more happy with this company?"<br><span>Chandler Bing, Actor, FriendsAlot</span>
+				</h4>
 			</div>
 		</div>
 
@@ -600,8 +677,15 @@ margin-bottom: 30px;
 	<div class="row">
 		<div class="col-sm-8">
 			<h2>Školení</h2><br>
-			<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+				dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+				ex ea commodo consequat.</h4><br>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+				dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+				ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+				deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+				labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+				ut aliquip ex ea commodo consequat.</p>
 		</div>
 		<div class="col-sm-4" style="text-align: center;">
 			<span class="glyphicon glyphicon-blackboard logo"></span>
@@ -609,28 +693,38 @@ margin-bottom: 30px;
 	</div>
 	<div class="row text-center slideanim">
 		<div class="col-sm-4">
-			<div class="w3-panel w3-round-large w3-hover-shadow" style="background-color: lightgrey">
+			<div class="w3-panel w3-round-large w3-hover-shadow" style="background-color: #F0FFFF; border: #bce8f1 ridge;">
 				<p><strong>Paris</strong></p>
 				<p>Yes, we built Paris</p>
 			</div>
 		</div>
 		<div class="col-sm-4">
-			<div class="w3-panel w3-round-large w3-hover-shadow" style="background-color: lightgrey">
+			<div class="w3-panel w3-round-large w3-hover-shadow" style="background-color: #F0FFFF; border: #bce8f1 ridge;">
 				<p><strong>New York</strong></p>
 				<p>We built New York</p>
 			</div>
 		</div>
 		<div class="col-sm-4">
-			<div class="w3-panel w3-round-large w3-hover-shadow" style="background-color: lightgrey">
+			<div class="w3-panel w3-round-large w3-hover-shadow" style="background-color: #F0FFFF; border: #bce8f1 ridge;">
 				<p><strong>San Francisco</strong></p>
 				<p>Yes, San Fran is ours</p>
 			</div>
 		</div>
-	</div><br>
+		<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+			dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+			ea commodo consequat.</h4><br>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+			magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+			commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+			anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+			aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat.</p>
+	</div>
+	<br>
 </div>
 
 <!-- Container (Contact Section) -->
-<div id = "contact" class="container-fluid bg-grey">
+<div id="contact" class="container-fluid bg-grey">
 	<h2 class="text-center">Kontakty</h2>
 	<div class="row">
 		<div class="col-sm-5">
@@ -676,9 +770,9 @@ margin-bottom: 30px;
 </footer>
 
 <script>
-	$(document).ready(function(){
+	$(document).ready(function () {
 		// Add smooth scrolling to all links in navbar + footer link
-		$(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+		$(".navbar a, footer a[href='#myPage']").on('click', function (event) {
 			// Make sure this.hash has a value before overriding default behavior
 			if (this.hash !== "") {
 				// Prevent default anchor click behavior
@@ -691,7 +785,7 @@ margin-bottom: 30px;
 				// The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
 				$('html, body').animate({
 					scrollTop: $(hash).offset().top
-				}, 900, function(){
+				}, 900, function () {
 
 					// Add hash (#) to URL when done scrolling (default click behavior)
 					window.location.hash = hash;
@@ -699,8 +793,8 @@ margin-bottom: 30px;
 			} // End if
 		});
 
-		$(window).scroll(function() {
-			$(".slideanim").each(function(){
+		$(window).scroll(function () {
+			$(".slideanim").each(function () {
 				var pos = $(this).offset().top;
 
 				var winTop = $(window).scrollTop();
