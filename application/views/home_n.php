@@ -312,7 +312,7 @@
 
 		<div id="id01" class="w3-modal">
 			<div class="w3-modal-content w3-animate-top w3-card-4">
-				<header class="w3-container w3-teal">
+				<header class="w3-container w3-blue">
         <span onclick="document.getElementById('id01').style.display='none'"
 			  class="w3-button w3-display-topright">&times;</span>
 					<h2>Modal Header</h2>
@@ -321,7 +321,7 @@
 					<p>Some text..</p>
 					<p>Some text..</p>
 				</div>
-				<footer class="w3-container w3-teal">
+				<footer class="w3-container w3-blue">
 					<p>Modal Footer</p>
 				</footer>
 			</div>
@@ -766,7 +766,7 @@
 		<span class="glyphicon glyphicon-chevron-up"></span>
 	</a>
 	<p>Bootstrap Theme Made By <a href="https://www.w3schools.com" title="Visit w3schools">www.w3schools.com</a></p>
-	<p><a href="colorscheme" title="show color schemes">[Color Scheme]</a></p>
+	<p><a href="colorscheme" target="_blank" title="show color schemes">[Color Scheme]</a></p>
 </footer>
 
 <script>
