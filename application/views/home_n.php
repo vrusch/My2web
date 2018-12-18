@@ -6,8 +6,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+	<!--<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">-->
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
 		  integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -149,7 +149,7 @@
 
 		.navbar {
 			margin-bottom: 0;
-			background-color: #076cc5;
+			background-color: #054c8a;
 			z-index: 9999;
 			border: 0;
 			font-size: 12px !important;
@@ -264,9 +264,12 @@
 			margin-bottom: 50px;
 		}
 
-		.centered {
-			margin-right: auto;
-			margin-left: auto;
+		.linky {
+			color: #fff;
+			border-color: #bce8f1;
+		}
+		.linky:hover {
+			color: #fff;
 		}
 	</style>
 </head>
@@ -307,26 +310,108 @@
 
 	<!-- LOGIN -->
 	<div class="w3-container">
+		<?php if ($this->authentication->is_signed_in()) : ?>
+			<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-round-large w3-hover-white" style="background-color: #054c8a;"><i class="fas fa-user"></i> Odhlásit se</button>
+		<?php else : ?>
+			<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-round-large w3-hover-white" style="background-color: #054c8a;"><i class="fas fa-user-alt-slash"></i> Přihlásit se</button>
+		<?php endif; ?>
 
-		<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-round-large w3-indigo w3-hover-white"><i class="fas fa-user"></i> Přihlásit se</button>
-
+		<!-- MODAL -->
 		<div id="id01" class="w3-modal">
 			<div class="w3-modal-content w3-animate-top w3-card-4">
-				<header class="w3-container w3-blue">
-        <span onclick="document.getElementById('id01').style.display='none'"
-			  class="w3-button w3-display-topright">&times;</span>
-					<h2>Modal Header</h2>
-				</header>
-				<div class="w3-container">
-					<p>Some text..</p>
-					<p>Some text..</p>
-				</div>
-				<footer class="w3-container w3-blue">
-					<p>Modal Footer</p>
-				</footer>
+
+
+
+						<div class="span6">
+
+							<?php echo form_open(uri_string().($this->input->get('continue') ? '/?continue='.urlencode($this->input->get('continue')) : ''), 'class="form-horizontal"'); ?>
+							<?php echo form_fieldset(); ?>
+
+							<h3><?php echo lang('sign_in_heading'); ?></h3>
+
+							<div class="well" style="color: black; background-color: #bce8f1">
+								<?php if (isset($sign_in_error)) : ?>
+									<div class="form_error"><?php echo $sign_in_error; ?></div>
+								<?php endif; ?>
+
+								<div class="control-group <?php echo (form_error('sign_in_username_email') || isset($sign_in_username_email_error)) ? 'error' : ''; ?>">
+									<label class="control-label" for="sign_in_username_email"><?php echo lang('sign_in_username_email'); ?></label>
+
+									<div class="controls">
+										<?php echo form_input(array('name' => 'sign_in_username_email', 'id' => 'sign_in_username_email', 'value' => set_value('sign_in_username_email'), 'maxlength' => '24')); ?>
+										<?php if (form_error('sign_in_username_email') || isset($sign_in_username_email_error)) :?>
+											<span class="help-inline">
+		        			<?php echo form_error('sign_in_username_email'); ?>
+												<?php if (isset($sign_in_username_email_error)) : ?>
+													<span class="field_error"><?php echo $sign_in_username_email_error; ?></span>
+												<?php endif; ?>
+		        			</span>
+										<?php endif; ?>
+									</div>
+								</div>
+
+								<div class="control-group <?php echo form_error('sign_in_password') ? 'error' : ''; ?>">
+									<label class="control-label" for="sign_in_password"><?php echo lang('sign_in_password'); ?></label>
+
+									<div class="controls">
+										<?php echo form_password(array('name' => 'sign_in_password', 'id' => 'sign_in_password', 'value' => set_value('sign_in_password'))); ?>
+										<?php if (form_error('sign_in_password')) : ?>
+											<span class="help-inline"><?php echo form_error('sign_in_password'); ?></span>
+										<?php endif; ?>
+
+										<?php if (isset($recaptcha)) : ?>
+											<?php echo $recaptcha; ?>
+											<?php if (isset($sign_in_recaptcha_error)) : ?>
+												<span class="field_error"><?php echo $sign_in_recaptcha_error; ?></span>
+											<?php endif; ?>
+										<?php endif; ?>
+									</div>
+								</div>
+
+								<div class="control-group">
+									<div class="controls">
+										<label class="checkbox">
+											<?php echo form_checkbox(array('name' => 'sign_in_remember', 'id' => 'sign_in_remember', 'value' => 'checked', 'checked' => $this->input->post('sign_in_remember'),)); ?>
+											<?php echo lang('sign_in_remember_me'); ?>
+										</label>
+									</div>
+								</div>
+
+								<div>
+									<?php echo form_button(array('type' => 'submit', 'class' => 'btn btn-large pull-right', 'content' => '<i class="icon-lock"></i> '.lang('sign_in_sign_in'))); ?>
+								</div>
+
+								<p><?php echo anchor('account/forgot_password', lang('sign_in_forgot_your_password')); ?><br/>
+									<?php echo sprintf(lang('sign_in_dont_have_account'), anchor('account/sign_up', lang('sign_in_sign_up_now'))); ?></p>
+
+							</div>
+
+							<?php echo form_fieldset_close(); ?>
+							<?php echo form_close(); ?>
+						</div>
+						<!-- /span6 -->
+
+						<div class="span6">
+							<?php if ($this->config->item('third_party_auth_providers')) : ?>
+								<h3><?php echo sprintf(lang('sign_in_third_party_heading')); ?></h3>
+								<ul>
+									<?php foreach ($this->config->item('third_party_auth_providers') as $provider) : ?>
+										<li class="third_party <?php echo $provider; ?>"><?php echo anchor('account/connect_'.$provider, ' ', array('title' => sprintf(lang('sign_in_with'), lang('connect_'.$provider)))); ?></li>
+									<?php endforeach; ?>
+								</ul>
+							<?php endif; ?>
+						</div>
+						<!-- /span6 -->
+
+
+
+
 			</div>
 		</div>
 	</div>
+	<!-- END OF MODAL -->
+
+
 </div>
 <!-- END OF LOGIN -->
 
@@ -503,21 +588,21 @@
 	<h4>Naše realizované projekty</h4>
 	<div class="row text-center slideanim">
 		<div class="col-sm-4">
-			<div class="w3-round-large w3-hover-shadow w3-white" style="border: 1px solid dodgerblue">
+			<div class="w3-round-large w3-hover-shadow w3-white" style="border: 2px solid #076cc5">
 				<!--<img src="paris.jpg" alt="Paris" width="400" height="300">-->
 				<p><strong>Projekt [logo firmy, mesta]</strong></p>
 				<p>Ano, tady jsme poskytly rreseni</p>
 			</div>
 		</div>
 		<div class="col-sm-4">
-			<div class="w3-round-large w3-hover-shadow w3-white" style="border: 1px solid dodgerblue">
+			<div class="w3-round-large w3-hover-shadow w3-white" style="border: 2px solid #076cc5">
 				<!--<img src="newyork.jpg" alt="New York" width="400" height="300">-->
 				<p><strong>Nejaky dalsi projekt [logo firmy, mesta]</strong></p>
 				<p>Ano! i tady jsme se podilely na reseni</p>
 			</div>
 		</div>
 		<div class="col-sm-4">
-			<div class="w3-round-large w3-hover-shadow w3-white" style="border: 1px solid dodgerblue">
+			<div class="w3-round-large w3-hover-shadow w3-white" style="border: 2px solid #076cc5">
 				<!--<img src="sanfran.jpg" alt="San Francisco" width="400" height="300">-->
 				<p><strong>Nejaky Projekt [logo firmy, mesta]</strong></p>
 				<p>Tady jsme delaly co jsme mohli</p>
@@ -527,21 +612,21 @@
 	<br>
 	<div class="row text-center slideanim">
 		<div class="col-sm-4">
-			<div class="w3-round-large w3-hover-shadow w3-white" style="border: 1px solid dodgerblue">
+			<div class="w3-round-large w3-hover-shadow w3-white" style="border: 2px solid #076cc5">
 				<!--<img src="paris.jpg" alt="Paris" width="400" height="300">-->
 				<p><strong>Projekt [logo firmy, mesta]</strong></p>
 				<p>Ano, tady jsme poskytly rreseni</p>
 			</div>
 		</div>
 		<div class="col-sm-4">
-			<div class="w3-round-large w3-hover-shadow w3-white" style="border: 1px solid dodgerblue">
+			<div class="w3-round-large w3-hover-shadow w3-white" style="border: 2px solid #076cc5">
 				<!--<img src="newyork.jpg" alt="New York" width="400" height="300">-->
 				<p><strong>Nejaky dalsi projekt [logo firmy, mesta]</strong></p>
 				<p>Ano! i tady jsme se podilely na reseni</p>
 			</div>
 		</div>
 		<div class="col-sm-4">
-			<div class="w3-round-large w3-hover-shadow w3-white" style="border: 1px solid dodgerblue">
+			<div class="w3-round-large w3-hover-shadow w3-white" style="border: 2px solid #076cc5">
 				<!--<img src="sanfran.jpg" alt="San Francisco" width="400" height="300">-->
 				<p><strong>Nejaky Projekt [logo firmy, mesta]</strong></p>
 				<p>Tady jsme delaly co jsme mohli</p>
@@ -675,21 +760,21 @@
 	<div class="row text-center slideanim">
 		<div class="col-sm-4">
 			<div class="w3-panel w3-round-large w3-hover-shadow"
-				 style="background-color: #F0FFFF; border: #bce8f1 ridge;">
+				 style="background-color: #ffffff; border: #076cc5 ridge;">
 				<p><strong>Paris</strong></p>
 				<p>Yes, we built Paris</p>
 			</div>
 		</div>
 		<div class="col-sm-4">
 			<div class="w3-panel w3-round-large w3-hover-shadow"
-				 style="background-color: #F0FFFF; border: #bce8f1 ridge;">
+				 style="background-color: #ffffff; border: #076cc5 ridge;">
 				<p><strong>New York</strong></p>
 				<p>We built New York</p>
 			</div>
 		</div>
 		<div class="col-sm-4">
 			<div class="w3-panel w3-round-large w3-hover-shadow"
-				 style="background-color: #F0FFFF; border: #bce8f1 ridge;">
+				 style="background-color: #ffffff; border: #076cc5 ridge;">
 				<p><strong>San Francisco</strong></p>
 				<p>Yes, San Fran is ours</p>
 			</div>
@@ -761,12 +846,12 @@
 <script
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFqMLDWtNhGhKpTzHISS0k09ZwLMDlBTQ&callback=myMap"></script>
 
-<footer class="container-fluid text-center">
+<footer class="container-fluid text-center" style="background-color: #054c8a;">
 	<a href="#myPage" title="To Top">
-		<span class="glyphicon glyphicon-chevron-up"></span>
+		<span class="glyphicon glyphicon-chevron-up linky"></span>
 	</a>
-	<p>Bootstrap Theme Made By <a href="https://www.w3schools.com" title="Visit w3schools">www.w3schools.com</a></p>
-	<p><a href="colorscheme" target="_blank" title="show color schemes">[Color Scheme]</a></p>
+	<p class="linky">Bootstrap Theme Made By <a href="https://www.w3schools.com" title="Visit w3schools" class="linky">www.w3schools.com</a></p>
+	<p><a href="colorscheme" target="_blank" class="linky">[Color Scheme]</a></p>
 </footer>
 
 <script>
