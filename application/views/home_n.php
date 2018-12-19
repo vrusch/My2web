@@ -268,6 +268,7 @@
 			color: #fff;
 			border-color: #bce8f1;
 		}
+
 		.linky:hover {
 			color: #fff;
 		}
@@ -311,67 +312,76 @@
 	<!-- LOGIN -->
 	<a class="w3-container">
 		<?php if ($this->authentication->is_signed_in()) : ?>
-		<button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-round-large w3-hover-white" style="background-color: #054c8a;"><i class="fas fa-user"></i> <?php echo $account->username; ?></button>
+
+				<button class="w3-button w3-round-large" style="background-color: #054c8a;">
+					<i class="fas fa-user"></i>  Admin Menu</button>
+
+				<button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-round-large"
+						style="background-color: #054c8a;">
+					<i class="fas fa-user">  </i> <?php echo $account->username; ?></button>
+
 		<?php else : ?>
-			<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-round-large w3-hover-white" style="background-color: #054c8a;"><i class="fas fa-user-alt-slash"></i> Přihlásit se</button>
+			<a href="account/sign_in">
+				<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-round-large"
+						style="background-color: #054c8a;">
+					<i class="fas fa-user-alt-slash"></i> Přihlásit se</button>
+			</a>
 		<?php endif; ?>
-	<!-- END OF LOGIN -->
-
-		<!-- MODAL sign in-->
-
-		<div id="id01" class="w3-modal">
-			<div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:400px">
-
-				<?php if (! ($this->config->item("sign_up_enabled"))): ?>
-					<div class="span12">
-						<h3><?php echo lang('sign_up_heading'); ?></h3>
-
-						<div class="alert">
-							<strong><?php echo lang('sign_up_notice'); ?> </strong> <?php echo lang('sign_up_registration_disabled'); ?>
-						</div>
-					</div>
-				<?php endif;?>
-
-				<form class="w3-container" action="/action_page.php">
-					<div class="w3-section">
-						<label><b>Username</b></label>
-						<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
-						<label><b>Password</b></label>
-						<input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
-						<button class="w3-button w3-block w3-blue w3-section w3-padding" type="submit">Login</button>
-						<input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
-					</div>
-				</form>
-
-				<div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-					<button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
-					<span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
-				</div>
-
-			</div>
-		</div>
-		<!-- END OF MODAL sign in -->
-		<!-- MODAL sign out -->
-		<div id="id02" class="w3-modal w3-round-large">
-			<div class="w3-modal-content w3-card-4 w3-round-large w3-animate-zoom" style="max-width:600px">
-
-						<p class="w3-text-black w3-margin"><strong>Opravdu se chcete odhlasit?</strong></p>
-
-				<div class="w3-container w3-border-top">
-					<div class="w3-bar">
-						<a href="account/sign_out"><button type="button" class="w3-button w3-small w3-blue w3-round w3-hover-white w3-margin">OK</button></a>
-						<button onclick="document.getElementById('id02').style.display='none'" type="button" class="w3-button w3-small w3-round w3-red w3-round w3-hover-white w3-margin">Cancel</button>
-					</div>
-				</div>
-
-			</div>
-		<!-- END OF MODAL sign out -->
-		</div>
-
-
-
 </div>
+<!-- END OF LOGIN -->
 
+<!-- MODAL sign in-->
+<div id="id01" class="w3-modal">
+	<div class="w3-modal-content w3-card-4 w3-round-large w3-animate-zoom" style="max-width:600px">
+
+		<div class="w3-center"><br>
+			<span onclick="document.getElementById('id01').style.display='none'"
+				  class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+			<img src="/resource/img/img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+		</div>
+
+		<form class="w3-container" action="/action_page.php">
+			<div class="w3-section">
+				<label><b>Username</b></label>
+				<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username"
+					   name="usrname" required>
+				<label><b>Password</b></label>
+				<input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
+				<button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
+				<input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
+			</div>
+		</form>
+
+		<div class="w3-container w3-border-top w3-padding-16 w3-light-grey w3-round-large">
+			<button onclick="document.getElementById('id01').style.display='none'" type="button"
+					class="w3-button w3-red">Cancel
+			</button>
+			<span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
+		</div>
+
+	</div>
+</div>
+<!-- END OF MODAL sign in -->
+
+<!-- MODAL sign out -->
+<div id="id02" class="w3-modal w3-round-large">
+	<div class="w3-modal-content w3-center w3-round-large w3-animate-zoom"
+		 style="max-width:400px; background-color: #c4e2fd">
+
+		<p class="w3-text-black w3-padding-large"><strong>Opravdu se chcete odhlasit?</strong></p>
+
+		<div class="w3-container">
+			<div class="w3-bar">
+				<a href="account/sign_out">
+					<button type="button" class="w3-button w3-tiny w3-white w3-border w3-round"> OK </button>
+				</a>
+				<button onclick="document.getElementById('id02').style.display='none'" type="button"
+						class="w3-button w3-tiny w3-white w3-border w3-round">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END OF MODAL sign out -->
 
 <!-- Container (About Section) -->
 <div id="about" class="container-fluid">
@@ -550,6 +560,10 @@
 				<img src="/resource/img/liberec.jpg" alt="liberec" style="width:100%;max-width:150px">
 				<p><strong>Projekt [logo firmy, mesta]</strong></p>
 				<p>Ano, tady jsme poskytly reseni</p>
+				<a href="">
+					<button type="button" class="w3-button w3-small w3-blue w3-round w3-hover-white w3-margin">Vice
+					</button>
+				</a>
 			</div>
 		</div>
 		<div class="col-sm-4">
@@ -557,6 +571,10 @@
 				<!--<img src="newyork.jpg" alt="New York" width="400" height="300">-->
 				<p><strong>Nejaky dalsi projekt [logo firmy, mesta]</strong></p>
 				<p>Ano! i tady jsme se podilely na reseni</p>
+				<a href="">
+					<button type="button" class="w3-button w3-small w3-blue w3-round w3-hover-white w3-margin">Vice
+					</button>
+				</a>
 			</div>
 		</div>
 		<div class="col-sm-4">
@@ -564,6 +582,10 @@
 				<!--<img src="sanfran.jpg" alt="San Francisco" width="400" height="300">-->
 				<p><strong>Nejaky Projekt [logo firmy, mesta]</strong></p>
 				<p>Tady jsme delaly co jsme mohli</p>
+				<a href="">
+					<button type="button" class="w3-button w3-small w3-blue w3-round w3-hover-white w3-margin">Vice
+					</button>
+				</a>
 			</div>
 		</div>
 	</div>
@@ -573,7 +595,11 @@
 			<div class="w3-round-large w3-hover-shadow w3-white" style="border: 2px solid #076cc5">
 				<!--<img src="paris.jpg" alt="Paris" width="400" height="300">-->
 				<p><strong>Projekt [logo firmy, mesta]</strong></p>
-				<p>Ano, tady jsme poskytly rreseni</p>
+				<p>Ano, tady jsme poskytly reseni</p>
+				<a href="">
+					<button type="button" class="w3-button w3-small w3-blue w3-round w3-hover-white w3-margin">Vice
+					</button>
+				</a>
 			</div>
 		</div>
 		<div class="col-sm-4">
@@ -581,6 +607,10 @@
 				<!--<img src="newyork.jpg" alt="New York" width="400" height="300">-->
 				<p><strong>Nejaky dalsi projekt [logo firmy, mesta]</strong></p>
 				<p>Ano! i tady jsme se podilely na reseni</p>
+				<a href="">
+					<button type="button" class="w3-button w3-small w3-blue w3-round w3-hover-white w3-margin">Vice
+					</button>
+				</a>
 			</div>
 		</div>
 		<div class="col-sm-4">
@@ -588,6 +618,10 @@
 				<!--<img src="sanfran.jpg" alt="San Francisco" width="400" height="300">-->
 				<p><strong>Nejaky Projekt [logo firmy, mesta]</strong></p>
 				<p>Tady jsme delaly co jsme mohli</p>
+				<a href="">
+					<button type="button" class="w3-button w3-small w3-blue w3-round w3-hover-white w3-margin">Vice
+					</button>
+				</a>
 			</div>
 		</div>
 	</div>
@@ -808,7 +842,8 @@
 	<a href="#myPage" title="To Top">
 		<span class="glyphicon glyphicon-chevron-up linky"></span>
 	</a>
-	<p class="linky">Bootstrap Theme Made By <a href="https://www.w3schools.com" title="Visit w3schools" class="linky">www.w3schools.com</a></p>
+	<p class="linky">Bootstrap Theme Made By <a href="https://www.w3schools.com" title="Visit w3schools" class="linky">www.w3schools.com</a>
+	</p>
 	<p><a href="colorscheme" target="_blank" class="linky">[Color Scheme]</a></p>
 </footer>
 

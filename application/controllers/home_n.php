@@ -8,8 +8,10 @@ class Home_n extends CI_Controller {
 
 		// Load the necessary stuff...
 		$this->load->helper(array('language', 'url', 'form', 'account/ssl'));
-		$this->load->library(array('account/authentication', 'account/authorization'));
 		$this->load->model(array('account/account_model'));
+		$this->load->config('account/account');
+		$this->load->library(array('account/authentication', 'account/authorization', 'account/recaptcha', 'form_validation'));
+		$this->load->language(array('account/sign_in', 'account/connect_third_party'));
 	}
 
 	function index()
