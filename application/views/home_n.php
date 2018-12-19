@@ -309,111 +309,69 @@
 	</div>
 
 	<!-- LOGIN -->
-	<div class="w3-container">
+	<a class="w3-container">
 		<?php if ($this->authentication->is_signed_in()) : ?>
-			<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-round-large w3-hover-white" style="background-color: #054c8a;"><i class="fas fa-user"></i> Odhlásit se</button>
+		<button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-round-large w3-hover-white" style="background-color: #054c8a;"><i class="fas fa-user"></i> <?php echo $account->username; ?></button>
 		<?php else : ?>
 			<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-round-large w3-hover-white" style="background-color: #054c8a;"><i class="fas fa-user-alt-slash"></i> Přihlásit se</button>
 		<?php endif; ?>
+	<!-- END OF LOGIN -->
 
-		<!-- MODAL -->
+		<!-- MODAL sign in-->
+
 		<div id="id01" class="w3-modal">
-			<div class="w3-modal-content w3-animate-top w3-card-4">
+			<div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:400px">
 
+				<?php if (! ($this->config->item("sign_up_enabled"))): ?>
+					<div class="span12">
+						<h3><?php echo lang('sign_up_heading'); ?></h3>
 
-
-						<div class="span6">
-
-							<?php echo form_open(uri_string().($this->input->get('continue') ? '/?continue='.urlencode($this->input->get('continue')) : ''), 'class="form-horizontal"'); ?>
-							<?php echo form_fieldset(); ?>
-
-							<h3><?php echo lang('sign_in_heading'); ?></h3>
-
-							<div class="well" style="color: black; background-color: #bce8f1">
-								<?php if (isset($sign_in_error)) : ?>
-									<div class="form_error"><?php echo $sign_in_error; ?></div>
-								<?php endif; ?>
-
-								<div class="control-group <?php echo (form_error('sign_in_username_email') || isset($sign_in_username_email_error)) ? 'error' : ''; ?>">
-									<label class="control-label" for="sign_in_username_email"><?php echo lang('sign_in_username_email'); ?></label>
-
-									<div class="controls">
-										<?php echo form_input(array('name' => 'sign_in_username_email', 'id' => 'sign_in_username_email', 'value' => set_value('sign_in_username_email'), 'maxlength' => '24')); ?>
-										<?php if (form_error('sign_in_username_email') || isset($sign_in_username_email_error)) :?>
-											<span class="help-inline">
-		        			<?php echo form_error('sign_in_username_email'); ?>
-												<?php if (isset($sign_in_username_email_error)) : ?>
-													<span class="field_error"><?php echo $sign_in_username_email_error; ?></span>
-												<?php endif; ?>
-		        			</span>
-										<?php endif; ?>
-									</div>
-								</div>
-
-								<div class="control-group <?php echo form_error('sign_in_password') ? 'error' : ''; ?>">
-									<label class="control-label" for="sign_in_password"><?php echo lang('sign_in_password'); ?></label>
-
-									<div class="controls">
-										<?php echo form_password(array('name' => 'sign_in_password', 'id' => 'sign_in_password', 'value' => set_value('sign_in_password'))); ?>
-										<?php if (form_error('sign_in_password')) : ?>
-											<span class="help-inline"><?php echo form_error('sign_in_password'); ?></span>
-										<?php endif; ?>
-
-										<?php if (isset($recaptcha)) : ?>
-											<?php echo $recaptcha; ?>
-											<?php if (isset($sign_in_recaptcha_error)) : ?>
-												<span class="field_error"><?php echo $sign_in_recaptcha_error; ?></span>
-											<?php endif; ?>
-										<?php endif; ?>
-									</div>
-								</div>
-
-								<div class="control-group">
-									<div class="controls">
-										<label class="checkbox">
-											<?php echo form_checkbox(array('name' => 'sign_in_remember', 'id' => 'sign_in_remember', 'value' => 'checked', 'checked' => $this->input->post('sign_in_remember'),)); ?>
-											<?php echo lang('sign_in_remember_me'); ?>
-										</label>
-									</div>
-								</div>
-
-								<div>
-									<?php echo form_button(array('type' => 'submit', 'class' => 'btn btn-large pull-right', 'content' => '<i class="icon-lock"></i> '.lang('sign_in_sign_in'))); ?>
-								</div>
-
-								<p><?php echo anchor('account/forgot_password', lang('sign_in_forgot_your_password')); ?><br/>
-									<?php echo sprintf(lang('sign_in_dont_have_account'), anchor('account/sign_up', lang('sign_in_sign_up_now'))); ?></p>
-
-							</div>
-
-							<?php echo form_fieldset_close(); ?>
-							<?php echo form_close(); ?>
+						<div class="alert">
+							<strong><?php echo lang('sign_up_notice'); ?> </strong> <?php echo lang('sign_up_registration_disabled'); ?>
 						</div>
-						<!-- /span6 -->
+					</div>
+				<?php endif;?>
 
-						<div class="span6">
-							<?php if ($this->config->item('third_party_auth_providers')) : ?>
-								<h3><?php echo sprintf(lang('sign_in_third_party_heading')); ?></h3>
-								<ul>
-									<?php foreach ($this->config->item('third_party_auth_providers') as $provider) : ?>
-										<li class="third_party <?php echo $provider; ?>"><?php echo anchor('account/connect_'.$provider, ' ', array('title' => sprintf(lang('sign_in_with'), lang('connect_'.$provider)))); ?></li>
-									<?php endforeach; ?>
-								</ul>
-							<?php endif; ?>
-						</div>
-						<!-- /span6 -->
+				<form class="w3-container" action="/action_page.php">
+					<div class="w3-section">
+						<label><b>Username</b></label>
+						<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
+						<label><b>Password</b></label>
+						<input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
+						<button class="w3-button w3-block w3-blue w3-section w3-padding" type="submit">Login</button>
+						<input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
+					</div>
+				</form>
 
-
-
+				<div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+					<button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+					<span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
+				</div>
 
 			</div>
 		</div>
-	</div>
-	<!-- END OF MODAL -->
+		<!-- END OF MODAL sign in -->
+		<!-- MODAL sign out -->
+		<div id="id02" class="w3-modal w3-round-large">
+			<div class="w3-modal-content w3-card-4 w3-round-large w3-animate-zoom" style="max-width:600px">
+
+						<p class="w3-text-black w3-margin"><strong>Opravdu se chcete odhlasit?</strong></p>
+
+				<div class="w3-container w3-border-top">
+					<div class="w3-bar">
+						<a href="account/sign_out"><button type="button" class="w3-button w3-small w3-blue w3-round w3-hover-white w3-margin">OK</button></a>
+						<button onclick="document.getElementById('id02').style.display='none'" type="button" class="w3-button w3-small w3-round w3-red w3-round w3-hover-white w3-margin">Cancel</button>
+					</div>
+				</div>
+
+			</div>
+		<!-- END OF MODAL sign out -->
+		</div>
+
 
 
 </div>
-<!-- END OF LOGIN -->
+
 
 <!-- Container (About Section) -->
 <div id="about" class="container-fluid">
@@ -584,14 +542,14 @@
 
 <!-- Container (Portfolio Section) -->
 <div id="portfolio" class="container-fluid text-center bg-grey">
-	<h2>Reference</h2><br>
+	<h2><strong>Reference</strong></h2><br>
 	<h4>Naše realizované projekty</h4>
 	<div class="row text-center slideanim">
 		<div class="col-sm-4">
 			<div class="w3-round-large w3-hover-shadow w3-white" style="border: 2px solid #076cc5">
-				<!--<img src="paris.jpg" alt="Paris" width="400" height="300">-->
+				<img src="/resource/img/liberec.jpg" alt="liberec" style="width:100%;max-width:150px">
 				<p><strong>Projekt [logo firmy, mesta]</strong></p>
-				<p>Ano, tady jsme poskytly rreseni</p>
+				<p>Ano, tady jsme poskytly reseni</p>
 			</div>
 		</div>
 		<div class="col-sm-4">
