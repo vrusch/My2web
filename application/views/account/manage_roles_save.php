@@ -5,13 +5,13 @@
 </head>
 <body>
 
-<?php echo $this->load->view('header'); ?>
+<?php //echo $this->load->view('header'); ?>
 
 <div class="container">
   <div class="row">
 
     <div class="span2">
-      <?php echo $this->load->view('account/account_menu', array('current' => 'manage_roles')); ?>
+      <?php echo $this->load->view('account/admin_panel', array('current' => 'manage_roles')); ?>
     </div>
 
     <div class="span10">

@@ -11,12 +11,18 @@
   <div class="row">
 
     <div class="span2">
-      <?php echo $this->load->view('account/account_menu', array('current' => 'manage_users')); ?>
+      <?php echo $this->load->view('account/admin_panel', array('current' => 'manage_users')); ?>
     </div>
 
     <div class="span10">
 
-      <h2><?php echo lang('users_page_name'); ?></h2>
+		<table style="width: 100%">
+			<tr>
+				<td style="width: 85%"><h2><?php echo lang('users_page_name'); ?></h2></td>
+				<td><a href="home_n"><buton class="btn btn-primary btn-small"><i></i>Back to Home page</buton></a></td>
+			</tr>
+		</table>
+
 
       <div class="well">
         <?php echo lang('users_description'); ?>

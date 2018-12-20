@@ -11,7 +11,7 @@
   <div class="row">
 
     <div class="span2">
-      <?php echo $this->load->view('account/account_menu', array('current' => 'manage_users')); ?>
+      <?php echo $this->load->view('account/admin_panel', array('current' => 'manage_users')); ?>
     </div>
 
     <div class="span10">
