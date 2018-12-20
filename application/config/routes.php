@@ -42,13 +42,6 @@ $route['default_controller']	= 'home_n';
 $route['news/create'] 			= 'news/create';
 $route['news/(:any)'] 			= 'news/view/$1';
 $route['news'] 					= 'news';
-$route['earticle'] 				= 'article/create/create';
-$route['ecourse'] 				= 'course/create/create';
-$route['course'] 				= 'course/play/course';
-$route['about'] 				= 'pages/view/about';
-$route['contact'] 				= 'pages/view/contact';
-$route['reference'] 			= 'pages/view/reference';
-$route['service'] 				= 'pages/view/services';
 $route['colorscheme']			= 'pages/view/colorscheme';
 $route['404_override'] 			= '';
 
