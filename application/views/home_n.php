@@ -272,6 +272,7 @@
 		.linky:hover {
 			color: #fff;
 		}
+
 	</style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -313,18 +314,22 @@
 	<a class="w3-container">
 		<?php if ($this->authentication->is_signed_in()) : ?>
 
-				<button class="w3-button w3-round-large" style="background-color: #054c8a;">
-					<i class="fas fa-user"></i>  Admin Menu</button>
+			<button class="w3-btn linky">
+				<i class="fas fa-desktop"></i> Admin Menu
+			</button>
 
-				<button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-round-large"
-						style="background-color: #054c8a;">
-					<i class="fas fa-user">  </i> <?php echo $account->username; ?></button>
+			<button class="w3-btn linky">
+				<i class="fas fa-user-edit"> </i> <?php echo $account->username; ?></button>
+
+			<button onclick="document.getElementById('id02').style.display='block'" class="w3-btn linky">
+				<i class="fas fa-sign-in-alt"> </i> odhlasit
+			</button>
 
 		<?php else : ?>
 			<a href="account/sign_in">
-				<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-round-large"
-						style="background-color: #054c8a;">
-					<i class="fas fa-user-alt-slash"></i> Přihlásit se</button>
+				<button onclick="document.getElementById('id01').style.display='block'" class="w3-btn linky">
+					<i class="fas fa-user-alt-slash"></i> Přihlásit se
+				</button>
 			</a>
 		<?php endif; ?>
 </div>
@@ -373,10 +378,11 @@
 		<div class="w3-container">
 			<div class="w3-bar">
 				<a href="account/sign_out">
-					<button type="button" class="w3-button w3-tiny w3-white w3-border w3-round"> OK </button>
+					<button type="button" class="w3-button w3-tiny w3-white w3-border w3-round"> OK</button>
 				</a>
 				<button onclick="document.getElementById('id02').style.display='none'" type="button"
-						class="w3-button w3-tiny w3-white w3-border w3-round">Cancel</button>
+						class="w3-button w3-tiny w3-white w3-border w3-round">Cancel
+				</button>
 			</div>
 		</div>
 	</div>
