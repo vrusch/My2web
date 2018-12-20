@@ -2,7 +2,7 @@
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
 <?php echo $this->load->view('head'); ?>
 <body>
-	<?php echo $this->load->view('header'); ?>
+	<?php //echo $this->load->view('header'); ?>
 	<div class="container">
 	<center>
 	<?php if (!$this->facebook_lib->user) : ?>
@@ -33,6 +33,6 @@
 			document.getElementById('fb-root').appendChild(e);
 		}());
 	</script>
-	<?php echo $this->load->view('footer'); ?>
+	<?php echo $this->load->view('footer_n'); ?>
 </body>
 </html>

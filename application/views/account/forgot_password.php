@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<?php echo $this->load->view('header'); ?>
+<?php //echo $this->load->view('header'); ?>
 
 <div class="container">
     <div class="row">
@@ -64,7 +64,7 @@
     </div>
 </div>
 
-<?php echo $this->load->view('footer'); ?>
+<?php echo $this->load->view('footer_n'); ?>
 
 </body>
 </html>

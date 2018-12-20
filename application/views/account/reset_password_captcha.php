@@ -4,7 +4,7 @@
 	<?php echo $this->load->view('head', array('title' => lang('forgot_password_page_name'))); ?>
 </head>
 <body>
-<?php echo $this->load->view('header'); ?>
+<?php //echo $this->load->view('header'); ?>
 <div class="container">
     <div class="row">
         <div class="span12">
@@ -37,6 +37,6 @@
         <div class="clear"></div>
     </div>
 </div>
-<?php echo $this->load->view('footer'); ?>
+<?php echo $this->load->view('footer_n'); ?>
 </body>
 </html>
