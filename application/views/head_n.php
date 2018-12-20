@@ -1,7 +1,14 @@
 
 	<!-- Theme Made By www.w3schools.com -->
-	<title>Bootstrap Theme Company Page</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta charset="utf-8">
+
+	<title><?php echo isset($title) ? $title.' - '.lang('website_title_long') : lang('website_title_long'); ?></title>
+
+	<base href="<?php echo base_url(); ?>"/>
+	<link rel="shortcut icon" href="<?php echo base_url(); ?>favicon.ico"/>
+
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<!--<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
