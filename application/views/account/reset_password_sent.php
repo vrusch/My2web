@@ -13,6 +13,6 @@
         </div>
     </div>
 </div>
-<?php echo $this->load->view('footer_n'); ?>
+<?php //echo $this->load->view('footer_n'); ?>
 </body>
 </html>

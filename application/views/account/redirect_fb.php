@@ -33,6 +33,6 @@
 			document.getElementById('fb-root').appendChild(e);
 		}());
 	</script>
-	<?php echo $this->load->view('footer_n'); ?>
+	<?php //echo $this->load->view('footer_n'); ?>
 </body>
 </html>
