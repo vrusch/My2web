@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php echo $this->load->view('head', array('title' => ('manage news'))); ?>
+	<?php echo $this->load->view('head', array('title' => ('assigment'))); ?>
 </head>
 <body>
 
@@ -11,22 +11,22 @@
 	<div class="row">
 
 		<div class="span2">
-			<?php echo $this->load->view('account/admin_panel', array('current' => 'manage_news')); ?>
+			<?php echo $this->load->view('account/admin_panel', array('current' => 'manage_assignment')); ?>
 		</div>
 
 		<div class="span10">
 
 			<table style="width: 100%">
 				<tr>
-					<td style="width: 85%"><h2><?php echo ('Novinky managment'); ?></h2></td>
+					<td style="width: 85%"><h2><?php echo ('assigment'); ?></h2></td>
 					<td><a href="home_n"><buton class="btn btn-primary btn-small"><i></i>Back to Home page</buton></a></td>
 				</tr>
 			</table>
 
 
 			<div class="well">
-				<?php echo ('Tato stranka umoznuje pridavat, mazat, editovat novinky viditelne na home page v sekcii "Novinky"'); ?>
-				<?php $count = count($news); ?>
+				<?php echo (''); ?>
+				<?php //$count = count($news); ?>
 			</div>
 
 			<table class="table table-condensed table-hover">
@@ -37,7 +37,7 @@
 					<th><?php echo ('Datum vydani'); ?></th>
 					<th><?php echo ('Datum platnosti'); ?></th>
 					<th>
-							<?php echo anchor('news/create',lang('website_create'),'class="btn btn-primary btn-small"'); ?>
+						<?php echo anchor('news/create',lang('website_create'),'class="btn btn-primary btn-small"'); ?>
 					</th>
 				</tr>
 				</thead>
@@ -68,41 +68,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
