@@ -24,6 +24,20 @@ class news extends CI_Controller {
 		$this->load->view('news/index', isset($data) ? $data : NULL);
 	}
 
+	public function manage()
+	{
+		maintain_ssl();
+
+		if ($this->authentication->is_signed_in())
+		{
+			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
+		}
+		$data['news'] = $this->news_model->get_news();
+		$data['title'] = 'News archive';
+
+		$this->load->view('news/manage_news', isset($data) ? $data : NULL);
+	}
+
 	public function view($slug = NULL)
 	{
 		$data['news_item'] = $this->news_model->get_news($slug);

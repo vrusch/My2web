@@ -12,26 +12,26 @@
 		<?php endif; ?>
 			<li class="nav-header">Site Admin Panel</li>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'upload_images') ? 'active' : ''; ?>"><?php echo anchor('site/upload_images', ('nahravani obrazku')); ?></li>
+			<li class="<?php echo ($current == 'upload_images') ? 'active' : ''; ?>"><?php echo anchor('site/upload_images', ('Nahravani obrazku')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_companies') ? 'active' : ''; ?>"><?php echo anchor('site/slogan_manage', ('Slogany')); ?></li>
+			<li class="<?php echo ($current == 'manage_companies') ? 'active' : ''; ?>"><?php echo anchor('site/manage_companies', ('Slogany')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_news') ? 'active' : ''; ?>"><?php echo anchor('news/create', ('Novinky')); ?></li>
+			<li class="<?php echo ($current == 'manage_news') ? 'active' : ''; ?>"><?php echo anchor('news/manage_news', ('Novinky')); ?></li>
 		<?php endif; ?>
 		<li class="nav-header">Customer mangment</li>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_news') ? 'active' : ''; ?>"><?php echo anchor('news/create', ('Firmy')); ?></li>
+			<li class="<?php echo ($current == 'manage_companies') ? 'active' : ''; ?>"><?php echo anchor('customer/manage_companies', ('Firmy')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_news') ? 'active' : ''; ?>"><?php echo anchor('news/create', ('Kurzy')); ?></li>
+			<li class="<?php echo ($current == 'manage_course') ? 'active' : ''; ?>"><?php echo anchor('course/manage_course', ('Kurzy')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_news') ? 'active' : ''; ?>"><?php echo anchor('news/create', ('Prednasky')); ?></li>
+			<li class="<?php echo ($current == 'manage_lecture') ? 'active' : ''; ?>"><?php echo anchor('lecture/manage_lecture', ('Prednasky')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_news') ? 'active' : ''; ?>"><?php echo anchor('news/create', ('Prirazovani')); ?></li>
+			<li class="<?php echo ($current == 'manage_assignment') ? 'active' : ''; ?>"><?php echo anchor('customer/manage_assignment', ('Prirazovani')); ?></li>
 		<?php endif; ?>
 	<?php endif; ?>
 

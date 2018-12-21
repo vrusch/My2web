@@ -40,6 +40,7 @@
 
 $route['default_controller']	= 'home_n';
 $route['news/create'] 			= 'news/create';
+$route['news/manage_news'] 		= 'news/manage';
 $route['news/(:any)'] 			= 'news/view/$1';
 $route['news'] 					= 'news';
 $route['colorscheme']			= 'pages/view/colorscheme';
