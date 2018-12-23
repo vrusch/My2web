@@ -12,10 +12,7 @@
 		<?php endif; ?>
 			<li class="nav-header">Site Admin Panel</li>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'upload_images') ? 'active' : ''; ?>"><?php echo anchor('upload_images', ('Nahravani obrazku')); ?></li>
-		<?php endif; ?>
-		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_slogan') ? 'active' : ''; ?>"><?php echo anchor('manage_slogan', ('Slogany')); ?></li>
+			<li class="<?php echo ($current == 'upload_images') ? 'active' : ''; ?>"><?php echo anchor('upload_images', ('Nahrávaní obrázkú')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
 			<li class="<?php echo ($current == 'manage_news') ? 'active' : ''; ?>"><?php echo anchor('news/manage_news', ('Novinky')); ?></li>
@@ -25,13 +22,13 @@
 			<li class="<?php echo ($current == 'manage_companies') ? 'active' : ''; ?>"><?php echo anchor('manage_companies', ('Firmy')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_course') ? 'active' : ''; ?>"><?php echo anchor('manage_course', ('Kurzy')); ?></li>
+			<li class="<?php echo ($current == 'manage_course') ? 'active' : ''; ?>"><?php echo anchor('manage_course', ('Managment Kurzů')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_lecture') ? 'active' : ''; ?>"><?php echo anchor('manage_lecture', ('Prednasky')); ?></li>
+			<li class="<?php echo ($current == 'manage_lecture') ? 'active' : ''; ?>"><?php echo anchor('manage_lecture', ('Přednášky')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_assignment') ? 'active' : ''; ?>"><?php echo anchor('manage_assignment', ('Prirazovani')); ?></li>
+			<li class="<?php echo ($current == 'manage_assignment') ? 'active' : ''; ?>"><?php echo anchor('manage_assignment', ('Přiřazování')); ?></li>
 		<?php endif; ?>
 	<?php endif; ?>
 

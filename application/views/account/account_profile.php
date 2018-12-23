@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php //echo $this->load->view('head', array('title' => lang('profile_page_name'))); ?>
-	<?php echo $this->load->view('head'); ?>
-
+	<?php echo $this->load->view('head', array('title' => lang('profile_page_name'))); ?>
 </head>
 <body>
 

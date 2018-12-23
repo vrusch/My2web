@@ -1,18 +1,28 @@
 <footer class="container-fluid text-center" style="background-color: #054c8a;">
-	<a href="#myPage" title="To Top">
-		<span class="glyphicon glyphicon-chevron-up linky"></span>
-	</a>
-	<p class="linky">Bootstrap Theme Made By <a href="https://www.w3schools.com" title="Visit w3schools" class="linky">www.w3schools.com</a>
-	</p>
-	<p><a href="colorscheme" target="_blank" class="linky">[Color Scheme]</a></p>
-	<div class="pull-right">
-		<small>
+	<table style="width: 100%">
+		<tr>
+			<td style="width: 30%"></td>
+			<td style="width: 30%">
+				<a href="#myPage" title="To Top">
+					<span class="glyphicon glyphicon-chevron-up linky"></span>
+				</a>
+				<p class="linky">Bootstrap Theme Made By <a href="https://www.w3schools.com" title="Visit w3schools" class="linky">www.w3schools.com</a>
+				</p>
+				<p><a href="colorscheme" target="_blank" class="linky">[Color Scheme]</a></p>
+			</td>
+			<td style="width: 30%">
+				<div class="pull-right">
+					<small>
+						<?php echo sprintf(lang('website_page_rendered_in_x_seconds'), $this->benchmark->elapsed_time()); ?>
+						<br>
+						Copyright &copy; <?php echo date('Y'); ?> <?php echo ('4My2web'); ?>
+					</small>
+				</div>
+			</td>
+		</tr>
+	</table>
 
-			<?php echo sprintf(lang('website_page_rendered_in_x_seconds'), $this->benchmark->elapsed_time()); ?>
-			<br>
-			Copyright &copy; <?php echo date('Y'); ?> <?php echo ('4My2web'); ?>
-		</small>
-	</div>
+
 </footer>
 
 <script>

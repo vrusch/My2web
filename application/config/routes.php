@@ -41,7 +41,8 @@
 $route['default_controller']	= 'home_n';
 $route['news/create'] 			= 'news/create';
 $route['news/manage_news'] 		= 'news/manage';
-$route['news/(:any)'] 			= 'news/update/$1';
+$route['news/update/(:any)'] 	= 'news/update/$1';
+$route['news/(:any)'] 			= 'news/view/$1';
 $route['upload_images'] 		= '/page/upload_images';
 $route['manage_slogan'] 		= 'manage/slogan';
 $route['manage_companies'] 		= 'manage/companies';

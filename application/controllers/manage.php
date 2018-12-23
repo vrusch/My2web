@@ -9,6 +9,7 @@ class manage extends CI_Controller
 		$this->load->helper(array('language', 'url', 'form', 'account/ssl', 'url_helper', 'form'));
 		$this->load->library(array('account/authentication', 'account/authorization', 'form_validation'));
 		$this->load->model(array('account/account_model', 'news_model'));
+
 	}
 
 	public function companies()
@@ -19,22 +20,9 @@ class manage extends CI_Controller
 			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
 		}
 		$data['news'] = $this->news_model->get_news();
-		$data['title'] = 'News archive';
-
-		$this->load->view('adm/manage_companies', isset($data) ? $data : NULL);
-	}
-
-	public function slogan()
-	{
-		maintain_ssl();
-
-		if ($this->authentication->is_signed_in()) {
-			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
-		}
-		//$data['news'] = $this->news_model->get_news();
 		//$data['title'] = 'News archive';
 
-		$this->load->view('adm/manage_slogan', isset($data) ? $data : NULL);
+		$this->load->view('adm/manage_companies', isset($data) ? $data : NULL);
 	}
 
 	public function courses()

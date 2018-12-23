@@ -15,18 +15,18 @@
 		</div>
 
 		<div class="span10">
-
+			<?php $count = count($news); ?>
 			<table style="width: 100%">
 				<tr>
-					<td style="width: 85%"><h2><?php echo ('Novinky managment'); ?></h2></td>
+					<td style="width: 85%"><h2><?php echo ('Novinky managment'); ?><span class="badge badge-info"><?php echo $count; ?></span></h2></td>
 					<td><a href="home_n"><buton class="btn btn-primary btn-small"><i></i>Back to Home page</buton></a></td>
 				</tr>
 			</table>
 
 
 			<div class="well">
-				<?php echo ('Tato stranka umoznuje pridavat, mazat, editovat novinky viditelne na home page v sekcii "Novinky"'); ?>
-				<?php $count = count($news); ?>
+				<?php echo ('Tato stránka umožňuje přidávat, mazat a editovat novinky viditelné na Domovské stránce v sekcii "Novinky.'); ?>
+
 			</div>
 
 			<table class="table table-condensed table-hover">
@@ -35,9 +35,12 @@
 					<th>#</th>
 					<th><?php echo ('Nadpis'); ?></th>
 					<th><?php echo ('Datum vydani'); ?></th>
-					<th><?php echo ('Datum platnosti'); ?></th>
+					<th><?php echo ('Datum platne do'); ?></th>
+					<th><?php echo ('Ativni'); ?></th>
+					<th><?php echo ('Zvyraznena'); ?></th>
+					<th></th>
 					<th>
-							<?php echo anchor('news/create',lang('website_create'),'class="btn btn-primary btn-small"'); ?>
+							<?php echo anchor('news/create',('Nová'),'class="btn btn-primary btn-small"'); ?>
 					</th>
 				</tr>
 				</thead>
@@ -55,7 +58,32 @@
 							<?php echo $news_item['lifetime']; ?>
 						</td>
 						<td>
-							<?php echo anchor('news/'.$news_item['slug'], lang('website_update'), 'class="btn btn-small"'); ?>
+							<label class="checkbox">
+								<?php
+								$check = '';
+								if ($news_item['active'] === '1'){
+									$check = 'checked';
+								}
+								echo form_checkbox('active', 'active', $check );
+								?>
+							</label>
+						</td>
+						<td>
+							<label class="checkbox">
+								<?php
+								$check = '';
+								if ($news_item['highlight'] === '1'){
+									$check = 'checked';
+								}
+								echo form_checkbox('active', 'active', $check );
+								?>
+							</label>
+						</td>
+						<td>
+							<?php echo anchor('news/update/'.$news_item['slug'], ('Edit'), 'class="label label-info"'); ?>
+						</td>
+						<td>
+							<?php echo anchor('news/delete'.$news_item['slug'], ('Smazat'), 'class="label label-danger"'); ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>

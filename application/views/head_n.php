@@ -1,5 +1,3 @@
-
-	<!-- Theme Made By www.w3schools.com -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta charset="utf-8">
@@ -19,6 +17,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style>
+
 		body {
 			font: 400 15px Lato, sans-serif;
 			line-height: 1.8;

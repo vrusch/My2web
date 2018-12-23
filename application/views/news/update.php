@@ -13,51 +13,47 @@
 		</div>
 		<div class="span10">
 
-			<h2><?php echo ("Novinky vytvoření"); ?></h2>
+			<h2><?php echo ("Novinky editace"); ?></h2>
 
 			<div class="well">
-				<?php echo ("vytváření novinek"); ?>
+				<?php echo ("editovani novinek"); ?>
 			</div>
 
-			<?php echo form_open('news/create', 'class="form-horizontal"'); ?>
+			<?php echo form_open('news/update', 'class="form-horizontal"'); ?>
 			<?php echo validation_errors(); ?>
 
 			<div class="control-group">
 				<label class="control-label" for="date_publish"><?php echo ('Datum vydani'); ?></label>
 				<div class="controls">
-					<?php echo form_input(array('name' => 'date_publish', 'id' => 'date_publish','' , 'maxlength' => 80)); ?>
+					<?php echo form_input(array('name' => 'date_publish', 'id' => 'date_publish'), $news_item['date_publish']); ?>
 				</div>
 			</div>
 
 			<div class="control-group">
 				<label class="control-label" for="lifetime"><?php echo ('platnost do'); ?></label>
 				<div class="controls">
-					<?php echo form_input(array('name' => 'lifetime', 'id' => 'lifetime','', 'maxlength' => 80)); ?>
-					<?php
-					$date = "2015-11-17";
-					echo date('Y-m-d', strtotime($date. ' + 5 days'));
-					?>
+					<?php echo form_input(array('name' => 'lifetime', 'id' => 'lifetime'), $news_item['lifetime']); ?>
 				</div>
 			</div>
 
 			<div class="control-group">
-				<label class="control-label" for="title"><?php echo ('Nazev'); ?></label>
+				<label class="control-label" for="title"><?php echo ('platnost do'); ?></label>
 				<div class="controls">
-					<?php echo form_input(array('name' => 'title', 'id' => 'title', '', 'maxlength' => 80)); ?>
+					<?php echo form_input(array('name' => 'title', 'id' => 'title'), $news_item['title']); ?>
 				</div>
 			</div>
 
 			<div class="control-group">
 				<label class="control-label" for="text">Text</label>
 				<div class="controls">
-					<?php echo form_textarea(); ?>
+					<?php echo form_textarea(array('name' => 'text', 'id' => 'text'), $news_item['text']); ?>
 				</div>
 			</div>
 
 			<div class="form-actions">
 				<div class="controls">
 					<?php echo form_submit('', ('Uložit'), 'class="btn btn-primary"'); ?>
-				 <?php echo anchor('news/manage_news', ('Cancel'), 'class="btn"'); ?>
+					<?php echo anchor('news/manage_news', ('Cancel'), 'class="btn"'); ?>
 				</div>
 			</div>
 
@@ -72,3 +68,4 @@
 
 </body>
 </html>
+

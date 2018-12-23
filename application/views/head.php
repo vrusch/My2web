@@ -61,35 +61,6 @@
 		border-right: none;
 		border-radius: 0px;
 	}
-	.fat {
-		color: lightslategrey;
-		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	}
-	.fab {
-		color: lightslategrey;
-		font-size:24px
-	}
-	.blueGlow:hover {
-		font-size: 24px;
-		color: blue;
-		text-shadow: 0 0 1px #7c7aff;
-	}
-	.googlrpGlow:hover{
-		font-size: 24px;
-		color: red;
-		text-shadow: 0 0 1px #9c9c9c;;
-	}
-	.facebGlow:hover{
-		font-size: 24px;
-		color: darkblue;
-		text-shadow: 0 0 1px #9c9c9c;;
-	}
-	.twiteri:hover{
-		font-size: 24px;
-		color: dodgerblue;
-		text-shadow: 0 0 1px #9c9c9c;;
-	}
-
 </style>
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
