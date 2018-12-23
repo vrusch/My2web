@@ -35,7 +35,6 @@
 					<th>#</th>
 					<th><?php echo ('Nadpis'); ?></th>
 					<th><?php echo ('Datum vydani'); ?></th>
-					<th><?php echo ('Datum platne do'); ?></th>
 					<th><?php echo ('Ativni'); ?></th>
 					<th><?php echo ('Zvyraznena'); ?></th>
 					<th></th>
@@ -54,29 +53,27 @@
 						<td>
 							<?php echo $news_item['date_publish']; ?>
 						</td>
+
 						<td>
-							<?php echo $news_item['lifetime']; ?>
-						</td>
-						<td>
-							<label class="checkbox">
+							<label class="cont">
 								<?php
 								$check = '';
 								if ($news_item['active'] === '1'){
 									$check = 'checked';
 								}
 								echo form_checkbox('active', 'active', $check );
-								?>
+								?><span class="checkmark"></span>
 							</label>
 						</td>
 						<td>
-							<label class="checkbox">
+							<label class="cont">
 								<?php
 								$check = '';
 								if ($news_item['highlight'] === '1'){
 									$check = 'checked';
 								}
 								echo form_checkbox('active', 'active', $check );
-								?>
+								?><span class="checkmark"></span>
 							</label>
 						</td>
 						<td>

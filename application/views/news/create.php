@@ -30,17 +30,6 @@
 			</div>
 
 			<div class="control-group">
-				<label class="control-label" for="lifetime"><?php echo ('platnost do'); ?></label>
-				<div class="controls">
-					<?php echo form_input(array('name' => 'lifetime', 'id' => 'lifetime','', 'maxlength' => 80)); ?>
-					<?php
-					$date = "2015-11-17";
-					echo date('Y-m-d', strtotime($date. ' + 5 days'));
-					?>
-				</div>
-			</div>
-
-			<div class="control-group">
 				<label class="control-label" for="title"><?php echo ('Nazev'); ?></label>
 				<div class="controls">
 					<?php echo form_input(array('name' => 'title', 'id' => 'title', '', 'maxlength' => 80)); ?>

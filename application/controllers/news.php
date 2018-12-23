@@ -54,7 +54,6 @@ class news extends CI_Controller {
 
 		$this->form_validation->set_rules('title', 'Title', 'required');
 		$this->form_validation->set_rules('text', 'Text', 'required');
-		$this->form_validation->set_rules('lifetime', 'Životnost', 'required');
 		$this->form_validation->set_message('required', 'Povinne pole');
 
 

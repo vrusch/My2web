@@ -30,13 +30,6 @@
 			</div>
 
 			<div class="control-group">
-				<label class="control-label" for="lifetime"><?php echo ('platnost do'); ?></label>
-				<div class="controls">
-					<?php echo form_input(array('name' => 'lifetime', 'id' => 'lifetime'), $news_item['lifetime']); ?>
-				</div>
-			</div>
-
-			<div class="control-group">
 				<label class="control-label" for="title"><?php echo ('platnost do'); ?></label>
 				<div class="controls">
 					<?php echo form_input(array('name' => 'title', 'id' => 'title'), $news_item['title']); ?>
