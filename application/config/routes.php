@@ -45,11 +45,12 @@ $route['news/update/(:any)'] 	= 'news/update/$1';
 $route['news/(:any)'] 			= 'news/view/$1';
 $route['images'] 				= 'img';
 $route['upload_image'] 			= 'img/upload';
-$route['manage_slogan'] 		= 'manage/slogan';
 $route['manage_companies'] 		= 'manage/companies';
-$route['manage_course'] 		= 'manage/courses';
-$route['manage_lecture'] 		= 'manage/lectures';
-$route['manage_assignment'] 	= 'manage/assignment';
+$route['manage_homepage'] 		= 'manage/manage_home';
+$route['manage_colors'] 		= 'manage/manage_colorschema';
+$route['manage_course'] 			= 'manage/courses';
+$route['manage_lecture'] 			= 'manage/lectures';
+$route['manage_assignment'] 		= 'manage/assignment';
 $route['404_override'] 			= '';
 
 

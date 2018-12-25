@@ -62,7 +62,7 @@
 									$check = 'checked';
 								}
 								echo form_checkbox('active', 'active', $check );
-								?><span class="checkmark"></span>
+								?>
 							</label>
 						</td>
 						<td>
@@ -73,7 +73,7 @@
 									$check = 'checked';
 								}
 								echo form_checkbox('active', 'active', $check );
-								?><span class="checkmark"></span>
+								?>
 							</label>
 						</td>
 						<td>

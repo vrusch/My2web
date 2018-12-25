@@ -15,7 +15,7 @@
 		</div>
 
 		<div class="span10">
-
+			<?php $count = count($files); ?>
 			<table style="width: 100%">
 				<tr>
 					<td style="width: 85%"><h2><?php echo ('Nahrávaní obrázků'); ?></h2></td>
@@ -41,18 +41,24 @@
 				</tr>
 				</thead>
 				<tbody>
+				<?php foreach( $files as $files_item ) : ?>
+					<?php if (strpos($files_item['name'],'.') !== false) : ?>
+					<?php if ($files_item['name'] != 'index.html') : ?>
 					<tr>
 						<td>
-							<?php echo ''; ?>
+							<?php echo $files_item['relative_path']; ?>
 						</td>
 						<td>
-							<?php echo ''; ?>
+							<?php echo $files_item['name']; ?>
 						</td>
 						<td>
-							<?php echo ''; ?>
+							<?php
+							$userfile_extn = substr($files_item['name'], strrpos($files_item['name'], '.')+1);
+							echo $userfile_extn;
+							?>
 						</td>
 						<td>
-							<?php echo ''; ?>
+							<?php echo $files_item['date']; ?>
 						</td>
 						<td>
 							<?php echo anchor('img/manipulate', ('manipulace'), 'class="btn btn-small"'); ?>
@@ -61,6 +67,9 @@
 							<?php echo anchor('img/delete', ('smazat'), 'class="btn btn-small"'); ?>
 						</td>
 					</tr>
+						<?php endif; ?>
+					<?php endif; ?>
+				<?php endforeach; ?>
 				</tbody>
 			</table>
 

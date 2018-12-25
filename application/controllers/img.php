@@ -6,18 +6,15 @@ class img extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->helper(array('language', 'url', 'form', 'account/ssl', 'url_helper', 'form'));
+		$this->load->helper(array('language', 'url', 'form', 'account/ssl', 'url_helper', 'file'));
 		$this->load->library(array('account/authentication', 'account/authorization', 'form_validation'));
-		$this->load->model(array('account/account_model', 'news_model'));
+		$this->load->model(array('account/account_model'));
 	}
 
 	public function index()
 	{
 		maintain_ssl();
-
-		if ($this->authentication->is_signed_in()) {
-			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
-		}
+		$data['files'] = get_dir_file_info('./resource/img',TRUE,FALSE);
 		$this->load->view('adm/images', isset($data) ? $data : NULL);
 	}
 
@@ -50,7 +47,7 @@ class img extends CI_Controller
 		if ($this->authentication->is_signed_in()) {
 			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
 		}
-		$this->load->view('adm/upload_images', isset($data) ? $data : NULL);
+		//$this->load->view('adm/upload_images', isset($data) ? $data : NULL);
 		echo 'delete';
 	}
 }

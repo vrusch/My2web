@@ -9,6 +9,7 @@
 
 <div class="container">
 	<div class="row">
+		<?php $count = count($companies); ?>
 
 		<div class="span2">
 			<?php echo $this->load->view('account/admin_panel', array('current' => 'manage_companies')); ?>
@@ -33,31 +34,38 @@
 				<tr>
 					<th>#</th>
 					<th><?php echo ('Název'); ?></th>
-					<th><?php echo ('Datum platnosti do'); ?></th>
-					<th><?php echo ('oddělení/divize'); ?></th>
+					<th><?php echo ('divize'); ?></th>
+					<th><?php echo ('oddělení'); ?></th>
+					<th><?php echo ('Datum'); ?></th>
 					<th>
-						<?php echo anchor('news/create',lang('website_create'),'class="btn btn-primary btn-small"'); ?>
+						<?php echo anchor('manage/add_companies',lang('website_create'),'class="btn btn-primary btn-small"'); ?>
 					</th>
 				</tr>
 				</thead>
 				<tbody>
+				<?php foreach( $companies as $companies_item ) : ?>
 				<tr>
 					<td>
-						<?php echo ''; ?>
+						<?php echo $companies_item['id']; ?>
 					</td>
 					<td>
-						<?php echo ''; ?>
+						<?php echo $companies_item['name']; ?>
 					</td>
 					<td>
-						<?php echo ''; ?>
+						<?php echo $companies_item['division']; ?>
 					</td>
 					<td>
-						<?php echo ''; ?>
+						<?php echo $companies_item['department']; ?>
 					</td>
 					<td>
-						<?php echo anchor('news/', lang('website_update'), 'class="btn btn-small"'); ?>
+						<?php echo $companies_item['date_publish']; ?>
+					</td>
+					<td>
+						<?php echo anchor('news/', ('website_update'), 'class="btn btn-small"'); ?>
+						<?php echo anchor('news/', ('website_delete'), 'class="btn btn-small"'); ?>
 					</td>
 				</tr>
+				<?php endforeach; ?>
 				</tbody>
 			</table>
 

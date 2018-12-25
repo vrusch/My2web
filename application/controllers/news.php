@@ -5,7 +5,7 @@ class news extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->helper(array('language', 'url', 'form', 'account/ssl', 'url_helper', 'form'));
+		$this->load->helper(array('language', 'url', 'form', 'account/ssl', 'url_helper'));
 		$this->load->library(array('account/authentication', 'account/authorization', 'form_validation'));
 		$this->load->model(array('account/account_model', 'news_model'));
 	}
@@ -52,9 +52,9 @@ class news extends CI_Controller {
 			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
 		}
 
-		$this->form_validation->set_rules('title', 'Title', 'required');
-		$this->form_validation->set_rules('text', 'Text', 'required');
-		$this->form_validation->set_message('required', 'Povinne pole');
+		//$this->form_validation->set_rules('title', 'Title', 'required');
+		//$this->form_validation->set_rules('text', 'Text', 'required');
+		//$this->form_validation->set_message('required', 'Povinne pole');
 
 
 		if ($this->form_validation->run() === FALSE)
