@@ -64,7 +64,7 @@
 							<?php echo anchor('img/manipulate', ('manipulace'), 'class="btn btn-small"'); ?>
 						</td>
 						<td>
-							<?php echo anchor('img/delete', ('smazat'), 'class="btn btn-small"'); ?>
+							<?php echo anchor('img/delete', ('smazat'), 'class="btn btn-danger btn-small"'); ?>
 						</td>
 					</tr>
 						<?php endif; ?>

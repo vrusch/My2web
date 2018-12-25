@@ -61,8 +61,8 @@
 						<?php echo $companies_item['date_publish']; ?>
 					</td>
 					<td>
-						<?php echo anchor('news/', ('website_update'), 'class="btn btn-small"'); ?>
-						<?php echo anchor('news/', ('website_delete'), 'class="btn btn-small"'); ?>
+						<?php echo anchor('news/', 'Edit', 'class="btn btn-small"'); ?>
+						<?php echo anchor('news/', 'Smazat', 'class="btn btn-danger btn-small"'); ?>
 					</td>
 				</tr>
 				<?php endforeach; ?>

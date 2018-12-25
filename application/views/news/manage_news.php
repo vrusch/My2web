@@ -77,10 +77,10 @@
 							</label>
 						</td>
 						<td>
-							<?php echo anchor('news/update/'.$news_item['slug'], ('Edit'), 'class="label label-info"'); ?>
+							<?php echo anchor('news/update/'.$news_item['slug'], ('Edit'), 'class="btn btn-small"'); ?>
 						</td>
 						<td>
-							<?php echo anchor('news/delete'.$news_item['slug'], ('Smazat'), 'class="label label-danger"'); ?>
+							<?php echo anchor('news/delete'.$news_item['slug'], ('Smazat'), 'class="btn btn-danger btn-small"'); ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>

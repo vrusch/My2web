@@ -28,17 +28,28 @@
 			<div class="well">
 				<?php echo ('Tato stánka dovoluje managment Color scheme.'); ?>
 			</div>
+			<table style="width: 100%">
+				<tr>
+					<td style="width: 80%"></td>
+					<td>
+						<?php echo anchor('news/create',('Nová'),'class="btn btn-primary btn-small"'); ?>
+					</td>
+					<td>
+						<?php echo anchor('news/create',('Preview'),'class="btn btn-primary btn-small"'); ?>
+					</td>
+				</tr>
+			</table><br>
 
 			<table class="table table-bordered table-hover" style="width: 100%; border: 2px solid #2e81ff">
 				<tbody>
 				<tr>
 					<td style="width: 20%; border: 1px solid #2e81ff">
-						<?php echo 'theme #1'; ?>
+						<?php echo 'theme #1'; ?><br>
+						<?php echo '[DEFAULT]'; ?>
 					</td>
 					<td style="border: 1px solid #2e81ff"></td>
 					<td style="width: 10%; border: 1px solid #2e81ff">
-						<?php echo anchor('news/update/', ' Edit ', 'class="label label-success"'); ?>
-						<?php echo anchor('news/delete', 'Smazat', 'class="label label-warning"'); ?>
+
 					</td>
 				</tr>
 				<tr>
@@ -47,8 +58,7 @@
 					</td>
 					<td style="border: 1px solid #2e81ff"></td>
 					<td style="border: 1px solid #2e81ff">
-						<?php echo anchor('news/update/', ' Edit ', 'class="label label-success"'); ?>
-						<?php echo anchor('news/delete', 'Smazat', 'class="label label-warning"'); ?>
+						<?php echo anchor('news/update/', 'Nahradit', 'class="label label-info"'); ?>
 					</td>
 				</tr>
 				<tr>
@@ -59,8 +69,7 @@
 
 					</td>
 					<td style="border: 1px solid #2e81ff">
-						<?php echo anchor('news/update/', ' Edit ', 'class="label label-success"'); ?>
-						<?php echo anchor('news/delete', 'Smazat', 'class="label label-warning"'); ?>
+						<?php echo anchor('news/update/', 'Nahradit', 'class="label label-info"'); ?>
 					</td>
 				</tr>
 				<tr>
@@ -69,8 +78,7 @@
 					</td>
 					<td style="border: 1px solid #2e81ff"></td>
 					<td style="border: 1px solid #2e81ff">
-						<?php echo anchor('news/update/', ' Edit ', 'class="label label-success"'); ?>
-						<?php echo anchor('news/delete', 'Smazat', 'class="label label-warning"'); ?>
+						<?php echo anchor('news/update/', 'Nahradit', 'class="label label-info"'); ?>
 					</td>
 				</tr>
 				</tbody>
