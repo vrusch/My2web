@@ -38,7 +38,7 @@
 					<th><?php echo ('oddělení'); ?></th>
 					<th><?php echo ('Poznamka'); ?></th>
 					<th>
-						<?php echo anchor('manage/add_companies',lang('website_create'),'class="btn btn-primary btn-small"'); ?>
+						<?php echo anchor('companies/add_companies',lang('website_create'),'class="btn btn-primary btn-small"'); ?>
 					</th>
 				</tr>
 				</thead>
@@ -61,9 +61,9 @@
 						<?php echo $companies_item['notes']; ?>
 					</td>
 					<td>
-						<?php echo anchor('news/', 'Edit', 'class="btn btn-small"'); ?>
-						<?php echo anchor('news/', 'Pridat Zaky', 'class="btn btn-info btn-small"'); ?>
-						<?php echo anchor('news/', 'Smazat', 'class="btn btn-danger btn-small"'); ?>
+						<?php echo anchor('companies/edit', 'Edit', 'class="btn btn-small"'); ?>
+						<?php echo anchor('classroom/add_students', 'Pridat Zaky', 'class="btn btn-info btn-small"'); ?>
+						<?php echo anchor('companies/delete', 'Smazat', 'class="btn btn-danger btn-small"'); ?>
 					</td>
 				</tr>
 				<?php endforeach; ?>

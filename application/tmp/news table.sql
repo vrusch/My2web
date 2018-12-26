@@ -4,6 +4,8 @@ CREATE TABLE 4m2w_news (
         slug varchar(128) NOT NULL,
         text text NOT NULL,
         date_publish timestamp NOT NULL,
+        active 
+        highlight
         PRIMARY KEY (id),
         KEY slug (slug)
 );

@@ -42,9 +42,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'my2web';
-$db['default']['password'] = 'omm3HlpXrTfMKMYO';
-$db['default']['database'] = 'my2web';
+$db['default']['username'] = '4my2web';
+$db['default']['password'] = '59EVs30Pf0bTwnlJ';
+$db['default']['database'] = '4my2web';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = FALSE;

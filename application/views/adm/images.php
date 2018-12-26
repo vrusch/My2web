@@ -11,7 +11,7 @@
 	<div class="row">
 
 		<div class="span2">
-			<?php echo $this->load->view('account/admin_panel', array('current' => 'upload_images')); ?>
+			<?php echo $this->load->view('account/admin_panel', array('current' => 'images')); ?>
 		</div>
 
 		<div class="span10">

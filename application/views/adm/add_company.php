@@ -21,7 +21,7 @@
 
 			<?php echo validation_errors(); ?>
 
-			<?php echo form_open('manage/add_companies'); ?>
+			<?php echo form_open('companies/add_companies'); ?>
 
 			<label for="name">name</label>
 			<input type="input" name="name" /><br />
