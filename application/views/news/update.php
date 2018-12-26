@@ -19,8 +19,15 @@
 				<?php echo ("editovani novinek"); ?>
 			</div>
 
-			<?php echo form_open('news/update/up', 'class="form-horizontal"'); ?>
+			<?php echo form_open('news/update/'.$news_item['id'], 'class="form-horizontal"'); ?>
 			<?php echo validation_errors(); ?>
+
+			<div class="control-group">
+				<label class="control-label" for="id"><?php echo ('Datum vydani'); ?></label>
+				<div class="controls">
+					<?php echo form_input(array('name' => 'id', 'id' => 'id'), $news_item['id']); ?>
+				</div>
+			</div>
 
 			<div class="control-group">
 				<label class="control-label" for="date_publish"><?php echo ('Datum vydani'); ?></label>
@@ -51,7 +58,7 @@
 			</div>
 
 			<?php echo form_close(); ?>
-
+			<?php echo $news_item['id']; ?>
 		</div>
 
 	</div>

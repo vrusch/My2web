@@ -7,8 +7,8 @@
 <meta name="author" content="">
 
 <base href="<?php echo base_url(); ?>"/>
-
 <link rel="shortcut icon" href="<?php echo base_url(); ?>favicon.ico"/>
+
 <link type="text/css" rel="stylesheet" href="<?php echo base_url().RES_DIR; ?>/bootstrap/css/bootstrap.min.css"/>
 <link type="text/css" rel="stylesheet" href="<?php echo base_url().RES_DIR; ?>/css/style.css"/>
 
@@ -24,9 +24,6 @@
 	textarea {
 		width: 400px;
 	}
-
-
-
 </style>
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->

@@ -48,7 +48,7 @@ class news_model extends CI_Model
 			return $query->result_array();
 		}
 
-		$query = $this->db->delete('4m2w_news', array('slug' => $slug));
+		$this->db->delete('4m2w_news', array('slug' => $slug));
 	}
 
 	public function update_news()
@@ -58,6 +58,7 @@ class news_model extends CI_Model
 		$slug = url_title($this->input->post('title'), 'dash', TRUE);
 
 		$data = array(
+			'id' => $this->input->post('id'),
 			'title' => $this->input->post('title'),
 			'slug' => $slug,
 			'text' => $this->input->post('text'),

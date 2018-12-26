@@ -58,7 +58,7 @@
 					</td>
 					<td style="border: 1px solid #2e81ff"></td>
 					<td style="border: 1px solid #2e81ff">
-						<?php echo anchor('news/update/', 'Nahradit', 'class="label label-info"'); ?>
+						<?php echo anchor('news/update/', 'Nahradit', 'class="btn btn-small"'); ?>
 					</td>
 				</tr>
 				<tr>
@@ -69,7 +69,7 @@
 
 					</td>
 					<td style="border: 1px solid #2e81ff">
-						<?php echo anchor('news/update/', 'Nahradit', 'class="label label-info"'); ?>
+						<?php echo anchor('news/update/', 'Nahradit', 'class="btn btn-small"'); ?>
 					</td>
 				</tr>
 				<tr>
@@ -78,7 +78,7 @@
 					</td>
 					<td style="border: 1px solid #2e81ff"></td>
 					<td style="border: 1px solid #2e81ff">
-						<?php echo anchor('news/update/', 'Nahradit', 'class="label label-info"'); ?>
+						<?php echo anchor('news/update/', 'Nahradit', 'class="btn btn-small"'); ?>
 					</td>
 				</tr>
 				</tbody>

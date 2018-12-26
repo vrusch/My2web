@@ -22,24 +22,26 @@ class news extends CI_Controller
 		$this->load->view('news/manage_news', isset($data) ? $data : NULL);
 	}
 
-	public function update($slug = '')
+	public function update($id = '')
 	{
-		if ($slug === 'up') {
+		if ($id != '') {
 
 			$this->form_validation->set_rules('title', 'Title', 'required');
 			$this->form_validation->set_rules('text', 'Text', 'required');
 			$this->form_validation->set_message('required', 'Povinne pole');
 
 			if ($this->form_validation->run() === FALSE) {
-				$this->load->view('news/update', isset($data) ? $data : NULL);
+				//$this->load->view('news/update', isset($data) ? $data : NULL);
+				echo 'validation failed';
 			} else {
-				$data['news'] = $this->news_model->update_news();
-				$data['news'] = $this->news_model->get_news();
-				$this->load->view('news/manage_news', isset($data) ? $data : NULL);
+				//$data['news'] = $this->news_model->update_news();
+				//$data['news'] = $this->news_model->get_news();
+				//$this->load->view('news/manage_news', isset($data) ? $data : NULL);
+				echo 'hledam update';
 			}
 
 		}
-		$data['news_item'] = $this->news_model->get_news($slug);
+		$data['news_item'] = $this->news_model->get_news($id);
 		$this->load->view('news/update', $data);
 	}
 

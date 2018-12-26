@@ -41,12 +41,10 @@
 							<tr>
 								<th>#</th>
 								<th><?php echo ('Název'); ?></th>
-								<th><?php echo ('Poznamka'); ?></th>
-								<th></th>
+								<th><?php echo ('tema'); ?></th>
 								<th></th>
 								<th>
 									<?php echo anchor('news/create','Novy','class="btn btn-primary btn-small"'); ?>
-									<?php echo anchor('news/create','Preview','class="btn btn-primary btn-small"'); ?>
 								</th>
 							</tr>
 							</thead>
@@ -64,9 +62,8 @@
 								<td>
 									<?php echo ''; ?>
 								</td>
-								<td></td>
 								<td>
-									<?php echo anchor('news/', 'Edit', 'class="btn btn-small"'); ?>
+									<?php echo anchor('news/', 'vybrat otazky', 'class="btn btn-small"'); ?>
 								</td>
 							</tr>
 							</tbody>
@@ -76,6 +73,38 @@
 
 					<div id="otazky" class="tab-pane fade">
 						<h3>Otazky</h3>
+						<table class="table table-condensed table-hover">
+							<thead>
+							<tr>
+								<th>#</th>
+								<th><?php echo ('Otazka'); ?></th>
+								<th><?php echo ('tema'); ?></th>
+								<th><?php echo ('Kurzy'); ?></th>
+								<th>
+									<?php echo anchor('news/create','Nova','class="btn btn-primary btn-small"'); ?>
+								</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>
+									<?php echo ''; ?>
+								</td>
+								<td>
+									<?php echo ''; ?>
+								</td>
+								<td>
+									<?php echo ''; ?>
+								</td>
+								<td>
+									<?php echo ''; ?>
+								</td>
+								<td>
+									<?php echo anchor('news/', 'priradit do kurzu', 'class="btn btn-small"'); ?>
+								</td>
+							</tr>
+							</tbody>
+						</table>
 
 					</div>
 

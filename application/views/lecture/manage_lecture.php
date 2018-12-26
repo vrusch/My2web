@@ -33,8 +33,9 @@
 				<tr>
 					<th>#</th>
 					<th><?php echo ('Název'); ?></th>
-					<th><?php echo ('Datum vydaní'); ?></th>
-					<th><?php echo ('Datum platnosti'); ?></th>
+					<th><?php echo ('tema'); ?></th>
+					<th><?php echo ('kurzy'); ?></th>
+					<th><?php echo ('Nahled'); ?></th>
 					<th>
 						<?php echo anchor('news/create',lang('website_create'),'class="btn btn-primary btn-small"'); ?>
 					</th>
@@ -55,7 +56,11 @@
 						<?php echo ''; ?>
 					</td>
 					<td>
-						<?php echo anchor('news/', lang('website_update'), 'class="btn btn-small"'); ?>
+						<?php echo ''; ?>
+					</td>
+					<td>
+						<?php echo anchor('news/', 'edit', 'class="btn btn-small"'); ?>
+						<?php echo anchor('news/', 'priradit do kurzu', 'class="btn btn-small"'); ?>
 					</td>
 				</tr>
 				</tbody>
