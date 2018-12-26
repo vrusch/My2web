@@ -39,7 +39,7 @@
 			<div class="control-group">
 				<label class="control-label" for="text">Text</label>
 				<div class="controls">
-					<?php echo form_textarea(); ?>
+					<?php echo form_textarea(array('name' => 'text', 'id' => 'text')); ?>
 				</div>
 			</div>
 

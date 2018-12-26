@@ -32,8 +32,8 @@
 			<label for="department">department</label>
 			<input type="input" name="department" /><br />
 
-			<label for="date_publish">date_publish</label>
-			<input type="input" name="date_publish" /><br />
+			<label for="notes">date_publish</label>
+			<input type="input" name="notes" /><br />
 
 
 			<input type="submit" name="submit" value="Create" />

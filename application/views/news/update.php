@@ -19,7 +19,7 @@
 				<?php echo ("editovani novinek"); ?>
 			</div>
 
-			<?php echo form_open('news/update', 'class="form-horizontal"'); ?>
+			<?php echo form_open('news/update/up', 'class="form-horizontal"'); ?>
 			<?php echo validation_errors(); ?>
 
 			<div class="control-group">
@@ -30,7 +30,7 @@
 			</div>
 
 			<div class="control-group">
-				<label class="control-label" for="title"><?php echo ('platnost do'); ?></label>
+				<label class="control-label" for="title"><?php echo ('title'); ?></label>
 				<div class="controls">
 					<?php echo form_input(array('name' => 'title', 'id' => 'title'), $news_item['title']); ?>
 				</div>

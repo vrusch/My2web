@@ -22,27 +22,29 @@ class news extends CI_Controller {
 		$this->load->view('news/manage_news', isset($data) ? $data : NULL);
 	}
 
-	public function update($slug = NULL)
+	public function update($slug = '')
 	{
-		$data['news_item'] = $this->news_model->get_news($slug);
-		if (empty($data['news_item']))
+		if ($slug === 'up')
 		{
-			show_404();
-		}
-		$data['title'] = $data['news_item']['title'];
-		$this->load->view('news/update', $data);
-	}
+			$this->form_validation->set_rules('title', 'Title', 'required');
+			$this->form_validation->set_rules('text', 'Text', 'required');
+			$this->form_validation->set_message('required', 'Povinne pole');
 
-	public function view($slug = NULL)
-	{
-		maintain_ssl();
-		$data['news_item'] = $this->news_model->get_news($slug);
-		if (empty($data['news_item']))
-		{
-			show_404();
+			if ($this->form_validation->run() === FALSE)
+			{
+				echo 'neco je blbe';
+				//$this->load->view('news/neco je blbe', isset($data) ? $data : NULL);
+			}
+			else
+			{
+				//$data['news'] = $this->news_model->update_news();
+				//$data['news'] = $this->news_model->get_news();
+				echo 'hledam update';
+			}
+
 		}
-		$data['title'] = $data['news_item']['title'];
-		$this->load->view('news/view', $data);
+		$data['news_item'] = $this->news_model->get_news($slug);
+		$this->load->view('news/update', $data);
 	}
 
 	public function create()
@@ -52,9 +54,9 @@ class news extends CI_Controller {
 			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
 		}
 
-		//$this->form_validation->set_rules('title', 'Title', 'required');
-		//$this->form_validation->set_rules('text', 'Text', 'required');
-		//$this->form_validation->set_message('required', 'Povinne pole');
+		$this->form_validation->set_rules('title', 'Title', 'required');
+		$this->form_validation->set_rules('text', 'Text', 'required');
+		$this->form_validation->set_message('required', 'Povinne pole');
 
 
 		if ($this->form_validation->run() === FALSE)
@@ -64,7 +66,20 @@ class news extends CI_Controller {
 		else
 		{
 			$this->news_model->set_news();
-			$this->load->view('news/success', isset($data) ? $data : NULL);
+			$data['news'] = $this->news_model->get_news();
+			$this->load->view('news/manage_news', isset($data) ? $data : NULL);
 		}
+	}
+
+	public function delete()
+	{
+		maintain_ssl();
+		if ($this->authentication->is_signed_in())
+		{
+			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
+		}
+		//doplnit delete
+		$data['news'] = $this->news_model->get_news();
+		$this->load->view('news/manage_news', isset($data) ? $data : NULL);
 	}
 }

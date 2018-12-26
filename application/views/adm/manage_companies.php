@@ -36,7 +36,7 @@
 					<th><?php echo ('Název'); ?></th>
 					<th><?php echo ('divize'); ?></th>
 					<th><?php echo ('oddělení'); ?></th>
-					<th><?php echo ('Datum'); ?></th>
+					<th><?php echo ('Poznamka'); ?></th>
 					<th>
 						<?php echo anchor('manage/add_companies',lang('website_create'),'class="btn btn-primary btn-small"'); ?>
 					</th>
@@ -58,10 +58,11 @@
 						<?php echo $companies_item['department']; ?>
 					</td>
 					<td>
-						<?php echo $companies_item['date_publish']; ?>
+						<?php echo $companies_item['notes']; ?>
 					</td>
 					<td>
 						<?php echo anchor('news/', 'Edit', 'class="btn btn-small"'); ?>
+						<?php echo anchor('news/', 'Pridat Zaky', 'class="btn btn-info btn-small"'); ?>
 						<?php echo anchor('news/', 'Smazat', 'class="btn btn-danger btn-small"'); ?>
 					</td>
 				</tr>

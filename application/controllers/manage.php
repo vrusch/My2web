@@ -25,10 +25,6 @@ class manage extends CI_Controller
 		maintain_ssl();
 
 		$this->form_validation->set_rules('name', 'name', 'required');
-		//$this->form_validation->set_rules('division', 'division', 'required');
-		//$this->form_validation->set_rules('department', 'department', 'required');
-		$this->form_validation->set_rules('date_publish', 'date_publish', 'required');
-
 
 
 		if ($this->form_validation->run() === FALSE)
@@ -38,6 +34,7 @@ class manage extends CI_Controller
 		else
 		{
 			$this->companies_model->set_companies();
+			$data['companies'] = $this->companies_model->get_companies();
 			$this->load->view('adm/manage_companies', isset($data) ? $data : NULL);
 		}
 	}
@@ -55,14 +52,6 @@ class manage extends CI_Controller
 		//$data['homepage'] = $this->homepage_model->get_homepage();
 		$this->load->view('adm/manage_cschema', isset($data) ? $data : NULL);
 	}
-
-
-
-
-
-
-
-
 
 	public function courses()
 	{

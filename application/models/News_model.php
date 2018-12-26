@@ -16,11 +16,11 @@ class news_model extends CI_Model {
 	{
 		if ($slug === FALSE)
 		{
-			$query = $this->db->order_by('date_publish', 'DESC')->get('news');
+			$query = $this->db->order_by('date_publish', 'DESC')->get('4m2w_news');
 			return $query->result_array();
 		}
 
-		$query = $this->db->get_where('news', array('slug' => $slug));
+		$query = $this->db->get_where('4m2w_news', array('slug' => $slug));
 		return $query->row_array();
 	}
 
@@ -37,6 +37,6 @@ class news_model extends CI_Model {
 			'date_publish' => $this->input->post('date_publish')
 		);
 
-		return $this->db->insert('news', $data);
+		return $this->db->insert('4m2w_news', $data);
 	}
 }
