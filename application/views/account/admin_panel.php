@@ -12,7 +12,7 @@
 		<?php endif; ?>
 			<li class="nav-header">Site Admin Panel</li>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'images') ? 'active' : ''; ?>"><?php echo anchor('images', ('Nahrávaní obrázkú')); ?></li>
+			<li class="<?php echo ($current == 'manage_images') ? 'active' : ''; ?>"><?php echo anchor('m_images', ('Nahrávaní obrázkú')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
 			<li class="<?php echo ($current == 'manage_homepage') ? 'active' : ''; ?>"><?php echo anchor('manage_homepage', ('Nastaveni HomePage')); ?></li>

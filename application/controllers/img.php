@@ -15,7 +15,7 @@ class img extends CI_Controller
 	{
 		maintain_ssl();
 		$data['files'] = get_dir_file_info('./resource/img',TRUE,FALSE);
-		$this->load->view('adm/images', isset($data) ? $data : NULL);
+		$this->load->view('adm/manage_images', isset($data) ? $data : NULL);
 	}
 
 	public function upload()
@@ -25,8 +25,7 @@ class img extends CI_Controller
 		if ($this->authentication->is_signed_in()) {
 			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
 		}
-		//$this->load->view('adm/upload_images', isset($data) ? $data : NULL);
-		echo 'upload';
+		$this->load->view('adm/upload_images', isset($data) ? $data : NULL);
 	}
 
 	public function manipulate()

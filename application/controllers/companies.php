@@ -20,11 +20,15 @@ class companies extends CI_Controller
 		$this->load->view('adm/manage_companies', isset($data) ? $data : NULL);
 	}
 
-	public function add_companies()
+	public function create()
 	{
 		maintain_ssl();
+		if ($this->authentication->is_signed_in()) {
+			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
+		}
 
 		$this->form_validation->set_rules('name', 'name', 'required');
+		$this->form_validation->set_message('required', 'Povinne pole');
 
 
 		if ($this->form_validation->run() === FALSE) {
@@ -33,6 +37,36 @@ class companies extends CI_Controller
 			$this->companies_model->set_companies();
 			$data['companies'] = $this->companies_model->get_companies();
 			$this->load->view('adm/manage_companies', isset($data) ? $data : NULL);
+		}
+	}
+
+	public function delete($id = NULL)
+	{
+		maintain_ssl();
+		if ($this->authentication->is_signed_in()) {
+			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
+		}
+
+		$this->companies_model->delete_company($id);
+		$data['companies'] = $this->companies_model->get_companies();
+		$this->load->view('adm/manage_companies', isset($data) ? $data : NULL);
+	}
+
+	public function update($id = NULL)
+	{
+		if ($id != '') {
+
+			$this->form_validation->set_rules('name', 'name', 'required');
+			$this->form_validation->set_message('required', 'Povinne pole');
+
+			if ($this->form_validation->run() === FALSE) {
+				$data['companies_item'] = $this->companies_model->get_companies($id);
+				$this->load->view('adm/edit_company', $data);
+			} else {
+				$this->companies_model->update_company();
+				$data['companies'] = $this->companies_model->get_companies();
+				$this->load->view('adm/manage_companies', isset($data) ? $data : NULL);
+			}
 		}
 	}
 }

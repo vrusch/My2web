@@ -11,7 +11,7 @@
 	<div class="row">
 
 		<div class="span2">
-			<?php echo $this->load->view('account/admin_panel', array('current' => 'images')); ?>
+			<?php echo $this->load->view('account/admin_panel', array('current' => 'manage_images')); ?>
 		</div>
 
 		<div class="span10">
@@ -36,7 +36,7 @@
 					<th><?php echo ('typ'); ?></th>
 					<th><?php echo ('Datum'); ?></th>
 					<th>
-						<?php echo anchor('upload_image',('pridat'),'class="btn btn-primary btn-small"'); ?>
+						<?php echo anchor('u_image',('pridat'),'class="btn btn-primary btn-small"'); ?>
 					</th>
 				</tr>
 				</thead>

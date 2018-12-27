@@ -32,22 +32,18 @@
 			<table class="table table-condensed table-hover">
 				<thead>
 				<tr>
-					<th>#</th>
 					<th><?php echo ('Název'); ?></th>
-					<th><?php echo ('divize'); ?></th>
-					<th><?php echo ('oddělení'); ?></th>
+					<th><?php echo ('Divize'); ?></th>
+					<th><?php echo ('Oddělení'); ?></th>
 					<th><?php echo ('Poznamka'); ?></th>
 					<th>
-						<?php echo anchor('companies/add_companies',lang('website_create'),'class="btn btn-primary btn-small"'); ?>
+						<?php echo anchor('companies/create','Nova','class="btn btn-primary btn-small"'); ?>
 					</th>
 				</tr>
 				</thead>
 				<tbody>
 				<?php foreach( $companies as $companies_item ) : ?>
 				<tr>
-					<td>
-						<?php echo $companies_item['id']; ?>
-					</td>
 					<td>
 						<?php echo $companies_item['name']; ?>
 					</td>
@@ -61,9 +57,9 @@
 						<?php echo $companies_item['notes']; ?>
 					</td>
 					<td>
-						<?php echo anchor('companies/edit', 'Edit', 'class="btn btn-small"'); ?>
-						<?php echo anchor('classroom/add_students', 'Pridat Zaky', 'class="btn btn-small"'); ?>
-						<?php echo anchor('companies/delete', 'Smazat', 'class="btn btn-danger btn-small"'); ?>
+						<?php echo anchor('companies/update/' . $companies_item['id'], 'Edit', 'class="btn btn-small"'); ?>
+						<?php echo anchor('assigment/add_students/' . $companies_item['id'], 'Pridat Zaky', 'class="btn btn-small"'); ?>
+						<?php echo anchor('companies/delete/' . $companies_item['id'], 'Smazat', 'class="btn btn-danger btn-small"'); ?>
 					</td>
 				</tr>
 				<?php endforeach; ?>

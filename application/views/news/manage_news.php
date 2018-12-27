@@ -32,7 +32,6 @@
 			<table class="table table-condensed table-hover">
 				<thead>
 				<tr>
-					<th>#</th>
 					<th><?php echo ('Nadpis'); ?></th>
 					<th><?php echo ('Datum vydani'); ?></th>
 					<th><?php echo ('Ativni'); ?></th>
@@ -46,7 +45,6 @@
 				<tbody>
 				<?php foreach( $news as $news_item ) : ?>
 					<tr>
-						<td><?php echo $news_item['id']; ?></td>
 						<td>
 							<?php echo $news_item['title']; ?>
 						</td>
