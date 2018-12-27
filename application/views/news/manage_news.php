@@ -55,24 +55,24 @@
 						</td>
 
 						<td>
-							<label class="cont">
+							<label class="controls">
 								<?php
 								$check = '';
 								if ($news_item['active'] === '1'){
 									$check = 'checked';
 								}
-								echo form_checkbox('active', 'active', $check );
+								echo form_checkbox('active', 'active', $check, 'readonly' );
 								?>
 							</label>
 						</td>
 						<td>
-							<label class="cont">
+							<label class="controls">
 								<?php
 								$check = '';
 								if ($news_item['highlight'] === '1'){
 									$check = 'checked';
 								}
-								echo form_checkbox('active', 'active', $check );
+								echo form_checkbox('highlight', 'highlight', $check, 'readonly' );
 								?>
 							</label>
 						</td>

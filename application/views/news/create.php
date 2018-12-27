@@ -25,7 +25,7 @@
 			<div class="control-group">
 				<label class="control-label" for="date_publish"><?php echo ('Datum vydani'); ?></label>
 				<div class="controls">
-					<?php echo form_input(array('name' => 'date_publish', 'id' => 'date_publish','' , 'maxlength' => 80)); ?>
+					<?php echo form_input(array('name' => 'date_publish', 'id' => 'date_publish'), date('Y-m-d'), 'readonly'); ?>
 				</div>
 			</div>
 

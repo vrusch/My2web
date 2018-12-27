@@ -15,7 +15,7 @@
 		</div>
 
 		<div class="span10">
-
+			<?php //$count = count($news); ?>
 			<table style="width: 100%">
 				<tr>
 					<td style="width: 85%"><h2><?php echo ('Managment přednášek'); ?></h2></td>

@@ -18,21 +18,46 @@
 			<div class="well">
 				<?php echo ("editovani novinek"); ?>
 			</div>
-
-			<?php echo form_open('news/update/'.$news_item['id'], 'class="form-horizontal"'); ?>
+			<?php $hidden = array ('id' => $news_item['id']); ?>
+			<?php echo form_open('news/update/'.$news_item['id'], 'class="form-horizontal"', $hidden); ?>
 			<?php echo validation_errors(); ?>
-
-			<div class="control-group">
-				<label class="control-label" for="id"><?php echo ('Datum vydani'); ?></label>
-				<div class="controls">
-					<?php echo form_input(array('name' => 'id', 'id' => 'id'), $news_item['id']); ?>
-				</div>
-			</div>
+			<table style="width: 40%">
+				<tr>
+					<td>
+						<div class="control-group">
+							<label class="control-label" for="active"><?php echo ('<strong>Aktivni?</strong>'); ?></label>
+							<div class="controls">
+								<?php
+								$check = '0';
+								if ($news_item['active'] === '1'){
+									$check = 'checked';
+								}
+								?>
+								<input type="checkbox" name="active" value="<?php echo set_value('active', TRUE); ?>" . <?php echo $check; ?> />
+							</div>
+						</div>
+					</td>
+					<td>
+						<div class="control-group">
+							<label class="control-label" for="highlight"><?php echo ('<strong>Zvyraznena?</strong>'); ?></label>
+							<div class="controls">
+								<?php
+								$check = '0';
+								if ($news_item['highlight'] === '1'){
+									$check = 'checked';
+								}
+								?>
+								<input type="checkbox" name="highlight" value="<?php echo set_value('highlight', TRUE); ?>" . <?php echo $check; ?> />
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
 
 			<div class="control-group">
 				<label class="control-label" for="date_publish"><?php echo ('Datum vydani'); ?></label>
 				<div class="controls">
-					<?php echo form_input(array('name' => 'date_publish', 'id' => 'date_publish'), $news_item['date_publish']); ?>
+					<?php echo form_input(array('name' => 'date_publish', 'id' => 'date_publish'), date('Y-m-d'), 'readonly'); ?>
 				</div>
 			</div>
 
@@ -58,13 +83,10 @@
 			</div>
 
 			<?php echo form_close(); ?>
-			<?php echo $news_item['id']; ?>
 		</div>
 
 	</div>
 </div>
-
-<?php //echo $this->load->view('footer_n'); ?>
 
 </body>
 </html>

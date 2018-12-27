@@ -15,7 +15,7 @@
 		</div>
 
 		<div class="span10">
-
+			<?php //$count = count($news); ?>
 			<table style="width: 100%">
 				<tr>
 					<td style="width: 85%"><h2><?php echo ('Managment Kurzů'); ?></h2></td>
@@ -42,6 +42,8 @@
 								<th>#</th>
 								<th><?php echo ('Název'); ?></th>
 								<th><?php echo ('tema'); ?></th>
+								<th><?php echo ('Prednasek'); ?></th>
+								<th><?php echo ('otazek'); ?></th>
 								<th></th>
 								<th>
 									<?php echo anchor('news/create','Novy','class="btn btn-primary btn-small"'); ?>

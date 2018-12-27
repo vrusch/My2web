@@ -62,11 +62,13 @@ class news_model extends CI_Model
 			'title' => $this->input->post('title'),
 			'slug' => $slug,
 			'text' => $this->input->post('text'),
+			'active' => $this->input->post('active'),
+			'highlight' => $this->input->post('highlight'),
 			'date_publish' => $this->input->post('date_publish')
 		);
 
-		//$this->db->set($data);
-		//$this->db->insert('4m2w_news');
-		$this->db->replace('4m2w_news', $data);
+		$this->db->set($data);
+		$this->db->where('id', $data['id']);
+		$this->db->update('4m2w_news');
 	}
 }

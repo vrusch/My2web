@@ -22,7 +22,7 @@ class news extends CI_Controller
 		$this->load->view('news/manage_news', isset($data) ? $data : NULL);
 	}
 
-	public function update($id = '')
+	public function update($id = NULL)
 	{
 		if ($id != '') {
 
@@ -31,18 +31,14 @@ class news extends CI_Controller
 			$this->form_validation->set_message('required', 'Povinne pole');
 
 			if ($this->form_validation->run() === FALSE) {
-				//$this->load->view('news/update', isset($data) ? $data : NULL);
-				echo 'validation failed';
+				$data['news_item'] = $this->news_model->get_news($id);
+				$this->load->view('news/update', $data);
 			} else {
-				//$data['news'] = $this->news_model->update_news();
-				//$data['news'] = $this->news_model->get_news();
-				//$this->load->view('news/manage_news', isset($data) ? $data : NULL);
-				echo 'hledam update';
+				$this->news_model->update_news();
+				$data['news'] = $this->news_model->get_news();
+				$this->load->view('news/manage_news', isset($data) ? $data : NULL);
 			}
-
 		}
-		$data['news_item'] = $this->news_model->get_news($id);
-		$this->load->view('news/update', $data);
 	}
 
 	public function create()

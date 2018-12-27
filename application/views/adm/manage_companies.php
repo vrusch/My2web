@@ -16,10 +16,10 @@
 		</div>
 
 		<div class="span10">
-			<?php //$count = count($n_compan); ?>
+			<?php $count = count($companies); ?>
 			<table style="width: 100%">
 				<tr>
-					<td style="width: 85%"><h2><?php echo ('Firmy'); ?></h2><span class="badge badge-info"><?php //echo $n_company; ?></span></td>
+					<td style="width: 85%"><h2><?php echo ('Firmy'); ?><span class="badge badge-info"><?php echo $count; ?></span></h2></td>
 					<td><a href="home_n"><buton class="btn btn-primary btn-small"><i></i>Back to Home page</buton></a></td>
 				</tr>
 			</table>
