@@ -47,7 +47,7 @@ class news extends CI_Controller
 			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
 		}
 
-		$this->form_validation->set_rules('title', 'Title', 'required');
+		$this->form_validation->set_rules('name', 'Title', 'required');
 		$this->form_validation->set_rules('text', 'Text', 'required');
 		$this->form_validation->set_message('required', 'Povinne pole');
 

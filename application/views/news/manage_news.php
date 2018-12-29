@@ -36,7 +36,7 @@
 					<th><?php echo ('Datum vydani'); ?></th>
 					<th><?php echo ('Ativni'); ?></th>
 					<th><?php echo ('Zvyraznena'); ?></th>
-					<th></th>
+					<th><?php echo ('Nahled popup'); ?></th>
 					<th>
 							<?php echo anchor('news/create',('Nová'),'class="btn btn-primary btn-small"'); ?>
 					</th>
@@ -73,6 +73,9 @@
 								echo form_checkbox('highlight', 'highlight', $check, 'readonly' );
 								?>
 							</label>
+						</td>
+						<td>
+							<p><a href="<?php echo site_url('news/'.$news_item['slug']); ?>">View article</a></p>
 						</td>
 						<td>
 							<?php echo anchor('news/update/'.$news_item['slug'], ('Edit'), 'class="btn btn-small"'); ?>

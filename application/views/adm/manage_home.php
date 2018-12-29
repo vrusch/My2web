@@ -40,97 +40,97 @@
 				</tr>
 			</table><br>
 
-			<table class="table table-bordered table-hover" style="width: 100%; border: 2px solid #2e81ff">
+			<table class="table table-bordered table-hover" style="width: 100%; border: 1px solid darkgray">
 				<tbody>
 					<tr>
-						<td style="width: 20%; border: 1px solid #2e81ff">
+						<td style="width: 20%; border: 1px solid darkgray">
 							<?php echo 'menu + banner'; ?>
 						</td>
-						<td style="border: 1px solid #2e81ff"></td>
-						<td style="width: 10%; border: 1px solid #2e81ff">
+						<td style="border: 1px solid darkgray"></td>
+						<td style="width: 10%; border: 1px solid darkgray">
 							<?php echo anchor('news/update/', 'Nahradit', 'class="btn btn-small"'); ?>
 							<?php echo anchor('news/delete', 'Odstranit', 'class="btn btn-small"'); ?>
 
 						</td>
 					</tr>
 					<tr>
-						<td style="border: 1px solid #2e81ff">
+						<td style="border: 1px solid darkgray">
 							<?php echo 'slogany'; ?>
 						</td>
-						<td style="border: 1px solid #2e81ff"></td>
-						<td style="border: 1px solid #2e81ff">
+						<td style="border: 1px solid darkgray"></td>
+						<td style="border: 1px solid darkgray">
 							<?php echo anchor('news/update/', 'Nahradit', 'class="btn btn-small"'); ?>
 							<?php echo anchor('news/delete', 'Odstranit', 'class="btn btn-small"'); ?>
 						</td>
 					</tr>
 					<tr>
-						<td style="border: 1px solid #2e81ff">
+						<td style="border: 1px solid darkgray">
 							<?php echo 'o nas'; ?>
 						</td>
-						<td style="border: 1px solid #2e81ff">
+						<td style="border: 1px solid darkgray">
 
 						</td>
-						<td style="border: 1px solid #2e81ff">
+						<td style="border: 1px solid darkgray">
 							<?php echo anchor('news/update/', 'Nahradit', 'class="btn btn-small"'); ?>
 							<?php echo anchor('news/delete', 'Odstranit', 'class="btn btn-small"'); ?>
 						</td>
 					</tr>
 					<tr>
-						<td style="border: 1px solid #2e81ff">
+						<td style="border: 1px solid darkgray">
 							<?php echo 'aktuality'; ?>
 						</td>
-						<td style="border: 1px solid #2e81ff"></td>
-						<td style="border: 1px solid #2e81ff">
+						<td style="border: 1px solid darkgray"></td>
+						<td style="border: 1px solid darkgray">
 							<?php echo anchor('news/update/', 'Nahradit', 'class="btn btn-small"'); ?>
 							<?php echo anchor('news/delete', 'Odstranit', 'class="btn btn-small"'); ?>
 						</td>
 					</tr>
 					<tr>
-						<td style="border: 1px solid #2e81ff">
+						<td style="border: 1px solid darkgray">
 							<?php echo 'sluzby'; ?>
 						</td>
-						<td style="border: 1px solid #2e81ff"></td>
-						<td style="border: 1px solid #2e81ff">
+						<td style="border: 1px solid darkgray"></td>
+						<td style="border: 1px solid darkgray">
 							<?php echo anchor('news/update/', 'Nahradit', 'class="btn btn-small"'); ?>
 							<?php echo anchor('news/delete', 'Odstranit', 'class="btn btn-small"'); ?>
 						</td>
 					</tr>
 					<tr>
-						<td style="border: 1px solid #2e81ff">
+						<td style="border: 1px solid darkgray">
 							<?php echo 'reference'; ?>
 						</td>
-						<td style="border: 1px solid #2e81ff"></td>
-						<td style="border: 1px solid #2e81ff">
+						<td style="border: 1px solid darkgray"></td>
+						<td style="border: 1px solid darkgray">
 							<?php echo anchor('news/update/', 'Nahradit', 'class="btn btn-small"'); ?>
 							<?php echo anchor('news/delete', 'Odstranit', 'class="btn btn-small"'); ?>
 						</td>
 					</tr>
 					<tr>
-						<td style="border: 1px solid #2e81ff">
+						<td style="border: 1px solid darkgray">
 							<?php echo 'reseni'; ?>
 						</td>
-						<td style="border: 1px solid #2e81ff"></td>
-						<td style="border: 1px solid #2e81ff">
+						<td style="border: 1px solid darkgray"></td>
+						<td style="border: 1px solid darkgray">
 							<?php echo anchor('news/update/', 'Nahradit', 'class="btn btn-small"'); ?>
 							<?php echo anchor('news/delete', 'Odstranit', 'class="btn btn-small"'); ?>
 						</td>
 					</tr>
 					<tr>
-						<td style="border: 1px solid #2e81ff">
+						<td style="border: 1px solid darkgray">
 							<?php echo 'skoleni'; ?>
 						</td>
-						<td style="border: 1px solid #2e81ff"></td>
-						<td style="border: 1px solid #2e81ff">
+						<td style="border: 1px solid darkgray"></td>
+						<td style="border: 1px solid darkgray">
 							<?php echo anchor('news/update/', 'Nahradit', 'class="btn btn-small"'); ?>
 							<?php echo anchor('news/delete', 'Odstranit', 'class="btn btn-small"'); ?>
 						</td>
 					</tr>
 					<tr>
-						<td style="border: 1px solid #2e81ff">
+						<td style="border: 1px solid darkgray">
 							<?php echo 'kontakty + footer'; ?>
 						</td>
-						<td style="border: 1px solid #2e81ff"></td>
-						<td style="border: 1px solid #2e81ff">
+						<td style="border: 1px solid darkgray"></td>
+						<td style="border: 1px solid darkgray">
 							<?php echo anchor('news/update/', 'Nahradit', 'class="btn btn-small"'); ?>
 							<?php echo anchor('news/delete', 'Odstranit', 'class="btn btn-small"'); ?>
 						</td>

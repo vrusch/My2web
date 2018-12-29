@@ -36,6 +36,7 @@
 					<th><?php echo ('Divize'); ?></th>
 					<th><?php echo ('Oddělení'); ?></th>
 					<th><?php echo ('Poznamka'); ?></th>
+					<th><?php echo ('zaku'); ?></th>
 					<th>
 						<?php echo anchor('companies/create','Nova','class="btn btn-primary btn-small"'); ?>
 					</th>
@@ -55,6 +56,9 @@
 					</td>
 					<td>
 						<?php echo $companies_item['notes']; ?>
+					</td>
+					<td>
+						<?php //echo $companies_item['notes']; ?>
 					</td>
 					<td>
 						<?php echo anchor('companies/update/' . $companies_item['id'], 'Edit', 'class="btn btn-small"'); ?>

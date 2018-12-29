@@ -35,7 +35,7 @@ $config['sign_out_view_enabled'] 		= FALSE;
 | Forgot Password
 |--------------------------------------------------------------------------
 */
-$config['forgot_password_recaptcha_enabled'] 		= TRUE;
+$config['forgot_password_recaptcha_enabled'] 		= FALSE;
 
 /*
 |--------------------------------------------------------------------------

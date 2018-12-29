@@ -32,7 +32,7 @@
 				<tr>
 					<td style="width: 80%"></td>
 					<td>
-						<?php echo anchor('news/create',('Nová'),'class="btn btn-primary btn-small"'); ?>
+
 					</td>
 					<td>
 						<?php echo anchor('news/create',('Preview'),'class="btn btn-primary btn-small"'); ?>
@@ -40,44 +40,44 @@
 				</tr>
 			</table><br>
 
-			<table class="table table-bordered table-hover" style="width: 100%; border: 2px solid #2e81ff">
+			<table class="table table-bordered table-hover" style="width: 100%; border: 1px solid darkgray">
 				<tbody>
 				<tr>
-					<td style="width: 20%; border: 1px solid #2e81ff">
+					<td style="width: 20%; border: 1px solid darkgray">
 						<?php echo 'theme #1'; ?><br>
 						<?php echo '[DEFAULT]'; ?>
 					</td>
-					<td style="border: 1px solid #2e81ff"></td>
-					<td style="width: 10%; border: 1px solid #2e81ff">
+					<td style="border: 1px solid darkgray"></td>
+					<td style="width: 10%; border: 1px solid darkgray">
 
 					</td>
 				</tr>
 				<tr>
-					<td style="border: 1px solid #2e81ff">
+					<td style="border: 1px solid darkgray">
 						<?php echo 'theme #2'; ?>
 					</td>
-					<td style="border: 1px solid #2e81ff"></td>
-					<td style="border: 1px solid #2e81ff">
+					<td style="border: 1px solid darkgray"></td>
+					<td style="border: 1px solid darkgray">
 						<?php echo anchor('news/update/', 'Nahradit', 'class="btn btn-small"'); ?>
 					</td>
 				</tr>
 				<tr>
-					<td style="border: 1px solid #2e81ff">
+					<td style="border: 1px solid darkgray">
 						<?php echo 'theme #3'; ?>
 					</td>
-					<td style="border: 1px solid #2e81ff">
+					<td style="border: 1px solid darkgray">
 
 					</td>
-					<td style="border: 1px solid #2e81ff">
+					<td style="border: 1px solid darkgray">
 						<?php echo anchor('news/update/', 'Nahradit', 'class="btn btn-small"'); ?>
 					</td>
 				</tr>
 				<tr>
-					<td style="border: 1px solid #2e81ff">
+					<td style="border: 1px solid darkgray">
 						<?php echo 'theme #4'; ?>
 					</td>
-					<td style="border: 1px solid #2e81ff"></td>
-					<td style="border: 1px solid #2e81ff">
+					<td style="border: 1px solid darkgray"></td>
+					<td style="border: 1px solid darkgray">
 						<?php echo anchor('news/update/', 'Nahradit', 'class="btn btn-small"'); ?>
 					</td>
 				</tr>

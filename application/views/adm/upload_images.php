@@ -1,11 +1,46 @@
-<form method="post" id="import_csv" enctype="multipart/form-data">
-	<div class="form-group">
-		<label>Select CSV File</label>
-		<input type="file" name="csv_file" id="csv_file" required accept=".csv" />
-	</div>
+<!DOCTYPE html>
+<html>
+<head>
+	<?php echo $this->load->view('head', array('title' => ('nahravani obrazku'))); ?>
+</head>
+<body>
 
-	<button type="submit" name="import_csv" class="btn btn-info"
-			id="import_csv_btn">Import CSV</button>
-</form>
-<br>
-<div id="imported_csv_data"></div>
+<div class="container">
+	<div class="row">
+
+		<div class="span2">
+			<?php echo $this->load->view('account/admin_panel', array('current' => 'manage_images')); ?>
+		</div>
+
+		<div class="span10">
+
+			<table style="width: 100%">
+				<tr>
+					<td style="width: 85%"><h2><?php echo ('Nahrani obrazku'); ?></h2></td>
+					<td><a href="home_n"><buton class="btn btn-primary btn-small"><i></i>Back to Home page</buton></a></td>
+				</tr>
+			</table>
+
+			<div class="well">
+				<?php echo ('Tato stánka dovoluje nahravat obrazky z lokalniho zdroje na server.'); ?>
+			</div>
+
+			<?php echo $error;?>
+
+			<?php echo form_open_multipart('img/upload');?>
+
+			<input type="file" name="userfile" size="20" />
+
+			<br /><br />
+
+			<input type="submit" value="upload" />
+
+			</form>
+
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
+

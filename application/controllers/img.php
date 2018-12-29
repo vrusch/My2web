@@ -25,7 +25,26 @@ class img extends CI_Controller
 		if ($this->authentication->is_signed_in()) {
 			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
 		}
-		$this->load->view('adm/upload_images', isset($data) ? $data : NULL);
+		$config['upload_path']          = './uploads/';
+		$config['allowed_types']        = 'gif|jpg|png';
+		$config['max_size']             = 100;
+		$config['max_width']            = 1024;
+		$config['max_height']           = 768;
+
+		$this->load->library('upload', $config);
+
+		if ( ! $this->upload->do_upload('userfile'))
+		{
+			$error = array('error' => $this->upload->display_errors());
+
+			$this->load->view('adm/upload_images', $error);
+		}
+		else
+		{
+			$data = array('upload_data' => $this->upload->data());
+
+			$this->load->view('adm/manage_images', $data);
+		}
 	}
 
 	public function manipulate()

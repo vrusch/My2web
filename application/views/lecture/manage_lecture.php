@@ -15,14 +15,13 @@
 		</div>
 
 		<div class="span10">
-			<?php //$count = count($news); ?>
+			<?php $count = count($lecture); ?>
 			<table style="width: 100%">
 				<tr>
-					<td style="width: 85%"><h2><?php echo ('Managment přednášek'); ?></h2></td>
+					<td style="width: 85%"><h2><?php echo ('Managment přednášek'); ?><span class="badge badge-info"><?php echo $count; ?></span></h2></td>
 					<td><a href="home_n"><buton class="btn btn-primary btn-small"><i></i>Back to Home page</buton></a></td>
 				</tr>
 			</table>
-
 
 			<div class="well">
 				<?php echo ('Tato stránka dovoluje vytváření a mangment přednášek.'); ?>
@@ -31,38 +30,35 @@
 			<table class="table table-condensed table-hover">
 				<thead>
 				<tr>
-					<th>#</th>
 					<th><?php echo ('Název'); ?></th>
 					<th><?php echo ('tema'); ?></th>
 					<th><?php echo ('kurzy'); ?></th>
-					<th><?php echo ('Nahled'); ?></th>
+					<th><?php echo ('Nahled popup'); ?></th>
 					<th>
-						<?php echo anchor('news/create',lang('website_create'),'class="btn btn-primary btn-small"'); ?>
+						<?php echo anchor('lecture/create',lang('website_create'),'class="btn btn-primary btn-small"'); ?>
 					</th>
 				</tr>
 				</thead>
 				<tbody>
+				<?php foreach( $lecture as $lecture_item ) : ?>
 				<tr>
 					<td>
-						<?php echo ''; ?>
+						<?php echo $lecture_item['name']; ?>
+					</td>
+					<td>
+						<?php echo $lecture_item['tema']; ?>
 					</td>
 					<td>
 						<?php echo ''; ?>
 					</td>
 					<td>
-						<?php echo ''; ?>
+						<?php echo '<a>nahled popup</a>'; ?>
 					</td>
 					<td>
-						<?php echo ''; ?>
-					</td>
-					<td>
-						<?php echo ''; ?>
-					</td>
-					<td>
-						<?php echo anchor('news/', 'edit', 'class="btn btn-small"'); ?>
-						<?php echo anchor('news/', 'priradit do kurzu', 'class="btn btn-small"'); ?>
+						<?php echo anchor('lecture/edit', 'edit', 'class="btn btn-small"'); ?>
 					</td>
 				</tr>
+				<?php endforeach; ?>
 				</tbody>
 			</table>
 

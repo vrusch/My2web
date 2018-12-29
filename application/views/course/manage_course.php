@@ -39,12 +39,10 @@
 						<table class="table table-condensed table-hover">
 							<thead>
 							<tr>
-								<th>#</th>
 								<th><?php echo ('Název'); ?></th>
-								<th><?php echo ('tema'); ?></th>
+								<th><?php echo ('Tema'); ?></th>
 								<th><?php echo ('Prednasek'); ?></th>
-								<th><?php echo ('otazek'); ?></th>
-								<th></th>
+								<th><?php echo ('Otazek'); ?></th>
 								<th>
 									<?php echo anchor('news/create','Novy','class="btn btn-primary btn-small"'); ?>
 								</th>
@@ -78,7 +76,6 @@
 						<table class="table table-condensed table-hover">
 							<thead>
 							<tr>
-								<th>#</th>
 								<th><?php echo ('Otazka'); ?></th>
 								<th><?php echo ('tema'); ?></th>
 								<th><?php echo ('Kurzy'); ?></th>
@@ -89,9 +86,6 @@
 							</thead>
 							<tbody>
 							<tr>
-								<td>
-									<?php echo ''; ?>
-								</td>
 								<td>
 									<?php echo ''; ?>
 								</td>
