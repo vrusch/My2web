@@ -51,7 +51,7 @@ $route['manage_homepage'] 		= 'manage/manage_home';
 $route['manage_colors'] 		= 'manage/manage_colorschema';
 $route['manage_course'] 		= 'course/manage';
 $route['manage_lecture'] 		= 'lecture/manage';
-$route['manage_assignment'] 	= 'manage/assignment';
+$route['manage_assignment'] 	= 'classroom/manage';
 $route['404_override'] 			= '';
 
 

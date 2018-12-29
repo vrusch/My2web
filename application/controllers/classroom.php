@@ -1,6 +1,6 @@
 <?php
 
-class companies extends CI_Controller
+class classroom extends CI_Controller
 {
 
 	public function __construct()
@@ -8,15 +8,15 @@ class companies extends CI_Controller
 		parent::__construct();
 		$this->load->helper(array('language', 'url', 'form', 'account/ssl', 'url_helper'));
 		$this->load->library(array('account/authentication', 'account/authorization', 'form_validation'));
-		$this->load->model(array('account/account_model', 'companies_model'));
+		$this->load->model(array('account/account_model', 'classroom_model'));
 
 	}
 
-	public function add_students()
+	public function manage()
 	{
 		maintain_ssl();
 
-		$data['companies'] = $this->companies_model->get_companies();
-		$this->load->view('adm/manage_companies', isset($data) ? $data : NULL);
+		$data['classroom'] = $this->classroom_model->get_assigment();
+		$this->load->view('adm/manage_assignment', isset($data) ? $data : NULL);
 	}
 }

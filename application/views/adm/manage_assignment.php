@@ -28,38 +28,7 @@
 				<?php echo ('Tato stánka dovoluje managment přiřazováni kurzů a prednášek pro firmy a žáky.'); ?>
 			</div>
 
-			<table class="table table-condensed table-hover">
-				<thead>
-				<tr>
-					<th>#</th>
-					<th><?php echo ('Nadpis'); ?></th>
-					<th><?php echo ('Datum vydani'); ?></th>
-					<th><?php echo ('Datum platnosti'); ?></th>
-					<th>
-						<?php echo anchor('news/create',lang('website_create'),'class="btn btn-primary btn-small"'); ?>
-					</th>
-				</tr>
-				</thead>
-				<tbody>
-				<tr>
-					<td>
-						<?php echo ''; ?>
-					</td>
-					<td>
-						<?php echo ''; ?>
-					</td>
-					<td>
-						<?php echo ''; ?>
-					</td>
-					<td>
-						<?php echo ''; ?>
-					</td>
-					<td>
-						<?php echo anchor('news/', lang('website_update'), 'class="btn btn-small"'); ?>
-					</td>
-				</tr>
-				</tbody>
-			</table>
+
 
 		</div>
 	</div>
