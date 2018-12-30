@@ -11,11 +11,11 @@ class assigment extends CI_Controller
 
 	}
 
-	public function add_students($id = NULL)
+	public function index($id = NULL)
 	{
 		maintain_ssl();
 
-		$data['company'] = $this->companies_model->get_companies($id);
-		$this->load->view('adm/add_students', isset($data) ? $data : NULL);
+		//$data['company'] = $this->companies_model->get_companies($id);
+		//$this->load->view('adm/add_students', isset($data) ? $data : NULL);
 	}
 }

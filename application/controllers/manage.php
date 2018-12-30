@@ -22,7 +22,7 @@ class manage extends CI_Controller
 	public function manage_colorschema()
 	{
 		maintain_ssl();
-		//$data['homepage'] = $this->homepage_model->get_homepage();
+		//$data['colorschema'] = $this->homepage_model->get_homepage();
 		$this->load->view('adm/manage_cschema', isset($data) ? $data : NULL);
 	}
 }

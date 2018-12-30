@@ -69,4 +69,35 @@ class companies extends CI_Controller
 			}
 		}
 	}
+
+	public function add_students($id = NULL)
+	{
+		maintain_ssl();
+
+		$data['company'] = $this->companies_model->get_companies($id);
+		$this->load->view('adm/add_students', isset($data) ? $data : NULL);
+	}
+
+	public function csv_parse()
+	{
+		$data['company'] = $this->companies_model->get_companies($_POST['id']);
+		if(isset($_FILES['csv_file']))
+		{
+			$csv = $_FILES['csv_file']['tmp_name'];
+			$pol = 0;
+			$opencsv = fopen($csv,"r");
+			while (($row = fgetcsv($opencsv, 10000, ",")) != FALSE)
+			{
+				//print_r($row);
+				$data['zaci'][$pol]['name'] = $row[0];
+				$data['zaci'][$pol]['surname'] = $row[1];
+				$data['zaci'][$pol]['email'] = $row[2];
+				$pol++;
+			}
+		}
+
+		$data['company']['phase'] = '1';
+		$this->load->view('adm/add_students', isset($data) ? $data : NULL);
+		//var_dump($data);
+	}
 }

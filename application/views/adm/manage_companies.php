@@ -62,7 +62,7 @@
 					</td>
 					<td>
 						<?php echo anchor('companies/update/' . $companies_item['id'], 'Edit', 'class="btn btn-small"'); ?>
-						<?php echo anchor('assigment/add_students/' . $companies_item['id'], 'Pridat Zaky', 'class="btn btn-small"'); ?>
+						<?php echo anchor('companies/add_students/' . $companies_item['id'], 'Pridat Zaky', 'class="btn btn-small"'); ?>
 						<?php echo anchor('companies/delete/' . $companies_item['id'], 'Smazat', 'class="btn btn-danger btn-small"'); ?>
 					</td>
 				</tr>
