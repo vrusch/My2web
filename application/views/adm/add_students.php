@@ -56,46 +56,52 @@
 					<thead>
 					<tr>
 						<th>#</th>
-						<th><?php echo ('jmeno'); ?></th>
-						<th><?php echo ('prijmeni'); ?></th>
-						<th><?php echo ('email'); ?></th>
-						<th><?php echo ('pridat'); ?></th>
-						<th><?php echo ('email aktivace'); ?></th>
+						<th><?php echo('jmeno'); ?></th>
+						<th><?php echo('prijmeni'); ?></th>
+						<th><?php echo('email'); ?></th>
+						<th><?php echo('pridat'); ?></th>
+						<th><?php echo('email aktivace'); ?></th>
 					</tr>
 					</thead>
 					<tbody>
 					<?php $pocitadlo = 1; ?>
-					<?php foreach( $zaci as $zaci_item ) : ?>
-					<tr>
-						<td>
-							<?php echo $pocitadlo; ?>
-						</td>
-						<td>
-							<?php echo $zaci_item['name']; ?>
-						</td>
-						<td>
-							<?php echo $zaci_item['surname']; ?>
-						</td>
-						<td>
-							<?php echo $zaci_item['email']; ?>
-						</td>
-						<td>
-							<?php echo set_checkbox(); ?>
-						</td>
-						<td>
-							<?php echo set_checkbox(); ?>
-						</td>
-					</tr>
-							<?php $pocitadlo++; ?>
+					<?php $check = 'checked'; ?>
+					<?php echo form_open('news/create', 'class="form-horizontal"'); ?>
+					<?php echo validation_errors(); ?>
+					<?php foreach ($zaci as $zaci_item) : ?>
+						<tr>
+							<td>
+								<?php echo $pocitadlo; ?>
+							</td>
+							<td>
+								<?php echo $zaci_item['name']; ?>
+							</td>
+							<td>
+								<?php echo $zaci_item['surname']; ?>
+							</td>
+							<td>
+								<?php echo $zaci_item['email']; ?>
+							</td>
+							<td>
+								<input type="checkbox" name="addzaka" value="<?php echo set_value('addzaka', TRUE); ?>"
+									   . <?php echo $check; ?> />
+							</td>
+							<td>
+								<input type="checkbox" name="eactivation"
+									   value="<?php echo set_value('eactivation', TRUE); ?>" . <?php echo $check; ?> />
+							</td>
+						</tr>
+						<?php $pocitadlo++; ?>
 					<?php endforeach; ?>
 					</tbody>
 				</table>
 				<div class="well">
-				<?php echo form_submit('', ('Uložit'), 'class="btn btn-primary"'); ?>
-				<?php echo anchor('manage_companies', ('Cancel'), 'class="btn"'); ?>
+					<?php echo form_submit('', ('Uložit'), 'class="btn btn-primary"'); ?>
+					<?php echo anchor('manage_companies', ('Cancel'), 'class="btn"'); ?>
+					<?php echo form_close(); ?>
 				</div>
 			</div>
-			<?php endif; ?>
+		<?php endif; ?>
 	</div>
 </div>
 

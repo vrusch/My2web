@@ -43,11 +43,8 @@ class news extends CI_Controller
 
 	public function create()
 	{
-		if ($this->authentication->is_signed_in()) {
-			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
-		}
 
-		$this->form_validation->set_rules('name', 'Title', 'required');
+		$this->form_validation->set_rules('title', 'Nazev', 'required');
 		$this->form_validation->set_rules('text', 'Text', 'required');
 		$this->form_validation->set_message('required', 'Povinne pole');
 
