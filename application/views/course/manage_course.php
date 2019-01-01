@@ -15,100 +15,65 @@
 		</div>
 
 		<div class="span10">
-			<?php //$count = count($news); ?>
+			<?php $count = count($course); ?>
 			<table style="width: 100%">
 				<tr>
-					<td style="width: 85%"><h2><?php echo ('Managment Kurzů'); ?></h2></td>
-					<td><a href="home_n"><buton class="btn btn-primary btn-small"><i></i>Back to Home page</buton></a></td>
+					<td style="width: 85%"><h2><?php echo('Managment Kurzů'); ?><span
+								class="badge badge-info"><?php echo $count; ?></span></h2></td>
+					<td><a href="home_n">
+							<buton class="btn btn-primary btn-small"><i></i>Back to Home page</buton>
+						</a></td>
 				</tr>
 			</table>
 			<div class="well">
-				<?php echo ('Tato stránka dovoluje vytváření a managment kurzů.'); ?>
+				<?php echo('Tato stránka dovoluje vytváření a managment kurzů.'); ?>
 			</div>
-
-			<div class="container">
-				<ul class="nav nav-pills">
-					<li class="active"><a data-toggle="pill" href="#kurzy">Kurzy</a></li>
-					<li><a data-toggle="pill" href="#otazky">Otazky</a></li>
-				</ul>
-
-				<div class="tab-content">
-
-					<div id="kurzy" class="tab-pane fade in active">
-						<h3>Kurzy</h3>
-						<table class="table table-condensed table-hover">
-							<thead>
-							<tr>
-								<th><?php echo ('Název'); ?></th>
-								<th><?php echo ('Tema'); ?></th>
-								<th><?php echo ('Prednasek'); ?></th>
-								<th><?php echo ('Otazek'); ?></th>
-								<th>
-									<?php echo anchor('news/create','Novy','class="btn btn-primary btn-small"'); ?>
-								</th>
-							</tr>
-							</thead>
-							<tbody>
-							<tr>
-								<td>
-									<?php echo ''; ?>
-								</td>
-								<td>
-									<?php echo ''; ?>
-								</td>
-								<td>
-									<?php echo ''; ?>
-								</td>
-								<td>
-									<?php echo ''; ?>
-								</td>
-								<td>
-									<?php echo anchor('news/', 'vybrat otazky', 'class="btn btn-small"'); ?>
-								</td>
-							</tr>
-							</tbody>
-						</table>
-
-					</div>
-
-					<div id="otazky" class="tab-pane fade">
-						<h3>Otazky</h3>
-						<table class="table table-condensed table-hover">
-							<thead>
-							<tr>
-								<th><?php echo ('Otazka'); ?></th>
-								<th><?php echo ('tema'); ?></th>
-								<th><?php echo ('Kurzy'); ?></th>
-								<th>
-									<?php echo anchor('news/create','Nova','class="btn btn-primary btn-small"'); ?>
-								</th>
-							</tr>
-							</thead>
-							<tbody>
-							<tr>
-								<td>
-									<?php echo ''; ?>
-								</td>
-								<td>
-									<?php echo ''; ?>
-								</td>
-								<td>
-									<?php echo ''; ?>
-								</td>
-								<td>
-									<?php echo anchor('news/', 'priradit do kurzu', 'class="btn btn-small"'); ?>
-								</td>
-							</tr>
-							</tbody>
-						</table>
-
-					</div>
-
-				</div>
-			</div>
-
-
-
+			<table class="table table-condensed table-hover">
+				<thead>
+				<tr>
+					<th><?php echo('Název'); ?></th>
+					<th><?php echo('Tema'); ?></th>
+					<th><?php echo('nahled'); ?></th>
+					<th><?php echo('Prednasek'); ?></th>
+					<th><?php echo('Otazek'); ?></th>
+					<th>
+						<?php echo anchor('course/new_course', 'Novy', 'class="btn btn-primary btn-small"'); ?>
+					</th>
+				</tr>
+				</thead>
+				<tbody>
+				<?php foreach ($course as $course_item) : ?>
+					<tr>
+						<td>
+							<?php echo $course_item['name']; ?>
+						</td>
+						<td>
+							<?php echo $course_item['tema']; ?>
+						</td>
+						<td>
+							<p><a href="<?php echo site_url('course/view/' . $course_item['id']); ?>">nahled</a></p>
+						</td>
+						<td>
+							<?php
+							$sql = "SELECT id FROM 4m2w_t_course WHERE course_id = ? AND lectures_id IS NOT NULL";
+							$query = $this->db->query($sql, array($course_item['id']));
+							echo($query->num_rows());;
+							?>
+						</td>
+						<td>
+							<?php
+							$sql = "SELECT id FROM 4m2w_t_course WHERE course_id = ? AND questions_id IS NOT NULL";
+							$query = $this->db->query($sql, array($course_item['id']));
+							echo($query->num_rows());
+							?>
+						</td>
+						<td>
+							<?php echo anchor('news/', 'edit', 'class="btn btn-small"'); ?>
+						</td>
+					</tr>
+				<?php endforeach; ?>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </div>

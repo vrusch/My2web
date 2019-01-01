@@ -61,9 +61,6 @@
 							<?php echo $files_item['date']; ?>
 						</td>
 						<td>
-							<?php echo anchor('img/manipulate', ('manipulace'), 'class="btn btn-small"'); ?>
-						</td>
-						<td>
 							<?php echo anchor('img/delete', ('smazat'), 'class="btn btn-danger btn-small"'); ?>
 						</td>
 					</tr>

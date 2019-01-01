@@ -28,10 +28,13 @@
 			<li class="<?php echo ($current == 'manage_companies') ? 'active' : ''; ?>"><?php echo anchor('manage_companies', ('Firmy')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_course') ? 'active' : ''; ?>"><?php echo anchor('manage_course', ('Managment Kurzů')); ?></li>
+			<li class="<?php echo ($current == 'manage_question') ? 'active' : ''; ?>"><?php echo anchor('questions/manage', ('Otazky')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
 			<li class="<?php echo ($current == 'manage_lecture') ? 'active' : ''; ?>"><?php echo anchor('manage_lecture', ('Přednášky')); ?></li>
+		<?php endif; ?>
+		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
+			<li class="<?php echo ($current == 'manage_course') ? 'active' : ''; ?>"><?php echo anchor('manage_course', ('Managment Kurzů')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
 			<li class="<?php echo ($current == 'manage_assignment') ? 'active' : ''; ?>"><?php echo anchor('manage_assignment', ('Přiřazování')); ?></li>

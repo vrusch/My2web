@@ -6,9 +6,8 @@
 				<a href="#myPage" title="To Top">
 					<span class="glyphicon glyphicon-chevron-up linky"></span>
 				</a>
-				<p class="linky">Bootstrap Theme Made By <a href="https://www.w3schools.com" title="Visit w3schools" class="linky">www.w3schools.com</a>
-				</p>
-				<p><a href="colorscheme" target="_blank" class="linky">[Color Scheme]</a></p>
+				<p class="linky">Made By Codeignier <a href="https://www.w3schools.com" title="Visit w3schools" class="linky"></a></p>
+				<img src="<?php echo base_url().RES_DIR; ?>/img/devicons_1-8-0_codeigniter_343_0_c0392b_none.png" />
 			</td>
 			<td style="width: 30%">
 				<div class="pull-right">
