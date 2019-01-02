@@ -28,25 +28,38 @@ class question_model extends CI_Model
 	{
 		$this->load->helper('url');
 
-		$data = array(
-			'true_answer' => $this->input->post('date_publish'),
-			'bad_answer1' => $this->input->post('date_publish'),
-			'bad_answer2' => $this->input->post('date_publish'),
-			'bad_answer3' => $this->input->post('date_publish')
+		$datata = array(
+			'answer' => $this->input->post('true_answer'),
 		);
-		$ta = $this->db->insert_id()->insert('4m2w_news', $data);
-		//$this->db->insert('4m2w_news', $data);
+		$this->db->insert('4m2w_answers', $datata);
+		$ta = $this->db->insert_id();
 
-		$data1 = array(
-			'tema' => $this->input->post('date_publish'),
-			'question' => $this->input->post('date_publish'),
-			'true_answer' => $this->input->post('date_publish'),
-			'bad_answer1' => $this->input->post('date_publish'),
-			'bad_answer2' => $this->input->post('date_publish'),
-			'bad_answer3' => $this->input->post('date_publish')
+		$datafa1 = array(
+			'answer' => $this->input->post('bad_answer1'),
 		);
-		//$this->db->insert('4m2w_news', $data1);
-		//return $this->db->insert('4m2w_news', $data1);
-		var_dump($_POST);
+		$this->db->insert('4m2w_answers', $datafa1);
+		$fa1 = $this->db->insert_id();
+
+		$datafa2 = array(
+			'answer' => $this->input->post('bad_answer2'),
+		);
+		$this->db->insert('4m2w_answers', $datafa2);
+		$fa2 = $this->db->insert_id();
+
+		$datafa3 = array(
+			'answer' => $this->input->post('bad_answer3')
+		);
+		$this->db->insert('4m2w_answers', $datafa3);
+		$fa3 = $this->db->insert_id();
+
+		$data = array(
+			'tema' => $this->input->post('tema'),
+			'question' => $this->input->post('question'),
+			'true_id_answer' => $ta,
+			'false1_id_answer' => $fa1,
+			'false2_id_answer' => $fa2,
+			'false3_id_answer' => $fa3
+		);
+		$this->db->insert('4m2w_questions', $data);
 	}
 }
