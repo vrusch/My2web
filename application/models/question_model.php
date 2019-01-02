@@ -24,6 +24,13 @@ class question_model extends CI_Model
 		return $query->row_array();
 	}
 
+	public function get_answer($id = FALSE)
+	{
+		$this->db->select('answer');
+		$query = $this->db->get_where('4m2w_answers', array('id' => $id));
+		return $query->row_array();
+	}
+
 	public function set_question()
 	{
 		$this->load->helper('url');

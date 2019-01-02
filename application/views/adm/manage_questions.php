@@ -55,7 +55,7 @@
 								'scrollbars'  => 'no',
 								'status'      => 'yes',
 								'resizable'   => 'no',
-								'screenx'     => 200,
+								'screenx'     => 500,
 								'screeny'     => 200,
 								'window_name' => '_blank'
 							);
