@@ -65,8 +65,11 @@
 					</thead>
 					<tbody>
 					<?php $pocitadlo = 1; ?>
+					<?php $offset = '0'; ?>
 					<?php $check = 'checked'; ?>
-					<?php echo form_open('news/create', 'class="form-horizontal"'); ?>
+					<?php $zak = array(array()); ?>
+					<?php $hidden = array('company_id' => $company['id']); ?>
+					<?php echo form_open('companies/add_finaly', 'class="form-horizontal"', $hidden); ?>
 					<?php echo validation_errors(); ?>
 					<?php foreach ($zaci as $zaci_item) : ?>
 						<tr>
@@ -74,24 +77,25 @@
 								<?php echo $pocitadlo; ?>
 							</td>
 							<td>
-								<?php echo $zaci_item['name']; ?>
+								<?php echo form_input(array('name' => $offset."[name]"), $zaci_item['name']); ?>
 							</td>
 							<td>
-								<?php echo $zaci_item['surname']; ?>
+								<?php echo form_input(array('name' => $offset."[surname]"), $zaci_item['surname']); ?>
 							</td>
 							<td>
-								<?php echo $zaci_item['email']; ?>
+								<?php echo form_input(array('name' => $offset."[email]"), $zaci_item['email']); ?>
 							</td>
 							<td>
-								<input type="checkbox" name="addzaka" value="<?php echo set_value('addzaka', TRUE); ?>"
-									   . <?php echo $check; ?> />
+								<input type="checkbox" name="<?php echo $offset ;?>[addzaka]"
+									   value="<?php echo set_value($offset.'[addzaka]', TRUE); ?>" . <?php echo $check; ?> />
 							</td>
 							<td>
-								<input type="checkbox" name="eactivation"
-									   value="<?php echo set_value('eactivation', TRUE); ?>" . <?php echo $check; ?> />
+								<input type="checkbox" name="<?php echo $offset ;?>[eactivation]"
+									   value="<?php echo set_value($offset.'[eactivation]', TRUE); ?>" . <?php echo $check; ?> />
 							</td>
 						</tr>
 						<?php $pocitadlo++; ?>
+						<?php $offset++; ?>
 					<?php endforeach; ?>
 					</tbody>
 				</table>
