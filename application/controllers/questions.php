@@ -43,10 +43,10 @@ class questions extends CI_Controller
 		$d2 = $this->question_model->get_answer($data['question']['false1_id_answer']);
 		$d3 = $this->question_model->get_answer($data['question']['false2_id_answer']);
 		$d4 = $this->question_model->get_answer($data['question']['false3_id_answer']);
-		var_dump($d1);
-		var_dump($d2);
-		var_dump($d3);
-		var_dump($d4);
+		$data['question']['true'] = $d1['answer'];
+		$data['question']['false1'] = $d2['answer'];
+		$data['question']['false2'] = $d3['answer'];
+		$data['question']['false3'] = $d4['answer'];
 		$this->load->view('adm/view_questions', isset($data) ? $data : NULL);
 	}
 }
