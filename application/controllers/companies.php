@@ -72,8 +72,6 @@ class companies extends CI_Controller
 
 	public function add_students($id = NULL)
 	{
-		maintain_ssl();
-
 		$data['company'] = $this->companies_model->get_companies($id);
 		$this->load->view('adm/add_students', isset($data) ? $data : NULL);
 	}
@@ -86,7 +84,7 @@ class companies extends CI_Controller
 			$csv = $_FILES['csv_file']['tmp_name'];
 			$pol = 0;
 			$opencsv = fopen($csv,"r");
-			while (($row = fgetcsv($opencsv, 10000, ";")) != FALSE) //todo: zmena oddelovace
+			while (($row = fgetcsv($opencsv, 10000, ",")) != FALSE) //todo: vyriesit zmenu oddelovace
 			{
 				//print_r($row);
 				$data['zaci'][$pol]['name'] = $row[0];
@@ -95,15 +93,13 @@ class companies extends CI_Controller
 				$pol++;
 			}
 		}
-
 		$data['company']['phase'] = '1';
 		$this->load->view('adm/add_students', isset($data) ? $data : NULL);
-		//var_dump ($data);
+
 	}
 
 	public function add_finaly()
 	{
-		//todo:
 		//todo: vygenerovat username, datum
 		// todo: vlozit do tabulky users vratit id a zapisat do tab zaci par companyid - zakid
 		$data['company'] = $this->companies_model->get_companies($_POST['company_id']);

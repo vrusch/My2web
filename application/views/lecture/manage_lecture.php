@@ -65,7 +65,7 @@
 					<td>
 						<?php echo anchor('lecture/edit/'.$lecture_item['id'], 'edit', 'class="btn btn-small"'); ?>
 						<?php echo anchor('lecture/addto/'.$lecture_item['id'], 'Pridat do kvizu', 'class="btn btn-small"'); ?>
-						<?php echo anchor('lecture/delete/'.$lecture_item['id'],'Smazat','class="btn btn-primary btn-small"'); ?>
+						<?php echo anchor('lecture/delete/'.$lecture_item['id'],'Smazat','class="btn btn-danger btn-small"'); ?>
 					</td>
 				</tr>
 				<?php endforeach; ?>

@@ -49,4 +49,25 @@ class questions extends CI_Controller
 		$data['question']['false3'] = $d4['answer'];
 		$this->load->view('adm/view_questions', isset($data) ? $data : NULL);
 	}
+
+	public function update($id = NULL)
+	{
+		$data['question'] = $this->question_model->get_question($id);
+
+		$d1 = $this->question_model->get_answer($data['question']['true_id_answer']);
+		$d2 = $this->question_model->get_answer($data['question']['false1_id_answer']);
+		$d3 = $this->question_model->get_answer($data['question']['false2_id_answer']);
+		$d4 = $this->question_model->get_answer($data['question']['false3_id_answer']);
+		$data['question']['true'] = $d1['answer'];
+		$data['question']['false1'] = $d2['answer'];
+		$data['question']['false2'] = $d3['answer'];
+		$data['question']['false3'] = $d4['answer'];
+		$this->load->view('adm/edit_question', isset($data) ? $data : NULL);
+	}
+
+	public function delete($id = NULL)
+	{
+		$data['question'] = $this->question_model->delete($id); //todo: smazat aj answers; doplnit funkci do modelu
+		$this->load->view('adm/manage_questions', isset($data) ? $data : NULL);
+	}
 }

@@ -68,7 +68,6 @@ class Google_Service_Resource
   }
 
   /**
-   * TODO(ianbarber): This function needs simplifying.
    * @param $name
    * @param $arguments
    * @param $expected_class - optional, the expected class name
@@ -114,7 +113,6 @@ class Google_Service_Resource
       unset($parameters['postBody']);
     }
 
-    // TODO(ianbarber): optParams here probably should have been
     // handled already - this may well be redundant code.
     if (isset($parameters['optParams'])) {
       $optParams = $parameters['optParams'];

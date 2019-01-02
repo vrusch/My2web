@@ -9,7 +9,7 @@
 	<div class="row">
 
 		<div class="span2">
-			<?php echo $this->load->view('account/admin_panel', array('current' => 'manage_course')); ?>
+			<?php echo $this->load->view('account/admin_panel', array('current' => 'manage_question')); ?>
 		</div>
 		<div class="span10">
 
@@ -67,7 +67,7 @@
 			<div class="form-actions">
 				<div class="controls">
 					<?php echo form_submit('', ('Uložit'), 'class="btn btn-primary"'); ?>
-					<?php echo anchor('manage_course', ('Cancel'), 'class="btn"'); ?>
+					<?php echo anchor('questions/manage', ('Cancel'), 'class="btn"'); ?>
 				</div>
 			</div>
 
@@ -77,8 +77,6 @@
 
 	</div>
 </div>
-
-<?php //echo $this->load->view('footer_n'); ?>
 
 </body>
 </html>

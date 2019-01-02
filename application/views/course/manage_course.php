@@ -69,6 +69,7 @@
 						</td>
 						<td>
 							<?php echo anchor('news/', 'edit', 'class="btn btn-small"'); ?>
+							<?php echo anchor('lecture/delete/'.$course_item['id'],'Smazat','class="btn btn-danger btn-small"'); ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>
