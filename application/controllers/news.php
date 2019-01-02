@@ -18,7 +18,6 @@ class news extends CI_Controller
 			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
 		}
 		$data['news'] = $this->news_model->get_news();
-		$data['title'] = 'News archive';
 		$this->load->view('news/manage_news', isset($data) ? $data : NULL);
 	}
 
@@ -58,15 +57,26 @@ class news extends CI_Controller
 		}
 	}
 
-	public function delete($slug = NULL)
+	public function delete($id = NULL)
 	{
 		maintain_ssl();
 		if ($this->authentication->is_signed_in()) {
 			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
 		}
 
-		$this->news_model->delete_news($slug);
+		$this->news_model->delete_news($id);
 		$data['news'] = $this->news_model->get_news();
 		$this->load->view('news/manage_news', isset($data) ? $data : NULL);
+	}
+
+	public function view($id = NULL)
+	{
+		maintain_ssl();
+		if ($this->authentication->is_signed_in()) {
+			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
+		}
+
+		$data['news_item'] = $this->news_model->get_news($id);
+		$this->load->view('news/view', isset($data) ? $data : NULL);
 	}
 }

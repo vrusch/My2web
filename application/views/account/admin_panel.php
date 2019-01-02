@@ -12,32 +12,32 @@
 		<?php endif; ?>
 			<li class="nav-header">Site Admin Panel</li>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_images') ? 'active' : ''; ?>"><?php echo anchor('m_images', ('Nahrávaní obrázkú')); ?></li>
+			<li class="<?php echo ($current == 'manage_images') ? 'active' : ''; ?>"><?php echo anchor('img', ('Nahrávaní obrázkú')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_homepage') ? 'active' : ''; ?>"><?php echo anchor('manage_homepage', ('Nastaveni HomePage')); ?></li>
+			<li class="<?php echo ($current == 'manage_homepage') ? 'active' : ''; ?>"><?php echo anchor('manage/manage_home', ('Nastaveni HomePage')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_colors') ? 'active' : ''; ?>"><?php echo anchor('manage_colors', ('Barevne schema')); ?></li>
+			<li class="<?php echo ($current == 'manage_colors') ? 'active' : ''; ?>"><?php echo anchor('manage/manage_colorschema', ('Barevne schema')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_news') ? 'active' : ''; ?>"><?php echo anchor('news/manage_news', ('Novinky')); ?></li>
+			<li class="<?php echo ($current == 'manage_news') ? 'active' : ''; ?>"><?php echo anchor('news/manage', ('Novinky')); ?></li>
 		<?php endif; ?>
 		<li class="nav-header">Customer mangment</li>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_companies') ? 'active' : ''; ?>"><?php echo anchor('manage_companies', ('Firmy')); ?></li>
+			<li class="<?php echo ($current == 'manage_companies') ? 'active' : ''; ?>"><?php echo anchor('companies/manage', ('Firmy')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
 			<li class="<?php echo ($current == 'manage_question') ? 'active' : ''; ?>"><?php echo anchor('questions/manage', ('Otazky')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_lecture') ? 'active' : ''; ?>"><?php echo anchor('manage_lecture', ('Přednášky')); ?></li>
+			<li class="<?php echo ($current == 'manage_lecture') ? 'active' : ''; ?>"><?php echo anchor('lecture/manage', ('Přednášky')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_course') ? 'active' : ''; ?>"><?php echo anchor('manage_course', ('Managment Kurzů')); ?></li>
+			<li class="<?php echo ($current == 'manage_course') ? 'active' : ''; ?>"><?php echo anchor('course/manage', ('Managment Kurzů')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_assignment') ? 'active' : ''; ?>"><?php echo anchor('manage_assignment', ('Přiřazování')); ?></li>
+			<li class="<?php echo ($current == 'manage_assignment') ? 'active' : ''; ?>"><?php echo anchor('classroom/manage', ('Přiřazování')); ?></li>
 		<?php endif; ?>
 	<?php endif; ?>
 

@@ -39,19 +39,6 @@
 */
 
 $route['default_controller']	= 'home_n';
-$route['news/create'] 			= 'news/create';
-$route['news/manage_news'] 		= 'news/manage';
-$route['news/update/(:any)'] 	= 'news/update/$1';
-$route['news/delete/(:any)'] 	= 'news/delete/$1';
-$route['news/(:any)'] 			= 'news/view/$1';
-$route['m_images'] 				= 'img';
-$route['u_image'] 				= 'img/upload';
-$route['manage_companies'] 		= 'companies/manage';
-$route['manage_homepage'] 		= 'manage/manage_home';
-$route['manage_colors'] 		= 'manage/manage_colorschema';
-$route['manage_course'] 		= 'course/manage';
-$route['manage_lecture'] 		= 'lecture/manage';
-$route['manage_assignment'] 	= 'classroom/manage';
 $route['404_override'] 			= '';
 
 

@@ -23,11 +23,8 @@ class companies_model extends CI_Model {
 	{
 		$this->load->helper('url');
 
-		$slug = url_title($this->input->post('name'), 'dash', TRUE);
-
 		$data = array(
 			'name' => $this->input->post('name'),
-			'slug' => $slug,
 			'division' => $this->input->post('division'),
 			'department' => $this->input->post('department'),
 			'notes' => $this->input->post('notes')
@@ -40,12 +37,9 @@ class companies_model extends CI_Model {
 	{
 		$this->load->helper('url');
 
-		$slug = url_title($this->input->post('name'), 'dash', TRUE);
-
 		$data = array(
 			'id' => $this->input->post('id'),
 			'name' => $this->input->post('name'),
-			'slug' => $slug,
 			'division' => $this->input->post('division'),
 			'department' => $this->input->post('department'),
 			'notes' => $this->input->post('notes')

@@ -39,16 +39,14 @@
 			<div class="control-group">
 				<label class="control-label" for="lecture"><?php echo ('Text'); ?></label>
 				<div class="controls">
-					<?php echo form_textarea(array('name' => 'lecture', 'id' => 'lecture', '', 'maxlength' => 80)); ?>
+					<?php echo form_textarea(array('name' => 'lecture', 'id' => 'lecture')); ?>
 				</div>
 			</div>
-
-
 
 			<div class="form-actions">
 				<div class="controls">
 					<?php echo form_submit('', ('Uložit'), 'class="btn btn-primary"'); ?>
-					<?php echo anchor('manage_lecture', ('Cancel'), 'class="btn"'); ?>
+					<?php echo anchor('lecture/manage', ('Cancel'), 'class="btn"'); ?>
 				</div>
 			</div>
 

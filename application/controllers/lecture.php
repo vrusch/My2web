@@ -49,11 +49,27 @@ class lecture extends CI_Controller
 		$this->load->view('lecture/manage_lecture', isset($data) ? $data : NULL);
 	}
 
-	public function add_to_course()
+	public function addto()
 	{
 		maintain_ssl();
 
 		$data['lecture'] = $this->lecture_model->get_lecture();
 		$this->load->view('lecture/manage_lecture', isset($data) ? $data : NULL);
+	}
+
+	public function delete()
+	{
+		maintain_ssl();
+
+		$data['lecture'] = $this->lecture_model->get_lecture();
+		$this->load->view('lecture/manage_lecture', isset($data) ? $data : NULL);
+	}
+
+	public function view($id = NULL)
+	{
+		maintain_ssl();
+
+		$data['lecture_item'] = $this->lecture_model->get_lecture($id);
+		$this->load->view('lecture/view_lecture', isset($data) ? $data : NULL);
 	}
 }

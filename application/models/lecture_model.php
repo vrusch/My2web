@@ -16,7 +16,7 @@ class lecture_model extends CI_Model
 			return $query->result_array();
 		}
 
-		$query = $this->db->get_where('4m2w_lectures', array('slug' => $id));
+		$query = $this->db->get_where('4m2w_lectures', array('id' => $id));
 		return $query->row_array();
 	}
 

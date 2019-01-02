@@ -5,8 +5,6 @@
 </head>
 <body>
 
-<?php //echo $this->load->view('header'); ?>
-
 <div class="container">
 	<div class="row">
 
@@ -36,7 +34,7 @@
 					<th><?php echo ('Datum vydani'); ?></th>
 					<th><?php echo ('Ativni'); ?></th>
 					<th><?php echo ('Zvyraznena'); ?></th>
-					<th><?php echo ('Nahled popup'); ?></th>
+					<th><?php echo ('Nahled'); ?></th>
 					<th>
 							<?php echo anchor('news/create',('Nová'),'class="btn btn-primary btn-small"'); ?>
 					</th>
@@ -75,13 +73,25 @@
 							</label>
 						</td>
 						<td>
-							<p><a href="<?php echo site_url('news/'.$news_item['slug']); ?>">View article</a></p>
+							<?php
+							$atts = array(
+								'width'       => 800,
+								'height'      => 600,
+								'scrollbars'  => 'no',
+								'status'      => 'yes',
+								'resizable'   => 'no',
+								'screenx'     => 200,
+								'screeny'     => 200,
+								'window_name' => '_blank'
+							);
+							echo anchor_popup('news/view/'.$news_item['id'], 'nahled', $atts);
+							?>
 						</td>
 						<td>
-							<?php echo anchor('news/update/'.$news_item['slug'], ('Edit'), 'class="btn btn-small"'); ?>
+							<?php echo anchor('news/update/'.$news_item['id'], ('Edit'), 'class="btn btn-small"'); ?>
 						</td>
 						<td>
-							<?php echo anchor('news/delete/'.$news_item['slug'], ('Smazat'), 'class="btn btn-danger btn-small"'); ?>
+							<?php echo anchor('news/delete/'.$news_item['id'], ('Smazat'), 'class="btn btn-danger btn-small"'); ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>

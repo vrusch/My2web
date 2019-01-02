@@ -36,7 +36,7 @@
 					<th><?php echo ('typ'); ?></th>
 					<th><?php echo ('Datum'); ?></th>
 					<th>
-						<?php echo anchor('u_image',('pridat'),'class="btn btn-primary btn-small"'); ?>
+						<?php echo anchor('img/upload',('pridat'),'class="btn btn-primary btn-small"'); ?>
 					</th>
 				</tr>
 				</thead>

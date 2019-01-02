@@ -35,7 +35,6 @@
 					<th><?php echo ('Nahled popup'); ?></th>
 					<th>
 						<?php echo anchor('lecture/create','Nova','class="btn btn-primary btn-small"'); ?>
-						<?php echo anchor('lecture/create','Smazat','class="btn btn-primary btn-small"'); ?>
 					</th>
 				</tr>
 				</thead>
@@ -49,17 +48,29 @@
 						<?php echo $lecture_item['tema']; ?>
 					</td>
 					<td>
-						<?php echo '<a>nahled popup</a>'; ?>
+						<?php
+						$atts = array(
+							'width'       => 800,
+							'height'      => 600,
+							'scrollbars'  => 'no',
+							'status'      => 'yes',
+							'resizable'   => 'no',
+							'screenx'     => 200,
+							'screeny'     => 200,
+							'window_name' => '_blank'
+						);
+						echo anchor_popup('lecture/view/'.$lecture_item['id'], 'nahled', $atts);
+						?>
 					</td>
 					<td>
-						<?php echo anchor('lecture/edit', 'edit', 'class="btn btn-small"'); ?>
-						<?php echo anchor('lecture/update_question', 'Pridat do kvizu', 'class="btn btn-small"'); ?>
+						<?php echo anchor('lecture/edit/'.$lecture_item['id'], 'edit', 'class="btn btn-small"'); ?>
+						<?php echo anchor('lecture/addto/'.$lecture_item['id'], 'Pridat do kvizu', 'class="btn btn-small"'); ?>
+						<?php echo anchor('lecture/delete/'.$lecture_item['id'],'Smazat','class="btn btn-primary btn-small"'); ?>
 					</td>
 				</tr>
 				<?php endforeach; ?>
 				</tbody>
 			</table>
-
 		</div>
 	</div>
 </div>
