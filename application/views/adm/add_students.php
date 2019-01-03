@@ -74,10 +74,17 @@
 					<?php foreach ($zaci as $zaci_item) : ?>
 						<tr>
 							<td>
-								<?php echo $pocitadlo; ?>
+								<?php echo $pocitadlo;
+								$data = array(
+									'name' => $offset."[username]",
+									'value' => $zaci_item['username'],
+									'type' => 'hidden'
+								);
+								echo form_input($data); ?>
 							</td>
 							<td>
 								<?php echo form_input(array('name' => $offset."[name]"), $zaci_item['name']); ?>
+
 							</td>
 							<td>
 								<?php echo form_input(array('name' => $offset."[surname]"), $zaci_item['surname']); ?>

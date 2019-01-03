@@ -52,22 +52,39 @@ class questions extends CI_Controller
 
 	public function update($id = NULL)
 	{
-		$data['question'] = $this->question_model->get_question($id);
+		$this->form_validation->set_rules('tema', 'Nazev', 'required');
+		$this->form_validation->set_rules('question', 'Text', 'required');
+		$this->form_validation->set_rules('true_answer', 'Nazev', 'required');
+		$this->form_validation->set_rules('bad_answer1', 'Text', 'required');
+		$this->form_validation->set_rules('bad_answer2', 'Text', 'required');
+		$this->form_validation->set_message('required', 'Povinne pole');
 
-		$d1 = $this->question_model->get_answer($data['question']['true_id_answer']);
-		$d2 = $this->question_model->get_answer($data['question']['false1_id_answer']);
-		$d3 = $this->question_model->get_answer($data['question']['false2_id_answer']);
-		$d4 = $this->question_model->get_answer($data['question']['false3_id_answer']);
-		$data['question']['true'] = $d1['answer'];
-		$data['question']['false1'] = $d2['answer'];
-		$data['question']['false2'] = $d3['answer'];
-		$data['question']['false3'] = $d4['answer'];
-		$this->load->view('adm/edit_question', isset($data) ? $data : NULL);
+		if ($this->form_validation->run() === FALSE) {
+			$data['question'] = $this->question_model->get_question($id);
+			$data['question']['true'] = $this->question_model->get_answer($data['question']['true_id_answer']);
+			$data['question']['false1']= $this->question_model->get_answer($data['question']['false1_id_answer']);
+			$data['question']['false2'] = $this->question_model->get_answer($data['question']['false2_id_answer']);
+			$data['question']['false3'] = $this->question_model->get_answer($data['question']['false3_id_answer']);
+			$this->load->view('adm/edit_question', isset($data) ? $data : NULL);
+		} else {
+			//$this->question_model->update_question(); //todo: doplnit do modelu update
+			$data['questions'] = $this->question_model->get_question();
+			$this->load->view('adm/manage_questions', isset($data) ? $data : NULL);
+		}
 	}
 
 	public function delete($id = NULL)
 	{
-		$data['question'] = $this->question_model->delete($id); //todo: smazat aj answers; doplnit funkci do modelu
+		$data['question'] = $this->question_model->get_question($id);
+		$this->question_model->delete_q_a($data);
+
+		$data['questions'] = $this->question_model->get_question();
 		$this->load->view('adm/manage_questions', isset($data) ? $data : NULL);
+	}
+
+	public function addto($id = NULL)
+	{
+		$data['question'] = $this->question_model->get_question($id);
+		$this->load->view('adm/addto_question', isset($data) ? $data : NULL);
 	}
 }

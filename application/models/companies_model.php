@@ -52,11 +52,38 @@ class companies_model extends CI_Model {
 
 	public function delete_company($id = FALSE)
 	{
-		if ($id === FALSE) {
+		if ($id === FALSE) { //todo: zmazat ziakov a vo vsetkych tabulkach caskadovo podla ID
 			$query = $this->db->order_by('date_publish', 'DESC')->get('4m2w_companies');
 			return $query->result_array();
 		}
 
 		$this->db->delete('4m2w_companies', array('id' => $id));
+	}
+
+	public function detectDelimiter($fh)
+	{
+		$delimiters = ["\t", ";", "|", ","];
+		$data_1 = null; $data_2 = null;
+		$delimiter = $delimiters[0];
+		foreach($delimiters as $d) {
+			$data_1 = fgetcsv($fh, 4096, $d);
+			if(($data_1) > ($data_2)) {
+				$delimiter = ($data_1) > ($data_2) ? $d : $delimiter;
+				$data_2 = $data_1;
+			}
+			rewind($fh);
+		}
+		return $delimiter;
+	}
+
+	function gen_username($firstname, $lastname) {
+		$name1 = strtolower(substr($firstname, 0, 2));
+		$name2 = strtolower(substr($lastname, 0, 6));
+		$nrRand = rand(10, 99);
+		return $name1 . $name2 . $nrRand;
+	}
+
+	function add_user() {
+//todo: vratit si ID: $this->db->insert_id()
 	}
 }

@@ -1,11 +1,6 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: vlado
- * Date: 07.12.2018
- * Time: 22:33
- */
+
 class question_model extends CI_Model
 {
 
@@ -26,7 +21,6 @@ class question_model extends CI_Model
 
 	public function get_answer($id = FALSE)
 	{
-		$this->db->select('answer');
 		$query = $this->db->get_where('4m2w_answers', array('id' => $id));
 		return $query->row_array();
 	}
@@ -68,5 +62,21 @@ class question_model extends CI_Model
 			'false3_id_answer' => $fa3
 		);
 		$this->db->insert('4m2w_questions', $data);
+	}
+
+	public function delete_q_a($smazat = NULL)
+	{
+		$this->db->trans_start();
+		$this->db->delete('4m2w_answers', array('id' => $smazat['question']['true_id_answer']));
+		$this->db->delete('4m2w_answers', array('id' => $smazat['question']['false1_id_answer']));
+		$this->db->delete('4m2w_answers', array('id' => $smazat['question']['false2_id_answer']));
+		$this->db->delete('4m2w_answers', array('id' => $smazat['question']['false3_id_answer']));
+		$this->db->trans_complete();
+		if ($this->db->trans_status() === FALSE) //todo: zmazat i tab kvizu
+		{
+			echo 'chyba pri mazani zaznamu v 4m2w_answers';
+		}else{
+			$this->db->delete('4m2w_questions', array('id' => $smazat['question']['id']));
+		}
 	}
 }

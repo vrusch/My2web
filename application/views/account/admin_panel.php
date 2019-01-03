@@ -23,7 +23,7 @@
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
 			<li class="<?php echo ($current == 'manage_news') ? 'active' : ''; ?>"><?php echo anchor('news/manage', ('Novinky')); ?></li>
 		<?php endif; ?>
-		<li class="nav-header">Customer mangment</li>
+		<li class="nav-header">Customer managment</li>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
 			<li class="<?php echo ($current == 'manage_companies') ? 'active' : ''; ?>"><?php echo anchor('companies/manage', ('Firmy')); ?></li>
 		<?php endif; ?>

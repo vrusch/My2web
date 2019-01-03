@@ -1,11 +1,6 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: vlado
- * Date: 07.12.2018
- * Time: 22:33
- */
+
 class course_model extends CI_Model
 {
 

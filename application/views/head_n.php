@@ -277,7 +277,6 @@
 		.linky:hover {
 			color: #fff;
 		}
-
 	</style>
 
 
