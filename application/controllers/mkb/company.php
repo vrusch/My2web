@@ -1,6 +1,6 @@
 <?php
 
-class companies extends CI_Controller
+class company extends CI_Controller
 {
 
 	public function __construct()
@@ -14,7 +14,7 @@ class companies extends CI_Controller
 	public function index()
 	{
 		$data['companies'] = $this->companies_model->get_companies();
-		$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
+		$this->load->view('mkb/manage_companies', isset($data) ? $data : NULL);
 	}
 
 	public function create()

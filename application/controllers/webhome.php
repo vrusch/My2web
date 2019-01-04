@@ -16,6 +16,6 @@ class webhome extends CI_Controller
 	{
 		maintain_ssl();
 		//$data['homepage'] = $this->homepage_model->get_homepage();
-		$this->load->view('adm/manage_home', isset($data) ? $data : NULL);
+		$this->load->view('webhome/manage_home', isset($data) ? $data : NULL);
 	}
 }

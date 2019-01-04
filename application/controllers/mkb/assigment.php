@@ -1,8 +1,7 @@
 <?php
 
-class colors extends CI_Controller
+class assigment extends CI_Controller
 {
-
 	public function __construct()
 	{
 		parent::__construct();
@@ -15,7 +14,8 @@ class colors extends CI_Controller
 	public function index()
 	{
 		maintain_ssl();
-		//$data['colorschema'] = $this->homepage_model->get_homepage();
-		$this->load->view('colors/manage_cschema', isset($data) ? $data : NULL);
+
+		//$data['company'] = $this->companies_model->get_companies($id);
+		$this->load->view('mkb/manage_assignment', isset($data) ? $data : NULL);
 	}
 }

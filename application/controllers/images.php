@@ -15,7 +15,7 @@ class images extends CI_Controller
 	{
 		maintain_ssl();
 		$data['files'] = get_dir_file_info('./resource/img',TRUE,FALSE);
-		$this->load->view('adm/manage_images', isset($data) ? $data : NULL);
+		$this->load->view('images/manage_images', isset($data) ? $data : NULL);
 	}
 
 	public function upload()

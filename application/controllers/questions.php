@@ -14,7 +14,7 @@ class questions extends CI_Controller
 	public function index()
 	{
 		$data['questions'] = $this->question_model->get_question();
-		$this->load->view('adm/manage_questions', isset($data) ? $data : NULL);
+		$this->load->view('questions/manage_questions', isset($data) ? $data : NULL);
 	}
 
 	public function new_question()
