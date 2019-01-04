@@ -21,6 +21,7 @@ class Home_n extends CI_Controller {
 		if ($this->authentication->is_signed_in())
 		{
 			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
+			//var_dump($data);
 		}
 
 		$this->load->view('home_n', isset($data) ? $data : NULL);
