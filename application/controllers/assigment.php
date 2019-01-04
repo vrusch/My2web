@@ -16,6 +16,6 @@ class assigment extends CI_Controller
 		maintain_ssl();
 
 		//$data['company'] = $this->companies_model->get_companies($id);
-		$this->load->view('adm/manage_assigment', isset($data) ? $data : NULL);
+		$this->load->view('adm/manage_assignment', isset($data) ? $data : NULL);
 	}
 }

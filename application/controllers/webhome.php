@@ -1,6 +1,6 @@
 <?php
 
-class manage extends CI_Controller
+class webhome extends CI_Controller
 {
 
 	public function __construct()
@@ -12,17 +12,10 @@ class manage extends CI_Controller
 
 	}
 
-	public function manage_home()
+	public function index()
 	{
 		maintain_ssl();
 		//$data['homepage'] = $this->homepage_model->get_homepage();
 		$this->load->view('adm/manage_home', isset($data) ? $data : NULL);
-	}
-
-	public function manage_colorschema()
-	{
-		maintain_ssl();
-		//$data['colorschema'] = $this->homepage_model->get_homepage();
-		$this->load->view('adm/manage_cschema', isset($data) ? $data : NULL);
 	}
 }

@@ -12,7 +12,7 @@ class lecture extends CI_Controller
 
 	}
 
-	public function manage()
+	public function index()
 	{
 		maintain_ssl();
 

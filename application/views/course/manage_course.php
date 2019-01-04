@@ -55,14 +55,14 @@
 						</td>
 						<td>
 							<?php
-							$sql = "SELECT id FROM 4m2w_t_course WHERE course_id = ? AND lectures_id IS NOT NULL";
+							$sql = "SELECT id FROM 4m2w_rel_course WHERE course_id = ? AND lectures_id IS NOT NULL";
 							$query = $this->db->query($sql, array($course_item['id']));
 							echo($query->num_rows());;
 							?>
 						</td>
 						<td>
 							<?php
-							$sql = "SELECT id FROM 4m2w_t_course WHERE course_id = ? AND questions_id IS NOT NULL";
+							$sql = "SELECT id FROM 4m2w_rel_course WHERE course_id = ? AND questions_id IS NOT NULL";
 							$query = $this->db->query($sql, array($course_item['id']));
 							echo($query->num_rows());
 							?>

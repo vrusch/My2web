@@ -11,7 +11,7 @@ class news extends CI_Controller
 		$this->load->model(array('account/account_model', 'news_model'));
 	}
 
-	public function manage()
+	public function index()
 	{
 		maintain_ssl();
 		if ($this->authentication->is_signed_in()) {

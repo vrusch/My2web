@@ -1,6 +1,6 @@
 <?php
 
-class classroom extends CI_Controller
+class colors extends CI_Controller
 {
 
 	public function __construct()
@@ -8,15 +8,14 @@ class classroom extends CI_Controller
 		parent::__construct();
 		$this->load->helper(array('language', 'url', 'form', 'account/ssl', 'url_helper'));
 		$this->load->library(array('account/authentication', 'account/authorization', 'form_validation'));
-		$this->load->model(array('account/account_model', 'classroom_model'));
+		$this->load->model(array('account/account_model', 'companies_model'));
 
 	}
 
-	public function manage()
+	public function index()
 	{
 		maintain_ssl();
-
-		$data['classroom'] = $this->classroom_model->get_assigment();
-		$this->load->view('adm/manage_assignment', isset($data) ? $data : NULL);
+		//$data['colorschema'] = $this->homepage_model->get_homepage();
+		$this->load->view('adm/manage_cschema', isset($data) ? $data : NULL);
 	}
 }

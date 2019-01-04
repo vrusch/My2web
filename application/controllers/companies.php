@@ -11,7 +11,7 @@ class companies extends CI_Controller
 		$this->load->model(array('account/account_model', 'companies_model'));
 	}
 
-	public function manage()
+	public function index()
 	{
 		$data['companies'] = $this->companies_model->get_companies();
 		$this->load->view('adm/manage_companies', isset($data) ? $data : NULL);
