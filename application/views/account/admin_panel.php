@@ -39,13 +39,19 @@
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
 			<li class="<?php echo ($current == 'manage_assignment') ? 'active' : ''; ?>"><?php echo anchor('assigment', ('Přiřazování')); ?></li>
 		<?php endif; ?>
-		<li class="nav-header">Manazer kyberbezpecnosti</li>
-		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'mkb_manage_companies') ? 'active' : ''; ?>"><?php echo anchor('mkb/company', ('Firma, zaci')); ?></li>
-		<?php endif; ?>
-		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'mkb_manage_assignment') ? 'active' : ''; ?>"><?php echo anchor('mkb/assigment', ('Přiřazování')); ?></li>
-		<?php endif; ?>
 	<?php endif; ?>
+
+		<?php if ($this->authorization->is_role_mkb()) : ?>
+			<?php if ($this->authorization->is_permitted('retrieve_permissions')) : //todo: doplnit permition mkb moze pozerat iba manager kyberbezpecnosti?>
+				<li class="nav-header">Manazer kyberbezpecnosti</li>
+				<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
+					<li class="<?php echo ($current == 'mkb_manage_companies') ? 'active' : ''; ?>"><?php echo anchor('mkb/company', ('Firma, zaci')); ?></li>
+				<?php endif; ?>
+				<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
+				<li class="<?php echo ($current == 'mkb_manage_assignment') ? 'active' : ''; ?>"><?php echo anchor('mkb/assigment', ('Přiřazování')); ?></li>
+				<?php endif; ?>
+			<?php endif; ?>
+		<?php endif; ?>
+
 
 </ul>

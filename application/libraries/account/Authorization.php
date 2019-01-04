@@ -102,6 +102,15 @@ class Authorization {
     return $this->CI->acl_role_model->has_role('Admin', $account_id);
   }
 
+	function is_role_mkb()
+	{
+		$account_id = $this->CI->session->userdata('account_id');
+
+		$this->CI->load->model('account/acl_role_model');
+
+		return $this->CI->acl_role_model->has_role('admin', $account_id); //todo: zmenit na admin na MKB
+	}
+
 }
 
 
@@ -109,5 +118,4 @@ class Authorization {
 /* Location: ./application/account/libraries/Authorization.php */
 
 // --------------------------------------------------------------------
-  
   
