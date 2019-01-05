@@ -27,7 +27,7 @@
 
 			<?php echo $error;?>
 
-			<?php echo form_open_multipart('img/upload');?>
+			<?php echo form_open_multipart('images/upload');?>
 
 			<input type="file" name="userfile" size="20" />
 

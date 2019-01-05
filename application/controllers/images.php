@@ -37,25 +37,14 @@ class images extends CI_Controller
 		{
 			$error = array('error' => $this->upload->display_errors());
 
-			$this->load->view('adm/upload_images', $error);
+			$this->load->view('images/upload_images', $error);
 		}
 		else
 		{
 			$data = array('upload_data' => $this->upload->data());
 
-			$this->load->view('adm/manage_images', $data);
+			$this->load->view('images/manage_images', $data);
 		}
-	}
-
-	public function manipulate()
-	{
-		maintain_ssl();
-
-		if ($this->authentication->is_signed_in()) {
-			$data['account'] = $this->account_model->get_by_id($this->session->userdata('account_id'));
-		}
-		//$this->load->view('adm/upload_images', isset($data) ? $data : NULL);
-		echo 'manipulate';
 	}
 
 	public function delete()

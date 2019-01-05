@@ -36,7 +36,7 @@
 					<th><?php echo ('typ'); ?></th>
 					<th><?php echo ('Datum'); ?></th>
 					<th>
-						<?php echo anchor('img/upload',('pridat'),'class="btn btn-primary btn-small"'); ?>
+						<?php echo anchor('images/upload',('pridat'),'class="btn btn-primary btn-small"'); ?>
 					</th>
 				</tr>
 				</thead>
@@ -61,7 +61,7 @@
 							<?php echo $files_item['date']; ?>
 						</td>
 						<td>
-							<?php echo anchor('img/delete', ('smazat'), 'class="btn btn-danger btn-small"'); ?>
+							<?php echo anchor('images/delete', ('smazat'), 'class="btn btn-danger btn-small"'); ?>
 						</td>
 					</tr>
 						<?php endif; ?>

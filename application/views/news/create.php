@@ -46,7 +46,7 @@
 			<div class="form-actions">
 				<div class="controls">
 					<?php echo form_submit('', ('Uložit'), 'class="btn btn-primary"'); ?>
-				 <?php echo anchor('news/manage_news', ('Cancel'), 'class="btn"'); ?>
+				 <?php echo anchor('news', ('Cancel'), 'class="btn"'); ?>
 				</div>
 			</div>
 

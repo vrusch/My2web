@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php echo $this->load->view('head', array('title' => ('Firmy'))); ?>
+	<?php echo $this->load->view('head', array('title' => 'webhomepage')); ?>
 </head>
 <body>
 

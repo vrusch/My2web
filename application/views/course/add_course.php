@@ -39,7 +39,7 @@
 			<div class="form-actions">
 				<div class="controls">
 					<?php echo form_submit('', ('Uložit'), 'class="btn btn-primary"'); ?>
-					<?php echo anchor('manage_course', ('Cancel'), 'class="btn"'); ?>
+					<?php echo anchor('course', ('Cancel'), 'class="btn"'); ?>
 				</div>
 			</div>
 

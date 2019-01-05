@@ -108,7 +108,7 @@
 				</table>
 				<div class="well">
 					<?php echo form_submit('', ('Uložit'), 'class="btn btn-primary"'); ?>
-					<?php echo anchor('companies/manage', ('Cancel'), 'class="btn"'); ?>
+					<?php echo anchor('companies', ('Cancel'), 'class="btn"'); ?>
 					<?php echo form_close(); ?>
 				</div>
 			</div>

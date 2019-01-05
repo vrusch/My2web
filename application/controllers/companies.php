@@ -24,11 +24,11 @@ class companies extends CI_Controller
 
 
 		if ($this->form_validation->run() === FALSE) {
-			$this->load->view('adm/add_company', isset($data) ? $data : NULL);
+			$this->load->view('companies/add_company', isset($data) ? $data : NULL);
 		} else {
 			$this->companies_model->set_companies();
 			$data['companies'] = $this->companies_model->get_companies();
-			$this->load->view('adm/manage_companies', isset($data) ? $data : NULL);
+			$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
 		}
 	}
 
@@ -36,7 +36,7 @@ class companies extends CI_Controller
 	{
 		$this->companies_model->delete_company($id);
 		$data['companies'] = $this->companies_model->get_companies();
-		$this->load->view('adm/manage_companies', isset($data) ? $data : NULL);
+		$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
 	}
 
 	public function update($id = NULL)
@@ -48,11 +48,11 @@ class companies extends CI_Controller
 
 			if ($this->form_validation->run() === FALSE) {
 				$data['companies_item'] = $this->companies_model->get_companies($id);
-				$this->load->view('adm/edit_company', $data);
+				$this->load->view('companies/edit_company', $data);
 			} else {
 				$this->companies_model->update_company();
 				$data['companies'] = $this->companies_model->get_companies();
-				$this->load->view('adm/manage_companies', isset($data) ? $data : NULL);
+				$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
 			}
 		}
 	}
@@ -60,7 +60,7 @@ class companies extends CI_Controller
 	public function add_students($id = NULL)
 	{
 		$data['company'] = $this->companies_model->get_companies($id);
-		$this->load->view('adm/add_students', isset($data) ? $data : NULL);
+		$this->load->view('companies/add_students', isset($data) ? $data : NULL);
 	}
 
 	public function csv_parse()
@@ -85,7 +85,7 @@ class companies extends CI_Controller
 			}
 		}
 		$data['company']['phase'] = '1';
-		$this->load->view('adm/add_students', isset($data) ? $data : NULL);
+		$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
 	}
 
 	public function add_finaly()
@@ -94,7 +94,7 @@ class companies extends CI_Controller
 		//todo: vlozit do tabulky users vratit id a zapisat do tab zaci par companyid - zakid
 		$this->companies_model->add_user();
 
-		$this->load->view('adm/manage_companies', isset($data) ? $data : NULL);
+		$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
 		var_dump ($_POST);
 	}
 }

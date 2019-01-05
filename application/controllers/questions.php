@@ -27,11 +27,11 @@ class questions extends CI_Controller
 		$this->form_validation->set_message('required', 'Povinne pole');
 
 		if ($this->form_validation->run() === FALSE) {
-			$this->load->view('adm/add_question', isset($data) ? $data : NULL);
+			$this->load->view('questions/add_question', isset($data) ? $data : NULL);
 		} else {
 			$this->question_model->set_question();
 			$data['questions'] = $this->question_model->get_question();
-			$this->load->view('adm/manage_questions', isset($data) ? $data : NULL);
+			$this->load->view('questions/manage_questions', isset($data) ? $data : NULL);
 		}
 	}
 
@@ -47,7 +47,7 @@ class questions extends CI_Controller
 		$data['question']['false1'] = $d2['answer'];
 		$data['question']['false2'] = $d3['answer'];
 		$data['question']['false3'] = $d4['answer'];
-		$this->load->view('adm/view_questions', isset($data) ? $data : NULL);
+		$this->load->view('questions/view_questions', isset($data) ? $data : NULL);
 	}
 
 	public function update($id = NULL)
@@ -65,11 +65,11 @@ class questions extends CI_Controller
 			$data['question']['false1']= $this->question_model->get_answer($data['question']['false1_id_answer']);
 			$data['question']['false2'] = $this->question_model->get_answer($data['question']['false2_id_answer']);
 			$data['question']['false3'] = $this->question_model->get_answer($data['question']['false3_id_answer']);
-			$this->load->view('adm/edit_question', isset($data) ? $data : NULL);
+			$this->load->view('questions/edit_question', isset($data) ? $data : NULL);
 		} else {
 			//$this->question_model->update_question(); //todo: doplnit do modelu update
 			$data['questions'] = $this->question_model->get_question();
-			$this->load->view('adm/manage_questions', isset($data) ? $data : NULL);
+			$this->load->view('questions/manage_questions', isset($data) ? $data : NULL);
 		}
 	}
 
@@ -79,12 +79,12 @@ class questions extends CI_Controller
 		$this->question_model->delete_q_a($data);
 
 		$data['questions'] = $this->question_model->get_question();
-		$this->load->view('adm/manage_questions', isset($data) ? $data : NULL);
+		$this->load->view('questions/manage_questions', isset($data) ? $data : NULL);
 	}
 
 	public function addto($id = NULL)
 	{
 		$data['question'] = $this->question_model->get_question($id);
-		$this->load->view('adm/addto_question', isset($data) ? $data : NULL);
+		$this->load->view('questions/addto_question', isset($data) ? $data : NULL);
 	}
 }
