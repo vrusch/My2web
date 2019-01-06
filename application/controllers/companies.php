@@ -19,14 +19,38 @@ class companies extends CI_Controller
 
 	public function create()
 	{
-		$this->form_validation->set_rules('name', 'name', 'required');
-		$this->form_validation->set_message('required', 'Povinne pole');
-
+		$this->form_validation->set_rules(
+			'name', 'Název společnosti',
+			'required|min_length[3]|max_length[40]|is_unique[4m2w_companies.name]',
+			array(
+				'required'      => 'You have not provided %s.',
+				'is_unique'     => 'This %s already exists.'
+			)
+		);
+		$this->form_validation->set_rules(
+			'mkb_username', 'MKB username',
+			'min_length[3]|max_length[10]|is_unique[a3m_account.username]',
+			array(
+				'is_unique'     => 'This %s already exists.'
+			)
+		);
+		$this->form_validation->set_rules(
+			'mkb_email', 'MKB email',
+			'valid_email|is_unique[a3m_account.email]',
+			array(
+				'valid_email'     => 'This not valid email address.',
+				'is_unique'     => 'This %s already exists.'
+			)
+		);
 
 		if ($this->form_validation->run() === FALSE) {
 			$this->load->view('companies/add_company', isset($data) ? $data : NULL);
 		} else {
-			$this->companies_model->set_companies();
+			$user_id = $this->companies_model->set_company();
+
+			//send activation email
+			$this->companies_model->send_reg_mail($user_id); //todo poslat mail
+
 			$data['companies'] = $this->companies_model->get_companies();
 			$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
 		}
@@ -34,9 +58,9 @@ class companies extends CI_Controller
 
 	public function delete($id = NULL)
 	{
-		$this->companies_model->delete_company($id);
-		$data['companies'] = $this->companies_model->get_companies();
-		$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
+		/*$this->companies_model->delete_company($id);
+		$data['companies'] = $this->companies_model->get_companies();*/
+		$this->load->view('companies/manage_companies', isset($data) ? $data : NULL); //todo: mazat vsetko mkb, ziakov
 	}
 
 	public function update($id = NULL)

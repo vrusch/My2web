@@ -32,11 +32,11 @@
 			<table class="table table-condensed table-hover">
 				<thead>
 				<tr>
+					<th><?php echo ('#'); ?></th>
 					<th><?php echo ('Název'); ?></th>
-					<th><?php echo ('Divize'); ?></th>
-					<th><?php echo ('Oddělení'); ?></th>
-					<th><?php echo ('Poznamka'); ?></th>
-					<th><?php echo ('zaku'); ?></th>
+					<th><?php echo ('Skupin'); ?></th>
+					<th><?php echo 'MKB Aktivovan'; ?></th>
+					<th><?php echo ('Žáků'); ?></th>
 					<th>
 						<?php echo anchor('companies/create','Nova','class="btn btn-primary btn-small"'); ?>
 					</th>
@@ -46,23 +46,40 @@
 				<?php foreach( $companies as $companies_item ) : ?>
 				<tr>
 					<td>
-						<?php echo $companies_item['name']; ?>
+						<?php echo $companies_item['id']; ?>
 					</td>
 					<td>
-						<?php echo $companies_item['division']; ?>
+						<?php echo '<strong>'.$companies_item['name'].'</strong>'; ?>
 					</td>
 					<td>
-						<?php echo $companies_item['department']; ?>
+						<?php
+						$query = $this->db->get_where('4m2w_company_group', array('company_id' => $companies_item['id']));
+						echo $query->num_rows();
+						?>
 					</td>
 					<td>
-						<?php echo $companies_item['notes']; ?>
+						<?php
+						$this->db->select('activation');
+						$query = $this->db->get_where('4m2w_mkb', array('company_id' => $companies_item['id']));
+						$result = $query->row_array();
+						if ($result == NULL){
+							echo anchor('companies/addmkb/'.$companies_item['id'], 'Vytvořit', 'class="btn btn-info btn-small"');
+						} else {
+							if($result['activation'] == '0'){echo anchor('companies'.$companies_item['id'], 'Chyba', 'class="btn btn-danger btn-small"');;}
+							if($result['activation'] == '1'){echo 'Odesláno';}
+							if($result['activation'] == '2'){echo 'Aktivní od: dd-mm-yyyy';}
+						};
+						?>
 					</td>
 					<td>
-						<?php //echo $companies_item['notes']; ?>
+						<?php
+						$query = $this->db->get_where('4m2w_students', array('company_id' => $companies_item['id']));
+						echo $query->num_rows();
+						?>
 					</td>
 					<td>
 						<?php echo anchor('companies/update/' . $companies_item['id'], 'Edit', 'class="btn btn-small"'); ?>
-						<?php echo anchor('companies/add_students/' . $companies_item['id'], 'Pridat Zaky', 'class="btn btn-small"'); ?>
+						<?php echo anchor('companies/add_students/' . $companies_item['id'], 'Přidat žáky', 'class="btn btn-info btn-small"'); ?>
 						<?php echo anchor('companies/delete/' . $companies_item['id'], 'Smazat', 'class="btn btn-danger btn-small"'); ?>
 					</td>
 				</tr>

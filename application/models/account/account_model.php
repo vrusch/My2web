@@ -178,6 +178,18 @@ class Account_model extends CI_Model {
 		return strtotime($resetsenton);
 	}
 
+	function update_sent_activation($account_id)
+	{
+		$this->load->helper('date');
+
+		$activation_send = mdate('%Y-%m-%d %H:%i:%s', now());
+
+		$this->db->update('4m2w_mkb', array('activation_send' => $activation_send), array('user_id' => $account_id));
+		$this->db->update('4m2w_mkb', array('activation' => 1), array('user_id' => $account_id));
+
+		return strtotime($activation_send);
+	}
+
 	/**
 	 * Remove password reset datetime
 	 *

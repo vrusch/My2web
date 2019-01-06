@@ -65,7 +65,7 @@ $config['openid_what_is_url'] = 'http://openidexplained.com/';
 |	password_reset_email 			Reset password sender email
 */
 $config['password_reset_expiration'] 	= 1800;
-$config['password_reset_secret'] 		= '';
+$config['password_reset_secret'] 		= 'cNnW31OqQVvmoDgWtM4tcdjY01QHNwX443MehkEDYsvrSneakvoE3sfv83OxDU1';
 $config['password_reset_email'] 		= 'no-reply@a3m.com';
 
 
