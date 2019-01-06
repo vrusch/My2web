@@ -66,34 +66,38 @@ class companies_model extends CI_Model {
 			}
 		}
 
-		return $user_id;
+		return isset($user_id) ? $user_id : NULL;
 	}
 
-	public function update_company()
+	public function edit_company($id = NULL)
 	{
 		$this->load->helper('url');
 
 		$data = array(
-			'id' => $this->input->post('id'),
 			'name' => $this->input->post('name'),
-			'division' => $this->input->post('division'),
-			'department' => $this->input->post('department'),
-			'notes' => $this->input->post('notes')
 		);
 
 		$this->db->set($data);
-		$this->db->where('id', $data['id']);
+		$this->db->where('id', $id);
 		$this->db->update('4m2w_companies');
 	}
 
 	public function delete_company($id = FALSE)
 	{
-		if ($id === FALSE) { //todo: zmazat ziakov a vo vsetkych tabulkach caskadovo podla ID
-			$query = $this->db->order_by('date_publish', 'DESC')->get('4m2w_companies');
-			return $query->result_array();
+		if ($id === FALSE) {
+			echo 'chyba neni co mazat';
+		} else {
+			$query = $this->db->get_where('4m2w_mkb', array('company_id' => $id));
+			$del_data = $query->row_array();
+			if (!$del_data){
+				$this->db->delete('4m2w_companies', array('id' => $id));
+			} else {
+				$this->db->delete('a3m_rel_account_role', array('account_id' => $del_data['user_id']));//a3m_rel_account_role
+				$this->db->delete('a3m_account', array('id' => $del_data['user_id']));//a3m_account
+				$this->db->delete('4m2w_mkb', array('user_id' => $del_data['user_id']));//4m2w_mkb
+				$this->db->delete('4m2w_companies', array('id' => $id));//todo: zmazat ziakov
+			}
 		}
-
-		$this->db->delete('4m2w_companies', array('id' => $id));
 	}
 
 	public function detectDelimiter($fh)

@@ -18,41 +18,28 @@
 			<div class="well">
 				<?php echo ("editovani firmy"); ?>
 			</div>
-			<?php $hidden = array ('id' => $companies_item['id']); ?>
-			<?php echo form_open('companies/update/'.$companies_item['id'], 'class="form-horizontal"', $hidden); ?>
+			<?php echo form_open('companies/edit/'.$company_item['id'], 'class="form-horizontal"'); ?>
 			<?php echo validation_errors(); ?>
 
 			<div class="control-group">
 				<label class="control-label" for="name"><?php echo ('Název'); ?></label>
 				<div class="controls">
-					<?php echo form_input(array('name' => 'name', 'id' => 'name'), $companies_item['name']); ?>
+					<?php echo form_input(array('name' => 'name', 'id' => 'name'), $company_item['name']); ?>
+					<?php echo form_submit('', ('Uložit'), 'class="btn btn-primary"'); ?>
 				</div>
-			</div>
+			</div><br>
 
-			<div class="control-group">
-				<label class="control-label" for="division"><?php echo ('Divize'); ?></label>
-				<div class="controls">
-					<?php echo form_input(array('name' => 'division', 'id' => 'division'), $companies_item['division']); ?>
-				</div>
-			</div>
-
-			<div class="control-group">
-				<label class="control-label" for="department"><?php echo ('Oddělení'); ?></label>
-				<div class="controls">
-					<?php echo form_input(array('name' => 'department', 'id' => 'department'), $companies_item['department']); ?>
-				</div>
-			</div>
-
-			<div class="control-group">
-				<label class="control-label" for="notes"><?php echo ('Poznamka'); ?></label>
-				<div class="controls">
-					<?php echo form_input(array('name' => 'notes', 'id' => 'notes'), $companies_item['notes']); ?>
-				</div>
+			<div class="well">
+				<?php echo anchor('companies/add_students/' . $company_item['id'], 'Přidat žáky', 'class="btn btn-info btn-small"'); ?>
+				<?php echo anchor('companies', 'Přidat Skupiny', 'class="btn btn-primary btn-small"'); ?>
+				<?php echo anchor('companies', 'Přidat Kurzy', 'class="btn btn-primary btn-small"'); ?>
+				<span><?php echo '&nbsp anebo &nbsp'; ?></span>
+				<?php echo anchor('companies', 'Ban Firmu', 'class="btn btn-danger btn-small"'); ?>
 			</div>
 
 			<div class="form-actions">
 				<div class="controls">
-					<?php echo form_submit('', ('Uložit'), 'class="btn btn-primary"'); ?>
+
 					<?php echo anchor('companies', ('Cancel'), 'class="btn"'); ?>
 				</div>
 			</div>

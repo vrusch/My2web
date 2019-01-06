@@ -78,8 +78,7 @@
 						?>
 					</td>
 					<td>
-						<?php echo anchor('companies/update/' . $companies_item['id'], 'Edit', 'class="btn btn-small"'); ?>
-						<?php echo anchor('companies/add_students/' . $companies_item['id'], 'Přidat žáky', 'class="btn btn-info btn-small"'); ?>
+						<?php echo anchor('companies/edit/' . $companies_item['id'], 'Edit', 'class="btn btn-small"'); ?>
 						<?php echo anchor('companies/delete/' . $companies_item['id'], 'Smazat', 'class="btn btn-danger btn-small"'); ?>
 					</td>
 				</tr>

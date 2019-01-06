@@ -29,25 +29,20 @@
 			<div class="row">
 				<div class="span4">
 					<?php echo 'Firma: <strong>' . $company['name'] . '</strong>'; ?><br>
-					<?php echo 'Poznamka: <em>' . $company['notes'] . '</em>'; ?><br>
-					<?php echo 'Divize: <strong>' . $company['division'] . '</strong>'; ?><br>
-					<?php echo 'Oddeleni: <strong>' . $company['department'] . '</strong>'; ?>
 				</div>
 				<?php if (!isset($company['phase'])) : ?>
-				<div class="span4">
-					<?php $hidden = array('id' => $company['id']); ?>
-					<?php echo form_open_multipart('companies/csv_parse', 'class="form-horizontal"', $hidden); ?>
-					<?php echo validation_errors(); ?>
-
-					<label class="control-label" for="csv_file"><?php echo 'Vyber CSV soubor [oddelovac ]'; ?></label>
-					<?php echo form_input(array('name' => 'csv_file', 'id' => 'csv_file', 'type' => 'file'), '', 'required accept=".csv"'); ?>
-				</div>
-				<?php echo form_submit('import_csv', 'Import CSV', 'name="import_csv"; id="import_csv_btn"; btn btn-info"'); ?>
-
-				<?php echo form_close(); ?>
+					<div class="span4">
+						<?php $hidden = array('id' => $company['id']); ?>
+						<?php echo form_open_multipart('companies/csv_parse', 'class="form-horizontal"', $hidden); ?>
+						<?php echo validation_errors(); ?>
+						<?php echo form_input(array('name' => 'csv_file', 'id' => 'csv_file', 'type' => 'file'), 'fdhfghgfh', 'required accept=".csv"'); ?>
+					</div>
+					<?php echo form_submit('import_csv', 'Import CSV', 'name="import_csv"; id="import_csv_btn"; class="btn btn-primary"'); ?>
+					<?php echo anchor('companies', ('Cancel'), 'class="btn"'); ?>
+					<?php echo form_close(); ?>
 			</div>
 		</div>
-		<?php endif; ?>
+				<?php endif; ?>
 
 		<?php if (isset($company['phase'])) : ?>
 			<div class="span10">

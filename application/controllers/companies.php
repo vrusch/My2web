@@ -48,8 +48,10 @@ class companies extends CI_Controller
 		} else {
 			$user_id = $this->companies_model->set_company();
 
-			//send activation email
-			$this->companies_model->send_reg_mail($user_id); //todo poslat mail
+			//send activation email ak firma ma mkb
+			if ($user_id){
+				$this->companies_model->send_reg_mail($user_id); //todo poslat mail
+			}
 
 			$data['companies'] = $this->companies_model->get_companies();
 			$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
@@ -58,12 +60,12 @@ class companies extends CI_Controller
 
 	public function delete($id = NULL)
 	{
-		/*$this->companies_model->delete_company($id);
-		$data['companies'] = $this->companies_model->get_companies();*/
-		$this->load->view('companies/manage_companies', isset($data) ? $data : NULL); //todo: mazat vsetko mkb, ziakov
+		$this->companies_model->delete_company($id);
+		$data['companies'] = $this->companies_model->get_companies();
+		$this->load->view('companies/manage_companies', isset($data) ? $data : NULL); //todo: mazat ziakov
 	}
 
-	public function update($id = NULL)
+	public function edit($id = NULL)
 	{
 		if ($id != '') {
 
@@ -71,10 +73,10 @@ class companies extends CI_Controller
 			$this->form_validation->set_message('required', 'Povinne pole');
 
 			if ($this->form_validation->run() === FALSE) {
-				$data['companies_item'] = $this->companies_model->get_companies($id);
+				$data['company_item'] = $this->companies_model->get_companies($id);
 				$this->load->view('companies/edit_company', $data);
 			} else {
-				$this->companies_model->update_company();
+				$this->companies_model->edit_company($id);
 				$data['companies'] = $this->companies_model->get_companies();
 				$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
 			}
@@ -98,15 +100,15 @@ class companies extends CI_Controller
 
 			$delimiter = $this->companies_model->detectDelimiter($opencsv);
 			var_dump($delimiter);
-			while (($row = fgetcsv($opencsv, 10000, $delimiter)) != FALSE)
+			/*while (($row = fgetcsv($opencsv, 10000, $delimiter)) != FALSE)
 			{
-				//print_r($row);
+				print_r($row);
 				$data['zaci'][$pol]['name'] = $row[0];
 				$data['zaci'][$pol]['surname'] = $row[1];
 				$data['zaci'][$pol]['email'] = $row[2];
 				$data['zaci'][$pol]['username'] = $this->companies_model->gen_username($row[0], $row[1]);
 				$pol++;
-			}
+			}*/
 		}
 		$data['company']['phase'] = '1';
 		$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
