@@ -3,6 +3,7 @@
 <head>
 	<?php echo $this->load->view('head', array('title' => ('add company'))); ?>
 </head>
+
 <body>
 
 <div class="container">
@@ -16,7 +17,7 @@
 			<h2><?php echo("Firmy"); ?></h2>
 
 			<div class="well">
-				<?php echo("Pridat firmu a MKB - manazer kyberbezpenosti, kdyz zadate username a email bude zaslan aktivacni email s pokyny jak spravovat skupiny zaku, zaky a kurzy, Jinak jde aktivaci provest pozdeji"); ?>
+				<?php echo("Pridat firmu a MKB - manazer kyberbezpenosti, kdyz zadate username a email bude zaslan aktivacni email s pokyny jak spravovat skupiny zaku, zaky a kurzy, Jinak jde aktivaci provest pozdeji, ale bez aktivniho MKB nemuze zakaznik spravovat zaky ani kurzy."); ?>
 			</div>
 
 			<?php echo form_open('companies/create', 'class="form-horizontal"'); ?>

@@ -24,7 +24,7 @@
 			</table>
 
 			<div class="well">
-				<?php echo('Tato stánka dovoluje přiřazováni zaku pro jednotlive firmy , divize a oddeleni.'); ?>
+				<?php echo('Tato stánka dovoluje přiřazováni zaku pro firmu.'); ?>
 			</div>
 			<div class="row">
 				<div class="span4">
@@ -38,7 +38,7 @@
 						<?php echo form_input(array('name' => 'csv_file', 'id' => 'csv_file', 'type' => 'file'), 'fdhfghgfh', 'required accept=".csv"'); ?>
 					</div>
 					<?php echo form_submit('import_csv', 'Import CSV', 'name="import_csv"; id="import_csv_btn"; class="btn btn-primary"'); ?>
-					<?php echo anchor('companies', ('Cancel'), 'class="btn"'); ?>
+					<?php echo anchor('companies/edit/' .$company['id'], ('Cancel'), 'class="btn"'); ?>
 					<?php echo form_close(); ?>
 			</div>
 		</div>
@@ -103,7 +103,7 @@
 				</table>
 				<div class="well">
 					<?php echo form_submit('', ('Uložit'), 'class="btn btn-primary"'); ?>
-					<?php echo anchor('companies', ('Cancel'), 'class="btn"'); ?>
+					<?php echo anchor('companies/edit/'. $company['id'], ('Cancel'), 'class="btn"'); ?>
 					<?php echo form_close(); ?>
 				</div>
 			</div>

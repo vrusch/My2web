@@ -244,6 +244,7 @@ class Account_model extends CI_Model {
 		$this->load->helper('date');
 
 		$this->db->update('a3m_account', array('suspendedon' => mdate('%Y-%m-%d %H:%i:%s', now())), array('id' => $account_id));
+		$this->db->update('4m2w_mkb', array('status' => 'banned'), array('user_id' => $account_id));
 	}
 
 	/**
@@ -256,6 +257,7 @@ class Account_model extends CI_Model {
 	function remove_suspended_datetime($account_id)
 	{
 		$this->db->update('a3m_account', array('suspendedon' => NULL), array('id' => $account_id));
+		$this->db->update('4m2w_mkb', array('status' => NULL), array('user_id' => $account_id));
 	}
 
 }

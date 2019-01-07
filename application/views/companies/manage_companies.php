@@ -54,16 +54,21 @@
 					<td>
 						<?php
 						$query = $this->db->get_where('4m2w_company_group', array('company_id' => $companies_item['id']));
-						echo $query->num_rows();
+						if ($query->num_rows() > 0){
+							echo '<a href="companies/edit/'.$companies_item['id'].'"><span class="badge badge-info">'.$query->num_rows().'</span></a>';
+						}else {
+							echo '<span class="badge">0</span>';
+						}
 						?>
 					</td>
 					<td>
 						<?php
-						$this->db->select('activation');
 						$query = $this->db->get_where('4m2w_mkb', array('company_id' => $companies_item['id']));
 						$result = $query->row_array();
 						if ($result == NULL){
 							echo anchor('companies/addmkb/'.$companies_item['id'], 'Vytvořit', 'class="btn btn-info btn-small"');
+						} else if ($result['status'] == 'banned'){
+							echo '<span class="label label-important">MKB banned</span>';
 						} else {
 							if($result['activation'] == '0'){echo anchor('companies'.$companies_item['id'], 'Chyba', 'class="btn btn-danger btn-small"');;}
 							if($result['activation'] == '1'){echo 'Odesláno';}
@@ -79,7 +84,6 @@
 					</td>
 					<td>
 						<?php echo anchor('companies/edit/' . $companies_item['id'], 'Edit', 'class="btn btn-small"'); ?>
-						<?php echo anchor('companies/delete/' . $companies_item['id'], 'Smazat', 'class="btn btn-danger btn-small"'); ?>
 					</td>
 				</tr>
 				<?php endforeach; ?>

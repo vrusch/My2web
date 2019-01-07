@@ -99,28 +99,45 @@ class companies extends CI_Controller
 			$opencsv = fopen($csv,"r");
 
 			$delimiter = $this->companies_model->detectDelimiter($opencsv);
-			var_dump($delimiter);
-			/*while (($row = fgetcsv($opencsv, 10000, $delimiter)) != FALSE)
+			//var_dump($delimiter);
+			while (($row = fgetcsv($opencsv, 10000, $delimiter)) != FALSE)
 			{
-				print_r($row);
+				//print_r($row);
 				$data['zaci'][$pol]['name'] = $row[0];
 				$data['zaci'][$pol]['surname'] = $row[1];
 				$data['zaci'][$pol]['email'] = $row[2];
 				$data['zaci'][$pol]['username'] = $this->companies_model->gen_username($row[0], $row[1]);
 				$pol++;
-			}*/
+			}
 		}
+
 		$data['company']['phase'] = '1';
-		$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
+		//var_dump($data);
+		$this->load->view('companies/add_students', isset($data) ? $data : NULL);
 	}
 
 	public function add_finaly()
 	{
 		//todo: datum
 		//todo: vlozit do tabulky users vratit id a zapisat do tab zaci par companyid - zakid
-		$this->companies_model->add_user();
+		//$this->companies_model->add_user();
 
-		$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
+		//$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
 		var_dump ($_POST);
+	}
+
+	public function add_groups($company_id = NULL)
+	{
+		$this->form_validation->set_rules('skupina[]', 'Skupina', 'min_length[3]');
+
+		if ($this->form_validation->run() === FALSE) {
+			$data['company'] = $this->companies_model->get_companies($company_id);
+			$this->load->view('companies/add_groups', isset($data) ? $data : NULL);
+		} else {
+			$groups = $this->input->post('skupina');
+			$this->companies_model->set_groups($company_id, $groups);
+			$data['company_item'] = $this->companies_model->get_companies($company_id);
+			$this->load->view('companies/edit_company', $data);
+		}
 	}
 }

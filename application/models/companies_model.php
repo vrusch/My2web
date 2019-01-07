@@ -45,7 +45,7 @@ class companies_model extends CI_Model {
 
 			$data_a3m_rel_account_role = array(
 				'account_id' => $user_id,
-				'role_id' => '3' //todo: vlozit sparavne id role 'MKB'
+				'role_id' => '4' //todo: vlozit sparavne id role 'MKB'
 			);
 			if (!$query_rel_account_role = $this->db->insert('a3m_rel_account_role', $data_a3m_rel_account_role)) {
 				$error = $this->db->error();
@@ -76,7 +76,6 @@ class companies_model extends CI_Model {
 		$data = array(
 			'name' => $this->input->post('name'),
 		);
-
 		$this->db->set($data);
 		$this->db->where('id', $id);
 		$this->db->update('4m2w_companies');
@@ -98,6 +97,19 @@ class companies_model extends CI_Model {
 				$this->db->delete('4m2w_companies', array('id' => $id));//todo: zmazat ziakov
 			}
 		}
+	}
+
+	public function set_groups($company_id = NULL, $groups = NULL)
+	{
+		if ($company_id === NULL)
+		{
+			echo 'neni co ukladat';
+		} else {
+			foreach ($groups as $group_item){
+				$this->db->insert('4m2w_company_group', array('company_id' => $company_id, 'name_of_group' => $group_item));
+			}
+		}
+		return;
 	}
 
 	public function detectDelimiter($fh)
@@ -151,14 +163,13 @@ class companies_model extends CI_Model {
         'username' => 'mkb1', //todo: dodat spavne username z 4m2w_mkb
         'password_reset_url' => anchor($password_reset_url, $password_reset_url)
         ), TRUE));
-        if ($this->email->send()) {
+        /*if ($this->email->send()) {
         // Load reset password sent view
-        //$this->load->view('account/reset_password_sent', isset($data) ? $data : NULL);
         } else {
         //if the email could not be sent it will display the error
         //should not happen if you have email configured correctly
         echo $this->email->print_debugger();
-        }
+        }*/
 
 		return;
 	}
