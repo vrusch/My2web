@@ -1,0 +1,33 @@
+  redirect('account/manage_users');
+  
+  if( $this->input->post('manage_user_ban', true) )
+  
+  <?php echo form_submit('manage_user_ban', lang('users_ban'), 'class="btn btn-danger"'); ?>
+  
+  <script>
+	$(document).ready(function() {
+		var max_fields      = 4; //maximum input boxes allowed
+		var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+		var add_button      = $(".add_field_button"); //Add button ID
+
+		var x = 1; //initlal text box count
+		$(add_button).click(function(e){ //on add input button click
+			e.preventDefault();
+			if(x < max_fields){ //max input box allowed
+				x++; //text box increment
+				$(wrapper).append('<div class="controls"><input type="text" name="skupina[]" placeholder="Nazev nove skupiny" style="margin: 10px"><button class="btn btn-small remove_field" href="#">Smazat</button></div>'); //add input box
+			}
+		});
+
+		$(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+			e.preventDefault(); $(this).parent('div').remove(); x--;
+		})
+	});
+</script>
+
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+			<div class="control-group input_fields_wrap">
+				<div class="controls">
+					<input type="text" name="skupina[]" placeholder="Nazev nove skupiny" style="margin: 10px"><button class="btn btn-info btn-small add_field_button">Pridat dalsi</button>
+				</div>
+			</div>

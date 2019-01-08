@@ -52,7 +52,6 @@ class companies extends CI_Controller
 			if ($user_id){
 				$this->companies_model->send_reg_mail($user_id); //todo poslat mail
 			}
-
 			$data['companies'] = $this->companies_model->get_companies();
 			$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
 		}
@@ -67,8 +66,6 @@ class companies extends CI_Controller
 
 	public function edit($id = NULL)
 	{
-		if ($id != '') {
-
 			$this->form_validation->set_rules('name', 'name', 'required');
 			$this->form_validation->set_message('required', 'Povinne pole');
 
@@ -80,7 +77,6 @@ class companies extends CI_Controller
 				$data['companies'] = $this->companies_model->get_companies();
 				$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
 			}
-		}
 	}
 
 	public function add_students($id = NULL)
@@ -110,7 +106,6 @@ class companies extends CI_Controller
 				$pol++;
 			}
 		}
-
 		$data['company']['phase'] = '1';
 		//var_dump($data);
 		$this->load->view('companies/add_students', isset($data) ? $data : NULL);
@@ -121,17 +116,20 @@ class companies extends CI_Controller
 		//todo: datum
 		//todo: vlozit do tabulky users vratit id a zapisat do tab zaci par companyid - zakid
 		//$this->companies_model->add_user();
-
 		//$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
 		var_dump ($_POST);
 	}
 
 	public function add_groups($company_id = NULL)
 	{
-		$this->form_validation->set_rules('skupina[]', 'Skupina', 'min_length[3]');
+		$this->form_validation->set_rules('skupina1', 'Skupina1', 'differs[skupina2]|differs[skupina3]|differs[skupina4]');
+		$this->form_validation->set_rules('skupina2', 'Skupina2', 'differs[skupina1]|differs[skupina3]|differs[skupina4]');
+		$this->form_validation->set_rules('skupina3', 'Skupina3', 'differs[skupina1]|differs[skupina2]|differs[skupina4]');
+		$this->form_validation->set_rules('skupina4', 'Skupina4', 'differs[skupina1]|differs[skupina2]|differs[skupina3]');
 
 		if ($this->form_validation->run() === FALSE) {
 			$data['company'] = $this->companies_model->get_companies($company_id);
+			$data['groups'] = $this->companies_model->get_groups($company_id);
 			$this->load->view('companies/add_groups', isset($data) ? $data : NULL);
 		} else {
 			$groups = $this->input->post('skupina');

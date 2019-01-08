@@ -99,6 +99,17 @@ class companies_model extends CI_Model {
 		}
 	}
 
+	public function get_groups($company_id = NULL)
+	{
+		if ($company_id === NULL)
+		{
+			echo 'neni co hledat';
+		} else {
+			$query = $this->db->get_where('4m2w_company_group', array('company_id' => $company_id));
+		}
+		return $query->result_array();
+	}
+
 	public function set_groups($company_id = NULL, $groups = NULL)
 	{
 		if ($company_id === NULL)
@@ -106,7 +117,7 @@ class companies_model extends CI_Model {
 			echo 'neni co ukladat';
 		} else {
 			foreach ($groups as $group_item){
-				$this->db->insert('4m2w_company_group', array('company_id' => $company_id, 'name_of_group' => $group_item));
+				//$this->db->insert('4m2w_company_group', array('company_id' => $company_id, 'name_of_group' => $group_item));
 			}
 		}
 		return;
@@ -170,8 +181,6 @@ class companies_model extends CI_Model {
         //should not happen if you have email configured correctly
         echo $this->email->print_debugger();
         }*/
-
 		return;
 	}
-
 }

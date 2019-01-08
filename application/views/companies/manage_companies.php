@@ -24,7 +24,6 @@
 				</tr>
 			</table>
 
-
 			<div class="well">
 				<?php echo ('Tato stánka dovoluje vytvářet nové firmy.'); ?>
 			</div>
@@ -86,10 +85,9 @@
 						<?php echo anchor('companies/edit/' . $companies_item['id'], 'Edit', 'class="btn btn-small"'); ?>
 					</td>
 				</tr>
-				<?php endforeach; ?>
-				</tbody>
-			</table>
 
+				</tbody><?php endforeach; ?>
+			</table>
 		</div>
 	</div>
 </div>

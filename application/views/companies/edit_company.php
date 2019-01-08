@@ -18,6 +18,10 @@
 			<div class="well">
 				<?php echo ("editovani firmy"); ?>
 			</div>
+<?php
+//var_dump($company_item);
+//var_dump($groups);
+?>
 			<?php echo form_open('companies/edit/'.$company_item['id'], 'class="form-horizontal"'); ?>
 			<?php echo validation_errors(); ?>
 
@@ -31,7 +35,7 @@
 
 			<div class="well">
 				<?php echo anchor('companies/add_students/' . $company_item['id'], 'Přidat žáky', 'class="btn btn-info btn-small"'); ?>
-				<?php echo anchor('companies/add_groups/' . $company_item['id'], 'Přidat Skupiny', 'class="btn btn-primary btn-small"'); ?>
+				<?php echo anchor('companies/add_groups/' . $company_item['id'], 'Edit Skupiny', 'class="btn btn-primary btn-small"'); ?>
 				<?php echo anchor('companies', 'Přidat Kurzy', 'class="btn btn-primary btn-small"'); ?>
 				<span><?php echo '&nbsp anebo &nbsp'; ?></span>
 
@@ -43,12 +47,10 @@
 					echo anchor('companies/ban/'. $company_item['id'], 'Ban Firmy', 'class="btn btn-danger btn-small"');
 				}
 				?>
-
 			</div>
 
 			<div class="form-actions">
 				<div class="controls">
-
 					<?php echo anchor('companies', ('Cancel'), 'class="btn"'); ?>
 				</div>
 			</div>
@@ -57,7 +59,6 @@
 		</div>
 	</div>
 </div>
-
 </body>
 </html>
 

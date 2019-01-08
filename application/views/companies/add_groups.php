@@ -3,26 +3,7 @@
 <head>
 	<?php echo $this->load->view('head', array('title' => ('pridat skupiny'))); ?>
 </head>
-<script>
-	$(document).ready(function() {
-		var max_fields      = 4; //maximum input boxes allowed
-		var wrapper         = $(".input_fields_wrap"); //Fields wrapper
-		var add_button      = $(".add_field_button"); //Add button ID
 
-		var x = 1; //initlal text box count
-		$(add_button).click(function(e){ //on add input button click
-			e.preventDefault();
-			if(x < max_fields){ //max input box allowed
-				x++; //text box increment
-				$(wrapper).append('<div class="controls"><input type="text" name="skupina[]" placeholder="Nazev nove skupiny" style="margin: 10px"><button class="btn btn-small remove_field" href="#">Smazat</button></div>'); //add input box
-			}
-		});
-
-		$(wrapper).on("click",".remove_field", function(e){ //user click on remove text
-			e.preventDefault(); $(this).parent('div').remove(); x--;
-		})
-	});
-</script>
 <body>
 
 <div class="container">
@@ -41,16 +22,63 @@
 
 			<?php echo form_open('companies/add_groups/'.$company['id'], 'class="form-horizontal"'); ?>
 			<?php echo validation_errors(); ?>
-
+<?php
+//var_dump($company);
+//var_dump($groups);
+?>
 			<div class="control-group">
 				<p>Pridavat skupiny zaku pro firmu: <?php echo '<strong>'.$company['name'].'</strong>'; ?></p>
 
-			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-			<div class="control-group input_fields_wrap">
-				<div class="controls">
-					<input type="text" name="skupina[]" placeholder="Nazev nove skupiny" style="margin: 10px"><button class="btn btn-info btn-small add_field_button">Pridat dalsi</button>
-				</div>
-			</div>
+				<?php
+				$cout_groups = count($groups);
+				$pol = 0;
+				?>
+
+				<?php if ($cout_groups == 0) : ?>
+					<div class="control-group">
+						<label class="control-label" for="group"><?php echo ('Název skupiny zaku'); ?></label>
+						<div class="controls">
+							<?php echo form_input(array('name' => 'skupina1'),'','style="margin: 10px"'); ?>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="group"><?php echo ('Název skupiny zaku'); ?></label>
+						<div class="controls">
+							<?php echo form_input(array('name' => 'skupina2'),'','style="margin: 10px"'); ?>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="group"><?php echo ('Název skupiny zaku'); ?></label>
+						<div class="controls">
+							<?php echo form_input(array('name' => 'skupina3'),'','style="margin: 10px"'); ?>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="group"><?php echo ('Název skupiny zaku'); ?></label>
+						<div class="controls">
+							<?php echo form_input(array('name' => 'skupina4'),'','style="margin: 10px"'); ?>
+						</div>
+					</div><br>
+				<?php endif; ?>
+
+				<?php if ($cout_groups > 0) : ?>
+					<?php foreach ($groups as $groups_item) : ?>
+						<?php $pol++; ?>
+						<div class="control-group">
+							<div class="controls">
+								<?php echo form_input(array('name' => 'skupina'.$pol),$groups_item['name_of_group'],'style="margin: 10px"'); ?>
+							</div>
+						</div>
+					<?php endforeach; ?>
+					<?php while ($pol < 4) : ?>
+						<?php $pol++; ?>
+						<div class="control-group">
+							<div class="controls">
+								<?php echo form_input(array('name' => 'skupina'.$pol),'','style="margin: 10px"'); ?>
+							</div>
+						</div>
+					<?php endwhile; ?>
+				<?php endif; ?>
 
 			<div class="form-actions">
 				<div class="controls">

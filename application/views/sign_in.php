@@ -2,11 +2,8 @@
 <html>
 <head>
 	<?php echo $this->load->view('head', array('title' => lang('sign_in_page_name'))); ?>
-
 </head>
 <body>
-
-<?php //echo $this->load->view('header'); ?>
 
 <div class="container">
     <div class="row">
@@ -91,8 +88,6 @@
         </div>
         <!-- /span6 -->
     </div>
-
-	<?php //echo $this->load->view('footer_n'); ?>
-
+</div>
 </body>
 </html>
