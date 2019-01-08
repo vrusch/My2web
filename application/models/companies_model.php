@@ -45,7 +45,7 @@ class companies_model extends CI_Model {
 
 			$data_a3m_rel_account_role = array(
 				'account_id' => $user_id,
-				'role_id' => '4' //todo: vlozit sparavne id role 'MKB'
+				'role_id' => '4' //todo: !!!!! vlozit sparavne id role 'MKB'
 			);
 			if (!$query_rel_account_role = $this->db->insert('a3m_rel_account_role', $data_a3m_rel_account_role)) {
 				$error = $this->db->error();
@@ -65,8 +65,27 @@ class companies_model extends CI_Model {
 				//todo: detekce DB chyby
 			}
 		}
-
 		return isset($user_id) ? $user_id : NULL;
+	}
+
+	public function add_students($id = NULL)
+	{
+		$this->load->helper('date');
+		$this->gen_username();
+		//todo vlozit sravne id na rolu Studenta
+		//vlozit meno priezvisko do a3m_account_details
+		$data_user = array(
+			'username' => $this->input->post('mkb_username'),
+			'email' => $this->input->post('mkb_email'),
+			'createdon' => mdate('%Y-%m-%d %H:%i:%s', now())
+		);
+
+		if (!$query_user = $this->db->insert('a3m_account', $data_user)) {
+			$error = $this->db->error();
+			print_r($error);
+			//todo: zpracovani DB chyby
+		}
+		$user_id = $this->db->insert_id();
 	}
 
 	public function edit_company($id = NULL)

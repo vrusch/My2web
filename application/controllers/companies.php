@@ -115,9 +115,13 @@ class companies extends CI_Controller
 	{
 		//todo: datum
 		//todo: vlozit do tabulky users vratit id a zapisat do tab zaci par companyid - zakid
-		//$this->companies_model->add_user();
+		// rozdelit POST podminka aktiva? notifikace?
+		$data = $_POST;
+		$company_id = $data['company_id'];
+		//$this->companies_model->add_students();
 		//$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
-		var_dump ($_POST);
+		var_dump ($data);
+		var_dump ($company_id);
 	}
 
 	public function add_groups($company_id = NULL)

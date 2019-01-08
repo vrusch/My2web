@@ -54,7 +54,7 @@
 						<?php
 						$query = $this->db->get_where('4m2w_company_group', array('company_id' => $companies_item['id']));
 						if ($query->num_rows() > 0){
-							echo '<a href="companies/edit/'.$companies_item['id'].'"><span class="badge badge-info">'.$query->num_rows().'</span></a>';
+							echo '<a href="companies/add_groups/' . $companies_item['id'].'"><span class="badge badge-info">'.$query->num_rows().'</span></a>';
 						}else {
 							echo '<span class="badge">0</span>';
 						}
