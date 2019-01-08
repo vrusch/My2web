@@ -110,14 +110,14 @@ class companies_model extends CI_Model {
 		return $query->result_array();
 	}
 
-	public function set_groups($company_id = NULL, $groups = NULL)
+	public function set_groups($company_id = NULL, $group = NULL)
 	{
 		if ($company_id === NULL)
 		{
 			echo 'neni co ukladat';
 		} else {
-			foreach ($groups as $group_item){
-				//$this->db->insert('4m2w_company_group', array('company_id' => $company_id, 'name_of_group' => $group_item));
+			if ($group != ''){
+				$this->db->insert('4m2w_company_group', array('company_id' => $company_id, 'name_of_group' => $group));
 			}
 		}
 		return;
@@ -165,7 +165,7 @@ class companies_model extends CI_Model {
 
 		// Generate reset password url
 		$password_reset_url = site_url('account/reset_password?id=' . $user_id . '&token=' . sha1($user_id . $time . $this->config->item('password_reset_secret')));
-
+var_dump($password_reset_url);
 		// Send reset password email
         $this->email->from($this->config->item('password_reset_email', 'reset_password_email_sender'));
         $this->email->to('v.rusch@gmail.com'); //todo: zatial testovaci mail, spravne z 4m2w_mkb

@@ -22,68 +22,44 @@
 
 			<?php echo form_open('companies/add_groups/'.$company['id'], 'class="form-horizontal"'); ?>
 			<?php echo validation_errors(); ?>
-<?php
-//var_dump($company);
-//var_dump($groups);
-?>
+
 			<div class="control-group">
 				<p>Pridavat skupiny zaku pro firmu: <?php echo '<strong>'.$company['name'].'</strong>'; ?></p>
+			</div>
 
-				<?php
-				$cout_groups = count($groups);
-				$pol = 0;
-				?>
 
-				<?php if ($cout_groups == 0) : ?>
-					<div class="control-group">
-						<label class="control-label" for="group"><?php echo ('Název skupiny zaku'); ?></label>
-						<div class="controls">
-							<?php echo form_input(array('name' => 'skupina1'),'','style="margin: 10px"'); ?>
-						</div>
-					</div>
-					<div class="control-group">
-						<label class="control-label" for="group"><?php echo ('Název skupiny zaku'); ?></label>
-						<div class="controls">
-							<?php echo form_input(array('name' => 'skupina2'),'','style="margin: 10px"'); ?>
-						</div>
-					</div>
-					<div class="control-group">
-						<label class="control-label" for="group"><?php echo ('Název skupiny zaku'); ?></label>
-						<div class="controls">
-							<?php echo form_input(array('name' => 'skupina3'),'','style="margin: 10px"'); ?>
-						</div>
-					</div>
-					<div class="control-group">
-						<label class="control-label" for="group"><?php echo ('Název skupiny zaku'); ?></label>
-						<div class="controls">
-							<?php echo form_input(array('name' => 'skupina4'),'','style="margin: 10px"'); ?>
-						</div>
-					</div><br>
-				<?php endif; ?>
+			<?php //var_dump($groups); ?>
+			<?php foreach ($groups as $groups_item) : ?>
+			<div class="control-group">
+				<label class="control-label" for="group"><?php echo('Skupina zaku'); ?></label>
+				<div class="controls">
+					<?php echo form_input(array('name' => 'group'), $groups_item['name_of_group'], 'style="margin: 10px"'); ?>
+					<?php
+						$query = $this->db->get_where('4m2w_students',array('company_id' => $company['id'], 'group_id' => $groups_item['id']));
+						$row = $query->num_rows();
+						if ($row == 0){
+							echo anchor('companies/delgroup/' . $groups_item['id'], 'Smazat', 'class="btn"');
+						}
+						echo '  Pocet zaku v skupine ' . $row;
+					?>
+				</div>
+			</div>
+			<?php endforeach; ?>
 
-				<?php if ($cout_groups > 0) : ?>
-					<?php foreach ($groups as $groups_item) : ?>
-						<?php $pol++; ?>
-						<div class="control-group">
-							<div class="controls">
-								<?php echo form_input(array('name' => 'skupina'.$pol),$groups_item['name_of_group'],'style="margin: 10px"'); ?>
-							</div>
-						</div>
-					<?php endforeach; ?>
-					<?php while ($pol < 4) : ?>
-						<?php $pol++; ?>
-						<div class="control-group">
-							<div class="controls">
-								<?php echo form_input(array('name' => 'skupina'.$pol),'','style="margin: 10px"'); ?>
-							</div>
-						</div>
-					<?php endwhile; ?>
-				<?php endif; ?>
+			<div class="control-group">
+				<label class="control-label" for="group1"><?php echo('Nova skupina zaku'); ?></label>
+				<div class="controls">
+					<?php echo form_input(array('name' => 'group1'), '', 'style="margin: 10px"'); ?>
+				</div>
+			</div>
+
+
+
 
 			<div class="form-actions">
 				<div class="controls">
 					<?php echo form_submit('', ('Uložit'), 'class="btn btn-primary"'); ?>
-					<?php echo anchor('companies/edit/' . $company['id'], ('Cancel'), 'class="btn"'); ?>
+					<?php echo anchor('companies/edit/' . $company['id'], 'Cancel', 'class="btn"'); ?>
 				</div>
 			</div>
 

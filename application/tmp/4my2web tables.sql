@@ -15,9 +15,11 @@ CREATE TABLE `4m2w_companies` (
 
 DROP TABLE IF EXISTS `4m2w_company_group`;
 CREATE TABLE `4m2w_company_group` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name_of_group` varchar(60) NOT NULL,
-  `company_id` bigint(20) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+  `company_id` bigint(20) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
 
 DROP TABLE IF EXISTS `4m2w_course`;
 CREATE TABLE `4m2w_course` (

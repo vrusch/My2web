@@ -108,7 +108,7 @@ class Authorization {
 
 		$this->CI->load->model('account/acl_role_model');
 
-		return $this->CI->acl_role_model->has_role('admin', $account_id); //todo: zmenit na admin na MKB
+		return $this->CI->acl_role_model->has_role('MKB', $account_id); //todo: zmenit na admin na MKB
   }
 }
 

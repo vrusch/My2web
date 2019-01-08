@@ -122,20 +122,19 @@ class companies extends CI_Controller
 
 	public function add_groups($company_id = NULL)
 	{
-		$this->form_validation->set_rules('skupina1', 'Skupina1', 'differs[skupina2]|differs[skupina3]|differs[skupina4]');
-		$this->form_validation->set_rules('skupina2', 'Skupina2', 'differs[skupina1]|differs[skupina3]|differs[skupina4]');
-		$this->form_validation->set_rules('skupina3', 'Skupina3', 'differs[skupina1]|differs[skupina2]|differs[skupina4]');
-		$this->form_validation->set_rules('skupina4', 'Skupina4', 'differs[skupina1]|differs[skupina2]|differs[skupina3]');
+		$this->form_validation->set_rules('group1', 'Nova kupina zaku', 'min_length[3]');
+
 
 		if ($this->form_validation->run() === FALSE) {
 			$data['company'] = $this->companies_model->get_companies($company_id);
 			$data['groups'] = $this->companies_model->get_groups($company_id);
 			$this->load->view('companies/add_groups', isset($data) ? $data : NULL);
 		} else {
-			$groups = $this->input->post('skupina');
-			$this->companies_model->set_groups($company_id, $groups);
-			$data['company_item'] = $this->companies_model->get_companies($company_id);
-			$this->load->view('companies/edit_company', $data);
+			$group = $this->input->post('group1');
+			$this->companies_model->set_groups($company_id, $group);
+			$data['company'] = $this->companies_model->get_companies($company_id);
+			$data['groups'] = $this->companies_model->get_groups($company_id);
+			$this->load->view('companies/add_groups', isset($data) ? $data : NULL);
 		}
 	}
 }
