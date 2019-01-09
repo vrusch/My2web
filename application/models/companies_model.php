@@ -129,6 +129,19 @@ class companies_model extends CI_Model {
 		return $user_id;
 	}
 
+	public function get_students($company_id = NULL)
+	{
+		$query = $this->db->get_where('4m2w_students', array('company_id' => $company_id));
+		return $query->result_array();
+	}
+
+	public function get_student_info($student_id = NULL)
+	{
+		$sql = "SELECT a3m_account.id, a3m_account.username, a3m_account.email, a3m_account_details.firstname, a3m_account_details.lastname FROM a3m_account INNER JOIN a3m_account_details ON a3m_account_details.account_id = a3m_account.id WHERE a3m_account.id = ?";
+		$query = $this->db->query($sql, $student_id);
+		return $query->result_array();
+	}
+
 	public function edit_company($id = NULL)
 	{
 		$this->load->helper('url');
@@ -158,7 +171,16 @@ class companies_model extends CI_Model {
 			}
 		}
 	}
-
+	public function get_group($group_id = NULL)
+	{
+		if ($group_id === NULL)
+		{
+			echo 'neni co hledat';
+		} else {
+			$query = $this->db->get_where('4m2w_company_group', array('id' => $group_id));
+		}
+		return $query->result_array();
+	}
 	public function get_groups($company_id = NULL)
 	{
 		if ($company_id === NULL)
@@ -180,7 +202,6 @@ class companies_model extends CI_Model {
 				$this->db->insert('4m2w_company_group', array('company_id' => $company_id, 'name_of_group' => $group));
 			}
 		}
-		return;
 	}
 
 	public function delete_group($company_id = NULL, $group_id = NULL)

@@ -159,8 +159,7 @@ CREATE TABLE `4m2w_rel_course` (
 DROP TABLE IF EXISTS `4m2w_students`;
 CREATE TABLE `4m2w_students` (
   `student_id` bigint(20) NOT NULL,
-  `company_id` bigint(20) NOT NULL,
-  `group_id` bigint(20) DEFAULT NULL
+  `company_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------

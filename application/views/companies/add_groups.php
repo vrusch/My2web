@@ -24,24 +24,24 @@
 			<?php echo validation_errors(); ?>
 
 			<div class="control-group">
-				<p>Přidávat skupiny žáků pro firmu: <?php echo '<strong>'.$company['name'].'</strong>'; ?></p>
+				<p>Managment skupin pro firmu: <?php echo '<strong>'.$company['name'].'</strong>'; ?></p>
 			</div>
 
 
 			<?php //var_dump($groups); ?>
 			<?php foreach ($groups as $groups_item) : ?>
 			<div class="control-group">
-				<label class="control-label" for="group"><?php echo('Skupina'); ?></label>
+				<label class="control-label" for="group">Skupina</label>
 				<div class="controls">
 					<?php echo form_input(array('name' => 'group'), $groups_item['name_of_group'], 'style="margin: 10px"'); ?>
-					<?php echo anchor('companies/addStoG/' . $company['id'] . '/' . $groups_item['id'], 'Přidat žáky do skupiny', 'class="btn"'); ?>
+					<?php echo anchor('companies/addStoG/' . $company['id'] . '/' . $groups_item['id'], 'Přidat studenty', 'class="btn btn-small"'); ?>
 					<?php
-						$query = $this->db->get_where('4m2w_students',array('company_id' => $company['id'], 'group_id' => $groups_item['id']));
+						$query = $this->db->get_where('4m2w_student_group',array('group_id' => $groups_item['id']));
 						$row = $query->num_rows();
 						if ($row == 0){
-							echo anchor('companies/delgroup/'. $company['id'] . '/' . $groups_item['id'], 'Smazat', 'class="btn"');
+							echo anchor('companies/delgroup/'. $company['id'] . '/' . $groups_item['id'], 'Smazat', 'class="btn btn-small"');
 						}
-						echo '  Počet žáků v skupine ' . $row;
+						echo '  Studentů v skupine ' . $row;
 					?>
 				</div>
 			</div>

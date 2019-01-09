@@ -124,7 +124,8 @@ class companies extends CI_Controller
 				}
 			}
 		}
-		$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);;
+		$data['companies'] = $this->companies_model->get_companies();
+		$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
 	}
 
 	public function add_groups($company_id = NULL)
@@ -153,7 +154,11 @@ class companies extends CI_Controller
 	}
 
 	public function addStoG($company_id = NULL, $group_id = NULL){
-		var_dump($company_id);
-		var_dump($group_id);
+		// tabulka 4m2w_student_group
+		$data['company'] = $this->companies_model->get_companies($company_id);
+		$data['group'] = $this->companies_model->get_group($group_id);
+		$data['students'] = $this->companies_model->get_students($company_id);
+
+		$this->load->view('companies/add_s_to_g', isset($data) ? $data : NULL);
 	}
 }
