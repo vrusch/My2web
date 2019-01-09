@@ -34,7 +34,7 @@
 					<th><?php echo ('#'); ?></th>
 					<th><?php echo ('Název'); ?></th>
 					<th><?php echo ('Skupin'); ?></th>
-					<th><?php echo 'MKB Aktivovan'; ?></th>
+					<th><?php echo 'MKB Status'; ?></th>
 					<th><?php echo ('Žáků'); ?></th>
 					<th>
 						<?php echo anchor('companies/create','Nova','class="btn btn-primary btn-small"'); ?>
@@ -67,18 +67,22 @@
 						if ($result == NULL){
 							echo anchor('companies/addmkb/'.$companies_item['id'], 'Vytvořit', 'class="btn btn-info btn-small"');
 						} else if ($result['status'] == 'banned'){
-							echo '<span class="label label-important">MKB banned</span>';
+							echo '<span class="label label-important">MKB blokován</span>';
 						} else {
 							if($result['activation'] == '0'){echo anchor('companies'.$companies_item['id'], 'Chyba', 'class="btn btn-danger btn-small"');;}
-							if($result['activation'] == '1'){echo 'Odesláno';}
-							if($result['activation'] == '2'){echo 'Aktivní od: dd-mm-yyyy';}
+							if($result['activation'] == '1'){echo 'Odesláno';} //todo doplnit datum odeslani
+							if($result['activation'] == '2'){echo 'Aktivní od: dd-mm-yyyy';} //todo doplnit funkci
 						};
 						?>
 					</td>
 					<td>
 						<?php
 						$query = $this->db->get_where('4m2w_students', array('company_id' => $companies_item['id']));
-						echo $query->num_rows();
+						if ($query->num_rows() > 0){
+							echo '<a href="companies/add_groups/' . $companies_item['id'].'"><span class="badge badge-info">'.$query->num_rows().'</span></a>';;
+						}else {
+							echo '<span class="badge">0</span>';
+						}
 						?>
 					</td>
 					<td>

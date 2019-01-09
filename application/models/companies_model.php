@@ -183,6 +183,11 @@ class companies_model extends CI_Model {
 		return;
 	}
 
+	public function delete_group($company_id = NULL, $group_id = NULL)
+	{
+		$this->db->delete('4m2w_company_group', array('company_id' => $company_id, 'id' => $group_id));
+	}
+
 	public function detectDelimiter($fh)
 	{
 		$delimiters = ["\t", ";", "|", ","];

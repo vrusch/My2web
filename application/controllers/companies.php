@@ -129,7 +129,7 @@ class companies extends CI_Controller
 
 	public function add_groups($company_id = NULL)
 	{
-		$this->form_validation->set_rules('group1', 'Nova kupina zaku', 'min_length[3]');
+		$this->form_validation->set_rules('group1', 'nova skupina zaku', 'min_length[3]');
 
 
 		if ($this->form_validation->run() === FALSE) {
@@ -143,5 +143,17 @@ class companies extends CI_Controller
 			$data['groups'] = $this->companies_model->get_groups($company_id);
 			$this->load->view('companies/add_groups', isset($data) ? $data : NULL);
 		}
+	}
+
+	public function delgroup($company_id = NULL, $group_id = NULL){
+		$this->companies_model->delete_group($company_id, $group_id);
+		$data['company'] = $this->companies_model->get_companies($company_id);
+		$data['groups'] = $this->companies_model->get_groups($company_id);
+		$this->load->view('companies/add_groups', isset($data) ? $data : NULL);
+	}
+
+	public function addStoG($company_id = NULL, $group_id = NULL){
+		var_dump($company_id);
+		var_dump($group_id);
 	}
 }

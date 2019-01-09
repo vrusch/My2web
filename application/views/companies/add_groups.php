@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php echo $this->load->view('head', array('title' => ('pridat skupiny'))); ?>
+	<?php echo $this->load->view('head', array('title' => ('Skupiny'))); ?>
 </head>
 
 <body>
@@ -14,40 +14,41 @@
 		</div>
 		<div class="span10">
 
-			<h2><?php echo ("Vytvorit skupiny zaku"); ?></h2>
+			<h2><?php echo ("Skupiny žáků"); ?></h2>
 
 			<div class="well">
-				<?php echo ("vytvareni skupin"); ?>
+				<?php echo ("Managment skupin žáků"); ?>
 			</div>
 
 			<?php echo form_open('companies/add_groups/'.$company['id'], 'class="form-horizontal"'); ?>
 			<?php echo validation_errors(); ?>
 
 			<div class="control-group">
-				<p>Pridavat skupiny zaku pro firmu: <?php echo '<strong>'.$company['name'].'</strong>'; ?></p>
+				<p>Přidávat skupiny žáků pro firmu: <?php echo '<strong>'.$company['name'].'</strong>'; ?></p>
 			</div>
 
 
 			<?php //var_dump($groups); ?>
 			<?php foreach ($groups as $groups_item) : ?>
 			<div class="control-group">
-				<label class="control-label" for="group"><?php echo('Skupina zaku'); ?></label>
+				<label class="control-label" for="group"><?php echo('Skupina'); ?></label>
 				<div class="controls">
 					<?php echo form_input(array('name' => 'group'), $groups_item['name_of_group'], 'style="margin: 10px"'); ?>
+					<?php echo anchor('companies/addStoG/' . $company['id'] . '/' . $groups_item['id'], 'Přidat žáky do skupiny', 'class="btn"'); ?>
 					<?php
 						$query = $this->db->get_where('4m2w_students',array('company_id' => $company['id'], 'group_id' => $groups_item['id']));
 						$row = $query->num_rows();
 						if ($row == 0){
-							echo anchor('companies/delgroup/' . $groups_item['id'], 'Smazat', 'class="btn"');
+							echo anchor('companies/delgroup/'. $company['id'] . '/' . $groups_item['id'], 'Smazat', 'class="btn"');
 						}
-						echo '  Pocet zaku v skupine ' . $row;
+						echo '  Počet žáků v skupine ' . $row;
 					?>
 				</div>
 			</div>
 			<?php endforeach; ?>
 
 			<div class="control-group">
-				<label class="control-label" for="group1"><?php echo('Nova skupina zaku'); ?></label>
+				<label class="control-label" for="group1"><?php echo('Nová skupina'); ?></label>
 				<div class="controls">
 					<?php echo form_input(array('name' => 'group1'), '', 'style="margin: 10px"'); ?>
 				</div>
