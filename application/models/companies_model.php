@@ -43,9 +43,13 @@ class companies_model extends CI_Model {
 			}
 			$user_id = $this->db->insert_id();
 
+			//ziskat id MKB role
+			$this->db->select ('id');
+			$query = $this->db->get_where('a3m_acl_role', array('name' => 'MKB'));
+			$mkb_id = $query->row_array();
 			$data_a3m_rel_account_role = array(
 				'account_id' => $user_id,
-				'role_id' => '4' //todo: !!!!! vlozit sparavne id role 'MKB'
+				'role_id' => $mkb_id['id']
 			);
 			if (!$query_rel_account_role = $this->db->insert('a3m_rel_account_role', $data_a3m_rel_account_role)) {
 				$error = $this->db->error();
@@ -68,24 +72,61 @@ class companies_model extends CI_Model {
 		return isset($user_id) ? $user_id : NULL;
 	}
 
-	public function add_students($id = NULL)
+	public function add_students($student_item = NULL, $company_id = NULL)
 	{
 		$this->load->helper('date');
-		$this->gen_username();
-		//todo vlozit sravne id na rolu Studenta
-		//vlozit meno priezvisko do a3m_account_details
+
+		//ziskat id role studenta
+		$this->db->select ('id');
+		$query = $this->db->get_where('a3m_acl_role', array('name' => 'Student'));
+		$role_id = $query->row_array();
+
+		// data pro a3m_account
 		$data_user = array(
-			'username' => $this->input->post('mkb_username'),
-			'email' => $this->input->post('mkb_email'),
+			'username' => $student_item['username'],
+			'email' => $student_item['email'],
 			'createdon' => mdate('%Y-%m-%d %H:%i:%s', now())
 		);
-
-		if (!$query_user = $this->db->insert('a3m_account', $data_user)) {
+		if (!$this->db->insert('a3m_account', $data_user)) {
 			$error = $this->db->error();
 			print_r($error);
 			//todo: zpracovani DB chyby
 		}
 		$user_id = $this->db->insert_id();
+
+		//vlozit meno priezvisko do a3m_account_details
+		$data_user_detail = array(
+			'firstname' => $student_item['name'],
+			'lastname' => $student_item['surname'],
+			'account_id' => $user_id
+		);
+		if (!$this->db->insert('a3m_account_details', $data_user_detail)) {
+			$error = $this->db->error();
+			print_r($error);
+			//todo: zpracovani DB chyby
+		}
+		//tabulka a3m_rel_account_role
+		$data_role = array(
+			'account_id' => $user_id,
+			'role_id' => $role_id['id']
+		);
+		if (!$this->db->insert('a3m_rel_account_role', $data_role)) {
+			$error = $this->db->error();
+			print_r($error);
+			//todo: zpracovani DB chyby
+		}
+
+		//tabulka 4m2w_students
+		$data_student = array(
+			'student_id' => $user_id,
+			'company_id' => $company_id
+		);
+		if (!$this->db->insert('4m2w_students', $data_student)) {
+			$error = $this->db->error();
+			print_r($error);
+			//todo: zpracovani DB chyby
+		}
+		return $user_id;
 	}
 
 	public function edit_company($id = NULL)
@@ -165,7 +206,7 @@ class companies_model extends CI_Model {
 		return $name1 . $name2 . $nrRand;
 	}
 
-	function send_reg_mail($user_id = NULL)
+	function send_reg_mail($user_id = NULL, $role =NULL)
 	{
 		// Enable SSL?
 		maintain_ssl($this->config->item("ssl_enabled"));

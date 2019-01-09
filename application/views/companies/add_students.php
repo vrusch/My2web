@@ -63,8 +63,7 @@
 					<?php $offset = '0'; ?>
 					<?php $check = 'checked'; ?>
 					<?php $zak = array(array()); ?>
-					<?php $hidden = array('company_id' => $company['id']); ?>
-					<?php echo form_open('companies/add_finaly', 'class="form-horizontal"', $hidden); ?>
+					<?php echo form_open('companies/add_finaly/' . $company['id'], 'class="form-horizontal"'); ?>
 					<?php echo validation_errors(); ?>
 					<?php foreach ($zaci as $zaci_item) : ?>
 						<tr>

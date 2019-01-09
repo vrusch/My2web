@@ -50,7 +50,7 @@ class companies extends CI_Controller
 
 			//send activation email ak firma ma mkb
 			if ($user_id){
-				$this->companies_model->send_reg_mail($user_id); //todo poslat mail
+				$this->companies_model->send_reg_mail($user_id, 'mkb'); //todo poslat mail
 			}
 			$data['companies'] = $this->companies_model->get_companies();
 			$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
@@ -111,17 +111,20 @@ class companies extends CI_Controller
 		$this->load->view('companies/add_students', isset($data) ? $data : NULL);
 	}
 
-	public function add_finaly()
+	public function add_finaly($company_id = NULL)
 	{
-		//todo: datum
-		//todo: vlozit do tabulky users vratit id a zapisat do tab zaci par companyid - zakid
-		// rozdelit POST podminka aktiva? notifikace?
-		$data = $_POST;
-		$company_id = $data['company_id'];
-		//$this->companies_model->add_students();
-		//$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
-		var_dump ($data);
-		var_dump ($company_id);
+		// rozdelit POST podminka aktivace? notifikace?
+		$students = $_POST;
+		foreach ($students as $students_item){
+
+			if ($students_item['addzaka']){
+				$user_id = $this->companies_model->add_students($students_item, $company_id);
+				if ($students_item['eactivation']){
+				$this->companies_model->send_reg_mail($user_id, 'student'); //todo poslat mail
+				}
+			}
+		}
+		$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);;
 	}
 
 	public function add_groups($company_id = NULL)
