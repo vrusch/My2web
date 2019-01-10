@@ -159,7 +159,8 @@ CREATE TABLE `4m2w_rel_course` (
 DROP TABLE IF EXISTS `4m2w_students`;
 CREATE TABLE `4m2w_students` (
   `student_id` bigint(20) NOT NULL,
-  `company_id` bigint(20) NOT NULL
+  `company_id` bigint(20) NOT NULL,
+  `group_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
@@ -269,7 +270,8 @@ ALTER TABLE `4m2w_rel_course`
 --
 ALTER TABLE `4m2w_students`
   ADD PRIMARY KEY (`student_id`),
-  ADD KEY `company_id` (`company_id`);
+  ADD KEY `company_id` (`company_id`),
+  ADD KEY `group_id` (`group_id`);
 
 --
 -- Indexes for table `4m2w_theme`

@@ -132,7 +132,7 @@ class companies_model extends CI_Model {
 	public function add_students_to_group($company_id, $group_id, $students)
 	{
 		foreach ($students as $key => $row){
-			var_dump($key);
+			//var_dump($key);
 			if (!$this->db->replace('4m2w_students', array('student_id' => $key, 'company_id' => $company_id, 'group_id' => $group_id))){
 				$error = $this->db->error();
 				print_r($error);
@@ -186,7 +186,7 @@ class companies_model extends CI_Model {
 	}
 	public function get_group($group_id){
 			$query = $this->db->get_where('4m2w_company_group', array('id' => $group_id));
-		return $query->result_array();
+		return $query->row_array();
 	}
 
 

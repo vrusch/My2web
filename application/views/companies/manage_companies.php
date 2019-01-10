@@ -5,8 +5,6 @@
 </head>
 <body>
 
-<?php //echo $this->load->view('header'); ?>
-
 <div class="container">
 	<div class="row">
 		<?php $count = count($companies); ?>
@@ -31,11 +29,12 @@
 			<table class="table table-condensed table-hover">
 				<thead>
 				<tr>
-					<th><?php echo ('#'); ?></th>
-					<th><?php echo ('Název'); ?></th>
-					<th><?php echo ('Skupin'); ?></th>
-					<th><?php echo 'MKB Status'; ?></th>
-					<th><?php echo ('Žáků'); ?></th>
+					<th><?php echo '#'; ?></th>
+					<th><?php echo 'Název'; ?></th>
+					<th><?php echo 'Skupin'; ?></th>
+					<th><?php echo 'Žáků'; ?></th>
+					<th><?php echo 'Nezařazených'; ?></th>
+					<th><?php echo 'MKB status'; ?></th>
 					<th>
 						<?php echo anchor('companies/create','Nova','class="btn btn-primary btn-small"'); ?>
 					</th>
@@ -56,7 +55,27 @@
 						if (count($groups) > 0){
 							echo '<a href="companies/add_groups/' . $companies_item['id'].'"><span class="badge badge-info">'.count($groups).'</span></a>';
 						}else {
-							echo '<span class="badge">0</span>';
+							echo '<span class="badge">'.count($groups).'</span></a>';
+						}
+						?>
+					</td>
+					<td>
+						<?php
+						$query = $this->db->get_where('4m2w_students', array('company_id' => $companies_item['id']));
+						if ($query->num_rows() > 0){
+							echo '<a href="companies/addStoG/' . $companies_item['id'].'"><span class="badge badge-info">'.$query->num_rows().'</span></a>';
+						}else {
+							echo '<span class="badge">'.$query->num_rows().'</span></a>';
+						}
+						?>
+					</td>
+					<td>
+						<?php
+						$uncharted = $this->db->get_where('4m2w_students', array('company_id' => $companies_item['id'], 'group_id' => '0'));
+						if ($query->num_rows() > 0){
+							echo '<a href="companies/addStoG/' . $companies_item['id'].'"><span class="badge badge-info">'.$uncharted->num_rows().'</span></a>';
+						}else {
+							echo '<span class="badge">'.$query->num_rows().'</span></a>';
 						}
 						?>
 					</td>
@@ -73,16 +92,6 @@
 							if($result['activation'] == '1'){echo 'Odesláno';} //todo doplnit datum odeslani
 							if($result['activation'] == '2'){echo 'Aktivní od: dd-mm-yyyy';} //todo doplnit funkci
 						};
-						?>
-					</td>
-					<td>
-						<?php
-						$query = $this->db->get_where('4m2w_students', array('company_id' => $companies_item['id']));
-						if ($query->num_rows() > 0){
-							echo '<a href="companies/addStoG/' . $companies_item['id'].'"><span class="badge badge-info">'.$query->num_rows().'</span></a>';;
-						}else {
-							echo '<span class="badge">0</span>';
-						}
 						?>
 					</td>
 					<td>

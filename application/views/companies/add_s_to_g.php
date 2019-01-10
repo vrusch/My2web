@@ -29,13 +29,17 @@
 
 			<div class="control-group">
 				<p>Studenti firmy: <?php echo '<strong>'.$company['name'].'</strong>'; ?></p>
+				<p>Celkově studentů: <?php echo '<strong>'.count($students).'</strong>'; ?></p>
+				<?php $uncharted = $this->db->get_where('4m2w_students', array('company_id' => $company['id'], 'group_id' => '0'));?>
+				<p>Z toho nezařazeých: <?php echo '<strong>'.$uncharted->num_rows().'</strong>'; ?></p><br>
 				<?php echo 'Přidat do skupiny: ' ?>
 				<?php
 				foreach ($groups as $group_item){
 					$opt[$group_item['id']] = $group_item['name_of_group'];
 				}
+				$opt += ['0' => 'Žádna skupina'];
 				//var_dump($opt);
-				echo form_dropdown('group_id', $opt, '');
+				echo form_dropdown('group_id', $opt, '0');
 				?>
 				<?php echo form_submit('', ('Přidat'), 'class="btn btn-primary"'); ?>
 			</div>
@@ -56,28 +60,32 @@
 				<?php foreach( $students as $students_item ) : ?>
 					<?php
 						$student = $this->companies_model->get_student_info($students_item['student_id']);
+						$group = $this->companies_model->get_group($students_item['group_id']);
+						//var_dump($group);
 					?>
 					<tr>
-						<td>
+						<?php if (isset($group['name_of_group'])) {echo '<td style="background-color: #c8eaff">';} else {echo '<td>';}?>
 							<?php echo form_checkbox("{$students_item['student_id']}", 'apply', '');; ?>
 						</td>
-						<td>
+						<?php if (isset($group['name_of_group'])) {echo '<td style="background-color: #c8eaff">';} else {echo '<td>';}?>
 							<?php echo ($student[0]['id']); ?>
 						</td>
-						<td>
+						<?php if (isset($group['name_of_group'])) {echo '<td style="background-color: #c8eaff">';} else {echo '<td>';}?>
 							<?php echo ($student[0]['username']); ?>
 						</td>
-						<td>
+						<?php if (isset($group['name_of_group'])) {echo '<td style="background-color: #c8eaff">';} else {echo '<td>';}?>
 							<?php echo ($student[0]['email']); ?>
 						</td>
-						<td>
+						<?php if (isset($group['name_of_group'])) {echo '<td style="background-color: #c8eaff">';} else {echo '<td>';}?>
 							<?php echo ($student[0]['firstname']); ?>
 						</td>
-						<td>
+						<?php if (isset($group['name_of_group'])) {echo '<td style="background-color: #c8eaff">';} else {echo '<td>';}?>
 							<?php echo ($student[0]['lastname']); ?>
 						</td>
-						<td>
-							<?php echo ($students_item['group_id']); ?>
+						<?php if (isset($group['name_of_group'])) {echo '<td style="background-color: #c8eaff">';} else {echo '<td>';}?>
+							<?php
+							if (isset($group['name_of_group'])){echo $group['name_of_group'];}
+							?>
 						</td>
 					</tr>
 				<?php endforeach; ?>

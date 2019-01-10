@@ -38,7 +38,7 @@
 						$query = $this->db->get_where('4m2w_students',array('group_id' => $groups_item['id']));
 						$row = $query->num_rows();
 						if ($row == 0){
-							echo anchor('companies/delgroup/'. $company['id'] . '/' . $groups_item['id'], 'Smazat', 'class="btn btn-small"');//todo a smazat studenty ze skupiny
+							echo anchor('companies/delgroup/'. $company['id'] . '/' . $groups_item['id'], 'Smazat', 'class="btn btn-danger btn-small"');//todo a smazat studenty ze skupiny
 						}
 						echo '  Studentů v skupine ' . $row;
 					?>

@@ -17,6 +17,18 @@ class companies extends CI_Controller
 		$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
 	}
 
+	public function manage_mkb($company_id)
+	{
+		$data['company'] = $this->companies_model->get_companies($company_id);
+		$this->load->view('companies/manage_mkb', isset($data) ? $data : NULL);
+	}
+
+	public function manage_quizzes($company_id)
+	{
+		$data['company'] = $this->companies_model->get_companies($company_id);
+		$this->load->view('companies/manage_quizzes', isset($data) ? $data : NULL);
+	}
+
 	public function create()
 	{
 		$this->form_validation->set_rules(
@@ -166,6 +178,10 @@ class companies extends CI_Controller
 			$group_id = $data['group_id'];
 			unset($data['group_id']);
 			$this->companies_model->add_students_to_group($company_id, $group_id, $data);
+			$data['company'] = $this->companies_model->get_companies($company_id);
+			$data['groups'] = $this->companies_model->get_groups($company_id);
+			$data['students'] = $this->companies_model->get_students($company_id);
+			$this->load->view('companies/add_s_to_g', isset($data) ? $data : NULL);
 		}
 	}
 }

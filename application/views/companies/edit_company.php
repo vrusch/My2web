@@ -43,8 +43,8 @@
 				?>
 				<span><?php echo '&nbsp&nbsp | &nbsp&nbsp'; ?></span>
 				<?php echo anchor('companies/add_groups/' . $company_item['id'], 'Skupiny', 'class="btn btn-primary btn-small"'); ?>
-				<?php echo anchor('companies', 'Přidat Kurzy', 'class="btn btn-primary btn-small"'); ?>
-				<?php echo anchor('companies', 'MKB', 'class="btn btn-primary btn-small"'); ?>
+				<?php echo anchor('companies/manage_quizzes/'. $company_item['id'], 'Přidat Kurzy', 'class="btn btn-primary btn-small"'); ?>
+				<?php echo anchor('companies/manage_mkb/'. $company_item['id'], 'MKB', 'class="btn btn-primary btn-small"'); ?>
 				<span><?php echo '&nbsp&nbsp | &nbsp&nbsp'; ?></span>
 
 				<?php
