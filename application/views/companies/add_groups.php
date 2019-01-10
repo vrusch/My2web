@@ -34,12 +34,11 @@
 				<label class="control-label" for="group">Skupina</label>
 				<div class="controls">
 					<?php echo form_input(array('name' => 'group'), $groups_item['name_of_group'], 'style="margin: 10px"'); ?>
-					<?php echo anchor('companies/addStoG/' . $company['id'] . '/' . $groups_item['id'], 'Přidat studenty', 'class="btn btn-small"'); ?>
 					<?php
-						$query = $this->db->get_where('4m2w_student_group',array('group_id' => $groups_item['id']));
+						$query = $this->db->get_where('4m2w_students',array('group_id' => $groups_item['id']));
 						$row = $query->num_rows();
 						if ($row == 0){
-							echo anchor('companies/delgroup/'. $company['id'] . '/' . $groups_item['id'], 'Smazat', 'class="btn btn-small"');
+							echo anchor('companies/delgroup/'. $company['id'] . '/' . $groups_item['id'], 'Smazat', 'class="btn btn-small"');//todo a smazat studenty ze skupiny
 						}
 						echo '  Studentů v skupine ' . $row;
 					?>
@@ -51,6 +50,7 @@
 				<label class="control-label" for="group1"><?php echo('Nová skupina'); ?></label>
 				<div class="controls">
 					<?php echo form_input(array('name' => 'group1'), '', 'style="margin: 10px"'); ?>
+					<?php echo form_submit('', ('Uložit'), 'class="btn btn-primary"'); ?>
 				</div>
 			</div>
 
@@ -59,7 +59,7 @@
 
 			<div class="form-actions">
 				<div class="controls">
-					<?php echo form_submit('', ('Uložit'), 'class="btn btn-primary"'); ?>
+
 					<?php echo anchor('companies/edit/' . $company['id'], 'Cancel', 'class="btn"'); ?>
 				</div>
 			</div>

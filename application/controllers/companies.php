@@ -153,12 +153,19 @@ class companies extends CI_Controller
 		$this->load->view('companies/add_groups', isset($data) ? $data : NULL);
 	}
 
-	public function addStoG($company_id = NULL, $group_id = NULL){
-		// tabulka 4m2w_student_group
+	public function addStoG($company_id = NULL, $phase = NULL)
+	{
+		if (!isset($phase)) {
 		$data['company'] = $this->companies_model->get_companies($company_id);
-		$data['group'] = $this->companies_model->get_group($group_id);
+		$data['groups'] = $this->companies_model->get_groups($company_id);
 		$data['students'] = $this->companies_model->get_students($company_id);
-
 		$this->load->view('companies/add_s_to_g', isset($data) ? $data : NULL);
+		}
+		if ($phase == '1'){
+			$data = $_POST;
+			$group_id = $data['group_id'];
+			unset($data['group_id']);
+			$this->companies_model->add_students_to_group($company_id, $group_id, $data);
+		}
 	}
 }

@@ -129,6 +129,19 @@ class companies_model extends CI_Model {
 		return $user_id;
 	}
 
+	public function add_students_to_group($company_id, $group_id, $students)
+	{
+		foreach ($students as $key => $row){
+			var_dump($key);
+			if (!$this->db->replace('4m2w_students', array('student_id' => $key, 'company_id' => $company_id, 'group_id' => $group_id))){
+				$error = $this->db->error();
+				print_r($error);
+				//todo: zpracovani DB chyby
+			};
+		}
+
+	}
+
 	public function get_students($company_id = NULL)
 	{
 		$query = $this->db->get_where('4m2w_students', array('company_id' => $company_id));
@@ -171,24 +184,16 @@ class companies_model extends CI_Model {
 			}
 		}
 	}
-	public function get_group($group_id = NULL)
-	{
-		if ($group_id === NULL)
-		{
-			echo 'neni co hledat';
-		} else {
+	public function get_group($group_id){
 			$query = $this->db->get_where('4m2w_company_group', array('id' => $group_id));
-		}
 		return $query->result_array();
 	}
-	public function get_groups($company_id = NULL)
+
+
+	public function get_groups($company_id)
 	{
-		if ($company_id === NULL)
-		{
-			echo 'neni co hledat';
-		} else {
-			$query = $this->db->get_where('4m2w_company_group', array('company_id' => $company_id));
-		}
+		$query = $this->db->get_where('4m2w_company_group', array('company_id' => $company_id));
+
 		return $query->result_array();
 	}
 

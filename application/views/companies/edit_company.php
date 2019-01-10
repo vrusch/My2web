@@ -35,16 +35,24 @@
 
 			<div class="well">
 				<?php echo anchor('companies/add_students/' . $company_item['id'], 'Přidat žáky', 'class="btn btn-info btn-small"'); ?>
-				<?php echo anchor('companies/add_groups/' . $company_item['id'], 'Editace Skupin', 'class="btn btn-primary btn-small"'); ?>
+				<?php
+				$count = count($this->companies_model->get_students($company_item['id']));
+				if ( $count > 0){
+					echo anchor('companies/addStoG/' . $company_item['id'], 'Žáci', 'class="btn btn-info btn-small"');
+					}
+				?>
+				<span><?php echo '&nbsp&nbsp | &nbsp&nbsp'; ?></span>
+				<?php echo anchor('companies/add_groups/' . $company_item['id'], 'Skupiny', 'class="btn btn-primary btn-small"'); ?>
 				<?php echo anchor('companies', 'Přidat Kurzy', 'class="btn btn-primary btn-small"'); ?>
-				<span><?php echo '&nbsp anebo &nbsp'; ?></span>
+				<?php echo anchor('companies', 'MKB', 'class="btn btn-primary btn-small"'); ?>
+				<span><?php echo '&nbsp&nbsp | &nbsp&nbsp'; ?></span>
 
 				<?php
 				if ($company_item['status'] == 'banned'){
-					echo anchor('companies/delete/' . $company_item['id'], 'Smazat', 'class="btn btn-danger btn-small"'); //todo POZOR mazat aj ziakov??
+					echo anchor('companies/delete/' . $company_item['id'], 'Smazat', 'class="btn btn-danger btn-small"'); //todo POZOR mazat aj ziakov mkb
 					echo anchor('companies/unban/'. $company_item['id'], 'Odblokovat Firmu', 'class="btn btn-danger btn-small"');
 				} else {
-					echo anchor('companies/ban/'. $company_item['id'], 'Blokovat Firmu', 'class="btn btn-danger btn-small"');
+					echo anchor('companies/ban/'. $company_item['id'], 'Blokovat Firmu', 'class="btn btn-danger btn-small"'); //todo POZOR blokovat aj ziakov mkb
 				}
 				?>
 			</div>
