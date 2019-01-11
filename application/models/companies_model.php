@@ -58,8 +58,6 @@ class companies_model extends CI_Model {
 			}
 
 			$data_mkb = array(
-				'mkb_username' => $this->input->post('mkb_username'),
-				'mkb_email' => $this->input->post('mkb_email'),
 				'company_id' => $company_id,
 				'user_id' => $user_id
 			);
@@ -68,6 +66,60 @@ class companies_model extends CI_Model {
 				print_r($error);
 				//todo: detekce DB chyby
 			}
+		}
+		return isset($user_id) ? $user_id : NULL;
+	}
+
+	public function get_mkb($company_id = FALSE)
+	{
+		if ($company_id === FALSE)
+		{
+			$query = $this->db->get('4m2w_mkb');
+			return $query->result_array();
+		}
+
+		$sql = "SELECT 4m2w_mkb.user_id, 4m2w_mkb.activation, 4m2w_mkb.activation_date, 4m2w_mkb.status, 4m2w_mkb.company_id, a3m_account.username, a3m_account.email FROM `4m2w_mkb` JOIN a3m_account ON 4m2w_mkb.user_id = a3m_account.id WHERE 4m2w_mkb.company_id = ?;";
+		$query = $this->db->query($sql, $company_id);
+		return $query->result_array();
+	}
+
+	public function set_mkb($company_id)
+	{
+		$this->load->helper('date');
+		$data_user = array(
+			'username' => $this->input->post('mkb_username'),
+			'email' => $this->input->post('mkb_email'),
+			'createdon' => mdate('%Y-%m-%d %H:%i:%s', now())
+		);
+		if (!$query_user = $this->db->insert('a3m_account', $data_user)) {
+			$error = $this->db->error();
+			print_r($error);
+			//todo: zpracovani DB chyby
+		}
+		$user_id = $this->db->insert_id();
+		//ziskat id MKB role
+		$this->db->select ('id');
+		$query = $this->db->get_where('a3m_acl_role', array('name' => 'MKB'));
+		$mkb_id = $query->row_array();
+
+		$data_a3m_rel_account_role = array(
+			'account_id' => $user_id,
+			'role_id' => $mkb_id['id']
+		);
+		if (!$query_rel_account_role = $this->db->insert('a3m_rel_account_role', $data_a3m_rel_account_role)) {
+			$error = $this->db->error();
+			print_r($error);
+			//todo: zpracovani DB chyby
+		}
+
+		$data_mkb = array(
+			'company_id' => $company_id,
+			'user_id' => $user_id
+		);
+		if (!$query_mkb = $this->db->insert('4m2w_mkb', $data_mkb)) {
+			$error = $this->db->error();
+			print_r($error);
+			//todo: detekce DB chyby
 		}
 		return isset($user_id) ? $user_id : NULL;
 	}
@@ -142,7 +194,7 @@ class companies_model extends CI_Model {
 
 	}
 
-	public function get_students($company_id = NULL)
+	public function get_students($company_id)
 	{
 		$query = $this->db->get_where('4m2w_students', array('company_id' => $company_id));
 		return $query->result_array();
@@ -237,7 +289,7 @@ class companies_model extends CI_Model {
 		return $name1 . $name2 . $nrRand;
 	}
 
-	function send_reg_mail($user_id = NULL, $role =NULL)
+	function send_reg_mail($user_id, $role =NULL)
 	{
 		// Enable SSL?
 		maintain_ssl($this->config->item("ssl_enabled"));

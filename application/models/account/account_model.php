@@ -182,12 +182,12 @@ class Account_model extends CI_Model {
 	{
 		$this->load->helper('date');
 
-		$activation_send = mdate('%Y-%m-%d %H:%i:%s', now());
+		$activation_date = mdate('%Y-%m-%d %H:%i:%s', now());
 
-		$this->db->update('4m2w_mkb', array('activation_send' => $activation_send), array('user_id' => $account_id));
-		$this->db->update('4m2w_mkb', array('activation' => 1), array('user_id' => $account_id));
+		$this->db->where('user_id', $account_id);
+		$this->db->update('4m2w_mkb', array('activation_date' => $activation_date, 'activation' => 1));
 
-		return strtotime($activation_send);
+		return strtotime($activation_date);
 	}
 
 	/**

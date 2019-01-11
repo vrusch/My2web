@@ -27,7 +27,6 @@
 				<p>Managment skupin pro firmu: <?php echo '<strong>'.$company['name'].'</strong>'; ?></p>
 			</div>
 
-
 			<?php //var_dump($groups); ?>
 			<?php foreach ($groups as $groups_item) : ?>
 			<div class="control-group">
@@ -53,9 +52,6 @@
 					<?php echo form_submit('', ('Uložit'), 'class="btn btn-primary"'); ?>
 				</div>
 			</div>
-
-
-
 
 			<div class="form-actions">
 				<div class="controls">

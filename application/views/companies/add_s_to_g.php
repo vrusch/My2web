@@ -48,12 +48,11 @@
 				<thead>
 				<tr>
 					<th><?php echo ('Přidat'); ?></th>
-					<th><?php echo ('#'); ?></th>
+					<th><?php echo ('Ve skupině'); ?></th>
 					<th><?php echo ('Username'); ?></th>
 					<th><?php echo ('Email'); ?></th>
 					<th><?php echo ('Jméno'); ?></th>
 					<th><?php echo ('Přijmení'); ?></th>
-					<th><?php echo ('Ve skupině'); ?></th>
 				</tr>
 				</thead>
 				<tbody>
@@ -67,8 +66,11 @@
 						<?php if (isset($group['name_of_group'])) {echo '<td style="background-color: #c8eaff">';} else {echo '<td>';}?>
 							<?php echo form_checkbox("{$students_item['student_id']}", 'apply', '');; ?>
 						</td>
+						</td>
 						<?php if (isset($group['name_of_group'])) {echo '<td style="background-color: #c8eaff">';} else {echo '<td>';}?>
-							<?php echo ($student[0]['id']); ?>
+						<?php
+						if (isset($group['name_of_group'])){echo $group['name_of_group'];}
+						?>
 						</td>
 						<?php if (isset($group['name_of_group'])) {echo '<td style="background-color: #c8eaff">';} else {echo '<td>';}?>
 							<?php echo ($student[0]['username']); ?>
@@ -81,12 +83,7 @@
 						</td>
 						<?php if (isset($group['name_of_group'])) {echo '<td style="background-color: #c8eaff">';} else {echo '<td>';}?>
 							<?php echo ($student[0]['lastname']); ?>
-						</td>
-						<?php if (isset($group['name_of_group'])) {echo '<td style="background-color: #c8eaff">';} else {echo '<td>';}?>
-							<?php
-							if (isset($group['name_of_group'])){echo $group['name_of_group'];}
-							?>
-						</td>
+
 					</tr>
 				<?php endforeach; ?>
 				</tbody>

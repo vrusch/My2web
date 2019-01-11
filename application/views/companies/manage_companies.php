@@ -83,14 +83,15 @@
 						<?php
 						$query = $this->db->get_where('4m2w_mkb', array('company_id' => $companies_item['id']));
 						$result = $query->row_array();
+						//var_dump($result);
 						if ($result == NULL){
-							echo anchor('companies/addmkb/'.$companies_item['id'], 'Vytvořit', 'class="btn btn-info btn-small"');
+							echo anchor('companies/create_mkb/' . $companies_item['id'], 'Vytvořit', 'class="btn btn-primary btn-small"');
 						} else if ($result['status'] == 'banned'){
 							echo '<span class="label label-important">MKB blokován</span>';
 						} else {
 							if($result['activation'] == '0'){echo anchor('companies'.$companies_item['id'], 'Chyba', 'class="btn btn-danger btn-small"');;}
-							if($result['activation'] == '1'){echo 'Odesláno';} //todo doplnit datum odeslani
-							if($result['activation'] == '2'){echo 'Aktivní od: dd-mm-yyyy';} //todo doplnit funkci
+							if($result['activation'] == '1'){echo 'Odesláno: ' . $result['activation_date'];}
+							if($result['activation'] == '2'){echo '<strong>Aktivní od: ' . $result['activation_date'].'</strong>';}
 						};
 						?>
 					</td>

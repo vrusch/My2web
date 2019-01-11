@@ -20,7 +20,36 @@ class companies extends CI_Controller
 	public function manage_mkb($company_id)
 	{
 		$data['company'] = $this->companies_model->get_companies($company_id);
+		$data['mkb'] = $this->companies_model->get_mkb($company_id);
 		$this->load->view('companies/manage_mkb', isset($data) ? $data : NULL);
+	}
+
+	public function create_mkb($company_id)
+	{
+		$this->form_validation->set_rules(
+			'mkb_username', 'MKB username',
+			'min_length[3]|max_length[10]|is_unique[a3m_account.username]',
+			array(
+				'is_unique'     => 'This %s already exists.'
+			)
+		);
+		$this->form_validation->set_rules(
+			'mkb_email', 'MKB email',
+			'valid_email|is_unique[a3m_account.email]',
+			array(
+				'valid_email'     => 'This not valid email address.',
+				'is_unique'     => 'This %s already exists.'
+			)
+		);
+		if ($this->form_validation->run() === FALSE) {
+			$data['company'] = $this->companies_model->get_companies($company_id);
+			$this->load->view('companies/create_mkb', isset($data) ? $data : NULL);
+		} else {
+			$user_id = $this->companies_model->set_mkb($company_id);
+			$this->companies_model->send_reg_mail($user_id, 'mkb'); //todo poslat mail
+			$data['company'] = $this->companies_model->get_companies($company_id);
+			$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
+		}
 	}
 
 	public function manage_quizzes($company_id)
