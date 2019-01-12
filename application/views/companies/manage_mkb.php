@@ -47,6 +47,7 @@
 				<tr>
 					<td>
 						<?php
+						$show_change = 0;
 						if (isset($mkb[0]['user_id'])) {
 							echo $mkb[0]['user_id'];
 						}
@@ -90,61 +91,40 @@
 						} else {
 							if ($mkb[0]['status'] == NULL) {
 								if ($mkb[0]['activation'] == '1') {
-									echo anchor('companies/create_mkb/' . $company['id'] . '/' . $mkb[0]['user_id'], 'Znovu poslat', 'class="btn btn-primary btn-small"');
-									echo anchor('companies/create_mkb/' . $company['id'], 'zrusit a vytvorit novy', 'class="btn btn-primary btn-small"');
+									echo anchor('companies/create_mkb/' . $company['id'] . '/' . $mkb[0]['user_id'], 'Znovu poslat', 'class="btn btn-primary btn-small"; style="margin: 10px"');
+									echo anchor('companies/create_mkb/' . $company['id'], 'Smazat', 'class="btn btn-danger btn-small"');
 								}
 								if ($mkb[0]['activation'] == '2') {
-									echo anchor('companies/change_mkb/' . $company['id'] . '/' . $mkb[0]['user_id'], 'Vymenit', 'class="btn btn-primary btn-small"');
-									echo anchor('companies/create_mkb/' . $company['id'], 'JIny Novy', 'class="btn btn-primary btn-small"');
+									//echo anchor('companies/change_mkb/' . $company['id'] . '/' . $mkb[0]['user_id'], 'Vymenit', 'class="btn btn-primary btn-small"; style="margin: 10px"');
+									echo anchor('companies/create_mkb/' . $company['id'], 'Smazat', 'class="btn btn-danger btn-small"');
+									$show_change = 1;
 								}
 							} else {
-								echo anchor('companies/' . $company['id'] . '/' . $mkb[0]['user_id'], 'Odblokovat', 'class="btn btn-danger btn-small"');
-								echo anchor('companies/create_mkb/' . $company['id'], 'smazat', 'class="btn btn-primary btn-small"');
+								echo anchor('companies/' . $company['id'] . '/' . $mkb[0]['user_id'], 'Odblokovat', 'class="btn btn-danger btn-small"; style="margin: 10px"');
+								echo anchor('companies/create_mkb/' . $company['id'], 'Smazat', 'class="btn btn-danger btn-small"');
 							}
 						}
 						?>
-					</td>
+					</td >
 				</tr>
 				</tbody>
 			</table>
 
-			<table class="table table-condensed table-hover">
-				<thead>
-				<tr>
-					<th><?php echo ('Přidat'); ?></th>
-					<th><?php echo ('Username'); ?></th>
-					<th><?php echo ('Email'); ?></th>
-					<th><?php echo ('Jméno'); ?></th>
-					<th><?php echo ('Přijmení'); ?></th>
-				</tr>
-				</thead>
-				<tbody>
+			<?php if ($show_change == 1) :?>
+
 				<?php $students = $this->companies_model->get_students($company['id']) ?>
 				<?php foreach( $students as $students_item ) : ?>
 					<?php
 					$student = $this->companies_model->get_student_info($students_item['student_id']);
-					//var_dump($group);
+					$std = ($student[0]['firstname'].' '.$student[0]['lastname'].' | '.$student[0]['email']);
+					$opt[$student[0]['id']] = $std;
 					?>
-					<tr>
-						<td>
-						<?php echo form_checkbox("{$students_item['student_id']}", 'apply', '');; ?>
-						</td>
-						</td>
-						<td>
-						<?php echo ($student[0]['username']); ?>
-						</td>
-						<td>
-						<?php echo ($student[0]['email']); ?>
-						</td>
-						<td>
-						<?php echo ($student[0]['firstname']); ?>
-						</td>
-						<td>
-						<?php echo ($student[0]['lastname']); ?>
-					</tr>
-				<?php endforeach; ?>
-				</tbody>
-			</table>
+				<?php endforeach ?>
+				<?php echo anchor('companies/change_mkb/' . $company['id'] . '/' . $mkb[0]['user_id'], 'Vymenit za: ', 'class="btn btn-primary btn-small"; style="margin: 10px"');?>
+				<?php echo form_dropdown('change', $opt, '', 'style="width"'); ?>
+
+
+			<?php endif ?>
 
 			<div class="form-actions">
 				<div class="controls">

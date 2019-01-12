@@ -10,7 +10,7 @@
 	<div class="row">
 		<div class="w3-panel w3-light-grey w3-border w3-round">
 			<h3>Nahled na otazku #<?php echo $question['id']; ?></h3>
-			<p>Otazka je k tematu: <?php echo $question['tema']; ?></p>
+			<p>Otazka je k tematu: <?php echo $question['theme']; ?></p>
 		</div>
 
 		<div class="w3-panel w3-light-grey w3-border w3-round">

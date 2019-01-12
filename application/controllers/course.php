@@ -22,8 +22,6 @@ class course extends CI_Controller
 
 	public function new_course()
 	{
-		maintain_ssl();
-		$this->form_validation->set_rules('tema', 'Nazev', 'required');
 		$this->form_validation->set_rules('course', 'Text', 'required');
 		$this->form_validation->set_message('required', 'Povinne pole');
 

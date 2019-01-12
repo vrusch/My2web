@@ -20,19 +20,19 @@
 			</div>
 
 			<?php echo form_open('course/new_course', 'class="form-horizontal"'); ?>
-			<?php echo validation_errors(); ?>
+			<?php echo validation_errors(); //course_model?>
 
 			<div class="control-group">
-				<label class="control-label" for="tema"><?php echo ('Tema'); ?></label>
+				<label class="control-label" for="theme"><?php echo ('Tema'); ?></label>
 				<div class="controls">
-					<?php echo form_input(array('name' => 'tema', 'id' => 'tema')); ?>
+					<?php echo form_input(array('name' => 'theme', 'id' => 'course')); ?>
 				</div>
 			</div>
 
 			<div class="control-group">
 				<label class="control-label" for="course"><?php echo ('Kurz'); ?></label>
 				<div class="controls">
-					<?php echo form_input(array('name' => 'course', 'id' => 'course', '', 'maxlength' => 80)); ?>
+					<?php echo form_input(array('name' => 'course', 'id' => 'course')); ?>
 				</div>
 			</div>
 
@@ -49,8 +49,6 @@
 
 	</div>
 </div>
-
-<?php //echo $this->load->view('footer_n'); ?>
 
 </body>
 </html>

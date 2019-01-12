@@ -43,11 +43,17 @@
 	<!-- LOGIN -->
 	<div class="w3-container">
 		<?php if ($this->authentication->is_signed_in()) : ?>
-			<?php if ($this->authorization->is_permitted(array('retrieve_users', 'retrieve_roles', 'retrieve_permissions'))) : ?>
+			<?php if ($this->authorization->is_permitted(array('retrieve_users', 'retrieve_roles', 'retrieve_permissions'))) : ?> <!-- IF admin  -->
 
 		<a href="account/manage_users">
 			<button class="w3-btn linky"><i class="fas fa-desktop"></i> Admin Menu</button>
 		</a>
+			<?php endif; ?>
+			<?php if ($this->authorization->is_role_mkb()) : ?> <!-- IF MKB  -->
+
+				<a href="mkb/company">
+					<button class="w3-btn linky"><i class="fas fa-desktop"></i> MKB Menu</button>
+				</a>
 			<?php endif; ?>
 
 		<a href="account/account_profile">

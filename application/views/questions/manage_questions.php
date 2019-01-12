@@ -45,7 +45,7 @@
 							<?php echo $question_item['question']; ?>
 						</td>
 						<td>
-							<?php echo $question_item['tema']; ?>
+							<?php echo $question_item['theme']; ?>
 						</td>
 						<td>
 							<?php

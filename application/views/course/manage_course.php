@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php echo $this->load->view('head', array('title' => ('Managment Kurzů'))); ?>
+	<?php echo $this->load->view('head', array('title' => ('Managment Kvizů'))); ?>
 </head>
 <body>
 
@@ -18,7 +18,7 @@
 			<?php $count = count($course); ?>
 			<table style="width: 100%">
 				<tr>
-					<td style="width: 85%"><h2><?php echo('Managment Kurzů'); ?><span
+					<td style="width: 85%"><h2><?php echo('Managment Kvizů'); ?><span
 								class="badge badge-info"><?php echo $count; ?></span></h2></td>
 					<td><a href="home_n">
 							<buton class="btn btn-primary btn-small"><i></i>Back to Home page</buton>
@@ -26,7 +26,7 @@
 				</tr>
 			</table>
 			<div class="well">
-				<?php echo('Tato stránka dovoluje vytváření a managment kurzů.'); ?>
+				<?php echo('Tato stránka dovoluje vytváření a managment kvizů.'); ?>
 			</div>
 			<table class="table table-condensed table-hover">
 				<thead>
@@ -48,7 +48,7 @@
 							<?php echo $course_item['name']; ?>
 						</td>
 						<td>
-							<?php echo $course_item['tema']; ?>
+							<?php echo $course_item['theme']; ?>
 						</td>
 						<td>
 							<p><a href="<?php echo site_url('course/view/' . $course_item['id']); ?>">nahled</a></p>

@@ -24,7 +24,7 @@ class course_model extends CI_Model
 
 		$data = array(
 			'name' => $this->input->post('course'),
-			'tema' => $this->input->post('tema'),
+			'theme' => $this->input->post('tema'),
 		);
 		return $this->db->insert('4m2w_course', $data);
 	}
@@ -51,5 +51,15 @@ class course_model extends CI_Model
 		$this->db->set($data);
 		$this->db->where('id', $data['id']);
 		$this->db->update('4m2w_news');
+	}
+
+	public function theme_array()
+	{
+		$query = $this->db->get('4m2w_theme');
+		foreach ($query->result_array() as $item){
+			$opt[$item['id']] = $item['theme'];
+		}
+
+		return $opt;
 	}
 }

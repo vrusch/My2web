@@ -25,7 +25,7 @@ class lecture_model extends CI_Model
 
 		$data = array(
 			'name' => $this->input->post('name'),
-			'tema' => $this->input->post('tema'),
+			'theme' => $this->input->post('tema'),
 			'lecture' => $this->input->post('lecture')
 		);
 

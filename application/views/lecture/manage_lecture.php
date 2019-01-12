@@ -45,7 +45,7 @@
 						<?php echo $lecture_item['name']; ?>
 					</td>
 					<td>
-						<?php echo $lecture_item['tema']; ?>
+						<?php echo $lecture_item['theme']; ?>
 					</td>
 					<td>
 						<?php

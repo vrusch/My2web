@@ -53,7 +53,7 @@ class question_model extends CI_Model
 		$fa3 = $this->db->insert_id();
 
 		$data = array(
-			'tema' => $this->input->post('tema'),
+			'theme' => $this->input->post('tema'),
 			'question' => $this->input->post('question'),
 			'true_id_answer' => $ta,
 			'false1_id_answer' => $fa1,
