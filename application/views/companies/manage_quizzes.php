@@ -20,21 +20,59 @@
 				<?php echo ("Managment kvizu"); ?>
 			</div>
 
-			<?php echo form_open('companies/add_groups/'.$company['id'], 'class="form-horizontal"'); ?>
+			<?php
+			//var_dump ($company);
+			//var_dump ($groups);
+			//var_dump ($quizzes);
+			?>
+
+			<?php echo form_open('companies/manage_quizzes/'.$company['id'], 'class="form-horizontal"'); ?>
 			<?php echo validation_errors(); ?>
 
 			<div class="control-group">
 				<p>Managment kvizu pro firmu: <?php echo '<strong>'.$company['name'].'</strong>'; ?></p>
 			</div>
 
-			<?php //var_dump($groups); ?>
-
-			<div class="control-group">
-				<label class="control-label" for="group1"><?php echo('Nová skupina'); ?></label>
-				<div class="controls">
-					<?php //echo form_input(array('name' => 'group1'), '', 'style="margin: 10px"'); ?>
-					<?php echo form_submit('', ('Uložit'), 'class="btn btn-primary"'); ?>
+			<div class="well">
+				<div class="span4" style="background-color:white;">
 				</div>
+
+				<table class="table table-condensed table-hover">
+					<thead>
+					<tr>
+						<th><?php echo 'Skupiny'; ?></th>
+						<th><?php echo 'Kvizy'; ?></th>
+						<th><?php echo ' | '; ?></th>
+						<th><?php echo 'Tema'; ?></th>
+						<th><?php echo 'Dostupne kvizy'; ?></th>
+					</tr>
+					</thead>
+					<tbody>
+					<?php foreach( $groups as $groups_item ) : ?>
+					<tr>
+						<td>
+							<?php //echo $groups_item['id']; ?>
+							<?php echo $groups_item['name_of_group']; ?>
+						</td>
+						<td>
+							<!--  get_group_quizzes($group_id) -->
+							<?php echo 'kvizy group'; ?>
+						</td>
+						<th><?php echo ' | '; ?></th>
+						<td>
+							<?php echo form_dropdown(); ?>
+						</td>
+						<td>
+							<?php foreach( $quizzes as $quizzes_item ) : ?>
+								<?php //echo $quizzes_item['id']; ?>
+								<?php echo $quizzes_item['name'] . '<br>';?>
+							<?php endforeach; ?>
+						</td>
+					</tr>
+					<?php endforeach; ?>
+					</tbody>
+				</table>
+
 			</div>
 
 			<div class="form-actions">

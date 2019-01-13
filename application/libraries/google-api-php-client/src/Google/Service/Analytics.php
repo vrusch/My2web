@@ -2531,12 +2531,12 @@ class Google_Service_Analytics_ManagementExperiments_Resource extends Google_Ser
 {
 
   /**
-   * Delete an experiment. (experiments.delete)
+   * Delete an experimentCont. (experiments.delete)
    *
-   * @param string $accountId Account ID to which the experiment belongs
-   * @param string $webPropertyId Web property ID to which the experiment belongs
-   * @param string $profileId View (Profile) ID to which the experiment belongs
-   * @param string $experimentId ID of the experiment to delete
+   * @param string $accountId Account ID to which the experimentCont belongs
+   * @param string $webPropertyId Web property ID to which the experimentCont belongs
+   * @param string $profileId View (Profile) ID to which the experimentCont belongs
+   * @param string $experimentId ID of the experimentCont to delete
    * @param array $optParams Optional parameters.
    */
   public function delete($accountId, $webPropertyId, $profileId, $experimentId, $optParams = array())
@@ -2547,12 +2547,12 @@ class Google_Service_Analytics_ManagementExperiments_Resource extends Google_Ser
   }
 
   /**
-   * Returns an experiment to which the user has access. (experiments.get)
+   * Returns an experimentCont to which the user has access. (experiments.get)
    *
-   * @param string $accountId Account ID to retrieve the experiment for.
-   * @param string $webPropertyId Web property ID to retrieve the experiment for.
-   * @param string $profileId View (Profile) ID to retrieve the experiment for.
-   * @param string $experimentId Experiment ID to retrieve the experiment for.
+   * @param string $accountId Account ID to retrieve the experimentCont for.
+   * @param string $webPropertyId Web property ID to retrieve the experimentCont for.
+   * @param string $profileId View (Profile) ID to retrieve the experimentCont for.
+   * @param string $experimentId Experiment ID to retrieve the experimentCont for.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Analytics_Experiment
    */
@@ -2564,11 +2564,11 @@ class Google_Service_Analytics_ManagementExperiments_Resource extends Google_Ser
   }
 
   /**
-   * Create a new experiment. (experiments.insert)
+   * Create a new experimentCont. (experiments.insert)
    *
-   * @param string $accountId Account ID to create the experiment for.
-   * @param string $webPropertyId Web property ID to create the experiment for.
-   * @param string $profileId View (Profile) ID to create the experiment for.
+   * @param string $accountId Account ID to create the experimentCont for.
+   * @param string $webPropertyId Web property ID to create the experimentCont for.
+   * @param string $profileId View (Profile) ID to create the experimentCont for.
    * @param Google_Experiment $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Analytics_Experiment
@@ -2591,7 +2591,7 @@ class Google_Service_Analytics_ManagementExperiments_Resource extends Google_Ser
    *
    * @opt_param int max-results The maximum number of experiments to include in
    * this response.
-   * @opt_param int start-index An index of the first experiment to retrieve. Use
+   * @opt_param int start-index An index of the first experimentCont to retrieve. Use
    * this parameter as a pagination mechanism along with the max-results
    * parameter.
    * @return Google_Service_Analytics_Experiments
@@ -2604,13 +2604,13 @@ class Google_Service_Analytics_ManagementExperiments_Resource extends Google_Ser
   }
 
   /**
-   * Update an existing experiment. This method supports patch semantics.
+   * Update an existing experimentCont. This method supports patch semantics.
    * (experiments.patch)
    *
-   * @param string $accountId Account ID of the experiment to update.
-   * @param string $webPropertyId Web property ID of the experiment to update.
-   * @param string $profileId View (Profile) ID of the experiment to update.
-   * @param string $experimentId Experiment ID of the experiment to update.
+   * @param string $accountId Account ID of the experimentCont to update.
+   * @param string $webPropertyId Web property ID of the experimentCont to update.
+   * @param string $profileId View (Profile) ID of the experimentCont to update.
+   * @param string $experimentId Experiment ID of the experimentCont to update.
    * @param Google_Experiment $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Analytics_Experiment
@@ -2623,12 +2623,12 @@ class Google_Service_Analytics_ManagementExperiments_Resource extends Google_Ser
   }
 
   /**
-   * Update an existing experiment. (experiments.update)
+   * Update an existing experimentCont. (experiments.update)
    *
-   * @param string $accountId Account ID of the experiment to update.
-   * @param string $webPropertyId Web property ID of the experiment to update.
-   * @param string $profileId View (Profile) ID of the experiment to update.
-   * @param string $experimentId Experiment ID of the experiment to update.
+   * @param string $accountId Account ID of the experimentCont to update.
+   * @param string $webPropertyId Web property ID of the experimentCont to update.
+   * @param string $profileId View (Profile) ID of the experimentCont to update.
+   * @param string $experimentId Experiment ID of the experimentCont to update.
    * @param Google_Experiment $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Analytics_Experiment

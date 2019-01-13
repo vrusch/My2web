@@ -37,7 +37,7 @@
 			<li class="<?php echo ($current == 'manage_course') ? 'active' : ''; ?>"><?php echo anchor('course', ('Managment Kurzů')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_assignment') ? 'active' : ''; ?>"><?php echo anchor('assigment', ('Přiřazování')); ?></li>
+			<li class="<?php echo ($current == 'manage_experiment') ? 'active' : ''; ?>"><?php echo anchor('experiment_cont', ('experiment')); ?></li>
 		<?php endif; ?>
 	<?php endif; ?>
 

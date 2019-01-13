@@ -55,6 +55,8 @@ class companies extends CI_Controller
 	public function manage_quizzes($company_id)
 	{
 		$data['company'] = $this->companies_model->get_companies($company_id);
+		$data['groups'] = $this->companies_model->get_groups($company_id);
+		$data['quizzes'] = $this->companies_model->get_quizzes();
 		$this->load->view('companies/manage_quizzes', isset($data) ? $data : NULL);
 	}
 

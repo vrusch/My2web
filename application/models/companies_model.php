@@ -326,4 +326,18 @@ var_dump($password_reset_url);
         }*/
 		return;
 	}
+
+	public function get_group_quizzes($group_id)
+	{
+		if ($group_id === NULL){
+		$query = $this->db->get_where('4m2w_company_quizzes', array('company_id' => $group_id));
+		}
+		return $query->result_array();
+	}
+
+	public function get_quizzes()
+	{
+		$query = $this->db->get('4m2w_course');
+		return $query->result_array();
+	}
 }

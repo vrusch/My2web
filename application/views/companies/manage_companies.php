@@ -99,8 +99,8 @@
 						<?php echo anchor('companies/edit/' . $companies_item['id'], 'Edit', 'class="btn btn-small"'); ?>
 					</td>
 				</tr>
-
-				</tbody><?php endforeach; ?>
+				<?php endforeach; ?>
+				</tbody>
 			</table>
 		</div>
 	</div>
