@@ -5,17 +5,15 @@
 </head>
 <body>
 
-<?php //echo $this->load->view('header'); ?>
-
 <div class="container">
 	<div class="row">
 
 		<div class="span2">
-			<?php echo $this->load->view('account/admin_panel', array('current' => 'manage_course')); ?>
+			<?php echo $this->load->view('account/admin_panel', array('current' => 'manage_quizzes')); ?>
 		</div>
 
 		<div class="span10">
-			<?php $count = count($course); ?>
+			<?php $count = count($quizzes); ?>
 			<table style="width: 100%">
 				<tr>
 					<td style="width: 85%"><h2><?php echo('Managment Kvizů'); ?><span
@@ -37,39 +35,38 @@
 					<th><?php echo('Prednasek'); ?></th>
 					<th><?php echo('Otazek'); ?></th>
 					<th>
-						<?php echo anchor('course/new_course', 'Novy', 'class="btn btn-primary btn-small"'); ?>
+						<?php echo anchor('quizzes_cont/new', 'Novy', 'class="btn btn-primary btn-small"'); ?>
 					</th>
 				</tr>
 				</thead>
 				<tbody>
-				<?php foreach ($course as $course_item) : ?>
+				<?php foreach ($quizzes as $quizzes_item) : ?>
 					<tr>
 						<td>
-							<?php echo $course_item['name']; ?>
+							<?php echo $quizzes_item['name']; ?>
 						</td>
 						<td>
-							<?php echo $course_item['theme']; ?>
+							<?php echo $quizzes_item['theme']; ?>
 						</td>
 						<td>
-							<p><a href="<?php echo site_url('course/view/' . $course_item['id']); ?>">nahled</a></p>
+							<p><a href="<?php echo site_url('quizzes_cont/view/' . $quizzes_item['id']); ?>">nahled</a></p>
 						</td>
 						<td>
 							<?php
 							$sql = "SELECT id FROM 4m2w_rel_course WHERE course_id = ? AND lectures_id IS NOT NULL";
-							$query = $this->db->query($sql, array($course_item['id']));
+							$query = $this->db->query($sql, array($quizzes_item['id']));
 							echo($query->num_rows());;
 							?>
 						</td>
 						<td>
 							<?php
 							$sql = "SELECT id FROM 4m2w_rel_course WHERE course_id = ? AND questions_id IS NOT NULL";
-							$query = $this->db->query($sql, array($course_item['id']));
+							$query = $this->db->query($sql, array($quizzes_item['id']));
 							echo($query->num_rows());
 							?>
 						</td>
 						<td>
-							<?php echo anchor('news/', 'edit', 'class="btn btn-small"'); ?>
-							<?php echo anchor('lecture/delete/'.$course_item['id'],'Smazat','class="btn btn-danger btn-small"'); ?>
+							<?php echo anchor('quizzes_cont/edit/'. $quizzes_item['id'], 'edit', 'class="btn btn-small"'); ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>

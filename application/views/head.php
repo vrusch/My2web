@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="<?php echo base_url(); ?>favicon.ico"/>
 
 <link type="text/css" rel="stylesheet" href="<?php echo base_url().RES_DIR; ?>/bootstrap/css/bootstrap.min.css"/>
-<link type="text/css" rel="stylesheet" href="<?php echo base_url().RES_DIR; ?>/css/style.css"/>
+<!--<link type="text/css" rel="stylesheet" href="<?php echo base_url().RES_DIR; ?>/css/style.css"/>-->
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 <link href="<?php echo base_url().RES_DIR; ?>/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -19,7 +19,7 @@
 
 <style>
 	body {
-		padding-top: 5px;
+		padding-top: 15px;
 	}
 	textarea {
 		width: 400px;

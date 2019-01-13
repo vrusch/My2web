@@ -11,9 +11,10 @@
 					<tr>
 						<th><?php echo 'Skupiny'; ?></th>
 						<th><?php echo 'Kvizy'; ?></th>
-						<th><?php echo ' | '; ?></th>
-						<th><?php echo 'Tema'; ?></th>
+						<th><?php echo '  '; ?></th>
+						<th><?php echo '  '; ?></th>
 						<th><?php echo 'Dostupne kvizy'; ?></th>
+						<th><?php echo 'Tema'; ?></th>
 					</tr>
 					</thead>
 					<tbody>
@@ -24,18 +25,32 @@
 								<?php echo $groups_item['name_of_group']; ?>
 							</td>
 							<td>
-								<!--  get_group_quizzes($group_id) -->
-								<?php echo 'kvizy group'; ?>
+								<form method="post">
+									<select name="quizzes[]" multiple>
+										<?php
+										foreach( $quizzes as $quizzes_item ) {
+											echo '<option value="'.$quizzes_item['id'].'">'.$quizzes_item['name'].'</option>';
+										}
+										?>
+									</select>
+								</form>
 							</td>
-							<th><?php echo ' | '; ?></th>
+							<th><button>>></button></th>
+							<th><button><<</button></th>
+							<td>
+								<form method="post">
+									<select name="quizzes[]" multiple>
+										<?php
+										foreach( $quizzes as $quizzes_item ) {
+											echo '<option value="'.$quizzes_item['id'].'">'.$quizzes_item['name'].'</option>';
+										}
+										?>
+									</select>
+								</form>
+
+							</td>
 							<td>
 								<?php echo form_dropdown(); ?>
-							</td>
-							<td>
-								<?php foreach( $quizzes as $quizzes_item ) : ?>
-									<?php //echo $quizzes_item['id']; ?>
-									<?php echo $quizzes_item['name'] . '<br>';?>
-								<?php endforeach; ?>
 							</td>
 						</tr>
 					<?php endforeach; ?>

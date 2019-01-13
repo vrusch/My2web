@@ -13,7 +13,7 @@
 <hr>
 <br>
 
-<table class="table table-condensed table-hover">
+<table class="table table-condensed table-hover" style="background-color:white;">
 	<thead>
 	<tr>
 		<th><?php echo '#' ;?></th>

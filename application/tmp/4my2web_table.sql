@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2019 at 12:25 PM
+-- Generation Time: Jan 13, 2019 at 09:53 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -43,7 +43,7 @@ CREATE TABLE `4m2w_answers` (
 DROP TABLE IF EXISTS `4m2w_companies`;
 CREATE TABLE `4m2w_companies` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(60) NOT NULL,
+  `name` varchar(60) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `status` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
@@ -58,6 +58,19 @@ CREATE TABLE `4m2w_company_group` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `company_id` bigint(20) UNSIGNED NOT NULL,
   `name_of_group` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `4m2w_company_quizzes`
+--
+
+DROP TABLE IF EXISTS `4m2w_company_quizzes`;
+CREATE TABLE `4m2w_company_quizzes` (
+  `company_id` bigint(20) UNSIGNED NOT NULL,
+  `group_id` bigint(20) NOT NULL,
+  `quiz_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
@@ -96,11 +109,9 @@ CREATE TABLE `4m2w_lectures` (
 DROP TABLE IF EXISTS `4m2w_mkb`;
 CREATE TABLE `4m2w_mkb` (
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `mkb_username` varchar(24) NOT NULL,
-  `mkb_email` varchar(160) NOT NULL,
   `company_id` bigint(20) UNSIGNED NOT NULL,
   `activation` int(10) NOT NULL,
-  `activation_send` date NOT NULL,
+  `activation_date` date NOT NULL,
   `status` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
@@ -129,6 +140,7 @@ CREATE TABLE `4m2w_news` (
 DROP TABLE IF EXISTS `4m2w_questions`;
 CREATE TABLE `4m2w_questions` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `theme` varchar(120) DEFAULT NULL,
   `question` varchar(128) NOT NULL,
   `true_id_answer` bigint(20) NOT NULL,
   `false1_id_answer` bigint(20) NOT NULL,
@@ -175,36 +187,6 @@ CREATE TABLE `4m2w_theme` (
   `theme` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `a3m_acl_role`
---
-
-DROP TABLE IF EXISTS `a3m_acl_role`;
-CREATE TABLE `a3m_acl_role` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
-  `description` varchar(160) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `suspendedon` datetime DEFAULT NULL,
-  `is_system` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Truncate table before insert `a3m_acl_role`
---
-
-TRUNCATE TABLE `a3m_acl_role`;
---
--- Dumping data for table `a3m_acl_role`
---
-
-INSERT INTO `a3m_acl_role` (`id`, `name`, `description`, `suspendedon`, `is_system`) VALUES
-(1, 'Admin', 'Website Administrator', NULL, 1),
-(2, 'User', 'Website user', NULL, 0),
-(3, 'Student', 'Student pro e-learning', NULL, 0),
-(4, 'MKB', 'Manager kyberbespecnosti', NULL, 0);
-
 --
 -- Indexes for dumped tables
 --
@@ -227,6 +209,13 @@ ALTER TABLE `4m2w_companies`
 ALTER TABLE `4m2w_company_group`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Indexes for table `4m2w_company_quizzes`
+--
+ALTER TABLE `4m2w_company_quizzes`
+  ADD PRIMARY KEY (`company_id`),
+  ADD KEY `company_id` (`company_id`,`group_id`,`quiz_id`);
 
 --
 -- Indexes for table `4m2w_course`
@@ -278,13 +267,6 @@ ALTER TABLE `4m2w_students`
 --
 ALTER TABLE `4m2w_theme`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `a3m_acl_role`
---
-ALTER TABLE `a3m_acl_role`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `role_name` (`name`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -343,12 +325,6 @@ ALTER TABLE `4m2w_rel_course`
 --
 ALTER TABLE `4m2w_theme`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `a3m_acl_role`
---
-ALTER TABLE `a3m_acl_role`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -34,7 +34,7 @@
 			<li class="<?php echo ($current == 'manage_lecture') ? 'active' : ''; ?>"><?php echo anchor('lecture', ('Přednášky')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_course') ? 'active' : ''; ?>"><?php echo anchor('course', ('Managment Kurzů')); ?></li>
+			<li class="<?php echo ($current == 'manage_quizzes') ? 'active' : ''; ?>"><?php echo anchor('quizzes_cont', ('Managment Kvizů')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
 			<li class="<?php echo ($current == 'manage_experiment') ? 'active' : ''; ?>"><?php echo anchor('experiment_cont', ('experiment')); ?></li>
