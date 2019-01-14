@@ -18,18 +18,25 @@ class quizzes_model extends CI_Model
 		return $query->row_array();
 	}
 
-	public function set_quizz()
+	public function set_quizz($quizz_name, $theme_id)
 	{
-		$data = array(
-			'name' => $this->input->post('quizz'),
-			'theme' => $this->input->post('tema'),
-		);
-		$this->db->insert('4m2w_course', $data);
+		$this->db->insert('4m2w_course', array('name' => $quizz_name, 'theme_id' => $theme_id));
 	}
 
-	public function get_themes()
+	public function get_themes($theme_id = NULL)
 	{
-		$query = $this->db->get('4m2w_theme');
-		return $query->result_array();
+		if ($theme_id == NULL){
+			$query = $this->db->get('4m2w_theme');
+			return $query->result_array();
+		} else {
+			$query = $this->db->get_where('4m2w_theme', array('id' => $theme_id));
+			return $query->row_array();
+		}
+	}
+
+	public function set_theme($theme_name)
+	{
+		$this->db->insert('4m2w_theme', array('theme' => $theme_name));
+		return $this->db->insert_id();
 	}
 }

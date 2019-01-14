@@ -34,8 +34,14 @@ class quizzes_cont extends CI_Controller
 			$data['themes'] = $this->quizzes_model->get_themes();
 			$this->load->view('quizzes/add_quizz', isset($data) ? $data : NULL);
 		} else {
-			var_dump($_POST);
-			//$this->quizzes_model->set_course();
+			if ($this->input->post('theme_new')){
+				$theme_id = $this->quizzes_model->set_theme($this->input->post('theme_new'));
+				$this->quizzes_model->set_quizz($this->input->post('quizz'), $theme_id);
+			} else {
+				$this->quizzes_model->set_theme($this->input->post('theme_old'));
+				$this->quizzes_model->set_quizz($this->input->post('quizz'), $this->input->post('theme_old'));
+			}
+
 			$data['quizzes'] = $this->quizzes_model->get_quizzes();
 			$data['display'] = array('page' => 'edit');
 			$this->load->view('quizzes/manage_quizzes', isset($data) ? $data : NULL);;

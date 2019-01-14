@@ -17,7 +17,7 @@
 			<table style="width: 100%">
 				<tr>
 					<td style="width: 85%"><h2>Firmy<span class="badge badge-info"><?php echo $count; ?></span></h2></td>
-					<td><a href="home_n"><buton class="btn btn-primary btn-small"><i></i>Zpátky na domovskou stránku</buton></a></td>
+					<td><a href="home_n"><buton class="btn btn-primary btn-small"> Zpátky </buton></a></td>
 				</tr>
 			</table>
 

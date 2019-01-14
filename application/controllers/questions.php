@@ -87,4 +87,20 @@ class questions extends CI_Controller
 		$data['question'] = $this->question_model->get_question($id);
 		$this->load->view('questions/addto_question', isset($data) ? $data : NULL);
 	}
+
+	public function del($id = NULL)
+	{
+		$data['question'] = $this->question_model->get_question($id);
+		$this->question_model->delete_q_a($data);
+
+		$data['questions'] = $this->question_model->get_question();
+		$this->load->view('questions/manage_questions', isset($data) ? $data : NULL);
+	}
+
+	public function rnd($id)
+	{
+		$data['question'] = $this->question_model->get_rnd_answer($id);
+		var_dump($data['question']);
+		$this->load->view('questions/rnd_view', isset($data) ? $data : NULL);
+	}
 }

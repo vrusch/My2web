@@ -19,7 +19,7 @@
 					<td style="width: 85%"><h2><?php echo('Managment Kvizů'); ?><span
 								class="badge badge-info"><?php echo $count; ?></span></h2></td>
 					<td><a href="home_n">
-							<buton class="btn btn-primary btn-small"><i></i>Back to Home page</buton>
+							<buton class="btn btn-primary btn-small"> Zpátky </buton>
 						</a></td>
 				</tr>
 			</table>
@@ -46,7 +46,10 @@
 							<?php echo $quizzes_item['name']; ?>
 						</td>
 						<td>
-							<?php echo $quizzes_item['theme']; ?>
+							<?php
+							$theme= $this->quizzes_model->get_themes($quizzes_item['theme_id']);
+							echo $theme['theme']
+							?>
 						</td>
 						<td>
 							<p><a href="<?php echo site_url('quizzes_cont/view/' . $quizzes_item['id']); ?>">nahled</a></p>

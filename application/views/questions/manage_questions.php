@@ -19,7 +19,7 @@
 					<td style="width: 85%"><h2><?php echo('Otazky'); ?><span
 								class="badge badge-info"><?php echo $count; ?></span></h2></td>
 					<td><a href="home_n">
-							<buton class="btn btn-primary btn-small"><i></i>Back to Home page</buton>
+							<buton class="btn btn-primary btn-small"> Zpátky </buton>
 						</a></td>
 				</tr>
 			</table>
@@ -31,7 +31,7 @@
 				<thead>
 				<tr>
 					<th><?php echo('Otazka'); ?></th>
-					<th><?php echo('Tema'); ?></th>
+					<th><?php echo('RnD Gen'); ?></th>
 					<th><?php echo('Nahled'); ?></th>
 					<th>
 						<?php echo anchor('questions/new_question', 'Nova', 'class="btn btn-primary btn-small"'); ?>
@@ -45,7 +45,19 @@
 							<?php echo $question_item['question']; ?>
 						</td>
 						<td>
-							<?php echo $question_item['theme']; ?>
+							<?php
+							$atts = array(
+								'width'       => 800,
+								'height'      => 600,
+								'scrollbars'  => 'no',
+								'status'      => 'yes',
+								'resizable'   => 'no',
+								'screenx'     => 500,
+								'screeny'     => 200,
+								'window_name' => '_blank'
+							);
+							echo anchor_popup('questions/rnd/'. $question_item['id'], 'Ran Gen', $atts);
+							?>
 						</td>
 						<td>
 							<?php
@@ -64,8 +76,7 @@
 						</td>
 						<td>
 							<?php echo anchor('questions/update/'. $question_item['id'], 'edit', 'class="btn btn-small"'); ?>
-							<?php echo anchor('questions/addto/'. $question_item['id'], 'pridat do kvizu', 'class="btn btn-small"'); ?>
-							<?php echo anchor('questions/delete/'. $question_item['id'], 'Smazat', 'class="btn btn-danger btn-small"'); ?>
+							<?php echo anchor('questions/addto/'. $question_item['id'], 'pridat do kvizu', 'class="btn btn-info btn-small"'); ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>

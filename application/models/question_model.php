@@ -78,4 +78,18 @@ class question_model extends CI_Model
 			$this->db->delete('4m2w_questions', array('id' => $smazat['question']['id']));
 		}
 	}
+
+	public function get_rnd_answer($id)
+	{
+		$this->db->select('true_id_answer, false1_id_answer, false2_id_answer, false3_id_answer');
+		$this->db->where('id', $id);
+		$query = $this->db->get('4m2w_questions');
+		$q = $query->result_array();
+		//var_dump($q);
+		foreach ($q as $query_item => $key){
+			print_r($key);
+		}
+
+		return $query->result_array();
+	}
 }

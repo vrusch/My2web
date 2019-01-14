@@ -19,7 +19,7 @@
 			<table style="width: 100%">
 				<tr>
 					<td style="width: 85%"><h2><?php echo ('Managment přednášek'); ?><span class="badge badge-info"><?php echo $count; ?></span></h2></td>
-					<td><a href="home_n"><buton class="btn btn-primary btn-small"><i></i>Back to Home page</buton></a></td>
+					<td><a href="home_n"><buton class="btn btn-primary btn-small"> Zpátky </buton></a></td>
 				</tr>
 			</table>
 
@@ -31,7 +31,6 @@
 				<thead>
 				<tr>
 					<th><?php echo ('Název'); ?></th>
-					<th><?php echo ('tema'); ?></th>
 					<th><?php echo ('Nahled popup'); ?></th>
 					<th>
 						<?php echo anchor('lecture/create','Nova','class="btn btn-primary btn-small"'); ?>
@@ -43,9 +42,6 @@
 				<tr>
 					<td>
 						<?php echo $lecture_item['name']; ?>
-					</td>
-					<td>
-						<?php echo $lecture_item['theme']; ?>
 					</td>
 					<td>
 						<?php
@@ -64,8 +60,7 @@
 					</td>
 					<td>
 						<?php echo anchor('lecture/edit/'.$lecture_item['id'], 'edit', 'class="btn btn-small"'); ?>
-						<?php echo anchor('lecture/addto/'.$lecture_item['id'], 'Pridat do kvizu', 'class="btn btn-small"'); ?>
-						<?php echo anchor('lecture/delete/'.$lecture_item['id'],'Smazat','class="btn btn-danger btn-small"'); ?>
+						<?php echo anchor('lecture/addto/'.$lecture_item['id'], 'Pridat do kvizu', 'class="btn btn-info btn-small"'); ?>
 					</td>
 				</tr>
 				<?php endforeach; ?>
