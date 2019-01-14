@@ -84,12 +84,14 @@ class question_model extends CI_Model
 		$this->db->select('true_id_answer, false1_id_answer, false2_id_answer, false3_id_answer');
 		$this->db->where('id', $id);
 		$query = $this->db->get('4m2w_questions');
-		$q = $query->result_array();
-		//var_dump($q);
-		foreach ($q as $query_item => $key){
-			print_r($key);
+		$result = $query->row_array();
+		$opt = array();
+		foreach ($result as $query_item => $key){
+			$opt[] = $key;
 		}
+		shuffle($opt);
+		shuffle($opt);
 
-		return $query->result_array();
+		return $opt;
 	}
 }
