@@ -17,4 +17,13 @@ class quizzes_model extends CI_Model
 		$query = $this->db->get_where('4m2w_course', array('id' => $quizz_id));
 		return $query->row_array();
 	}
+
+	public function set_quizz()
+	{
+		$data = array(
+			'name' => $this->input->post('quizz'),
+			'theme' => $this->input->post('tema'),
+		);
+		$this->db->insert('4m2w_course', $data);
+	}
 }

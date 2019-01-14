@@ -13,57 +13,61 @@
 		</div>
 		<div class="span10">
 
-			<h2><?php echo ("Firma editace"); ?></h2>
+			<table style="width: 100%">
+				<tr>
+					<td style="width: 85%"><h2>Experiment</h2></td>
+					<td><a href="experiment_cont"><buton class="btn btn-primary btn-small">Back</buton></a></td>
+				</tr>
+			</table>
 
 			<div class="well">
-				<?php echo ("Editovaní názvu firmy"); ?>
+				<?php echo("Experiment popis."); ?>
 			</div>
-<?php
-//var_dump($company_item);
-//var_dump($groups);
-?>
-			<?php echo form_open('companies/edit/'.$company_item['id'], 'class="form-horizontal"'); ?>
+			<!-- END of header page	-->
+
+			<?php echo form_open('companies_cont/edit/'.$company['id'], 'class="form-horizontal"'); ?>
 			<?php echo validation_errors(); ?>
 
 			<div class="control-group">
-				<label class="control-label" for="name"><?php echo ('Název'); ?></label>
+				<label class="control-label" for="name">Editovat nazev </label>
 				<div class="controls">
-					<?php echo form_input(array('name' => 'name', 'id' => 'name'), $company_item['name']); ?>
+					<?php echo form_input(array('name' => 'company_name'), $company['name']); ?>
 					<?php echo form_submit('', ('Uložit'), 'class="btn btn-primary"'); ?>
 				</div>
 			</div><br>
-
-			<div class="well">
-				<?php echo anchor('companies/add_students/' . $company_item['id'], 'Přidat žáky', 'class="btn btn-info btn-small"'); ?>
-				<?php
-				$count = count($this->companies_model->get_students($company_item['id']));
-				if ( $count > 0){
-					echo anchor('companies/addStoG/' . $company_item['id'], 'Žáci', 'class="btn btn-info btn-small"');
-					}
-				?>
-				<span><?php echo '&nbsp&nbsp | &nbsp&nbsp'; ?></span>
-				<?php echo anchor('companies/add_groups/' . $company_item['id'], 'Skupiny', 'class="btn btn-primary btn-small"'); ?>
-				<?php echo anchor('companies/manage_quizzes/'. $company_item['id'], 'Přidat Kurzy', 'class="btn btn-primary btn-small"'); ?>
-				<?php echo anchor('companies/manage_mkb/'. $company_item['id'], 'MKB', 'class="btn btn-primary btn-small"'); ?>
-				<span><?php echo '&nbsp&nbsp | &nbsp&nbsp'; ?></span>
-
-				<?php
-				if ($company_item['status'] == 'banned'){
-					echo anchor('companies/delete/' . $company_item['id'], 'Smazat', 'class="btn btn-danger btn-small"'); //todo POZOR mazat aj ziakov mkb
-					echo anchor('companies/unban/'. $company_item['id'], 'Odblokovat Firmu', 'class="btn btn-danger btn-small"');
-				} else {
-					echo anchor('companies/ban/'. $company_item['id'], 'Blokovat Firmu', 'class="btn btn-danger btn-small"'); //todo POZOR blokovat aj ziakov mkb
-				}
-				?>
-			</div>
-
-			<div class="form-actions">
-				<div class="controls">
-					<?php echo anchor('companies', ('Cancel'), 'class="btn"'); ?>
-				</div>
-			</div>
-
 			<?php echo form_close(); ?>
+			<?php //var_dump($display); ?>
+			<!-- TABS start -->
+			<?php if (isset($display['current'])) : ?>
+				<div class="well">
+					<ul class="nav nav-tabs">
+						<li class="active"><a data-toggle="tab" href="#home">Managment Zaku</a></li>
+						<li><a data-toggle="tab" href="#menu1">Managment Skupin</a></li>
+						<li><a data-toggle="tab" href="#menu2">Zaci -> skupiny</a></li>
+						<li><a data-toggle="tab" href="#menu3">Managment Kvizu</a></li>
+						<li><a data-toggle="tab" href="#menu4">Managment MKB</a></li>
+					</ul>
+
+					<div class="tab-content">
+						<div id="home" class="tab-pane fade in active">
+							<?php echo $this->load->view('companies/sub_students', array('title' => ('edit company'))); ?>
+						</div>
+						<div id="menu1" class="tab-pane fade">
+							<?php echo $this->load->view('companies/sub_groups', array('title' => ('edit company'))); ?>
+						</div>
+						<div id="menu2" class="tab-pane fade">
+							<?php echo $this->load->view('companies/sub_stdtogroup', array('title' => ('edit company'))); ?>
+						</div>
+						<div id="menu3" class="tab-pane fade">
+							<?php echo $this->load->view('companies/sub_quizzes', array('title' => ('edit company'))); ?>
+						</div>
+						<div id="menu4" class="tab-pane fade">
+							<?php echo $this->load->view('companies/sub_mkb', array('title' => ('edit company'))); ?>
+						</div>
+					</div>
+
+				</div>
+			<?php endif ?>
 		</div>
 	</div>
 </div>

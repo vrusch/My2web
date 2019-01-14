@@ -25,7 +25,7 @@
 	</thead>
 	<tbody style="background-color: white">
 	<?php foreach ($students as $students_item) : ?>
-		<?php $student_info = $this->experiment_model->get_students_info($students_item['student_id']); ?>
+		<?php $student_info = $this->companies_model->get_student_info($students_item['student_id']); ?>
 		<tr>
 			<td>
 				<?php echo $student_info['id']; ?>

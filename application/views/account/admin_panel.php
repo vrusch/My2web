@@ -25,7 +25,7 @@
 		<?php endif; ?>
 		<li class="nav-header">Admin tvorba kvizu</li>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_companies') ? 'active' : ''; ?>"><?php echo anchor('companies', ('Firmy')); ?></li>
+			<li class="<?php echo ($current == 'manage_companies') ? 'active' : ''; ?>"><?php echo anchor('companies_cont', ('Firmy')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
 			<li class="<?php echo ($current == 'manage_question') ? 'active' : ''; ?>"><?php echo anchor('questions', ('Otazky')); ?></li>
@@ -35,9 +35,6 @@
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
 			<li class="<?php echo ($current == 'manage_quizzes') ? 'active' : ''; ?>"><?php echo anchor('quizzes_cont', ('Managment Kvizů')); ?></li>
-		<?php endif; ?>
-		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_experiment') ? 'active' : ''; ?>"><?php echo anchor('experiment_cont', ('experiment')); ?></li>
 		<?php endif; ?>
 	<?php endif; ?>
 
