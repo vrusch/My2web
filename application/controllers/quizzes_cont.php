@@ -30,11 +30,12 @@ class quizzes_cont extends CI_Controller
 		$this->form_validation->set_rules('quizz', 'Text', 'required');
 		$this->form_validation->set_message('required', 'Povinne pole');
 
-
 		if ($this->form_validation->run() === FALSE) {
+			$data['themes'] = $this->quizzes_model->get_themes();
 			$this->load->view('quizzes/add_quizz', isset($data) ? $data : NULL);
 		} else {
-			$this->quizzes_model->set_course();
+			var_dump($_POST);
+			//$this->quizzes_model->set_course();
 			$data['quizzes'] = $this->quizzes_model->get_quizzes();
 			$data['display'] = array('page' => 'edit');
 			$this->load->view('quizzes/manage_quizzes', isset($data) ? $data : NULL);;

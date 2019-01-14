@@ -26,4 +26,10 @@ class quizzes_model extends CI_Model
 		);
 		$this->db->insert('4m2w_course', $data);
 	}
+
+	public function get_themes()
+	{
+		$query = $this->db->get('4m2w_theme');
+		return $query->result_array();
+	}
 }

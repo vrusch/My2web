@@ -16,13 +16,13 @@
 			<?php $count = count($companies); ?>
 			<table style="width: 100%">
 				<tr>
-					<td style="width: 85%"><h2>Experiment<span class="badge badge-info"><?php echo $count; ?></span></h2></td>
-					<td><a href="home_n"><buton class="btn btn-primary btn-small"><i></i>Back to Home page</buton></a></td>
+					<td style="width: 85%"><h2>Firmy<span class="badge badge-info"><?php echo $count; ?></span></h2></td>
+					<td><a href="home_n"><buton class="btn btn-primary btn-small"><i></i>Zpátky na domovskou stránku</buton></a></td>
 				</tr>
 			</table>
 
 			<div class="well">
-				<?php echo("Experiment popis."); ?>
+				<?php echo("Firmy popis."); ?>
 			</div>
 			<!-- END of header page	-->
 
@@ -36,7 +36,7 @@
 					<th><?php echo 'Nezařazených'; ?></th>
 					<th><?php echo 'MKB status'; ?></th>
 					<th>
-						<?php echo anchor('companies_cont/create', 'Nova', 'class="btn btn-primary btn-small"'); ?>
+						<?php echo anchor('companies_cont/create', 'Nová firma', 'class="btn btn-primary btn-small"'); ?>
 					</th>
 				</tr>
 				</thead>
@@ -52,11 +52,10 @@
 						<td>
 							<?php
 							$query = $this->db->get_where('4m2w_company_group', array('company_id' => $companies_item['id']));
-							$groups = $query->row_array();
-							if (count($groups) > 0) {
-								echo '<a href="companies/add_groups/' . $companies_item['id'] . '"><span class="badge badge-info">' . count($groups) . '</span></a>';
+							if ($query->num_rows() > 0) {
+								echo '<a href="companies/add_groups/' . $companies_item['id'] . '"><span class="badge badge-info">' . $query->num_rows() . '</span></a>';
 							} else {
-								echo '<span class="badge">' . count($groups) . '</span></a>';
+								echo '<span class="badge">' . $query->num_rows() . '</span></a>';
 							}
 							?>
 						</td>

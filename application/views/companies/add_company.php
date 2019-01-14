@@ -20,7 +20,7 @@
 				<?php echo("Pridat firmu a MKB - manazer kyberbezpenosti, kdyz zadate username a email bude zaslan aktivacni email s pokyny jak spravovat skupiny zaku, zaky a kurzy, Jinak jde aktivaci provest pozdeji, ale bez aktivniho MKB nemuze zakaznik spravovat zaky ani kurzy."); ?>
 			</div>
 
-			<?php echo form_open('companies/create', 'class="form-horizontal"'); ?>
+			<?php echo form_open('companies_cont/create', 'class="form-horizontal"'); ?>
 			<?php echo validation_errors(); ?>
 
 			<div class="control-group">

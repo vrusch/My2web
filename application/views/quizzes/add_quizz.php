@@ -19,18 +19,28 @@
 				<?php echo ("vytváření kvizu"); ?>
 			</div>
 
-			<?php echo form_open('quizzes/new/', 'class="form-horizontal"'); ?>
+			<?php
+			foreach ($themes as $themes_item){
+				$opt[$themes_item['id']] = $themes_item['theme'];
+			}
+			if (count($themes)){
+				$opt += ['0' => 'Žádna tema'];
+			} else {
+				$opt = ['0' => 'Žádna tema'];
+			}
+			?>
+			<?php echo form_open('quizzes_cont/new', 'class="form-horizontal"'); ?>
 			<?php echo validation_errors();?>
 
 			<div class="control-group">
 				<label class="control-label" for="theme"><?php echo ('Tema'); ?></label>
 				<div class="controls">
-					<?php echo form_input(array('name' => 'theme')); ?>
+					<?php echo form_dropdown('theme_old', $opt, '0'); ?> nebo nova tema <?php echo form_input(array('name' => 'theme_new')); ?>
 				</div>
 			</div>
 
 			<div class="control-group">
-				<label class="control-label" for="quizz"><?php echo ('Kviz'); ?></label>
+				<label class="control-label" for="quizz"><?php echo ('Kviz - nazev'); ?></label>
 				<div class="controls">
 					<?php echo form_input(array('name' => 'quizz')); ?>
 				</div>

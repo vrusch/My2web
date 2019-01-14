@@ -14,7 +14,6 @@ class companies_cont extends CI_Controller
 	public function index()
 	{
 			$data['companies'] = $this->companies_model->get_companies();
-			$data['display'] = array('page' => 'edit');
 			$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
 	}
 
@@ -67,5 +66,38 @@ class companies_cont extends CI_Controller
 			$data['companies'] = $this->companies_model->get_companies();
 			$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
 		}
+	}
+
+	public function add_group($company_id)
+	{
+		$this->form_validation->set_rules('group1', 'Nová skupina', 'required');
+
+		if ($this->form_validation->run() === FALSE) {
+			$data['company'] = $this->companies_model->get_companies($company_id);
+			$data['groups'] = $this->companies_model->get_groups($company_id);
+			$data['display'] = array('page' => 'edit', 'current' => 'menu1');
+			$this->load->view('companies/edit_company', isset($data) ? $data : NULL);
+		} else {
+			$group_name = $this->input->post('group1');
+			$this->companies_model->set_groups($company_id, $group_name);
+			$data['company'] = $this->companies_model->get_companies($company_id);
+			$data['groups'] = $this->companies_model->get_groups($company_id);
+			$data['students'] = $this->companies_model->get_students($company_id);
+			$data['mkb'] = $this->companies_model->get_mkb($company_id);
+			$data['quizzes'] = $this->companies_model->get_quizzes();
+			$data['display'] = array('page' => 'edit', 'current' => 'menu1');
+			$this->load->view('companies/edit_company', isset($data) ? $data : NULL);
+		}
+	}
+
+	public function del_group($company_id, $group_id){
+		$this->companies_model->del_group($company_id, $group_id);
+		$data['company'] = $this->companies_model->get_companies($company_id);
+		$data['groups'] = $this->companies_model->get_groups($company_id);
+		$data['students'] = $this->companies_model->get_students($company_id);
+		$data['mkb'] = $this->companies_model->get_mkb($company_id);
+		$data['quizzes'] = $this->companies_model->get_quizzes();
+		$data['display'] = array('page' => 'edit', 'current' => 'menu1');
+		$this->load->view('companies/edit_company', isset($data) ? $data : NULL);
 	}
 }

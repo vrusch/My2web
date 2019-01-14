@@ -19,13 +19,8 @@ class companies_model extends CI_Model
 		return $query->row_array();
 	}
 
-	public function get_groups($company_id = FALSE)
+	public function get_groups($company_id)
 	{
-		if ($company_id === FALSE)
-		{
-			$query = $this->db->get('4m2w_company_group');
-			return $query->result_array();
-		}
 		$query = $this->db->get_where('4m2w_company_group', array('company_id' => $company_id));
 		return $query->result_array();
 	}
@@ -65,6 +60,16 @@ class companies_model extends CI_Model
 	{
 		$query = $this->db->get_where('4m2w_course');
 		return $query->result_array();
+	}
+
+	public function set_groups($company_id, $group_name)
+	{
+		$this->db->insert('4m2w_company_group', array('company_id' => $company_id, 'name_of_group' => $group_name));
+	}
+
+	public function del_group($company_id, $group_id)
+	{
+		$this->db->delete('4m2w_company_group', array('company_id' => $company_id, 'id' => $group_id));
 	}
 }
 
