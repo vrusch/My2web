@@ -100,4 +100,15 @@ class companies_cont extends CI_Controller
 		$data['display'] = array('page' => 'edit', 'current' => 'menu1');
 		$this->load->view('companies/edit_company', isset($data) ? $data : NULL);
 	}
+
+	public function create_mkb($company_id){
+		$data['company'] = $this->companies_model->get_companies($company_id);
+		$data['groups'] = $this->companies_model->get_groups($company_id);
+		$data['students'] = $this->companies_model->get_students($company_id);
+		$data['mkb'] = $this->companies_model->get_mkb($company_id);
+		$data['quizzes'] = $this->companies_model->get_quizzes();
+		$data['display'] = array('page' => 'edit', 'current' => 'menu4');
+		$this->load->view('companies/edit_company', isset($data) ? $data : NULL);
+
+	}
 }

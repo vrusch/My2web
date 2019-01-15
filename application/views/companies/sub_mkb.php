@@ -52,7 +52,7 @@
 		<td>
 			<?php
 			if (!isset($mkb['activation'])) {
-				echo anchor('companies/create_mkb/' . $company['id'], 'Novy', 'class="btn btn-primary btn-small"');
+				echo anchor('companies_cont/create_mkb/' . $company['id'], 'Novy', 'class="btn btn-primary btn-small"');
 			} else {
 				if ($mkb['status'] == NULL) {
 					if ($mkb['activation'] == '1') {
@@ -90,6 +90,7 @@
 <?php endif ?>
 
 <?php echo form_close(); ?>
+
 
 
 
