@@ -11,10 +11,10 @@ class course_model extends CI_Model
 	public function get_course($id = FALSE)
 	{
 		if ($id === FALSE) {
-			$query = $this->db->get('4m2w_course');
+			$query = $this->db->get('4m2w_quizzes');
 			return $query->result_array();
 		}
-		$query = $this->db->get_where('4m2w_course', array('id' => $id));
+		$query = $this->db->get_where('4m2w_quizzes', array('id' => $id));
 		return $query->row_array();
 	}
 
@@ -26,7 +26,7 @@ class course_model extends CI_Model
 			'name' => $this->input->post('course'),
 			'theme' => $this->input->post('tema'),
 		);
-		return $this->db->insert('4m2w_course', $data);
+		return $this->db->insert('4m2w_quizzes', $data);
 	}
 
 	public function delete_course($slug = FALSE) //todo: dopnit logiku zmazat vsetko vo vsetkych tab

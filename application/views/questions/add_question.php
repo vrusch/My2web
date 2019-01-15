@@ -23,13 +23,6 @@
 			<?php echo validation_errors(); ?>
 
 			<div class="control-group">
-				<label class="control-label" for="tema"><?php echo ('Tema'); ?></label>
-				<div class="controls">
-					<?php echo form_input(array('name' => 'tema', 'id' => 'tema')); ?>
-				</div>
-			</div>
-
-			<div class="control-group">
 				<label class="control-label" for="question"><?php echo ('Otazka'); ?></label>
 				<div class="controls">
 					<?php echo form_input(array('name' => 'question', 'id' => 'question', '', 'maxlength' => 80)); ?>
@@ -37,28 +30,28 @@
 			</div>
 
 			<div class="control-group">
-				<label class="control-label" for="true_answer"><?php echo ('Odpoved Spravna'); ?></label>
+				<label class="control-label" for="true_answer"><?php echo ('Spravna odpoved '); ?></label>
 				<div class="controls">
 					<?php echo form_input(array('name' => 'true_answer', 'id' => 'true_answer', '', 'maxlength' => 80)); ?>
 				</div>
 			</div>
 
 			<div class="control-group">
-				<label class="control-label" for="bad_answer1"><?php echo ('Odpoved spatna'); ?></label>
+				<label class="control-label" for="bad_answer1"><?php echo ('Spatna odpoved '); ?></label>
 				<div class="controls">
 					<?php echo form_input(array('name' => 'bad_answer1', 'id' => 'bad_answer1', '', 'maxlength' => 80)); ?>
 				</div>
 			</div>
 
 			<div class="control-group">
-				<label class="control-label" for="bad_answer2"><?php echo ('Odpoved spatna'); ?></label>
+				<label class="control-label" for="bad_answer2"><?php echo ('Spatna odpoved '); ?></label>
 				<div class="controls">
 					<?php echo form_input(array('name' => 'bad_answer2', 'id' => 'bad_answer2', '', 'maxlength' => 80)); ?>
 				</div>
 			</div>
 
 			<div class="control-group">
-				<label class="control-label" for="bad_answer3"><?php echo ('Odpoved spatna'); ?></label>
+				<label class="control-label" for="bad_answer3"><?php echo ('Spatna odpoved '); ?></label>
 				<div class="controls">
 					<?php echo form_input(array('name' => 'bad_answer3', 'id' => 'bad_answer3', '', 'maxlength' => 80)); ?>
 				</div>

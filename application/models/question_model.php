@@ -26,8 +26,6 @@ class question_model extends CI_Model
 
 	public function set_question()
 	{
-		$this->load->helper('url');
-
 		$datata = array(
 			'answer' => $this->input->post('true_answer'),
 		);
@@ -53,7 +51,6 @@ class question_model extends CI_Model
 		$fa3 = $this->db->insert_id();
 
 		$data = array(
-			'theme' => $this->input->post('tema'),
 			'question' => $this->input->post('question'),
 			'true_id_answer' => $ta,
 			'false1_id_answer' => $fa1,
@@ -93,5 +90,11 @@ class question_model extends CI_Model
 		shuffle($opt);
 
 		return $opt;
+	}
+
+	public function get_quizzes()
+	{
+			$query = $this->db->get('4m2w_quizzes');
+			return $query->result_array();
 	}
 }

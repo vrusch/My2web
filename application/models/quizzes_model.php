@@ -11,16 +11,16 @@ class quizzes_model extends CI_Model
 	public function get_quizzes($quizz_id = NULL)
 	{
 		if ($quizz_id === NULL){
-			$query = $this->db->get('4m2w_course');
+			$query = $this->db->get('4m2w_quizzes');
 			return $query->result_array();
 		}
-		$query = $this->db->get_where('4m2w_course', array('id' => $quizz_id));
+		$query = $this->db->get_where('4m2w_quizzes', array('id' => $quizz_id));
 		return $query->row_array();
 	}
 
 	public function set_quizz($quizz_name, $theme_id)
 	{
-		$this->db->insert('4m2w_course', array('name' => $quizz_name, 'theme_id' => $theme_id));
+		$this->db->insert('4m2w_quizzes', array('name' => $quizz_name, 'theme_id' => $theme_id));
 	}
 
 	public function get_themes($theme_id = NULL)

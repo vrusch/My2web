@@ -58,7 +58,7 @@ class companies_model extends CI_Model
 
 	public function get_quizzes()
 	{
-		$query = $this->db->get_where('4m2w_course');
+		$query = $this->db->get_where('4m2w_quizzes');
 		return $query->result_array();
 	}
 

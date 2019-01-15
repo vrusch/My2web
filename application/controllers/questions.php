@@ -19,12 +19,10 @@ class questions extends CI_Controller
 
 	public function new_question()
 	{
-		$this->form_validation->set_rules('tema', 'Nazev', 'required');
-		$this->form_validation->set_rules('question', 'Text', 'required');
-		$this->form_validation->set_rules('true_answer', 'Nazev', 'required');
+		$this->form_validation->set_rules('question', 'Otazka', 'required');
+		$this->form_validation->set_rules('true_answer', 'Spravna odpoved', 'required');
 		$this->form_validation->set_rules('bad_answer1', 'Text', 'required');
 		$this->form_validation->set_rules('bad_answer2', 'Text', 'required');
-		$this->form_validation->set_message('required', 'Povinne pole');
 
 		if ($this->form_validation->run() === FALSE) {
 			$this->load->view('questions/add_question', isset($data) ? $data : NULL);
@@ -35,29 +33,12 @@ class questions extends CI_Controller
 		}
 	}
 
-	public function view($id = NULL)
+	public function update($id)
 	{
-		$data['question'] = $this->question_model->get_question($id);
-
-		$d1 = $this->question_model->get_answer($data['question']['true_id_answer']);
-		$d2 = $this->question_model->get_answer($data['question']['false1_id_answer']);
-		$d3 = $this->question_model->get_answer($data['question']['false2_id_answer']);
-		$d4 = $this->question_model->get_answer($data['question']['false3_id_answer']);
-		$data['question']['true'] = $d1['answer'];
-		$data['question']['false1'] = $d2['answer'];
-		$data['question']['false2'] = $d3['answer'];
-		$data['question']['false3'] = $d4['answer'];
-		$this->load->view('questions/view_questions', isset($data) ? $data : NULL);
-	}
-
-	public function update($id = NULL)
-	{
-		$this->form_validation->set_rules('tema', 'Nazev', 'required');
 		$this->form_validation->set_rules('question', 'Text', 'required');
 		$this->form_validation->set_rules('true_answer', 'Nazev', 'required');
 		$this->form_validation->set_rules('bad_answer1', 'Text', 'required');
 		$this->form_validation->set_rules('bad_answer2', 'Text', 'required');
-		$this->form_validation->set_message('required', 'Povinne pole');
 
 		if ($this->form_validation->run() === FALSE) {
 			$data['question'] = $this->question_model->get_question($id);
@@ -82,12 +63,13 @@ class questions extends CI_Controller
 		$this->load->view('questions/manage_questions', isset($data) ? $data : NULL);
 	}
 
-	public function addto($id = NULL)
+	public function addto($question_id)
 	{
-		$data['question'] = $this->question_model->get_question($id);
-		$this->load->view('questions/addto_question', isset($data) ? $data : NULL);
+		var_dump($_POST);
+		var_dump($question_id);
+		$data['questions'] = $this->question_model->get_question();
+		$this->load->view('questions/manage_questions', isset($data) ? $data : NULL);
 	}
-
 
 	public function rnd($id)
 	{

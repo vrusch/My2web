@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<?php echo $this->load->view('head', array('title' => ('otazky pridat do kvizu'))); ?>
+
 </head>
 <body>
 
@@ -18,35 +20,30 @@
 			<div class="well">
 				<?php echo("prirazeni otazky do kvizu"); ?>
 			</div>
-			<?php echo form_open('questions/addto', 'class="form-horizontal"'); ?>
+			<?php echo form_open('questions/addto/' . $question['id'], 'class="form-horizontal"'); ?>
 			<?php echo validation_errors(); ?>
-
+			<?php
+			$quizzes = $this->question_model->get_quizzes();
+			foreach ($quizzes as $quizz_item){
+				$opt[$quizz_item['id']] = $quizz_item['name'];
+			}
+			if (count($quizzes)){
+				$opt += ['0' => 'Žádny kviz'];
+			} else {
+				$opt = ['0' => 'Žádne kvizy'];
+			}
+			?>
 			<table class="table table-condensed table-hover">
 				<tr>
 					<td>
 						<div class="w3-panel w3-light-grey w3-border w3-round">
-							<label class="control-label col-sm-2" for="email">Otazku # 'otazka' priradit do kurzu:</label>
+							<label>Otazku <strong>#<?php echo $question['id']; ?> '<?php echo $question['question']; ?>'</strong> priradit do kvizu:</label>
 						</div>
 					</td>
 					<td>
 						<div class="w3-panel w3-light-grey w3-border w3-round">
-							<div class="form-group">
-								<label for="sel1">Select list:</label>
-								<select class="form-control" id="sel1">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-								</select>
-							</div>
+							<?php echo form_dropdown('quizz', $opt, '0'); ?>
 						</div>
-					</td>
-				</tr>
-			</table>
-			<table class="table table-condensed table-hover">
-				<tr>
-					<td>
-
 					</td>
 				</tr>
 			</table>

@@ -22,13 +22,6 @@
 			<?php echo validation_errors(); ?>
 
 			<div class="control-group">
-				<label class="control-label" for="tema"><?php echo ('Tema'); ?></label>
-				<div class="controls">
-					<?php echo form_input(array('name' => 'tema', 'id' => 'tema'), $question['tema']); ?>
-				</div>
-			</div>
-
-			<div class="control-group">
 				<label class="control-label" for="question"><?php echo ('Otazka'); ?></label>
 				<div class="controls">
 					<?php echo form_input(array('name' => 'question', 'id' => 'question'), $question['question']); ?>
