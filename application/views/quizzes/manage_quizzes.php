@@ -56,16 +56,24 @@
 						</td>
 						<td>
 							<?php
-							$sql = "SELECT id FROM 4m2w_rel_course WHERE course_id = ? AND lectures_id IS NOT NULL";
+							$sql = "SELECT * FROM 4m2w_rel_quizz_lec WHERE quizz_id = ?";
 							$query = $this->db->query($sql, array($quizzes_item['id']));
-							echo($query->num_rows());;
+							if ($query->num_rows() > 0) {
+								echo '<a href="#"><span class="badge badge-info">' . $query->num_rows() . '</span></a>';
+							} else {
+								echo '<span class="badge">' . $query->num_rows() . '</span></a>';
+							}
 							?>
 						</td>
 						<td>
 							<?php
-							$sql = "SELECT id FROM 4m2w_rel_course WHERE course_id = ? AND questions_id IS NOT NULL";
+							$sql = "SELECT * FROM 4m2w_rel_quizz_que WHERE quizz_id = ?";
 							$query = $this->db->query($sql, array($quizzes_item['id']));
-							echo($query->num_rows());
+							if ($query->num_rows() > 0) {
+								echo '<a href="#"><span class="badge badge-info">' . $query->num_rows() . '</span></a>';
+							} else {
+								echo '<span class="badge">' . $query->num_rows() . '</span></a>';
+							}
 							?>
 						</td>
 						<td>

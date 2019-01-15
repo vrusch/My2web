@@ -97,4 +97,14 @@ class question_model extends CI_Model
 			$query = $this->db->get('4m2w_quizzes');
 			return $query->result_array();
 	}
+
+	public function set_rel_q_q($question_id, $quizz_id)
+	{
+		$data = array(
+			'quizz_id' => $quizz_id,
+			'question_id' => $question_id
+		);
+
+		$this->db->insert('4m2w_rel_quizz_que', $data);
+	}
 }

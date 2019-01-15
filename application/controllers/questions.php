@@ -63,10 +63,10 @@ class questions extends CI_Controller
 		$this->load->view('questions/manage_questions', isset($data) ? $data : NULL);
 	}
 
-	public function addto($question_id)
+	public function addto($question_id)//todo: doplnit check ze v jednom kvize je otazka iba raz a 0 nepridavat
 	{
-		var_dump($_POST);
-		var_dump($question_id);
+		$quizz_id = $this->input->post('quizz_id');
+		$this->question_model->set_rel_q_q($question_id, $quizz_id);
 		$data['questions'] = $this->question_model->get_question();
 		$this->load->view('questions/manage_questions', isset($data) ? $data : NULL);
 	}
