@@ -63,12 +63,20 @@ class questions extends CI_Controller
 		$this->load->view('questions/manage_questions', isset($data) ? $data : NULL);
 	}
 
-	public function addto($question_id)//todo: doplnit check ze v jednom kvize je otazka iba raz a 0 nepridavat
+	public function addto($question_id)
 	{
-		$quizz_id = $this->input->post('quizz_id');
-		$this->question_model->set_rel_q_q($question_id, $quizz_id);
-		$data['questions'] = $this->question_model->get_question();
-		$this->load->view('questions/manage_questions', isset($data) ? $data : NULL);
+		$this->form_validation->set_rules('quizz_id', 'Kviz', 'greater_than[0]');
+		$this->form_validation->set_message('greater_than[0]', 'musite vybrat kviz');
+
+		if ($this->form_validation->run() === FALSE) {
+			$data['questions'] = $this->question_model->get_question();
+			$this->load->view('questions/manage_questions', isset($data) ? $data : NULL);
+		} else {
+			$quizz_id = $this->input->post('quizz_id');
+			$this->question_model->set_rel_q_q($question_id, $quizz_id);
+			$data['questions'] = $this->question_model->get_question();
+			$this->load->view('questions/manage_questions', isset($data) ? $data : NULL);
+		}
 	}
 
 	public function rnd($id)

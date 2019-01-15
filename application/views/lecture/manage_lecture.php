@@ -5,14 +5,24 @@
 </head>
 <body>
 
-<?php //echo $this->load->view('header'); ?>
-
 <div class="container">
 	<div class="row">
 
 		<div class="span2">
 			<?php echo $this->load->view('account/admin_panel', array('current' => 'manage_lecture')); ?>
 		</div>
+
+		<?php
+		$quizzes = $this->lecture_model->get_quizzes();
+		foreach ($quizzes as $quizz_item){
+			$opt[$quizz_item['id']] = $quizz_item['name'];
+		}
+		if (count($quizzes)){
+			$opt += ['0' => 'Žádny kviz'];
+		} else {
+			$opt = ['0' => 'Žádne kvizy'];
+		}
+		?>
 
 		<div class="span10">
 			<?php $count = count($lecture); ?>
@@ -35,6 +45,8 @@
 					<th>
 						<?php echo anchor('lecture/create','Nova','class="btn btn-primary btn-small"'); ?>
 					</th>
+					<th></th>
+					<th><?php echo ('pridat do kvizu'); ?></th>
 				</tr>
 				</thead>
 				<tbody>
@@ -60,7 +72,15 @@
 					</td>
 					<td>
 						<?php echo anchor('lecture/edit/'.$lecture_item['id'], 'edit', 'class="btn btn-small"'); ?>
-						<?php echo anchor('lecture/addto/'.$lecture_item['id'], 'Pridat do kvizu', 'class="btn btn-info btn-small"'); ?>
+					</td>
+					<td>
+						<?php echo form_open('lecture/addto/' . $lecture_item['id'], 'class="form-horizontal"'); ?>
+						<?php echo validation_errors(); ?>
+						<?php echo form_submit('', 'pridat do kvizu', 'class="btn btn-info btn-small"'); ?>
+					</td>
+					<td>
+						<?php echo form_dropdown('quizz_id', $opt, '0'); ?>
+						<?php echo form_close(); ?>
 					</td>
 				</tr>
 				<?php endforeach; ?>

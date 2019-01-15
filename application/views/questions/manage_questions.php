@@ -80,6 +80,7 @@
 						</td>
 						<td>
 							<?php echo form_open('questions/addto/' . $question_item['id'], 'class="form-horizontal"'); ?>
+							<?php echo validation_errors(); ?>
 							<?php echo form_submit('', 'pridat do kvizu', 'class="btn btn-info btn-small"'); ?>
 						</td>
 						<td>

@@ -49,13 +49,6 @@ class lecture extends CI_Controller
 		$this->load->view('lecture/manage_lecture', isset($data) ? $data : NULL);
 	}
 
-	public function addto()
-	{
-		maintain_ssl();
-
-		$data['lecture'] = $this->lecture_model->get_lecture();
-		$this->load->view('lecture/manage_lecture', isset($data) ? $data : NULL);
-	}
 
 	public function delete()
 	{
@@ -71,5 +64,21 @@ class lecture extends CI_Controller
 
 		$data['lecture_item'] = $this->lecture_model->get_lecture($id);
 		$this->load->view('lecture/view_lecture', isset($data) ? $data : NULL);
+	}
+
+	public function addto($lecture_id)
+	{
+		$this->form_validation->set_rules('quizz_id', 'Kviz', 'greater_than[0]');
+		$this->form_validation->set_message('greater_than[0]', 'musite vybrat kviz');
+
+		if ($this->form_validation->run() === FALSE) {
+			$data['lecture'] = $this->lecture_model->get_lecture();
+			$this->load->view('lecture/manage_lecture', isset($data) ? $data : NULL);
+		} else {
+			$quizz_id = $this->input->post('quizz_id');
+			$this->lecture_model->set_rel_q_l($lecture_id, $quizz_id);
+			$data['lecture'] = $this->lecture_model->get_lecture();
+			$this->load->view('lecture/manage_lecture', isset($data) ? $data : NULL);
+		}
 	}
 }

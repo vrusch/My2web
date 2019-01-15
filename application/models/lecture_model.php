@@ -57,4 +57,26 @@ class lecture_model extends CI_Model
 		$this->db->where('id', $data['id']);
 		$this->db->update('4m2w_lectures');
 	}
+
+	public function get_quizzes()
+	{
+		$query = $this->db->get('4m2w_quizzes');
+		return $query->result_array();
+	}
+
+	public function set_rel_q_l($lecture_id, $quizz_id)
+	{
+		$data = array(
+			'quizz_id' => $quizz_id,
+			'lecture_id' => $lecture_id
+		);
+		//kontrola ze uz neexistuje
+		$query = $this->db->get_where('4m2w_rel_quizz_lec', $data);
+		$num = count ($query->result_array());
+		if ($num > 0) {
+			print_r('uz existuje');//todo: zpracovani DB chyby
+		} else {
+			$this->db->insert('4m2w_rel_quizz_lec', $data);
+		}
+	}
 }

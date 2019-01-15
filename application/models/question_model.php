@@ -104,7 +104,13 @@ class question_model extends CI_Model
 			'quizz_id' => $quizz_id,
 			'question_id' => $question_id
 		);
-
-		$this->db->insert('4m2w_rel_quizz_que', $data);
+		//kontrola ze uz neexistuje
+		$query = $this->db->get_where('4m2w_rel_quizz_que', $data);
+		$num = count ($query->result_array());
+		if ($num > 0) {
+			print_r('uz existuje!!!');//todo: zpracovani DB chyby
+		} else {
+			$this->db->insert('4m2w_rel_quizz_que', $data);
+		}
 	}
 }
