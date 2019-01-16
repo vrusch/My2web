@@ -16,7 +16,7 @@
 			<table style="width: 100%">
 				<tr>
 					<td style="width: 85%"><h2>Managment firmy</h2></td>
-					<td><a href="experiment_cont"><buton class="btn btn-primary btn-small">Zpátky na firmy</buton></a></td>
+					<td><a href="companies_cont"><buton class="btn btn-primary btn-small">Zpátky na firmy</buton></a></td>
 				</tr>
 			</table>
 
@@ -25,7 +25,7 @@
 			</div>
 			<!-- END of header page	-->
 
-			<?php echo form_open('companies_cont/edit/'.$company['id'], 'class="form-horizontal"'); ?>
+			<?php echo form_open('companies_cont/edit_company_name/'.$company['id'], 'class="form-horizontal"'); ?>
 			<?php echo validation_errors(); ?>
 
 			<div class="control-group">

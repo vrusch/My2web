@@ -86,7 +86,21 @@ class companies_model extends CI_Model
 		return isset($user_id) ? $user_id : NULL;
 	}
 
-	public function set_mkb($company_id = NULL){
+	public function set_name_company($company_id)
+	{
+		$data = array(
+			'name' => $this->input->post('company_name')
+		);
+		$this->db->where('id', $company_id);
+		$this->db->update('4m2w_companies', $data);
+	}
+
+	public function del_mkb($mkb_id)
+	{
+		//todo: kdyz je zak tak smazat jenom roli, jinak mazat a3m_account,a3m_account_details,4m2w_mkb,a3m_rel_account_role
+	}
+
+	public function set_mkb($company_id){
 		if ($this->input->post('mkb_username') != '') {
 			$this->load->helper('date');
 			$data_user = array(
@@ -157,20 +171,20 @@ class companies_model extends CI_Model
 		$this->email->from('v.rusch@localhost.com');
 		$this->email->to('v.rusch@gmail.com'); //todo: zatial testovaci mail, spravne z 4m2w_mkb
 		$this->email->subject('bla bla');
-		/*$this->email->message($this->load->view('account/activation_email', array(
+		$this->email->message($this->load->view('account/activation_email', array(
 			'username' => 'mkb1', //todo: dodat spavne username z 4m2w_mkb
 			'password_reset_url' => anchor($password_reset_url, $password_reset_url)
-		), TRUE));*/
-		$this->email->message('Testing the email class.');
-		if ($this->email->send()) {
+		), TRUE));
+		//$this->email->message('Testing the email class.');
+		//if ($this->email->send()) {
         // Load reset password sent view
-			echo $this->email->print_debugger();
-        } else {
+		//	echo $this->email->print_debugger();
+        //} else {
         //if the email could not be sent it will display the error
         //should not happen if you have email configured correctly
-			print_r('NEPOSLALO SE TO');
-        echo $this->email->print_debugger();
-        }
+		//	print_r('NEPOSLALO SE TO');
+        //echo $this->email->print_debugger();
+        //}
 		return;
 	}
 }

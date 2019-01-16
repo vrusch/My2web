@@ -57,16 +57,16 @@
 				if ($mkb['status'] == NULL) {
 					if ($mkb['activation'] == '1') {
 						echo anchor('companies/create_mkb/' . $company['id'] . '/' . $mkb['user_id'], 'Znovu poslat', 'class="btn btn-primary btn-small"; style="margin: 10px"');
-						echo anchor('companies/create_mkb/' . $company['id'], 'Smazat', 'class="btn btn-danger btn-small"');
+						echo anchor('companies_cont/delete_mkb/' . $company['id'] . '/' . $mkb['user_id'], 'Smazat', 'class="btn btn-danger btn-small"');
 					}
 					if ($mkb['activation'] == '2') {
 						//echo anchor('companies/change_mkb/' . $company['id'] . '/' . $mkb[0]['user_id'], 'Vymenit', 'class="btn btn-primary btn-small"; style="margin: 10px"');
-						echo anchor('companies/create_mkb/' . $company['id'], 'Smazat', 'class="btn btn-danger btn-small"');
+						echo anchor('companies_cont/delete_mkb/' . $company['id'] . '/' . $mkb['user_id'], 'Smazat', 'class="btn btn-danger btn-small"');
 						$show_change = 1;
 					}
 				} else {
-					echo anchor('companies/' . $company['id'] . '/' . $mkb['user_id'], 'Odblokovat', 'class="btn btn-danger btn-small"; style="margin: 10px"');
-					echo anchor('companies/create_mkb/' . $company['id'], 'Smazat', 'class="btn btn-danger btn-small"');
+					echo anchor('companies/unban_mkb' . $company['id'] . '/' . $mkb['user_id'], 'Odblokovat', 'class="btn btn-danger btn-small"; style="margin: 10px"');
+					echo anchor('companies_cont/delete_mkb/' . $company['id'] . '/' . $mkb['user_id'], 'Smazat', 'class="btn btn-danger btn-small"');
 				}
 			}
 			?>
@@ -74,7 +74,8 @@
 	</tr>
 	</tbody>
 </table>
-
+<?php echo form_open('companies_cont/create', 'class="form-horizontal"'); ?>
+<?php echo validation_errors(); ?>
 <?php if ($show_change == 1) : ?>
 
 	<?php foreach ($students as $students_item) : ?>

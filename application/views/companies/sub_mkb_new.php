@@ -9,6 +9,8 @@
 		<th><?php echo 'Akce'; ?></th>
 	</tr>
 	</thead>
+	<?php echo form_open('companies_cont/create_mkb/' . $company['id'], 'class="form-horizontal"'); ?>
+	<?php echo validation_errors(); ?>
 	<tbody>
 	<tr>
 		<td>
@@ -24,12 +26,13 @@
 			<?php echo ''; ?>
 		</td>
 		<td>
-			<?php echo anchor('companies_cont/create_mkb/' . $company['id'], 'Novy', 'class="btn btn-primary btn-small"'); ?>
+			<?php //echo anchor('companies_cont/create_mkb/' . $company['id'], 'Novy', 'class="btn btn-primary btn-small"'); ?>
+			<?php echo form_submit('', 'Uložit', 'class="btn btn-primary"'); ?>
 		</td>
 	</tr>
 	</tbody>
 </table>
-
+<?php echo form_close(); ?>
 
 
 
