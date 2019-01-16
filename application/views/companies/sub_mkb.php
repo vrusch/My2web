@@ -84,8 +84,9 @@
 		$opt[$student['id']] = $std;
 		?>
 	<?php endforeach ?>
-	<?php echo form_dropdown('change', $opt, '', 'style="width"'); ?>
 	<?php echo anchor('companies/change_mkb/' . $company['id'] . '/' . $mkb['user_id'], 'Vymenit za: ', 'class="btn btn-primary btn-small"; style="margin: 10px"'); ?>
+	<?php echo form_dropdown('change', $opt, '', 'style="width"'); ?>
+
 
 <?php endif ?>
 

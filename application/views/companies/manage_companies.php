@@ -107,6 +107,7 @@
 				<?php endforeach; ?>
 				</tbody>
 			</table>
+			<?php echo anchor('companies_cont/email/' . $companies_item['id'], 'poslat email', 'class="btn btn-small"'); ?>
 		</div>
 	</div>
 </div>
