@@ -78,6 +78,25 @@ class companies_cont extends CI_Controller
 		}
 	}
 
+	public function ban_company($company_id)
+	{
+		$this->companies_model->ban_company_tree($company_id);
+		$this->edit($company_id);
+	}
+
+	public function un_ban_company($company_id)
+	{
+		$this->companies_model->un_ban_company_tree($company_id);
+		$this->edit($company_id);
+	}
+
+	public function delete_company($company_id)
+	{
+		$this->companies_model->del_company($company_id);
+		$data['companies'] = $this->companies_model->get_companies();
+		$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
+	}
+
 	public function add_group($company_id)
 	{
 		$this->form_validation->set_rules('group1', 'Nová skupina', 'required');
@@ -87,7 +106,7 @@ class companies_cont extends CI_Controller
 		} else {
 			$group_name = $this->input->post('group1');
 			$this->companies_model->set_groups($company_id, $group_name);
-			$this->edit($company_id, 'menu1');;
+			$this->edit($company_id, 'menu1');
 		}
 	}
 

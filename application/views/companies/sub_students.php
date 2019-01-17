@@ -16,20 +16,19 @@
 <table class="table table-condensed table-hover" style="background-color:white;">
 	<thead>
 	<tr>
-		<th><?php echo '#' ;?></th>
+
 		<th><?php echo 'Username' ;?></th>
 		<th><?php echo 'Jmeno' ;?></th>
 		<th><?php echo 'Prijmeni' ;?></th>
 		<th><?php echo 'Email' ;?></th>
+		<th><?php echo 'Status' ;?></th>
 	</tr>
 	</thead>
 	<tbody style="background-color: white">
 	<?php foreach ($students as $students_item) : ?>
 		<?php $student_info = $this->companies_model->get_student_info($students_item['student_id']); ?>
+		<?php $acc_info = $this->companies_model->get_account_info($students_item['student_id']); ?>
 		<tr>
-			<td>
-				<?php echo $student_info['id']; ?>
-			</td>
 			<td>
 				<?php echo $student_info['username']; ?>
 			</td>
@@ -41,6 +40,17 @@
 			</td>
 			<td>
 				<?php echo $student_info['email']; ?>
+			</td>
+			<td>
+				<?php
+				if ($acc_info['suspendedon'] != NULL){
+					echo '<span class="label label-important">Blokován</span>';
+				}elseif ($acc_info['verifiedon'] != NULL){
+					echo 'active';
+				}elseif ($acc_info['createdon'] != NULL){
+					echo 'zaslano';
+				}
+				?>
 			</td>
 		</tr>
 	<?php endforeach; ?>

@@ -45,6 +45,12 @@ class companies_model extends CI_Model
 		return $query->row_array();
 	}
 
+	public function get_account_info($student_id)
+	{
+		$query = $this->db->get_where('a3m_account', array('id' => $student_id));
+		return $query->row_array();
+	}
+
 	public function get_group_info($group_id)
 	{
 		$query = $this->db->get_where('4m2w_company_group', array('id' => $group_id));
@@ -53,7 +59,7 @@ class companies_model extends CI_Model
 
 	public function get_mkb($company_id)
 	{
-		$sql = "SELECT 4m2w_mkb.user_id, 4m2w_mkb.activation, 4m2w_mkb.activation_date, 4m2w_mkb.status, 4m2w_mkb.company_id, a3m_account.username, a3m_account.email FROM `4m2w_mkb` JOIN a3m_account ON 4m2w_mkb.user_id = a3m_account.id WHERE 4m2w_mkb.company_id = ?;";
+		$sql = "SELECT 4m2w_mkb.user_id, 4m2w_mkb.activation, 4m2w_mkb.activation_date, 4m2w_mkb.company_id, a3m_account.username, a3m_account.email, a3m_account.suspendedon FROM `4m2w_mkb` JOIN a3m_account ON 4m2w_mkb.user_id = a3m_account.id WHERE 4m2w_mkb.company_id = ?;";
 		$query = $this->db->query($sql, $company_id);
 		return $query->row_array();
 	}
@@ -72,6 +78,102 @@ class companies_model extends CI_Model
 	public function del_group($company_id, $group_id)
 	{
 		$this->db->delete('4m2w_company_group', array('company_id' => $company_id, 'id' => $group_id));
+	}
+
+	public function ban_company_tree($company_id)
+	{
+		$this->load->helper('date');
+		$date = mdate('%Y-%m-%d %H:%i:%s', now());
+		//4m2w_companies; id,status
+		$data = array(
+			'status' => 'banned'
+		);
+		$this->db->where('id', $company_id);
+		$this->db->update('4m2w_companies', $data);
+		//4m2w_mkb
+		$this->db->select('user_id');
+		$query = $this->db->get_where('4m2w_mkb', array('company_id' => $company_id));
+		$mkb = $query->row_array();
+
+		//4m2w_students
+		$this->db->select('student_id');
+		$query = $this->db->get_where('4m2w_students', array('company_id' => $company_id));
+		$students = $query->result_array();
+
+		//a3m_account
+		$data = array(
+			'suspendedon' => $date
+		);
+		$this->db->where('id', $mkb['user_id']);
+		$this->db->update('a3m_account', $data);
+
+		foreach ($students as $students_item){
+			$this->db->where('id', $students_item['student_id']);
+			$this->db->update('a3m_account', $data);
+		}
+	}
+
+	public function un_ban_company_tree($company_id)
+	{
+		//4m2w_companies; id,status
+		$data = array(
+			'status' => NULL
+		);
+		$this->db->where('id', $company_id);
+		$this->db->update('4m2w_companies', $data);
+		//4m2w_mkb
+		$this->db->select('user_id');
+		$query = $this->db->get_where('4m2w_mkb', array('company_id' => $company_id));
+		$mkb = $query->row_array();
+
+		//4m2w_students
+		$this->db->select('student_id');
+		$query = $this->db->get_where('4m2w_students', array('company_id' => $company_id));
+		$students = $query->result_array();
+
+		//a3m_account
+		$data = array(
+			'suspendedon' => NULL
+		);
+		$this->db->where('id', $mkb['user_id']);
+		$this->db->update('a3m_account', $data);
+
+		foreach ($students as $students_item){
+			$this->db->where('id', $students_item['student_id']);
+			$this->db->update('a3m_account', $data);
+		}
+	}
+
+	public function del_company($company_id)
+	{
+		$this->db->where('id', $company_id);
+		$this->db->delete('4m2w_companies');
+		//4m2w_mkb
+		$this->db->select('user_id');
+		$query = $this->db->get_where('4m2w_mkb', array('company_id' => $company_id));
+		$mkb = $query->row_array();
+
+		//4m2w_students
+		$this->db->select('student_id');
+		$query = $this->db->get_where('4m2w_students', array('company_id' => $company_id));
+		$students = $query->result_array();
+
+		//a3m_account
+		$this->db->where('id', $mkb['user_id']);
+		$this->db->delete('a3m_account');
+		$this->db->where('account_id', $mkb['user_id']);
+		$this->db->delete('a3m_account_details');
+		$this->db->where('account_id', $mkb['user_id']);
+		$this->db->delete('a3m_rel_account_role');
+
+		foreach ($students as $students_item){
+			$this->db->where('id', $students_item['student_id']);
+			$this->db->delete('a3m_account');
+			$this->db->where('account_id', $students_item['student_id']);
+			$this->db->delete('a3m_account_details');
+			$this->db->where('account_id', $students_item['student_id']);
+			$this->db->delete('a3m_rel_account_role');
+		}
 	}
 
 	public function set_company()

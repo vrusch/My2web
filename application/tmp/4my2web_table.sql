@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 15, 2019 at 03:18 PM
+-- Generation Time: Jan 17, 2019 at 11:21 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -97,8 +97,7 @@ CREATE TABLE `4m2w_mkb` (
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `company_id` bigint(20) UNSIGNED NOT NULL,
   `activation` int(10) NOT NULL,
-  `activation_date` date NOT NULL,
-  `status` varchar(10) DEFAULT NULL
+  `activation_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
@@ -154,6 +153,7 @@ CREATE TABLE `4m2w_quizzes` (
 
 DROP TABLE IF EXISTS `4m2w_rel_quizz_lec`;
 CREATE TABLE `4m2w_rel_quizz_lec` (
+  `id` bigint(20) UNSIGNED NOT NULL,
   `quizz_id` bigint(20) NOT NULL,
   `lecture_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -166,6 +166,7 @@ CREATE TABLE `4m2w_rel_quizz_lec` (
 
 DROP TABLE IF EXISTS `4m2w_rel_quizz_que`;
 CREATE TABLE `4m2w_rel_quizz_que` (
+  `id` bigint(20) UNSIGNED NOT NULL,
   `quizz_id` bigint(20) NOT NULL,
   `question_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -329,14 +330,14 @@ ALTER TABLE `4m2w_quizzes`
 -- Indexes for table `4m2w_rel_quizz_lec`
 --
 ALTER TABLE `4m2w_rel_quizz_lec`
-  ADD PRIMARY KEY (`quizz_id`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `quizz_id` (`quizz_id`,`lecture_id`);
 
 --
 -- Indexes for table `4m2w_rel_quizz_que`
 --
 ALTER TABLE `4m2w_rel_quizz_que`
-  ADD PRIMARY KEY (`quizz_id`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `quizz_id` (`quizz_id`,`question_id`);
 
 --
@@ -424,6 +425,18 @@ ALTER TABLE `4m2w_questions`
 -- AUTO_INCREMENT for table `4m2w_quizzes`
 --
 ALTER TABLE `4m2w_quizzes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `4m2w_rel_quizz_lec`
+--
+ALTER TABLE `4m2w_rel_quizz_lec`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `4m2w_rel_quizz_que`
+--
+ALTER TABLE `4m2w_rel_quizz_que`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --

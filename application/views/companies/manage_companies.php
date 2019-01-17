@@ -47,7 +47,8 @@
 							<?php echo $companies_item['id']; ?>
 						</td>
 						<td>
-							<?php echo $companies_item['name']; ?>
+							<?php echo $companies_item['name']; if ($companies_item['status'] != NULL) echo '<span class="label label-important">blokována</span>'; ?>
+
 						</td>
 						<td>
 							<?php
@@ -81,15 +82,14 @@
 						</td>
 						<td>
 							<?php
-							$query = $this->db->get_where('4m2w_mkb', array('company_id' => $companies_item['id']));
-							$result = $query->row_array();
+							$result = $this->companies_model->get_mkb($companies_item['id']);
 							if ($result == NULL) {
 								echo '';
-							} else if ($result['status'] == 'banned') {
+							} else if ($result['suspendedon'] != NULL) {
 								echo '<span class="label label-important">MKB blokován</span>';
 							} else {
 								if ($result['activation'] == '0') {
-									echo anchor('companies' . $companies_item['id'], 'Chyba', 'class="btn btn-danger btn-small"');;
+									echo '<span class="label label-important">Chyba</span>';
 								}
 								if ($result['activation'] == '1') {
 									echo 'Odesláno: ' . $result['activation_date'];
@@ -107,7 +107,6 @@
 				<?php endforeach; ?>
 				</tbody>
 			</table>
-			<?php echo anchor('companies_cont/email/' . $companies_item['id'], 'poslat email', 'class="btn btn-small"'); ?>
 		</div>
 	</div>
 </div>

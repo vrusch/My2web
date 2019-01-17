@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 15, 2019 at 03:17 PM
+-- Generation Time: Jan 17, 2019 at 11:20 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -79,17 +79,6 @@ CREATE TABLE `4m2w_companies` (
 --
 
 TRUNCATE TABLE `4m2w_companies`;
---
--- Dumping data for table `4m2w_companies`
---
-
-INSERT INTO `4m2w_companies` (`id`, `name`, `status`) VALUES
-(1, 'S.G.I. a.s. Ceska republika', NULL),
-(2, 'Městský úřad Praha 10', NULL),
-(3, 'Mall.cz', NULL),
-(4, 'Firma ASD', NULL),
-(5, 'BlB sr.r.o.', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -108,17 +97,6 @@ CREATE TABLE `4m2w_company_group` (
 --
 
 TRUNCATE TABLE `4m2w_company_group`;
---
--- Dumping data for table `4m2w_company_group`
---
-
-INSERT INTO `4m2w_company_group` (`id`, `company_id`, `name_of_group`) VALUES
-(1, 1, 'blbeckove'),
-(7, 2, 'kowboji'),
-(8, 1, 'idioti'),
-(12, 3, 'veliky idioti'),
-(13, 3, 'nejvetsi idioti');
-
 -- --------------------------------------------------------
 
 --
@@ -174,8 +152,7 @@ CREATE TABLE `4m2w_mkb` (
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `company_id` bigint(20) UNSIGNED NOT NULL,
   `activation` int(10) NOT NULL,
-  `activation_date` date NOT NULL,
-  `status` varchar(10) DEFAULT NULL
+  `activation_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 --
@@ -183,16 +160,6 @@ CREATE TABLE `4m2w_mkb` (
 --
 
 TRUNCATE TABLE `4m2w_mkb`;
---
--- Dumping data for table `4m2w_mkb`
---
-
-INSERT INTO `4m2w_mkb` (`user_id`, `company_id`, `activation`, `activation_date`, `status`) VALUES
-(37, 1, 2, '2019-01-10', NULL),
-(45, 2, 1, '2019-01-10', NULL),
-(57, 3, 1, '2019-01-11', NULL),
-(58, 5, 1, '2019-01-11', 'banned');
-
 -- --------------------------------------------------------
 
 --
@@ -287,6 +254,7 @@ INSERT INTO `4m2w_quizzes` (`id`, `name`, `theme_id`) VALUES
 
 DROP TABLE IF EXISTS `4m2w_rel_quizz_lec`;
 CREATE TABLE `4m2w_rel_quizz_lec` (
+  `id` bigint(20) UNSIGNED NOT NULL,
   `quizz_id` bigint(20) NOT NULL,
   `lecture_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -296,6 +264,14 @@ CREATE TABLE `4m2w_rel_quizz_lec` (
 --
 
 TRUNCATE TABLE `4m2w_rel_quizz_lec`;
+--
+-- Dumping data for table `4m2w_rel_quizz_lec`
+--
+
+INSERT INTO `4m2w_rel_quizz_lec` (`id`, `quizz_id`, `lecture_id`) VALUES
+(2, 1, 1),
+(1, 3, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -304,6 +280,7 @@ TRUNCATE TABLE `4m2w_rel_quizz_lec`;
 
 DROP TABLE IF EXISTS `4m2w_rel_quizz_que`;
 CREATE TABLE `4m2w_rel_quizz_que` (
+  `id` bigint(20) UNSIGNED NOT NULL,
   `quizz_id` bigint(20) NOT NULL,
   `question_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -313,6 +290,18 @@ CREATE TABLE `4m2w_rel_quizz_que` (
 --
 
 TRUNCATE TABLE `4m2w_rel_quizz_que`;
+--
+-- Dumping data for table `4m2w_rel_quizz_que`
+--
+
+INSERT INTO `4m2w_rel_quizz_que` (`id`, `quizz_id`, `question_id`) VALUES
+(1, 1, 1),
+(6, 1, 3),
+(4, 2, 1),
+(2, 2, 3),
+(5, 3, 1),
+(3, 3, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -331,24 +320,6 @@ CREATE TABLE `4m2w_students` (
 --
 
 TRUNCATE TABLE `4m2w_students`;
---
--- Dumping data for table `4m2w_students`
---
-
-INSERT INTO `4m2w_students` (`student_id`, `company_id`, `group_id`) VALUES
-(38, 1, 1),
-(39, 1, 1),
-(40, 1, 1),
-(41, 1, 8),
-(42, 1, 8),
-(43, 1, 0),
-(44, 1, 0),
-(46, 3, 0),
-(47, 3, 0),
-(48, 3, 0),
-(49, 3, 0),
-(50, 3, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -404,23 +375,7 @@ TRUNCATE TABLE `a3m_account`;
 --
 
 INSERT INTO `a3m_account` (`id`, `username`, `email`, `password`, `createdon`, `verifiedon`, `lastsignedinon`, `resetsenton`, `deletedon`, `suspendedon`) VALUES
-(1, 'admin', 'v.rusch@gmail.com', '$2a$08$xtvj34B9ItliGjdwejzRne1ahJZB2eHuERhg1WbaR3u8rWAhQ9jHy', '2018-12-06 14:19:59', NULL, '2019-01-15 08:16:09', NULL, NULL, NULL),
-(50, 'neuzzadn56', 'vpp.rusch@gmail.com', NULL, '2019-01-10 12:45:01', NULL, NULL, NULL, NULL, NULL),
-(49, 'pamaria75', 'vo.rusch@gmail.com', NULL, '2019-01-10 12:45:01', NULL, NULL, NULL, NULL, NULL),
-(48, 'jekristu23', 'vu.rusch@gmail.com', NULL, '2019-01-10 12:45:01', NULL, NULL, NULL, NULL, NULL),
-(47, 'sablbec69', 've.rusch@gmail.com', NULL, '2019-01-10 12:45:01', NULL, NULL, NULL, NULL, NULL),
-(46, 'onskakal91', 'va.rusch@gmail.com', NULL, '2019-01-10 12:45:01', NULL, NULL, NULL, NULL, NULL),
-(45, 'mkb2', 'mnnn.rusch@gmail.com', NULL, '2019-01-10 09:22:06', NULL, NULL, NULL, NULL, NULL),
-(44, 'jahrasko15', 'vz.rusch@gmail.com', NULL, '2019-01-10 08:48:05', NULL, NULL, NULL, NULL, NULL),
-(43, 'onpokoni56', 'vq.rusch@gmail.com', NULL, '2019-01-10 08:48:05', NULL, NULL, NULL, NULL, NULL),
-(42, 'iddebiln98', 'vn.rusch@gmail.com', NULL, '2019-01-10 08:48:05', NULL, NULL, NULL, NULL, NULL),
-(41, 'blidiots93', 'vd.rusch@gmail.com', NULL, '2019-01-10 08:48:05', NULL, NULL, NULL, NULL, NULL),
-(40, 'otkonoks95', 'vk.rusch@gmail.com', NULL, '2019-01-10 08:48:05', NULL, NULL, NULL, NULL, NULL),
-(39, 'kukuniks25', 'vv.rusch@gmail.com', NULL, '2019-01-10 08:47:50', NULL, NULL, NULL, NULL, NULL),
-(38, 'otrohlik94', 'vm.rusch@gmail.com', NULL, '2019-01-10 08:47:50', NULL, NULL, NULL, NULL, NULL),
-(37, 'mkb1', 'v2.rusch@gmail.com', '$2a$08$xtvj34B9ItliGjdwejzRne1ahJZB2eHuERhg1WbaR3u8rWAhQ9jHy', '2019-01-10 08:47:33', NULL, '2019-01-13 17:36:07', NULL, NULL, NULL),
-(57, 'hhhhh', 'matova88@gmail.com', NULL, '2019-01-11 11:18:25', NULL, NULL, NULL, NULL, NULL),
-(58, 'jept1235', 'p.sta@gmail.com', NULL, '2019-01-11 11:19:09', NULL, NULL, NULL, NULL, '2019-01-11 12:33:55');
+(1, 'admin', 'v.rusch@gmail.com', '$2a$08$xtvj34B9ItliGjdwejzRne1ahJZB2eHuERhg1WbaR3u8rWAhQ9jHy', '2018-12-06 14:19:59', NULL, '2019-01-17 18:36:08', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -454,20 +409,7 @@ TRUNCATE TABLE `a3m_account_details`;
 --
 
 INSERT INTO `a3m_account_details` (`account_id`, `fullname`, `firstname`, `lastname`, `dateofbirth`, `gender`, `postalcode`, `country`, `language`, `timezone`, `citimezone`, `picture`) VALUES
-(48, NULL, 'Jezis', 'Kristus', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(1, NULL, NULL, NULL, '1970-06-02', 'm', NULL, NULL, NULL, NULL, NULL, NULL),
-(47, NULL, 'Sandokan', 'Blbec', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(46, NULL, 'Ondon', 'Skakal', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(44, NULL, 'Janko', 'Hrasko', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(43, NULL, 'Onik', 'Pokoni', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(42, NULL, 'Idiot', 'Debilni', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(41, NULL, 'Blbecek', 'Idiotsky', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(40, NULL, 'Otik', 'Konoksicht', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(39, NULL, 'Kun', 'Kuniksich', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(38, NULL, 'Otik', 'Rohlikozrut', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(49, NULL, 'Panenka', 'Maria', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(50, NULL, 'Nevim', 'Uzzadneprijmeni', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(58, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(1, NULL, NULL, NULL, '1970-06-02', 'm', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -521,23 +463,7 @@ TRUNCATE TABLE `a3m_rel_account_role`;
 --
 
 INSERT INTO `a3m_rel_account_role` (`account_id`, `role_id`) VALUES
-(1, 1),
-(37, 4),
-(38, 3),
-(39, 3),
-(40, 3),
-(41, 3),
-(42, 3),
-(43, 3),
-(44, 3),
-(45, 4),
-(46, 3),
-(47, 3),
-(48, 3),
-(49, 3),
-(50, 3),
-(57, 4),
-(58, 4);
+(1, 1);
 
 --
 -- Indexes for dumped tables
@@ -604,14 +530,14 @@ ALTER TABLE `4m2w_quizzes`
 -- Indexes for table `4m2w_rel_quizz_lec`
 --
 ALTER TABLE `4m2w_rel_quizz_lec`
-  ADD PRIMARY KEY (`quizz_id`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `quizz_id` (`quizz_id`,`lecture_id`);
 
 --
 -- Indexes for table `4m2w_rel_quizz_que`
 --
 ALTER TABLE `4m2w_rel_quizz_que`
-  ADD PRIMARY KEY (`quizz_id`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `quizz_id` (`quizz_id`,`question_id`);
 
 --
@@ -669,13 +595,13 @@ ALTER TABLE `4m2w_answers`
 -- AUTO_INCREMENT for table `4m2w_companies`
 --
 ALTER TABLE `4m2w_companies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `4m2w_company_group`
 --
 ALTER TABLE `4m2w_company_group`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `4m2w_lectures`
@@ -702,6 +628,18 @@ ALTER TABLE `4m2w_quizzes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `4m2w_rel_quizz_lec`
+--
+ALTER TABLE `4m2w_rel_quizz_lec`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `4m2w_rel_quizz_que`
+--
+ALTER TABLE `4m2w_rel_quizz_que`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `4m2w_theme`
 --
 ALTER TABLE `4m2w_theme`
@@ -711,7 +649,7 @@ ALTER TABLE `4m2w_theme`
 -- AUTO_INCREMENT for table `a3m_account`
 --
 ALTER TABLE `a3m_account`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `a3m_acl_role`

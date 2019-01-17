@@ -54,7 +54,7 @@
 			if (!isset($mkb['activation'])) {
 				echo anchor('companies_cont/create_mkb/' . $company['id'], 'Novy', 'class="btn btn-primary btn-small"');
 			} else {
-				if ($mkb['status'] == NULL) {
+				if ($mkb['suspendedon'] == NULL) {
 					if ($mkb['activation'] == '1') {
 						echo anchor('companies_cont/delete_mkb/' . $company['id'] . '/' . $mkb['user_id'], 'Smazat', 'class="btn btn-danger btn-small"');
 					}
@@ -63,8 +63,7 @@
 						$show_change = 1;
 					}
 				} else {
-					echo anchor('companies/unban_mkb/' . $company['id'] . '/' . $mkb['user_id'], 'Odblokovat', 'class="btn btn-danger btn-small"; style="margin: 10px"');
-					echo anchor('companies_cont/delete_mkb/' . $company['id'] . '/' . $mkb['user_id'], 'Smazat', 'class="btn btn-danger btn-small"');
+					echo '<span class="label label-important">MKB blokován</span>';
 				}
 			}
 			?>
