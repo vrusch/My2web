@@ -23,7 +23,7 @@ class companies_cont extends CI_Controller
 		$this->edit($company_id);
 	}
 
-	public function edit($company_id, $current = NULL)
+	public function edit($company_id, $current = NULL, $subpagecontent = NULL)
 	{
 		$data['company'] = $this->companies_model->get_companies($company_id);
 		$data['groups'] = $this->companies_model->get_groups($company_id);
@@ -33,7 +33,7 @@ class companies_cont extends CI_Controller
 		if ($current === NULL){
 			$data['display'] = array('page' => 'edit', 'current' => 'home');
 		}else{
-			$data['display'] = array('page' => 'edit', 'current' => $current);
+			$data['display'] = array('page' => $subpagecontent, 'current' => $current);
 		}
 		$this->load->view('companies/edit_company', isset($data) ? $data : NULL);
 	}
@@ -71,7 +71,7 @@ class companies_cont extends CI_Controller
 
 			//send activation email ak firma ma mkb
 			if ($user_id){
-				$this->companies_model->send_reg_mail($user_id, 'mkb'); //todo poslat mail
+				$this->companies_model->send_reg_mail($user_id, 'mkb');
 			}
 			$data['companies'] = $this->companies_model->get_companies();
 			$this->load->view('companies/manage_companies', isset($data) ? $data : NULL);
@@ -114,25 +114,29 @@ class companies_cont extends CI_Controller
 		);
 
 		if ($this->form_validation->run() === FALSE) {
-			$this->edit($company_id, 'menu4');
+			$this->edit($company_id, 'menu4', 'mkb_new');
 		} else {
 			$user_id = $this->companies_model->set_mkb($company_id);
 
 			//send activation email ak firma ma mkb
 			if ($user_id){
-				$this->companies_model->send_reg_mail($user_id, 'mkb'); //todo poslat mail
+				$this->companies_model->send_reg_mail($user_id, 'mkb');
 			}
-			$this->edit($company_id, 'menu4');;
+			$this->edit($company_id, 'menu4', 'edit');;
 		}
+	}
 
+	public function create_mkb_from($company_id, $mkb_id){
+
+		$this->companies_model->set_mkb_from($company_id, $mkb_id);
+
+		$this->companies_model->send_reg_mail($mkb_id, 'mkb'); //todo poslat mail o pridani role nie aktivacny
+
+		$this->edit($company_id, 'menu4', 'edit');;
 	}
 
 	public function delete_mkb($company_id, $mkb_id){
-
-		$this->edit($company_id, 'menu4');
-	}
-
-	public function email($company_id){ //todo: jenom testovaci sendmail
-		$this->companies_model->send_reg_mail($company_id);
+		$this->companies_model->del_mkb($mkb_id);
+		$this->edit($company_id, 'menu4', 'edit');
 	}
 }

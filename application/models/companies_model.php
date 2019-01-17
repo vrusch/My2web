@@ -5,6 +5,8 @@ class companies_model extends CI_Model
 
 	public function __construct()
 	{
+		$this->load->helper(array('email'));
+		$this->load->library(array('email'));
 		$this->load->database();
 	}
 
@@ -95,9 +97,29 @@ class companies_model extends CI_Model
 		$this->db->update('4m2w_companies', $data);
 	}
 
-	public function del_mkb($mkb_id)
+	public function del_mkb($account_id)
 	{
-		//todo: kdyz je zak tak smazat jenom roli, jinak mazat a3m_account,a3m_account_details,4m2w_mkb,a3m_rel_account_role
+		$query = $this->db->get_where('a3m_rel_account_role', array('account_id' => $account_id));
+		$rel_account_role = count($query->result_array());
+		if ($rel_account_role > 1) {
+			$this->db->select('id');
+			$query = $this->db->get_where('a3m_acl_role', array('name' => 'MKB'));
+			$mkb_role_id = $query->row_array();
+			$this->db->where(array('account_id' => $account_id, 'role_id' => $mkb_role_id['id']));
+			$this->db->delete('a3m_rel_account_role');
+			$this->db->where(array('user_id' => $account_id));
+			$this->db->delete('4m2w_mkb');
+		}else{
+			$this->db->where(array('account_id' => $account_id));
+			$this->db->delete('a3m_rel_account_role');
+			$this->db->where(array('user_id' => $account_id));
+			$this->db->delete('4m2w_mkb');
+			$this->db->where(array('account_id' => $account_id));
+			$this->db->delete('a3m_account_details');
+			$this->db->where(array('id' => $account_id));
+			$this->db->delete('a3m_account');
+		}
+
 	}
 
 	public function set_mkb($company_id){
@@ -142,6 +164,31 @@ class companies_model extends CI_Model
 		return isset($user_id) ? $user_id : NULL;
 	}
 
+	public function set_mkb_from($company_id, $user_id){
+		$this->db->select ('id');
+		$query = $this->db->get_where('a3m_acl_role', array('name' => 'MKB'));
+		$mkb_id = $query->row_array();
+		$data_a3m_rel_account_role = array(
+			'account_id' => $user_id,
+			'role_id' => $mkb_id['id']
+		);
+		if (!$query_rel_account_role = $this->db->insert('a3m_rel_account_role', $data_a3m_rel_account_role)) {
+			$error = $this->db->error();
+			print_r($error);
+			//todo: zpracovani DB chyby
+		}
+
+		$data_mkb = array(
+			'company_id' => $company_id,
+			'user_id' => $user_id
+		);
+		if (!$query_mkb = $this->db->insert('4m2w_mkb', $data_mkb)) {
+			$error = $this->db->error();
+			print_r($error);
+			//todo: detekce DB chyby
+		}
+	}
+
 	function send_reg_mail($user_id, $role =NULL)
 	{
 		// Enable SSL?
@@ -157,35 +204,39 @@ class companies_model extends CI_Model
 		$config['mailtype'] = 'html';
 		$config['protocol'] = 'smtp';
 		$config['smtp_host'] = 'localhost';
-		$config['email_address'] = 'v.rusch@localhost.com';
-		$config['email_name'] = 'postar';
+		$config['charset'] = 'utf-8';
+		$config['wordwrap'] = TRUE;
+		$config['newline'] = '\r\n';
+		$config['MIME-Version'] = '1.0';
+		$config['header'] = 'MIME-Version: 1.0';
+		$config['header'] = 'Content-type:text/html;charset=UTF-8';
 
 		// Initialise email lib
 		$this->email->initialize($config);
 
 		// Generate reset password url
 		$password_reset_url = site_url('account/reset_password?id=' . $user_id . '&token=' . sha1($user_id . $time . $this->config->item('password_reset_secret')));
+
 		var_dump($password_reset_url);
 		// Send reset password email
 		//$this->email->from($this->config->item('password_reset_email', 'reset_password_email_sender'));
-		$this->email->from('v.rusch@localhost.com');
+		$this->email->from('googus@seznam.cz');
 		$this->email->to('v.rusch@gmail.com'); //todo: zatial testovaci mail, spravne z 4m2w_mkb
 		$this->email->subject('bla bla');
 		$this->email->message($this->load->view('account/activation_email', array(
 			'username' => 'mkb1', //todo: dodat spavne username z 4m2w_mkb
 			'password_reset_url' => anchor($password_reset_url, $password_reset_url)
 		), TRUE));
-		//$this->email->message('Testing the email class.');
-		//if ($this->email->send()) {
+
+		if ($this->email->send()) {
         // Load reset password sent view
-		//	echo $this->email->print_debugger();
-        //} else {
+			//print_r ($this->email->print_debugger());
+        } else {
         //if the email could not be sent it will display the error
         //should not happen if you have email configured correctly
-		//	print_r('NEPOSLALO SE TO');
-        //echo $this->email->print_debugger();
-        //}
-		return;
+			print_r('NEPOSLALO SE TO');
+			print_r ($this->email->print_debugger());
+        }
 	}
 }
 

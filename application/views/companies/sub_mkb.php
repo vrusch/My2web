@@ -56,16 +56,14 @@
 			} else {
 				if ($mkb['status'] == NULL) {
 					if ($mkb['activation'] == '1') {
-						echo anchor('companies/create_mkb/' . $company['id'] . '/' . $mkb['user_id'], 'Znovu poslat', 'class="btn btn-primary btn-small"; style="margin: 10px"');
 						echo anchor('companies_cont/delete_mkb/' . $company['id'] . '/' . $mkb['user_id'], 'Smazat', 'class="btn btn-danger btn-small"');
 					}
 					if ($mkb['activation'] == '2') {
-						//echo anchor('companies/change_mkb/' . $company['id'] . '/' . $mkb[0]['user_id'], 'Vymenit', 'class="btn btn-primary btn-small"; style="margin: 10px"');
 						echo anchor('companies_cont/delete_mkb/' . $company['id'] . '/' . $mkb['user_id'], 'Smazat', 'class="btn btn-danger btn-small"');
 						$show_change = 1;
 					}
 				} else {
-					echo anchor('companies/unban_mkb' . $company['id'] . '/' . $mkb['user_id'], 'Odblokovat', 'class="btn btn-danger btn-small"; style="margin: 10px"');
+					echo anchor('companies/unban_mkb/' . $company['id'] . '/' . $mkb['user_id'], 'Odblokovat', 'class="btn btn-danger btn-small"; style="margin: 10px"');
 					echo anchor('companies_cont/delete_mkb/' . $company['id'] . '/' . $mkb['user_id'], 'Smazat', 'class="btn btn-danger btn-small"');
 				}
 			}
@@ -74,24 +72,53 @@
 	</tr>
 	</tbody>
 </table>
-<?php echo form_open('companies_cont/create', 'class="form-horizontal"'); ?>
-<?php echo validation_errors(); ?>
+
 <?php if ($show_change == 1) : ?>
 
-	<?php foreach ($students as $students_item) : ?>
-		<?php
-		$student = $this->companies_model->get_student_info($students_item['student_id']);
-		$std = ($student['firstname'] . ' ' . $student['lastname'] . ' | ' . $student['email']);
-		$opt[$student['id']] = $std;
-		?>
-	<?php endforeach ?>
-	<?php echo anchor('companies/change_mkb/' . $company['id'] . '/' . $mkb['user_id'], 'Vymenit za: ', 'class="btn btn-primary btn-small"; style="margin: 10px"'); ?>
-	<?php echo form_dropdown('change', $opt, '', 'style="width"'); ?>
+	<?php if (count($students) > 0) : ?>
+		<button class="btn" data-toggle="collapse" data-target="#students">Vymenit ze studentu</button>
+
+		<div id="students" class="collapse" style="border: 1px solid #08c">
+			<table class="table table-condensed table-hover" style="background-color:white;">
+				<thead>
+				<tr>
+					<th><?php echo 'Vybrat'; ?></th>
+					<th><?php echo 'Username'; ?></th>
+					<th><?php echo 'Jmeno'; ?></th>
+					<th><?php echo 'Prijmeni'; ?></th>
+					<th><?php echo 'Email'; ?></th>
+				</tr>
+				</thead>
+				<tbody style="background-color: white">
+				<?php foreach ($students as $students_item) : ?>
+					<?php $student_info = $this->companies_model->get_student_info($students_item['student_id']); ?>
+					<tr>
+						<td>
+							<?php echo anchor('companies_cont/change_mkb_from/' . $company['id'] .'/'. $student_info['id'], 'vybrat', 'class="btn btn-small"'); ?>
+						</td>
+						<td>
+							<?php echo $student_info['username']; ?>
+						</td>
+						<td>
+							<?php echo $student_info['firstname']; ?>
+						</td>
+						<td>
+							<?php echo $student_info['lastname']; ?>
+						</td>
+						<td>
+							<?php echo $student_info['email']; ?>
+						</td>
+					</tr>
+				<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
+	<?php endif ?>
 
 
 <?php endif ?>
 
-<?php echo form_close(); ?>
+
 
 
 

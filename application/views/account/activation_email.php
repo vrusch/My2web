@@ -5,6 +5,10 @@
 	<title></title>
 </head>
 <body>
-<p><?php echo sprintf('reset_password_email', $username, $password_reset_url); ?></p>
+<div style="background-color: #5bc0de">
+	<p><?php echo  $username . $password_reset_url; ?></p>
+</div>
+
+
 </body>
 </html>
