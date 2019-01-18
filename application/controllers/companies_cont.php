@@ -23,7 +23,7 @@ class companies_cont extends CI_Controller
 		$this->edit($company_id);
 	}
 
-	public function edit($company_id, $current = NULL, $subpagecontent = NULL)
+	public function edit($company_id, $current = NULL, $subpagecontent = NULL, $data = NULL)
 	{
 		$data['company'] = $this->companies_model->get_companies($company_id);
 		$data['groups'] = $this->companies_model->get_groups($company_id);
@@ -157,5 +157,76 @@ class companies_cont extends CI_Controller
 	public function delete_mkb($company_id, $mkb_id){
 		$this->companies_model->del_mkb($mkb_id);
 		$this->edit($company_id, 'menu4', 'edit');
+	}
+
+	public function add_students_to_group($company_id){
+		$post = $_POST;
+		$group_id = $post['group_id'];
+		unset($post['group_id']);
+		$this->companies_model->add_students_to_group($company_id, $group_id, $post);
+		$this->edit($company_id, 'menu2', 'edit');
+	}
+
+	public function detectDelimiter($fh)
+	{
+		$delimiters = ["\t", ";", "|", ","];
+		$data_1 = null; $data_2 = null;
+		$delimiter = $delimiters[0];
+		foreach($delimiters as $d) {
+			$data_1 = fgetcsv($fh, 4096, $d);
+			if(($data_1) > ($data_2)) {
+				$delimiter = ($data_1) > ($data_2) ? $d : $delimiter;
+				$data_2 = $data_1;
+			}
+			rewind($fh);
+		}
+		return $delimiter;
+	}
+
+	function gen_username($firstname, $lastname) {
+		$name1 = strtolower(substr($firstname, 0, 2));
+		$name2 = strtolower(substr($lastname, 0, 6));
+		$nrRand = rand(10, 99);
+		return $name1 . $name2 . $nrRand;
+	}
+
+	public function csv_parse($company_id) //todo: pridat kontrolu ci uz neexistuje
+	{
+		if(isset($_FILES['csv_file']))
+		{
+			$csv = $_FILES['csv_file']['tmp_name'];
+			$pol = 0;
+			$opencsv = fopen($csv,"r");
+
+			$delimiter = $this->detectDelimiter($opencsv);
+			//var_dump($delimiter);
+			while (($row = fgetcsv($opencsv, 10000, $delimiter)) != FALSE)
+			{
+				//print_r($row);
+				$data['zaci'][$pol]['name'] = $row[0];
+				$data['zaci'][$pol]['surname'] = $row[1];
+				$data['zaci'][$pol]['email'] = $row[2];
+				$data['zaci'][$pol]['username'] = $this->gen_username($row[0], $row[1]);
+				$pol++;
+			}
+		}
+		$this->edit($company_id, 'home', 'students_new', $data);
+	}
+
+	public function add_students($company_id)
+	{
+		// rozdelit POST podminka aktivace? notifikace?
+		$new_students = $_POST;
+		var_dump($new_students);
+		/*foreach ($new_students as $students_item){
+
+			if ($students_item['addzaka']){
+				$user_id = $this->companies_model->add_students($students_item, $company_id);
+				if ($students_item['eactivation']){
+					$this->companies_model->send_reg_mail($user_id, 'student'); //todo poslat mail
+				}
+			}
+		}*/
+		$this->edit($company_id);
 	}
 }

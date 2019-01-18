@@ -1,6 +1,6 @@
 <br>
 
-<?php echo form_open_multipart('companies/csv_parse', 'class="form-horizontal"'); ?>
+<?php echo form_open_multipart('companies_cont/csv_parse/'. $company['id'], 'class="form-horizontal"'); ?>
 <?php echo validation_errors(); ?>
 <?php echo form_input(array('name' => 'csv_file', 'id' => 'csv_file', 'type' => 'file'), 'load_csv', 'required accept=".csv"'); ?>
 <?php echo form_submit('import_csv', 'Import CSV', 'name="import_csv"; id="import_csv_btn"; class="btn btn-primary bt-small"'); ?>
@@ -12,11 +12,10 @@
 
 <hr>
 <br>
-
+<p><strong>Stavajici studenti:</strong></p>
 <table class="table table-condensed table-hover" style="background-color:white;">
 	<thead>
 	<tr>
-
 		<th><?php echo 'Username' ;?></th>
 		<th><?php echo 'Jmeno' ;?></th>
 		<th><?php echo 'Prijmeni' ;?></th>
@@ -55,7 +54,6 @@
 		</tr>
 	<?php endforeach; ?>
 	</tbody>
-
 </table>
 
 

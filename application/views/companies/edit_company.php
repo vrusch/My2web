@@ -58,7 +58,7 @@
 					<?php //var_dump($display); ?>
 					<div class="tab-content">
 						<?php if($display['current'] == 'home') {echo '<div id="home" class="tab-pane fade in active">';} else {echo '<div id="home" class="tab-pane fade">';} ?>
-							<?php echo $this->load->view('companies/sub_students', array('title' => ('edit company'))); ?>
+							<?php if ($display['page'] == 'students_new')  { echo $this->load->view('companies/sub_students_new', array('title' => ('edit company')));} else { echo $this->load->view('companies/sub_students', array('title' => ('edit company')));}?>
 						</div>
 						<?php if($display['current'] == 'menu1') {echo '<div id="menu1" class="tab-pane fade in active">';} else {echo '<div id="menu1" class="tab-pane fade">';} ?>
 							<?php echo $this->load->view('companies/sub_groups', array('title' => ('edit company'))); ?>
@@ -70,8 +70,7 @@
 							<?php echo $this->load->view('companies/sub_quizzes', array('title' => ('edit company'))); ?>
 						</div>
 						<?php if($display['current'] == 'menu4') {echo '<div id="menu4" class="tab-pane fade in active">';} else {echo '<div id="menu4" class="tab-pane fade">';} ?>
-							<?php if ($display['page'] == 'edit') { echo $this->load->view('companies/sub_mkb', array('title' => ('edit company')));} ?>
-							<?php if ($display['page'] == 'mkb_new') { echo $this->load->view('companies/sub_mkb_new', array('title' => ('edit company')));} ?>
+							<?php if ($display['page'] == 'mkb_new') { echo $this->load->view('companies/sub_mkb_new', array('title' => ('edit company')));} else { echo $this->load->view('companies/sub_mkb', array('title' => ('edit company')));}?>
 						</div>
 							<?php if($display['current'] == 'menu5') {echo '<div id="menu5" class="tab-pane fade in active">';} else {echo '<div id="menu5" class="tab-pane fade">';} ?>
 							<?php echo $this->load->view('companies/sub_ban_delete', array('title' => ('edit company'))); ?>

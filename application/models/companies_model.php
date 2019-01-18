@@ -199,6 +199,17 @@ class companies_model extends CI_Model
 		$this->db->update('4m2w_companies', $data);
 	}
 
+	public function add_students_to_group($company_id, $group_id, $students)
+	{
+		foreach ($students as $key => $row){
+			if (!$this->db->replace('4m2w_students', array('student_id' => $key, 'company_id' => $company_id, 'group_id' => $group_id))){
+				$error = $this->db->error();
+				print_r($error);
+				//todo: zpracovani DB chyby
+			};
+		}
+	}
+
 	public function del_mkb($account_id)
 	{
 		$query = $this->db->get_where('a3m_rel_account_role', array('account_id' => $account_id));

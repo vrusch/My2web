@@ -1,6 +1,6 @@
 
 
-<?php echo form_open('companies_cont/addStoG/'.$company['id'].'/1', 'class="form-horizontal"'); ?>
+<?php echo form_open('companies_cont/add_students_to_group/'.$company['id'], 'class="form-horizontal"'); ?>
 <?php echo validation_errors(); ?>
 <?php $uncharted = $this->db->get_where('4m2w_students', array('company_id' => $company['id'], 'group_id' => '0'));?>
 <div class="control-group">
@@ -42,7 +42,7 @@
 		?>
 		<tr>
 			<?php if (isset($group['name_of_group'])) {echo '<td style="background-color: #c8eaff">';} else {echo '<td>';}?>
-			<?php echo form_checkbox("{$students_item['student_id']}", 'apply', '');; ?>
+			<?php echo form_checkbox("{$students_item['student_id']}", 'apply', ''); ?>
 			</td>
 			</td>
 			<?php if (isset($group['name_of_group'])) {echo '<td style="background-color: #c8eaff">';} else {echo '<td>';}?>
