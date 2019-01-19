@@ -1,8 +1,6 @@
-<?php echo form_open('companies/manage_quizzes/' . $company['id'], 'class="form-horizontal"'); ?>
+<?php echo form_open('companies_cont/manage_quizzes/' . $company['id'], 'class="form-horizontal"'); ?>
 <?php echo validation_errors(); ?>
 
-<div class="span4" style="background-color:white;">
-</div>
 
 <table class="table table-condensed table-hover">
 	<thead>
@@ -32,10 +30,10 @@
 				</select>
 			</td>
 			<th>
-				<?php echo form_submit('', ('>>'), 'class="btn btn-primary"'); ?>
+				<?php echo form_submit('remove_from', ('>>'), 'class="btn btn-primary"'); ?>
 			</th>
 			<th>
-				<?php echo form_submit('', ('<<'), 'class="btn btn-primary"'); ?>
+				<?php echo form_submit('add_to', ('<<'), 'class="btn btn-primary"'); ?>
 			</th>
 			<td>
 				<select name="quizzes_new[]" multiple>

@@ -228,4 +228,9 @@ class companies_cont extends CI_Controller
 		}
 		$this->edit($company_id);
 	}
+
+	public function manage_quizzes($company_id)
+	{
+		var_dump($_POST);
+	}
 }

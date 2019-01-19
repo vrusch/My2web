@@ -1,3 +1,5 @@
 vymena MKB za studenta co zo starym mkb (ban?)
 mazanie blokovanie firmy - neexistujuce indexi
 novy mkb - vybrat ze studentu - dodelat jenom z aktivnych
+terminy kvizu
+priradit kviz individualne , jednotlivci, napr. mkb
