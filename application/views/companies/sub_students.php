@@ -30,6 +30,7 @@
 		<tr>
 			<td>
 				<?php echo $student_info['username']; ?>
+				<?php if ($students_item['attribut'] == 'mkb'){echo '<span class="label label-info">mkb</span>';} ?>
 			</td>
 			<td>
 				<?php echo $student_info['firstname']; ?>

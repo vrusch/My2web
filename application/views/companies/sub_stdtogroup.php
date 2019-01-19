@@ -51,7 +51,7 @@
 			?>
 			</td>
 			<?php if (isset($group['name_of_group'])) {echo '<td style="background-color: #c8eaff">';} else {echo '<td>';}?>
-			<?php echo ($student['username']); ?>
+			<?php echo ($student['username']); ?><?php if ($students_item['attribut'] == 'mkb'){echo '<span class="label label-info">mkb</span>';} ?>
 			</td>
 			<?php if (isset($group['name_of_group'])) {echo '<td style="background-color: #c8eaff">';} else {echo '<td>';}?>
 			<?php echo ($student['email']); ?>

@@ -5,7 +5,7 @@ class companies_model extends CI_Model
 
 	public function __construct()
 	{
-		$this->load->helper(array('email'));
+		$this->load->helper(array('email', 'date'));
 		$this->load->library(array('email'));
 		$this->load->database();
 	}
@@ -66,7 +66,20 @@ class companies_model extends CI_Model
 
 	public function get_quizzes()
 	{
-		$query = $this->db->get_where('4m2w_quizzes');
+		$query = $this->db->get('4m2w_quizzes');
+		return $query->result_array();
+	}
+
+	public function get_quizzes_by_group($company_id, $groups_id)
+	{
+
+		$query = $this->db->query("SELECT 
+				  4m2w_company_quizzes.company_id, 4m2w_company_quizzes.group_id, 4m2w_company_quizzes.quiz_id, 4m2w_quizzes.name, 4m2w_quizzes.theme_id 
+				FROM 4m2w_company_quizzes 
+				JOIN 4m2w_quizzes 
+				ON 4m2w_company_quizzes.quiz_id = 4m2w_quizzes.id 
+				AND 4m2w_company_quizzes.company_id = '$company_id' 
+				AND 4m2w_company_quizzes.group_id = '$groups_id'");
 		return $query->result_array();
 	}
 
@@ -166,6 +179,10 @@ class companies_model extends CI_Model
 		$this->db->where('account_id', $mkb['user_id']);
 		$this->db->delete('a3m_rel_account_role');
 
+		//4m2w_mkb
+		$this->db->where('company_id', $company_id);
+		$this->db->delete('4m2w_mkb');
+
 		foreach ($students as $students_item){
 			$this->db->where('id', $students_item['student_id']);
 			$this->db->delete('a3m_account');
@@ -173,6 +190,8 @@ class companies_model extends CI_Model
 			$this->db->delete('a3m_account_details');
 			$this->db->where('account_id', $students_item['student_id']);
 			$this->db->delete('a3m_rel_account_role');
+			$this->db->where('student_id', $students_item['student_id']);
+			$this->db->delete('4m2w_students');
 		}
 	}
 
@@ -273,6 +292,26 @@ class companies_model extends CI_Model
 				print_r($error);
 				//todo: detekce DB chyby
 			}
+
+			$data_student = array(
+				'company_id' => $company_id,
+				'student_id' => $user_id,
+				'attribut' => 'mkb'
+			);
+			if (!$query_mkb = $this->db->insert('4m2w_students', $data_student)) {
+				$error = $this->db->error();
+				print_r($error);
+				//todo: detekce DB chyby
+			}
+
+			$data_acc_detail = array(
+				'account_id' => $user_id,
+			);
+			if (!$query_mkb = $this->db->insert('a3m_account_details', $data_acc_detail)) {
+				$error = $this->db->error();
+				print_r($error);
+				//todo: detekce DB chyby
+			}
 		}
 		return isset($user_id) ? $user_id : NULL;
 	}
@@ -296,6 +335,16 @@ class companies_model extends CI_Model
 			'user_id' => $user_id
 		);
 		if (!$query_mkb = $this->db->insert('4m2w_mkb', $data_mkb)) {
+			$error = $this->db->error();
+			print_r($error);
+			//todo: detekce DB chyby
+		}
+
+		$data_student = array(
+			'attribut' => 'mkb'
+		);
+		$this->db->where('student_id', $user_id);
+		if (!$query_mkb = $this->db->update('4m2w_students', $data_student)) {
 			$error = $this->db->error();
 			print_r($error);
 			//todo: detekce DB chyby
@@ -350,6 +399,42 @@ class companies_model extends CI_Model
 			print_r('NEPOSLALO SE TO');
 			print_r ($this->email->print_debugger());
         }
+	}
+
+	function add_new_students($students_item, $company_id, $student_role){
+		// a3m_account, a3m_account_details, a3m_rel_account_role, 4m2w_students
+		$data_a3m_account = array(
+			'username' => $students_item['username'],
+			'email' => $students_item['email'],
+			'createdon' => mdate('%Y-%m-%d %H:%i:%s', now())
+		);
+		$this->db->insert('a3m_account', $data_a3m_account);
+		$user_id = $this->db->insert_id();
+
+		$data_a3m_account_details = array(
+			'account_id' => $user_id,
+			'firstname' => $students_item['name'],
+			'lastname' => $students_item['surname']
+		);
+		$this->db->insert('a3m_account_details', $data_a3m_account_details);
+
+		$data_a3m_rel_account_role = array(
+			'account_id' => $user_id,
+			'role_id' => $student_role['id']
+		);
+		$this->db->insert('a3m_rel_account_role', $data_a3m_rel_account_role);
+
+		$data_4m2w_students = array(
+			'student_id' => $user_id,
+			'company_id' => $company_id
+		);
+		$this->db->insert('4m2w_students', $data_4m2w_students);
+		return $user_id;
+	}
+
+	function get_themes(){
+		$query = $this->db->get('4m2w_theme');
+		return ($query->result_array());
 	}
 }
 

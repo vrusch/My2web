@@ -29,7 +29,7 @@
 			<?php echo validation_errors(); ?>
 
 			<div class="control-group">
-				<label class="control-label" for="name">Editovat nazev </label>
+				<label class="control-label" for="quizz_name">Editovat nazev </label>
 				<div class="controls">
 					<?php echo form_input(array('name' => 'quizz_name'), $quizz['name']); ?>
 					<?php echo form_submit('', ('Uložit'), 'class="btn btn-primary"'); ?>

@@ -39,4 +39,13 @@ class quizzes_model extends CI_Model
 		$this->db->insert('4m2w_theme', array('theme' => $theme_name));
 		return $this->db->insert_id();
 	}
+
+	public function upd_quizz_name($quizz_name, $quizz_id)
+	{
+		$data = array(
+			'name' => $quizz_name
+		);
+		$this->db->where('id', $quizz_id);
+		$this->db->update('4m2w_quizzes', $data);
+	}
 }

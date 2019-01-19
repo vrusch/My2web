@@ -215,18 +215,17 @@ class companies_cont extends CI_Controller
 
 	public function add_students($company_id)
 	{
-		// rozdelit POST podminka aktivace? notifikace?
+		$this->db->select('id');
+		$query = $this->db->get_where('a3m_acl_role', array('name' => 'Student'));
+		$student_role = $query->row_array();
 		$new_students = $_POST;
-		var_dump($new_students);
-		/*foreach ($new_students as $students_item){
+		foreach ($new_students as $students_item){
 
 			if ($students_item['addzaka']){
-				$user_id = $this->companies_model->add_students($students_item, $company_id);
-				if ($students_item['eactivation']){
-					$this->companies_model->send_reg_mail($user_id, 'student'); //todo poslat mail
-				}
+				$user_id = $this->companies_model->add_new_students($students_item, $company_id, $student_role);
+					//$this->companies_model->send_reg_mail($user_id, 'student'); //todo poslat mail
 			}
-		}*/
+		}
 		$this->edit($company_id);
 	}
 }

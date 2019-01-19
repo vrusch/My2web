@@ -20,9 +20,19 @@ class quizzes_cont extends CI_Controller
 
 	public function edit($quizz_id)
 	{
-		$data['quizz'] = $this->quizzes_model->get_quizzes($quizz_id);
-		$data['display'] = array('page' => 'edit', 'current' => 'home');
-		$this->load->view('quizzes/edit_quizz', isset($data) ? $data : NULL);
+		$this->form_validation->set_rules('quizz_name', 'nazev kvizu', 'required');
+		$this->form_validation->set_message('required', 'Povinne pole');
+
+		if ($this->form_validation->run() === FALSE) {
+			$data['quizz'] = $this->quizzes_model->get_quizzes($quizz_id);
+			$data['display'] = array('page' => 'edit', 'current' => 'home');
+			$this->load->view('quizzes/edit_quizz', isset($data) ? $data : NULL);
+		}else{
+			$this->quizzes_model->upd_quizz_name($this->input->post('quizz_name'), $quizz_id);
+			$data['quizz'] = $this->quizzes_model->get_quizzes($quizz_id);
+			$data['display'] = array('page' => 'edit', 'current' => 'home');
+			$this->load->view('quizzes/edit_quizz', isset($data) ? $data : NULL);
+		}
 	}
 
 	public function new()
