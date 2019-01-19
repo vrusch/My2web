@@ -1,8 +1,16 @@
+<?php echo $count_groups = count($groups); ?>
+<?php if ($count_groups > 0) : ?>
 <div style="width: 100%">
 	<h2>Dynamic Pills</h2>
 	<p>To make the tabs toggleable, add the data-toggle="pill" attribute to each link. Then add a .tab-pane class with a unique ID for every tab and wrap them inside a div element with class .tab-content.</p>
-	<ul class="nav nav-pills">
 
+
+	<?php foreach ($groups as $groups_item) : ?>
+		<?php echo $groups_item['id']; ?>
+		<?php echo $groups_item['name_of_group']; ?>
+	<?php endforeach; ?>
+
+	<ul class="nav nav-pills">
 		<li class="active"><a data-toggle="pill" href="#sub_menu1">Menu 1</a></li>
 		<li><a data-toggle="pill" href="#sub_menu2">Menu 2</a></li>
 		<li><a data-toggle="pill" href="#sub_menu3">Menu 3</a></li>
@@ -23,6 +31,7 @@
 		</div>
 	</div>
 </div>
+<?php endif ?>
 
 
 

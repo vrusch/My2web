@@ -12,34 +12,33 @@
 
 <hr>
 <br>
-<p><strong>Stavajici studenti:</strong></p>
+<p><strong>Stávajíci studenti:</strong></p>
 <table class="table table-condensed table-hover" style="background-color:white;">
 	<thead>
 	<tr>
 		<th><?php echo 'Username' ;?></th>
-		<th><?php echo 'Jmeno' ;?></th>
-		<th><?php echo 'Prijmeni' ;?></th>
+		<th><?php echo 'Jméno' ;?></th>
+		<th><?php echo 'Příjmení' ;?></th>
 		<th><?php echo 'Email' ;?></th>
 		<th><?php echo 'Status' ;?></th>
 	</tr>
 	</thead>
-	<tbody style="background-color: white">
 	<?php foreach ($students as $students_item) : ?>
 		<?php $student_info = $this->companies_model->get_student_info($students_item['student_id']); ?>
 		<?php $acc_info = $this->companies_model->get_account_info($students_item['student_id']); ?>
 		<tr>
 			<td>
-				<?php echo $student_info['username']; ?>
+				<em><?php echo $student_info['username']; ?></em>
 				<?php if ($students_item['attribut'] == 'mkb'){echo '<span class="label label-info">mkb</span>';} ?>
 			</td>
 			<td>
-				<?php echo $student_info['firstname']; ?>
+				<em><?php echo $student_info['firstname']; ?></em>
 			</td>
 			<td>
-				<?php echo $student_info['lastname']; ?>
+				<em><?php echo $student_info['lastname']; ?></em>
 			</td>
 			<td>
-				<?php echo $student_info['email']; ?>
+				<em><?php echo $student_info['email']; ?></em>
 			</td>
 			<td>
 				<?php

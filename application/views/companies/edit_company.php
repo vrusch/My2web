@@ -15,7 +15,7 @@
 
 			<table style="width: 100%">
 				<tr>
-					<td style="width: 85%"><h2>Managment firmy</h2></td>
+					<td style="width: 85%"><h2>Správa firmy</h2></td>
 					<td><a href="companies_cont"><buton class="btn btn-primary btn-small">Zpátky na firmy</buton></a></td>
 				</tr>
 			</table>
@@ -48,11 +48,11 @@
 			<?php if (isset($display['current'])) : ?>
 				<div class="well">
 					<ul class="nav nav-tabs">
-						<?php if($display['current'] == 'home') {echo '<li class="active"><a data-toggle="tab" href="#home">Managment žáků</a></li>';} else {echo '<li><a data-toggle="tab" href="#home">Managment žáků</a></li>';} ?>
-						<?php if($display['current'] == 'menu1') {echo '<li class="active"><a data-toggle="tab" href="#menu1">Managment Skupin</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu1">Managment Skupin</a></li>';} ?>
+						<?php if($display['current'] == 'home') {echo '<li class="active"><a data-toggle="tab" href="#home">Správa žáků</a></li>';} else {echo '<li><a data-toggle="tab" href="#home">Správa žáků</a></li>';} ?>
+						<?php if($display['current'] == 'menu1') {echo '<li class="active"><a data-toggle="tab" href="#menu1">Správa Skupin</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu1">Správa Skupin</a></li>';} ?>
 						<?php if($display['current'] == 'menu2') {echo '<li class="active"><a data-toggle="tab" href="#menu2">Žáci -> skupiny</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu2">Žáci -> skupiny</a></li>';} ?>
-						<?php if($display['current'] == 'menu3') {echo '<li class="active"><a data-toggle="tab" href="#menu3">Managment Kvízů</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu3">Managment Kvízů</a></li>';} ?>
-						<?php if($display['current'] == 'menu4') {echo '<li class="active"><a data-toggle="tab" href="#menu4">Managment MKB</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu4">Managment MKB</a></li>';} ?>
+						<?php if($display['current'] == 'menu3') {echo '<li class="active"><a data-toggle="tab" href="#menu3">Správa kvízů</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu3">Správa kvízů</a></li>';} ?>
+						<?php if($display['current'] == 'menu4') {echo '<li class="active"><a data-toggle="tab" href="#menu4">Správa MKB</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu4">Správa MKB</a></li>';} ?>
 						<?php if($display['current'] == 'menu5') {echo '<li class="active"><a data-toggle="tab" href="#menu5">Mazat/Blokovat</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu5">Mazat/Blokovat</a></li>';} ?>
 					</ul>
 					<?php //var_dump($display); ?>

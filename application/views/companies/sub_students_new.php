@@ -6,20 +6,20 @@
 
 <hr>
 <br>
-<p><strong>Aktualne pridavani studenti:</strong></p>
-<table class="table table-condensed table-hover" style="background-color:white;">
+<p><strong>Aktuálne přidávaní studenti:</strong></p>
+<table class="table table-condensed table-hover" style="background-color: #f4f4f4;">
 	<thead>
 	<tr>
-		<th><?php echo 'Pridat?' ;?></th>
+		<th><?php echo 'Přidat?' ;?></th>
 		<th><?php echo 'Username' ;?></th>
-		<th><?php echo 'Jmeno' ;?></th>
-		<th><?php echo 'Prijmeni' ;?></th>
+		<th><?php echo 'Jméno' ;?></th>
+		<th><?php echo 'Příjmení' ;?></th>
 		<th><?php echo 'Email' ;?></th>
 	</tr>
 	</thead>
 	<?php echo form_open('companies_cont/add_students/'.$company['id'], 'class="form-horizontal"'); ?>
 	<?php echo validation_errors(); ?>
-	<tbody style="background-color: white">
+	<tbody style="background-color: #f4f4f4">
 	<?php $offset = '0'; ?>
 	<?php foreach ($zaci as $zaci_item) : ?>
 		<tr>
