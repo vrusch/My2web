@@ -1,4 +1,5 @@
-
+<?php $show_change = 0; ?>
+<?php if (isset($mkb['user_id'])) : ?>
 <table class="table table-condensed table-hover">
 	<thead>
 	<tr>
@@ -11,31 +12,17 @@
 	</thead>
 	<tbody>
 	<tr>
-		<td><em>
-			<?php
-			$show_change = 0;
-			if (isset($mkb['user_id'])) {
-				echo $mkb['user_id'];
-			}
-			?>
-			</em></td>
-		<td><em>
-			<?php
-			if (isset($mkb['username'])) {
-				echo $mkb['username'];
-			}
-			?>
-			</em></td>
-		<td><em>
-			<?php
-			if (isset($mkb['email'])) {
-				echo $mkb['email'];
-			}
-			?>
-			</em></td>
-		<td><em>
-			<?php
-			if (isset($mkb['activation'])) {
+		<td>
+			<em><?php echo $mkb['user_id']; ?></em>
+		</td>
+		<td>
+			<em><?php echo $mkb['username'];?></em>
+		</td>
+		<td>
+			<em><?php echo $mkb['email'];?></em>
+		</td>
+		<td>
+			<em><?php
 				if ($mkb['activation'] == '0') {
 					echo anchor('companies/' . $company['id'], 'Chyba - znovu poslat', 'class="btn btn-danger btn-small"');
 				}
@@ -45,11 +32,8 @@
 				if ($mkb['activation'] == '2') {
 					echo 'Aktivní od: ' . $mkb['activation_date'];
 				}
-			} else {
-				echo 'neexistuje';
-			}
-			?>
-				</em></td>
+			?></em>
+		</td>
 		<td><em>
 			<?php
 			if (!isset($mkb['activation'])) {
@@ -72,7 +56,7 @@
 	</tr>
 	</tbody>
 </table>
-
+<?php endif ?>
 <?php if ($show_change == 1) : ?>
 
 	<?php if (count($students) > 0) : ?>
