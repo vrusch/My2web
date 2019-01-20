@@ -1,3 +1,4 @@
+
 <table class="table table-condensed table-hover">
 	<thead>
 	<tr>
@@ -10,29 +11,29 @@
 	</thead>
 	<tbody>
 	<tr>
-		<td>
+		<td><em>
 			<?php
 			$show_change = 0;
 			if (isset($mkb['user_id'])) {
 				echo $mkb['user_id'];
 			}
 			?>
-		</td>
-		<td>
+			</em></td>
+		<td><em>
 			<?php
 			if (isset($mkb['username'])) {
 				echo $mkb['username'];
 			}
 			?>
-		</td>
-		<td>
+			</em></td>
+		<td><em>
 			<?php
 			if (isset($mkb['email'])) {
 				echo $mkb['email'];
 			}
 			?>
-		</td>
-		<td>
+			</em></td>
+		<td><em>
 			<?php
 			if (isset($mkb['activation'])) {
 				if ($mkb['activation'] == '0') {
@@ -48,8 +49,8 @@
 				echo 'neexistuje';
 			}
 			?>
-		</td>
-		<td>
+				</em></td>
+		<td><em>
 			<?php
 			if (!isset($mkb['activation'])) {
 				echo anchor('companies_cont/create_mkb/' . $company['id'], 'Novy', 'class="btn btn-primary btn-small"');
@@ -67,7 +68,7 @@
 				}
 			}
 			?>
-		</td>
+			</em></td>
 	</tr>
 	</tbody>
 </table>
@@ -96,16 +97,16 @@
 							<?php echo anchor('companies_cont/change_mkb_from/' . $company['id'] .'/'. $student_info['id'], 'vybrat', 'class="btn btn-small"'); ?>
 						</td>
 						<td>
-							<?php echo $student_info['username']; ?>
+							<em><?php echo $student_info['username']; ?></em>
 						</td>
 						<td>
-							<?php echo $student_info['firstname']; ?>
+							<em><?php echo $student_info['firstname']; ?></em>
 						</td>
 						<td>
-							<?php echo $student_info['lastname']; ?>
+							<em><?php echo $student_info['lastname']; ?></em>
 						</td>
 						<td>
-							<?php echo $student_info['email']; ?>
+							<em><?php echo $student_info['email']; ?></em>
 						</td>
 					</tr>
 				<?php endforeach; ?>

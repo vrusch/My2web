@@ -41,7 +41,7 @@
 		<p>We specialize in blablabla</p>
 	</div>
 
-<!-- LOGIN -->
+	<!-- LOGIN -->
 	<div class="w3-container">
 		<?php if ($this->authentication->is_signed_in()) : ?>
 			<?php if ($this->authorization->is_permitted(array('retrieve_users', 'retrieve_roles', 'retrieve_permissions'))) : ?> <!-- IF admin  -->
@@ -60,13 +60,12 @@
 		<a href="account/account_profile">
 			<button class="w3-btn linky"><i class="fas fa-user-edit"> </i> <?php echo $account->username; ?></button>
 		</a>
-		<a href="account/sign_out">
-			<button class="w3-btn linky"><i class="fas fa-sign-in-alt"> </i> odhlasit</button> <!-- logout -->
-		</a>
+
+			<button onclick="document.getElementById('id02').style.display='block'" class="w3-btn linky"><i class="fas fa-sign-in-alt"> </i> odhlasit</button> <!-- logout -->
 
 		<?php else : ?>
 			<a href="account/sign_in">
-				<button class="w3-btn linky"> <!-- login -->
+				<button onclick="document.getElementById('id01').style.display='block'" class="w3-btn linky"> <!-- login -->
 					<i class="fas fa-user-alt-slash"></i> Přihlásit se
 				</button>
 			</a>
@@ -75,7 +74,99 @@
 </div>
 <!-- END OF LOGIN -->
 
+<!-- MODAL sign in-->
+<div id="id01" class="w3-modal">
+	<div class="w3-modal-content w3-card-4 w3-round-large w3-animate-zoom" style="max-width:600px">
 
+		<?php echo form_open(uri_string().($this->input->get('continue') ? '/?continue='.urlencode($this->input->get('continue')) : ''), 'class="form-horizontal"'); ?>
+		<?php echo form_fieldset(); ?>
+
+		<h3><?php echo lang('sign_in_heading'); ?></h3>
+
+		<div class="well">
+			<?php if (isset($sign_in_error)) : ?>
+				<div class="form_error"><?php echo $sign_in_error; ?></div>
+			<?php endif; ?>
+
+			<div class="control-group <?php echo (form_error('sign_in_username_email') || isset($sign_in_username_email_error)) ? 'error' : ''; ?>">
+				<label class="control-label" for="sign_in_username_email"><?php echo lang('sign_in_username_email'); ?></label>
+
+				<div class="controls">
+					<?php echo form_input(array('name' => 'sign_in_username_email', 'id' => 'sign_in_username_email', 'value' => set_value('sign_in_username_email'), 'maxlength' => '24')); ?>
+					<?php if (form_error('sign_in_username_email') || isset($sign_in_username_email_error)) :?>
+						<span class="help-inline">
+		        			<?php echo form_error('sign_in_username_email'); ?>
+							<?php if (isset($sign_in_username_email_error)) : ?>
+								<span class="field_error"><?php echo $sign_in_username_email_error; ?></span>
+							<?php endif; ?>
+		        			</span>
+					<?php endif; ?>
+				</div>
+			</div>
+
+			<div class="control-group <?php echo form_error('sign_in_password') ? 'error' : ''; ?>">
+				<label class="control-label" for="sign_in_password"><?php echo lang('sign_in_password'); ?></label>
+
+				<div class="controls">
+					<?php echo form_password(array('name' => 'sign_in_password', 'id' => 'sign_in_password', 'value' => set_value('sign_in_password'))); ?>
+					<?php if (form_error('sign_in_password')) : ?>
+						<span class="help-inline"><?php echo form_error('sign_in_password'); ?></span>
+					<?php endif; ?>
+
+					<?php if (isset($recaptcha)) : ?>
+						<?php echo $recaptcha; ?>
+						<?php if (isset($sign_in_recaptcha_error)) : ?>
+							<span class="field_error"><?php echo $sign_in_recaptcha_error; ?></span>
+						<?php endif; ?>
+					<?php endif; ?>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<div class="controls">
+					<label class="checkbox">
+						<?php echo form_checkbox(array('name' => 'sign_in_remember', 'id' => 'sign_in_remember', 'value' => 'checked', 'checked' => $this->input->post('sign_in_remember'),)); ?>
+						<?php echo lang('sign_in_remember_me'); ?>
+					</label>
+				</div>
+			</div>
+
+			<div>
+				<?php echo form_button(array('type' => 'submit', 'class' => 'btn btn-large pull-right', 'content' => '<i class="icon-lock"></i> '.lang('sign_in_sign_in'))); ?>
+			</div>
+
+			<p><?php echo anchor('account/forgot_password', lang('sign_in_forgot_your_password')); ?><br/>
+				<?php echo sprintf(lang('sign_in_dont_have_account'), anchor('account/sign_up', lang('sign_in_sign_up_now'))); ?></p>
+
+		</div>
+
+		<?php echo form_fieldset_close(); ?>
+		<?php echo form_close(); ?>
+
+	</div>
+</div>
+<!-- END OF MODAL sign in -->
+
+<!-- MODAL sign out -->
+<div id="id02" class="w3-modal w3-round-large">
+	<div class="w3-modal-content w3-center w3-round-large w3-animate-zoom"
+		 style="max-width:400px; background-color: #c4e2fd">
+
+		<p class="w3-text-black w3-padding-large"><strong>Opravdu se chcete odhlasit?</strong></p>
+
+		<div class="w3-container">
+			<div class="w3-bar">
+				<a href="account/sign_out">
+					<button type="button" class="w3-button w3-tiny w3-white w3-border w3-round"> OK</button>
+				</a>
+				<button onclick="document.getElementById('id02').style.display='none'" type="button"
+						class="w3-button w3-tiny w3-white w3-border w3-round">Cancel
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END OF MODAL sign out -->
 
 <!-- Container (About Section) -->
 

@@ -13,6 +13,8 @@
 <hr>
 <br>
 <p><strong>Stávajíci studenti:</strong></p>
+
+<?php if (count($students) > 0) : ?>
 <table class="table table-condensed table-hover" style="background-color:white;">
 	<thead>
 	<tr>
@@ -55,7 +57,7 @@
 	<?php endforeach; ?>
 	</tbody>
 </table>
-
+<?php endif ?>
 
 
 

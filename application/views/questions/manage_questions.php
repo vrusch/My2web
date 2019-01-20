@@ -72,7 +72,7 @@
 								'screeny'     => 200,
 								'window_name' => '_blank'
 							);
-							echo anchor_popup('questions/rnd/'. $question_item['id'], 'Nahled', $atts);
+							echo anchor_popup('questions/rnd/'. $question_item['id'], '<button>Nahled</button>', $atts);
 							?>
 						</td>
 						<td>

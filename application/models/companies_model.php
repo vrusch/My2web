@@ -241,6 +241,8 @@ class companies_model extends CI_Model
 			$this->db->delete('a3m_rel_account_role');
 			$this->db->where(array('user_id' => $account_id));
 			$this->db->delete('4m2w_mkb');
+			$this->db->where(array('student_id' => $account_id));
+			$this->db->delete('4m2w_students');
 		}else{
 			$this->db->where(array('account_id' => $account_id));
 			$this->db->delete('a3m_rel_account_role');
@@ -250,6 +252,8 @@ class companies_model extends CI_Model
 			$this->db->delete('a3m_account_details');
 			$this->db->where(array('id' => $account_id));
 			$this->db->delete('a3m_account');
+			$this->db->where(array('student_id' => $account_id));
+			$this->db->delete('4m2w_students');
 		}
 
 	}
@@ -397,7 +401,7 @@ class companies_model extends CI_Model
         //if the email could not be sent it will display the error
         //should not happen if you have email configured correctly
 			print_r('NEPOSLALO SE TO');
-			print_r ($this->email->print_debugger());
+			//print_r ($this->email->print_debugger());
         }
 	}
 
