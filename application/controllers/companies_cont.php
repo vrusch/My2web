@@ -131,9 +131,17 @@ class companies_cont extends CI_Controller
 				'is_unique'     => 'This %s already exists.'
 			)
 		);
+		$this->form_validation->set_rules(
+			'mkb_firstname', 'mkb_firstname',
+			'min_length[3]|max_length[15]'
+		);
+		$this->form_validation->set_rules(
+			'mkb_lastname', 'mkb_lastname',
+			'min_length[2]|max_length[15]'
+		);
 
 		if ($this->form_validation->run() === FALSE) {
-			$this->edit($company_id, 'menu4', 'mkb_new');
+			$this->edit($company_id, 'menu4', 'edit');
 		} else {
 			$user_id = $this->companies_model->set_mkb($company_id);
 
@@ -226,6 +234,22 @@ class companies_cont extends CI_Controller
 					//$this->companies_model->send_reg_mail($user_id, 'student'); //todo poslat mail
 			}
 		}
+		$this->edit($company_id);
+	}
+
+	public function add_student($company_id)
+	{
+		$this->db->select('id');
+		$query = $this->db->get_where('a3m_acl_role', array('name' => 'Student'));
+		$student_role = $query->row_array();
+//todo: napisat validaciu formulara cez ajax alebo JS
+		$students_item['username'] = $this->input->post('username');
+		$students_item['email'] = $this->input->post('email');
+		$students_item['name'] = $this->input->post('firstname');
+		$students_item['surname'] = $this->input->post('lastname');
+		$user_id = $this->companies_model->add_new_students($students_item, $company_id, $student_role);
+		//$this->companies_model->send_reg_mail($user_id, 'student'); //todo poslat mail
+
 		$this->edit($company_id);
 	}
 

@@ -72,7 +72,7 @@
 						</td>
 						<td>
 							<?php
-							$uncharted = $this->db->get_where('4m2w_students', array('company_id' => $companies_item['id'], 'group_id' => NULL));
+							$uncharted = $this->db->get_where('4m2w_students', array('company_id' => $companies_item['id'], 'group_id' => '0'));
 							if ($query->num_rows() > 0) {
 								echo '<a href="companies/addStoG/' . $companies_item['id'] . '"><span class="badge badge-info">' . $uncharted->num_rows() . '</span></a>';
 							} else {

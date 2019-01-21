@@ -41,7 +41,7 @@
 		<p>We specialize in blablabla</p>
 	</div>
 
-<!-- LOGIN -->
+	<!-- LOGIN -->
 	<div class="w3-container">
 		<?php if ($this->authentication->is_signed_in()) : ?>
 			<?php if ($this->authorization->is_permitted(array('retrieve_users', 'retrieve_roles', 'retrieve_permissions'))) : ?> <!-- IF admin  -->
@@ -63,7 +63,6 @@
 		<a href="account/sign_out">
 			<button class="w3-btn linky"><i class="fas fa-sign-in-alt"> </i> odhlasit</button> <!-- logout -->
 		</a>
-
 		<?php else : ?>
 			<a href="account/sign_in">
 				<button class="w3-btn linky"> <!-- login -->
@@ -75,23 +74,17 @@
 </div>
 <!-- END OF LOGIN -->
 
-
-
 <!-- Container (About Section) -->
 
 <div id="about" class="container-fluid">
 	<div class="row">
 		<div class="col-sm-8">
-			<h2><strong>O nás ...</strong></h2><br>
+			<h2><strong>O nás ...</strong></h2>
 			<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-				dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-				ex ea commodo consequat.</h4><br>
+				dolore magna aliqua.</h4>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
 				dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-				ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-				deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-				labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-				ut aliquip ex ea commodo consequat.</p>
+				ex ea commodo consequat.</p>
 		</div>
 		<div class="col-sm-8">
 			<h2>Ešte trochu o nás... budoucnost</h2><br>

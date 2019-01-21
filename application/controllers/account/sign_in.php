@@ -57,6 +57,7 @@ class Sign_in extends CI_Controller {
 		// Run form validation
 		if ($this->form_validation->run() === TRUE)
 		{
+			print_r('validace OK');
 			// Get user by username / email
 			if ( ! $user = $this->account_model->get_by_username_email($this->input->post('sign_in_username_email', TRUE)))
 			{

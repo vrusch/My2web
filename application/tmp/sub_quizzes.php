@@ -1,11 +1,9 @@
 <?php echo form_open('companies_cont/manage_quizzes/' . $company['id'], 'class="form-horizontal"'); ?>
 <?php echo validation_errors(); ?>
 
-
 <table class="table table-condensed table-hover">
 	<thead>
 	<tr>
-		<th><?php echo 'Skupiny'; ?></th>
 		<th><?php echo 'Kvizy'; ?></th>
 		<th><?php echo '  '; ?></th>
 		<th><?php echo '  '; ?></th>
@@ -14,11 +12,7 @@
 	</tr>
 	</thead>
 	<tbody>
-	<?php foreach ($groups as $groups_item) : ?>
 		<tr>
-			<td>
-				<?php echo $groups_item['name_of_group']; ?>
-			</td>
 			<td>
 				<?php $group_quizzes = $this->companies_model->get_quizzes_by_group($company['id'], $groups_item['id']); ?>
 				<select name="quizzes_old[]" multiple>
@@ -51,15 +45,14 @@
 				$opt[$themes_item['id']] = $themes_item['theme'];
 				}
 				if (count($themes)){
-				$opt += ['0' => 'Vsechny'];
+				$opt += ['0' => 'Vsechny temy'];
 				} else {
-				$opt = ['0' => 'Žádna skupina'];
+				$opt = ['0' => 'Žádna tema'];
 				}
 				?>
 				<?php echo form_dropdown('theme_id', $opt, '0'); ?>
 			</td>
 		</tr>
-	<?php endforeach; ?>
 	</tbody>
 </table>
 

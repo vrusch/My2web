@@ -2,7 +2,7 @@
 
 <?php echo form_open('companies_cont/add_students_to_group/'.$company['id'], 'class="form-horizontal"'); ?>
 <?php echo validation_errors(); ?>
-<?php $uncharted = $this->db->get_where('4m2w_students', array('company_id' => $company['id'], 'group_id' => NULL));?>
+<?php $uncharted = $this->db->get_where('4m2w_students', array('company_id' => $company['id'], 'group_id' => '0'));?>
 <div class="control-group">
 	<p>Celkově <?php echo '<strong>'.count($students).'</strong>'; ?> studentů z toho nezařazeých <?php echo '<strong>'.$uncharted->num_rows().'</strong>'; ?></p><br>
 

@@ -259,7 +259,6 @@ class companies_model extends CI_Model
 	}
 
 	public function set_mkb($company_id){
-		if ($this->input->post('mkb_username') != '') {
 			$this->load->helper('date');
 			$data_user = array(
 				'username' => $this->input->post('mkb_username'),
@@ -310,13 +309,14 @@ class companies_model extends CI_Model
 
 			$data_acc_detail = array(
 				'account_id' => $user_id,
+				'firstname' => $this->input->post('mkb_firstname'),
+				'lastname' => $this->input->post('mkb_lastname')
 			);
 			if (!$query_mkb = $this->db->insert('a3m_account_details', $data_acc_detail)) {
 				$error = $this->db->error();
 				print_r($error);
 				//todo: detekce DB chyby
 			}
-		}
 		return isset($user_id) ? $user_id : NULL;
 	}
 

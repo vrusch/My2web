@@ -1,23 +1,26 @@
 <footer class="container-fluid text-center" style="background-color: #054c8a;">
 	<table style="width: 100%">
 		<tr>
+			<td style="width: 50%"><a href="" target="_blank">Zásady používání souborů cookie</a></td>
+			<td>
+				<small>
+					<?php echo sprintf(lang('website_page_rendered_in_x_seconds'), $this->benchmark->elapsed_time()); ?>
+					<br>
+					Copyright &copy; <?php echo date('Y'); ?> <?php echo ('4My2web'); ?>
+				</small>
+			</td>
+		</tr>
+	</table>
+	<table style="width: 100%">
+		<tr>
 			<td style="width: 30%"></td>
 			<td style="width: 30%">
 				<a href="#myPage" title="To Top">
 					<span class="glyphicon glyphicon-chevron-up linky"></span>
 				</a>
-				<p class="linky">Made By Codeignier <a href="https://www.w3schools.com" title="Visit w3schools" class="linky"></a></p>
-				<img src="<?php echo base_url().RES_DIR; ?>/img/devicons_1-8-0_codeigniter_343_0_c0392b_none.png" />
+				<p class="linky">Made By Codeigniter <a href="https://www.w3schools.com" title="Visit w3schools" class="linky"></a></p>
 			</td>
-			<td style="width: 30%">
-				<div class="pull-right">
-					<small>
-						<?php echo sprintf(lang('website_page_rendered_in_x_seconds'), $this->benchmark->elapsed_time()); ?>
-						<br>
-						Copyright &copy; <?php echo date('Y'); ?> <?php echo ('4My2web'); ?>
-					</small>
-				</div>
-			</td>
+			<td style="width: 30%"></td>
 		</tr>
 	</table>
 
