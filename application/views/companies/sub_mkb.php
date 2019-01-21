@@ -1,3 +1,4 @@
+<p>Muzete spravovat MKB. Vytvorit, smazat, vymenit nebo poslat aktivaci znovu.</p>
 <?php $show_change = 0; ?>
 <?php if (isset($mkb['user_id'])) : ?>
 <table class="table table-condensed table-hover">

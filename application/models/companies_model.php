@@ -430,7 +430,8 @@ class companies_model extends CI_Model
 
 		$data_4m2w_students = array(
 			'student_id' => $user_id,
-			'company_id' => $company_id
+			'company_id' => $company_id,
+			'group_id' => 0
 		);
 		$this->db->insert('4m2w_students', $data_4m2w_students);
 		return $user_id;

@@ -7,30 +7,40 @@
 </head>
 <body>
 <?php //var_dump($question);?>
-<?php //var_dump($rnd_answer);?>
+<?php var_dump($rnd_answer);?>
 <div class="container">
 	<div class="row">
+		<?php echo form_open('questions/validate/', 'class="form-horizontal"'); ?>
+		<?php echo validation_errors(); ?>
 		<div class="w3-panel w3-light-grey w3-border w3-round">
 			<h3>Nahled na otazku #<?php echo $question['id']; ?></h3><br>
 		</div>
 
 		<div class="w3-panel w3-light-grey w3-border w3-round">
 			<h4>Otazka:</h4>
-			<input class="w3-input w3-border w3-round-large" name="<?php echo $question['id']; ?>" type="text" value="<?php echo $question['question']; ?>" readonly><br>
+			<div class="well-small" style="background-color: white; border-radius: 15px; padding-left: 20px">
+				<p><strong><?php echo $question['question']; ?></strong></p>
+			</div><br>
 			<h4>Odpovedi:</h4>
 			<table>
 				<?php foreach ($rnd_answer as $rnd_item) : ?>
 					<?php $ans = $this->question_model->get_answer($rnd_item); ?>
 				<tr>
 					<td>
-						<input class="w3-check" type="radio" name="opt" id="<?php echo $ans['id']; ?>">
+						<input class="w3-check" type="radio" name="<?php echo $question['id']; ?>" value="<?php echo $ans['id']; ?>">
 						<label> <?php echo $ans['answer']; ?></label></p>
 					</td>
 				</tr>
 				<?php endforeach; ?>
+
 			</table><br>
 		</div>
+		<?php echo form_submit('', 'Dalsi', 'class="btn btn-primary"'); ?>
+		<br>
+	<hr>
 	</div>
+
+	<?php echo form_close(); ?>
 </div>
 
 </body>

@@ -85,4 +85,22 @@ class questions extends CI_Controller
 		$data['question'] = $this->question_model->get_question($id);
 		$this->load->view('questions/rnd_view', isset($data) ? $data : NULL);
 	}
+
+	public function validate(){
+		//var_dump($_POST);
+		$seqq = $_POST;
+		$question_id = key($seqq);
+		$answer_id = $seqq[$question_id];
+		echo 'otazka:'.$question_id.'<br>';
+		echo 'odpoved:'.$answer_id;
+		$this->db->select('true_id_answer');
+		$query = $this->db->get_where('4m2w_questions', array('id' => $question_id));
+		$ans =$query->row_array();
+		$true_answ = $ans['true_id_answer'];
+		echo 'spr. odpoved:'.$true_answ;
+
+		$data['rnd_answer'] = $this->question_model->get_rnd_answer($id);
+		$data['question'] = $this->question_model->get_question($id);
+		$this->load->view('questions/rnd_view', isset($data) ? $data : NULL);
+	}
 }

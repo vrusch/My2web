@@ -1,5 +1,5 @@
 
-
+<p>Tady muzete priradit studenty do skupin. Kdyz potrebujete vyradit studenta, zaskrtnete a priradit  "zadna skupina".</p>
 <?php echo form_open('companies_cont/add_students_to_group/'.$company['id'], 'class="form-horizontal"'); ?>
 <?php echo validation_errors(); ?>
 <?php $uncharted = $this->db->get_where('4m2w_students', array('company_id' => $company['id'], 'group_id' => '0'));?>

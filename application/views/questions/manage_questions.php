@@ -64,7 +64,7 @@
 							<?php
 							$atts = array(
 								'width'       => 800,
-								'height'      => 600,
+								'height'      => 800,
 								'scrollbars'  => 'no',
 								'status'      => 'yes',
 								'resizable'   => 'no',
@@ -72,7 +72,7 @@
 								'screeny'     => 200,
 								'window_name' => '_blank'
 							);
-							echo anchor_popup('questions/rnd/'. $question_item['id'], '<button>Nahled</button>', $atts);
+							echo anchor_popup('questions/rnd/'. $question_item['id'], 'Nahled', $atts);
 							?>
 						</td>
 						<td>

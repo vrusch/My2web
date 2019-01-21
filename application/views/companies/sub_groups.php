@@ -1,4 +1,4 @@
-
+<p>Muzete pridavat nebo mazat skupiny studentu. Smazat muzete jenom skupinu ktera nema prirazene studenty.</p>
 			<?php echo form_open('companies_cont/add_group/'.$company['id'], 'class="form-horizontal"'); ?>
 
 

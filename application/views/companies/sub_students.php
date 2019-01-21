@@ -1,3 +1,4 @@
+<p>Muzete pridavat studenty a to bud hromadne z csv souboru nebo jednotlive pomoci formulare.Muzete taky studenty mazat, mazat nemuzete jenom studenta z roli MKB.</p>
 <ul class="nav nav-pills">
 	<li class="active"><a data-toggle="pill" href="#new_std">Pridavat hromadne</a></li>
 	<li><a data-toggle="pill" href="#new_one">Pridat jednotlive</a></li>
@@ -66,8 +67,11 @@
 		<th><?php echo 'Příjmení' ;?></th>
 		<th><?php echo 'Email' ;?></th>
 		<th><?php echo 'Status' ;?></th>
+		<th><?php echo 'Smazat' ;?></th>
 	</tr>
 	</thead>
+	<?php echo form_open('companies_cont/add_student/' . $company['id'], 'class="form-horizontal"'); ?>
+	<?php echo validation_errors(); ?>
 	<?php foreach ($students as $students_item) : ?>
 		<?php $student_info = $this->companies_model->get_student_info($students_item['student_id']); ?>
 		<?php $acc_info = $this->companies_model->get_account_info($students_item['student_id']); ?>
@@ -96,10 +100,15 @@
 				}
 				?>
 			</td>
+			<td>
+				<?php echo form_checkbox(); ?>
+
+			</td>
 		</tr>
 	<?php endforeach; ?>
 	</tbody>
 </table>
+	<?php echo form_close(); ?>
 <?php endif ?>
 
 
