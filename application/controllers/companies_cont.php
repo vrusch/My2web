@@ -242,7 +242,7 @@ class companies_cont extends CI_Controller
 		$this->db->select('id');
 		$query = $this->db->get_where('a3m_acl_role', array('name' => 'Student'));
 		$student_role = $query->row_array();
-//todo: napisat validaciu formulara cez ajax alebo JS
+		//todo: napisat validaciu formulara cez ajax alebo JS
 		$students_item['username'] = $this->input->post('username');
 		$students_item['email'] = $this->input->post('email');
 		$students_item['name'] = $this->input->post('firstname');

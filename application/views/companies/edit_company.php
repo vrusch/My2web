@@ -52,6 +52,7 @@
 						<?php if($display['current'] == 'menu1') {echo '<li class="active"><a data-toggle="tab" href="#menu1">Správa Skupin</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu1">Správa Skupin</a></li>';} ?>
 						<?php if($display['current'] == 'menu2') {echo '<li class="active"><a data-toggle="tab" href="#menu2">Žáci -> skupiny</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu2">Žáci -> skupiny</a></li>';} ?>
 						<?php if($display['current'] == 'menu3') {echo '<li class="active"><a data-toggle="tab" href="#menu3">Správa kvízů</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu3">Správa kvízů</a></li>';} ?>
+						<?php if($display['current'] == 'menu5') {echo '<li class="active"><a data-toggle="tab" href="#menu6">Platnost kvizu</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu6">Platnost kvizu</a></li>';} ?>
 						<?php if($display['current'] == 'menu4') {echo '<li class="active"><a data-toggle="tab" href="#menu4">Správa MKB</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu4">Správa MKB</a></li>';} ?>
 						<?php if($display['current'] == 'menu5') {echo '<li class="active"><a data-toggle="tab" href="#menu5">Mazat/Blokovat</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu5">Mazat/Blokovat</a></li>';} ?>
 					</ul>
@@ -74,6 +75,9 @@
 						</div>
 							<?php if($display['current'] == 'menu5') {echo '<div id="menu5" class="tab-pane fade in active">';} else {echo '<div id="menu5" class="tab-pane fade">';} ?>
 							<?php echo $this->load->view('companies/sub_ban_delete', array('title' => ('edit company'))); ?>
+						</div>
+						<?php if($display['current'] == 'menu6') {echo '<div id="menu5" class="tab-pane fade in active">';} else {echo '<div id="menu6" class="tab-pane fade">';} ?>
+							<?php echo $this->load->view('companies/sub_validityto', array('title' => ('edit company'))); ?>
 						</div>
 					</div>
 
