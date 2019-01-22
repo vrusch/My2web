@@ -21,7 +21,7 @@
 			</table>
 
 			<div class="well">
-				<?php echo 'Momentalne spravujete firmu <strong>' .$company['name'] . '</strong>'; ?>
+				<?php echo("Experiment popis."); ?>
 			</div>
 			<!-- END of header page	-->
 

@@ -145,9 +145,10 @@
 
 <?php if (($show_change == 1) AND (count($students)) > 1) : ?> <!-- vymena MKB -->
 	<p><em><small>Muzete MKB vymenit za studenta. Studentovy se priradi role mkb, mail se neposila prepokladam ze se aktivuje uz zaslanym mailem nebo uz je aktivni. Neda se vybrat sama sebe se seznamu. Stavajici MKB bude student odebere se role MKB.</small></em></p>
-		<button class="btn btn-info btn-small" data-toggle="collapse" data-target="#students">Vymenit ze studentu</button>
+		<!--<button class="btn btn-info btn-small" data-toggle="collapse" data-target="#students1">Vymenit ze studentu</button>-->
 
-		<div id="students" class="collapse" style="border: 1px solid #08c">
+<!--<div id="students1" class="collapse" style="border: 1px solid #08c">-->
+		<div style="border: 1px solid #08c">
 			<table class="table table-condensed table-hover" style="background-color:white;">
 				<thead>
 				<tr>

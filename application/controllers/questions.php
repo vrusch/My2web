@@ -86,21 +86,38 @@ class questions extends CI_Controller
 		$this->load->view('questions/rnd_view', isset($data) ? $data : NULL);
 	}
 
-	public function validate(){
+	public function validate($question_id = NULL){
 		//var_dump($_POST);
-		$seqq = $_POST;
-		$question_id = key($seqq);
-		$answer_id = $seqq[$question_id];
-		echo 'otazka:'.$question_id.'<br>';
-		echo 'odpoved:'.$answer_id;
-		$this->db->select('true_id_answer');
-		$query = $this->db->get_where('4m2w_questions', array('id' => $question_id));
-		$ans =$query->row_array();
-		$true_answ = $ans['true_id_answer'];
-		echo 'spr. odpoved:'.$true_answ;
+		$this->form_validation->set_rules('user_answ[]', 'Kviz', 'required');
 
-		$data['rnd_answer'] = $this->question_model->get_rnd_answer($id);
-		$data['question'] = $this->question_model->get_question($id);
-		$this->load->view('questions/rnd_view', isset($data) ? $data : NULL);
+		if ($this->form_validation->run() === FALSE) {
+			$data['rnd_answer'] = $this->question_model->get_rnd_answer($question_id);
+			$data['question'] = $this->question_model->get_question($question_id);
+			$data['warn'] = 'Musite vybrat odpoved!';
+			$data['warncl'] = 'red';
+			$this->load->view('questions/rnd_view', isset($data) ? $data : NULL);
+		} else {
+			$seqq = $_POST;
+			$question_id = key($seqq['user_answ']);
+			$answer_id = $seqq['user_answ'][$question_id];
+
+			$this->db->select('true_id_answer');
+			$query = $this->db->get_where('4m2w_questions', array('id' => $question_id));
+			$ans =$query->row_array();
+			$true_answ = $ans['true_id_answer'];
+
+			if ($answer_id == $true_answ) {
+				$data['warn'] = 'Spravna odpoved!';
+				$data['warncl'] = 'green';
+			} else{
+				$data['warn'] = 'Spatna odpoved!';
+				$data['warncl'] = 'red';
+			}
+
+			$data['rnd_answer'] = $this->question_model->get_rnd_answer($question_id);
+			$data['question'] = $this->question_model->get_question($question_id);
+			$this->load->view('questions/rnd_view', isset($data) ? $data : NULL);
+		}
+
 	}
 }

@@ -22,7 +22,7 @@
 					<div id="sub_menu<?php echo $groups_item['id']; ?>" class="tab-pane fade in active">
 						<h3><?php echo $groups_item['name_of_group']; ?></h3>
 						<!-- start -->
-						<?php echo form_open('companies_cont/manage_quizzes/' . $company['id'], 'class="form-horizontal"'); ?>
+						<?php echo form_open('companies_cont/manage_quizzes/' . $groups_item['id'], 'class="form-horizontal"'); ?>
 						<?php echo validation_errors(); ?>
 
 						<table class="table table-condensed table-hover">
@@ -32,7 +32,6 @@
 								<th><?php echo '  '; ?></th>
 								<th><?php echo '  '; ?></th>
 								<th><?php echo 'Dostupne kvizy'; ?></th>
-								<th><?php echo 'Tema'; ?></th>
 							</tr>
 							</thead>
 							<tbody>
@@ -62,20 +61,6 @@
 										?>
 									</select>
 								</td>
-								<td>
-									<?php $themes = $this->companies_model->get_themes(); ?>
-									<?php
-									foreach ($themes as $themes_item){
-										$opt[$themes_item['id']] = $themes_item['theme'];
-									}
-									if (count($themes)){
-										$opt += ['0' => 'Vsechny temy'];
-									} else {
-										$opt = ['0' => 'Žádna tema'];
-									}
-									?>
-									<?php echo form_dropdown('theme_id', $opt, '0'); ?>
-								</td>
 							</tr>
 							</tbody>
 						</table>
@@ -87,7 +72,7 @@
 				<div id="sub_menu<?php echo $groups_item['id']; ?>" class="tab-pane fade">
 					<h3><?php echo $groups_item['name_of_group']; ?></h3>
 					<!-- start -->
-					<?php echo form_open('companies_cont/manage_quizzes/' . $company['id'], 'class="form-horizontal"'); ?>
+					<?php echo form_open('companies_cont/manage_quizzes/' . $groups_item['id'], 'class="form-horizontal"'); ?>
 					<?php echo validation_errors(); ?>
 
 					<table class="table table-condensed table-hover">
@@ -97,7 +82,6 @@
 							<th><?php echo '  '; ?></th>
 							<th><?php echo '  '; ?></th>
 							<th><?php echo 'Dostupne kvizy'; ?></th>
-							<th><?php echo 'Tema'; ?></th>
 						</tr>
 						</thead>
 						<tbody>
@@ -127,20 +111,6 @@
 									?>
 								</select>
 							</td>
-							<td>
-								<?php $themes = $this->companies_model->get_themes(); ?>
-								<?php
-								foreach ($themes as $themes_item){
-									$opt[$themes_item['id']] = $themes_item['theme'];
-								}
-								if (count($themes)){
-									$opt += ['0' => 'Vsechny temy'];
-								} else {
-									$opt = ['0' => 'Žádna tema'];
-								}
-								?>
-								<?php echo form_dropdown('theme_id', $opt, '0'); ?>
-							</td>
 						</tr>
 						</tbody>
 					</table>
@@ -159,30 +129,19 @@
 						<th><?php echo 'Username' ;?></th>
 						<th><?php echo 'Jméno' ;?></th>
 						<th><?php echo 'Příjmení' ;?></th>
-						<th><?php echo 'Email' ;?></th>
+						<th><?php echo 'Skupina' ;?></th>
 						<th><?php echo 'Kvizy' ;?></th>
 					</tr>
 					</thead>
-					<?php echo form_open('companies_cont/add_student/' . $company['id'], 'class="form-horizontal"'); ?>
+					<?php echo form_open('companies_cont/addquizindstudent/' . $company['id'], 'class="form-horizontal"'); ?>
 					<?php echo validation_errors(); ?>
 					<?php
 					foreach ($quizzes as $quizzes_item) {
 					$optQ[$quizzes_item['id']] = $quizzes_item['name'];
 					}
 					?>
-					<?php echo form_dropdown('theme_id', $optQ, '0'); ?>
-					<?php $themes = $this->companies_model->get_themes(); ?>
-					<?php
-					foreach ($themes as $themes_item){
-						$opt[$themes_item['id']] = $themes_item['theme'];
-					}
-					if (count($themes)){
-						$opt += ['0' => 'Vsechny temy'];
-					} else {
-						$opt = ['0' => 'Žádna tema'];
-					}
-					?>
-					<?php echo form_dropdown('theme_id', $opt, '0'); ?>
+					<?php echo form_dropdown('quizz_id', $optQ, '0'); ?>
+
 					<?php foreach ($students as $students_item) : ?>
 						<?php $student_info = $this->companies_model->get_student_info($students_item['student_id']); ?>
 						<?php $acc_info = $this->companies_model->get_account_info($students_item['student_id']); ?>
@@ -202,18 +161,14 @@
 								<em><?php echo $student_info['lastname']; ?></em>
 							</td>
 							<td>
-								<em><?php echo $student_info['email']; ?></em>
+								<em>
+									<?php
+									$group_inf = $this->companies_model->get_group_info($students_item['group_id']);
+									if (isset ($group_inf['name_of_group'])){echo $group_inf['name_of_group'];}
+									?></em>
 							</td>
 							<td>
-								<?php
-								if ($acc_info['suspendedon'] != NULL){
-									echo '<span class="label label-important">Blokován</span>';
-								}elseif ($acc_info['verifiedon'] != NULL){
-									echo 'active';
-								}elseif ($acc_info['createdon'] != NULL){
-									echo 'zaslano';
-								}
-								?>
+								<em><?php echo $students_item['group_id']; ?></em>
 							</td>
 						</tr>
 					<?php endforeach; ?>
@@ -224,7 +179,7 @@
 		</div>
 	</div>
 <?php else :  ?>
-	<p>Zadne kvizi protoze nejsou skupiny<kbd>ctrl + p</kbd></p>
+	<p>Zadne kvizi protoze nejsou skupiny</p>
 <?php endif ?>
 
 
