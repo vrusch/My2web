@@ -30,13 +30,6 @@
 			</div>
 
 			<div class="control-group">
-				<label class="control-label" for="tema"><?php echo ('Tema'); ?></label>
-				<div class="controls">
-					<?php echo form_input(array('name' => 'tema', 'id' => 'tema', '', 'maxlength' => 80)); ?>
-				</div>
-			</div>
-
-			<div class="control-group">
 				<label class="control-label" for="lecture"><?php echo ('Text'); ?></label>
 				<div class="controls">
 					<?php echo form_textarea(array('name' => 'lecture', 'id' => 'lecture')); ?>

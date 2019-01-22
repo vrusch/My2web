@@ -22,7 +22,7 @@
 					<div id="sub_menu<?php echo $groups_item['id']; ?>" class="tab-pane fade in active">
 						<h3><?php echo $groups_item['name_of_group']; ?></h3>
 						<!-- start -->
-						<?php echo form_open('companies_cont/manage_quizzes/' . $groups_item['id'], 'class="form-horizontal"'); ?>
+						<?php echo form_open('companies_cont/manage_quizzes/' . $company['id'] . '/' . $groups_item['id'], 'class="form-horizontal"'); ?>
 						<?php echo validation_errors(); ?>
 
 						<table class="table table-condensed table-hover">
@@ -47,10 +47,10 @@
 									</select>
 								</td>
 								<th>
-									<?php echo form_submit('remove_from', ('>>'), 'class="btn btn-primary"'); ?>
+									<?php echo form_submit('remove_from', '>>', 'class="btn btn-primary"'); ?>
 								</th>
 								<th>
-									<?php echo form_submit('add_to', ('<<'), 'class="btn btn-primary"'); ?>
+									<?php echo form_submit('add_to', '<<', 'class="btn btn-primary"'); ?>
 								</th>
 								<td>
 									<select name="quizzes_new[]" multiple>
@@ -72,7 +72,7 @@
 				<div id="sub_menu<?php echo $groups_item['id']; ?>" class="tab-pane fade">
 					<h3><?php echo $groups_item['name_of_group']; ?></h3>
 					<!-- start -->
-					<?php echo form_open('companies_cont/manage_quizzes/' . $groups_item['id'], 'class="form-horizontal"'); ?>
+					<?php echo form_open('companies_cont/manage_quizzes/' . $company['id'] . '/' . $groups_item['id'], 'class="form-horizontal"'); ?>
 					<?php echo validation_errors(); ?>
 
 					<table class="table table-condensed table-hover">

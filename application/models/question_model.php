@@ -68,7 +68,7 @@ class question_model extends CI_Model
 		$this->db->delete('4m2w_answers', array('id' => $smazat['question']['false2_id_answer']));
 		$this->db->delete('4m2w_answers', array('id' => $smazat['question']['false3_id_answer']));
 		$this->db->trans_complete();
-		if ($this->db->trans_status() === FALSE) //todo: zmazat i tab kvizu
+		if ($this->db->trans_status() === FALSE) //todo: zmazat i tabulku kvizu
 		{
 			echo 'chyba pri mazani zaznamu v 4m2w_answers';
 		}else{

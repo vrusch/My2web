@@ -74,13 +74,13 @@
 						<?php echo anchor('lecture/edit/'.$lecture_item['id'], 'edit', 'class="btn btn-small"'); ?>
 					</td>
 					<td>
+						<?php echo form_dropdown('quizz_id', $opt, '0'); ?>
+						<?php echo form_close(); ?>
+					</td>
+					<td>
 						<?php echo form_open('lecture/addto/' . $lecture_item['id'], 'class="form-horizontal"'); ?>
 						<?php echo validation_errors(); ?>
 						<?php echo form_submit('', 'pridat do kvizu', 'class="btn btn-info btn-small"'); ?>
-					</td>
-					<td>
-						<?php echo form_dropdown('quizz_id', $opt, '0'); ?>
-						<?php echo form_close(); ?>
 					</td>
 				</tr>
 				<?php endforeach; ?>

@@ -30,7 +30,6 @@
 				<thead>
 				<tr>
 					<th><?php echo('Název'); ?></th>
-					<th><?php echo('Tema'); ?></th>
 					<th><?php echo('nahled'); ?></th>
 					<th><?php echo('Prednasek'); ?></th>
 					<th><?php echo('Otazek'); ?></th>
@@ -44,12 +43,6 @@
 					<tr>
 						<td>
 							<?php echo $quizzes_item['name']; ?>
-						</td>
-						<td>
-							<?php
-							$theme= $this->quizzes_model->get_themes($quizzes_item['theme_id']);
-							echo $theme['theme']
-							?>
 						</td>
 						<td>
 							<p><a href="<?php echo site_url('quizzes_cont/view/' . $quizzes_item['id']); ?>">nahled</a></p>

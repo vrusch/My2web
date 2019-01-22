@@ -74,7 +74,7 @@ class companies_model extends CI_Model
 	{
 
 		$query = $this->db->query("SELECT 
-				  4m2w_company_quizzes.company_id, 4m2w_company_quizzes.group_id, 4m2w_company_quizzes.quiz_id, 4m2w_quizzes.name, 4m2w_quizzes.theme_id 
+				  4m2w_company_quizzes.company_id, 4m2w_company_quizzes.group_id, 4m2w_company_quizzes.quiz_id, 4m2w_quizzes.name
 				FROM 4m2w_company_quizzes 
 				JOIN 4m2w_quizzes 
 				ON 4m2w_company_quizzes.quiz_id = 4m2w_quizzes.id 
@@ -437,8 +437,18 @@ class companies_model extends CI_Model
 		return $user_id;
 	}
 
-	function get_themes(){
-		$query = $this->db->get('4m2w_theme');
+	function get_all_quizzes_by_company($company_id){
+		$query = $this->db->get_where('4m2w_company_quizzes', array('company_id' => $company_id));
+		return ($query->result_array());
+	}
+
+	function get_quizz_info($quizz_id){
+		$query = $this->db->get_where('4m2w_quizzes', array('id' => $quizz_id));
+		return ($query->row_array());
+	}
+
+	function get_std_indiv($company_id){
+		$query = $this->db->get_where('4m2w_indiv_quizzes', array('company_id' => $company_id));
 		return ($query->result_array());
 	}
 }
