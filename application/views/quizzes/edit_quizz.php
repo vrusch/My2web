@@ -49,17 +49,25 @@
 					</ul>
 
 					<div class="tab-content">
+
 						<div id="sub_menu1" class="tab-pane fade in active">
-							<h3>Komponenty kvizu</h3>
 							<p>Ke kvizu tahat lekce, prednasky a otazky</p>
+							<?php echo $quizz['name']; ?>
+							<?php echo $quizz['id']; ?>
+							<?php $lestures = $this->quizzes_model->get_lectures_by_quizz( $quizz['id']); ?>
+							<?php var_dump($lestures); ?>
+							<?php $questions = $this->quizzes_model->get_question_by_quizz( $quizz['id']); ?>
+							<?php var_dump($questions); ?>
 						</div>
+
 						<div id="sub_menu2" class="tab-pane fade">
 							<h3>nastaveni prametru kvizu:</h3>
-							<p>nahodne poradi</p>
-							<p>specificke poradi</p>
+							<p>nahodne poradi otazek</p>
+							<p>specificke poradi otazek a lekcii</p>
 							<p>dlouhy formular</p>
 							<p>1 otazka jedna stranka</p>
 						</div>
+
 						<div id="sub_menu3" class="tab-pane fade">
 							<h3>Specificke poradi</h3>
 							<p>pretahovanim urcite poradi komponent kvizu.</p>

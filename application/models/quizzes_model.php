@@ -18,26 +18,9 @@ class quizzes_model extends CI_Model
 		return $query->row_array();
 	}
 
-	public function set_quizz($quizz_name, $theme_id)
+	public function set_quizz($quizz_name)
 	{
-		$this->db->insert('4m2w_quizzes', array('name' => $quizz_name, 'theme_id' => $theme_id));
-	}
-
-	public function get_themes($theme_id = NULL)
-	{
-		if ($theme_id == NULL){
-			$query = $this->db->get('4m2w_theme');
-			return $query->result_array();
-		} else {
-			$query = $this->db->get_where('4m2w_theme', array('id' => $theme_id));
-			return $query->row_array();
-		}
-	}
-
-	public function set_theme($theme_name)
-	{
-		$this->db->insert('4m2w_theme', array('theme' => $theme_name));
-		return $this->db->insert_id();
+		$this->db->insert('4m2w_quizzes', array('name' => $quizz_name));
 	}
 
 	public function upd_quizz_name($quizz_name, $quizz_id)
@@ -47,5 +30,17 @@ class quizzes_model extends CI_Model
 		);
 		$this->db->where('id', $quizz_id);
 		$this->db->update('4m2w_quizzes', $data);
+	}
+
+	public function get_lectures_by_quizz($quizz_id){
+		$sql = 'SELECT 4m2w_rel_quizz_lec.lecture_id, 4m2w_lectures.name FROM 4m2w_rel_quizz_lec JOIN 4m2w_lectures ON 4m2w_rel_quizz_lec.lecture_id = 4m2w_lectures.id WHERE 4m2w_rel_quizz_lec.quizz_id = ?';
+		$query = $this->db->query($sql, $quizz_id);
+		return $query->result_array();
+	}
+
+	public function get_question_by_quizz($quizz_id){
+		$sql = 'SELECT 4m2w_rel_quizz_que.question_id, 4m2w_questions.question FROM 4m2w_rel_quizz_que JOIN 4m2w_questions ON 4m2w_rel_quizz_que.question_id = 4m2w_questions.id WHERE 4m2w_rel_quizz_que.quizz_id = ?';
+		$query = $this->db->query($sql, $quizz_id);
+		return $query->result_array();
 	}
 }
