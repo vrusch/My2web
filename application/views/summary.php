@@ -9,13 +9,13 @@
 	<div class="row">
 
 		<div class="span2">
-			<?php echo $this->load->view('account/admin_panel', array('current' => 'manage_quizzes')); ?>
+			<?php echo $this->load->view('account/admin_panel', array('current' => 'manage_summary')); ?>
 		</div>
 		<div class="span10">
 
 			<table style="width: 100%">
 				<tr>
-					<td style="width: 85%"><h2>Hledat - Prehled</h2></td>
+					<td style="width: 85%"><h2>Prehled</h2></td>
 					<td><a href="quizzes_cont"><buton class="btn btn-primary btn-small">Back</buton></a></td>
 				</tr>
 			</table>
@@ -33,20 +33,46 @@
 					<h2>Dynamic Pills</h2>
 					<p>To make the tabs toggleable, add the data-toggle="pill" attribute to each link. Then add a .tab-pane class with a unique ID for every tab and wrap them inside a div element with class .tab-content.</p>
 					<ul class="nav nav-pills">
-						<li class="active"><a data-toggle="pill" href="#sub_menu1">Studenti</a></li>
-						<li><a data-toggle="pill" href="#sub_menu2">studenti -> kvizy</a></li>
-						<li><a data-toggle="pill" href="#sub_menu3">prehledy</a></li>
+						<li class="active"><a data-toggle="pill" href="#sub_students">Studenti</a></li>
+						<li><a data-toggle="pill" href="#sub_groups">Skupiny</a></li>
+						<li><a data-toggle="pill" href="#sub_menu3">Ostatni prehledy</a></li>
 
 					</ul>
 
 					<div class="tab-content">
 
-						<div id="sub_menu1" class="tab-pane fade in active">
-							<p>bla bla</p>
+						<div id="sub_students" class="tab-pane fade in active">
+							<table class="table table-condensed table-hover">
+								<thead>
+								<tr>
+									<th><?php echo 'Username' ;?></th>
+									<th><?php echo 'Jméno' ;?></th>
+									<th><?php echo 'Příjmení' ;?></th>
+									<th><?php echo 'Firma' ;?></th>
+									<th><?php echo 'Skupina' ;?></th>
+								</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											dfgfs
+										</td>
+										<td>
+											sdfsf
+										</td>
+										<td>
+											sdfsdf
+										</td>
+										<td>
+											sdfsdf
+										</td>
+									</tr>
+								</tbody>
+							</table>
 
 						</div>
 
-						<div id="sub_menu2" class="tab-pane fade">
+						<div id="sub_groups" class="tab-pane fade">
 							<h3>bla bla:</h3>
 							<p>bla bla</p>
 

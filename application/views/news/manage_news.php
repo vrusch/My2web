@@ -53,22 +53,23 @@
 						<td>
 							<label class="controls">
 								<?php
-								$check = '';
+
 								if ($news_item['active'] === '1'){
-									$check = 'checked';
+									echo '<span style="background-color: green; color: white; padding: 3px; padding-left: 11px; padding-right: 11px">Aktivní</span>';
+								} else {
+									echo '<span style="background-color: #a7bacc; padding: 3px">Neaktivní</span>';
 								}
-								echo form_checkbox('active', 'active', $check, 'readonly' );
 								?>
 							</label>
 						</td>
 						<td>
 							<label class="controls">
 								<?php
-								$check = '';
 								if ($news_item['highlight'] === '1'){
-									$check = 'checked';
+									echo '<span style="background-color: green; color: white; padding: 3px; padding-left: 11px; padding-right: 11px">Zvýraznená</span>';
+								} else {
+									echo '<span style="background-color: #a7bacc; padding: 3px">Nezvýraznená</span>';
 								}
-								echo form_checkbox('highlight', 'highlight', $check, 'readonly' );
 								?>
 							</label>
 						</td>

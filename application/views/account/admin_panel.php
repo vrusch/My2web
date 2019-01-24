@@ -40,7 +40,7 @@
 			<li class="<?php echo ($current == 'manage_prolongation') ? 'active' : ''; ?>"><?php echo anchor('prolongation_cont', ('Prolongace')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_search') ? 'active' : ''; ?>"><?php echo anchor('search_cont', ('Hledat - Prehled')); ?></li>
+			<li class="<?php echo ($current == 'manage_summary') ? 'active' : ''; ?>"><?php echo anchor('summary_cont', ('Přehled')); ?></li>
 		<?php endif; ?>
 	<?php endif; ?>
 

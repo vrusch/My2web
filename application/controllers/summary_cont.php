@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class search_cont extends CI_Controller
+class summary_cont extends CI_Controller
 {
 
 	public function __construct()
@@ -8,11 +8,12 @@ class search_cont extends CI_Controller
 		parent::__construct();
 		$this->load->helper(array('language', 'url', 'form', 'account/ssl', 'url_helper'));
 		$this->load->library(array('account/authentication', 'account/authorization', 'form_validation'));
-		$this->load->model(array('account/account_model', 'companies_model'));
+		$this->load->model(array('account/account_model', 'summary_model'));
 	}
 
 	public function index()
 	{
-		$this->load->view('search', isset($data) ? $data : NULL);
+		$data['students'] = $this->summary_model->get_all_students();
+		$this->load->view('summary', isset($data) ? $data : NULL);
 	}
 }
