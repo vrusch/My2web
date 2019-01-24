@@ -12,15 +12,14 @@ nastavit platnost pro skupiny:
 	</thead>
 	<tbody>
 	<?php $all_quizzes = $this->companies_model->get_all_quizzes_by_company($company['id']);?>
-	<?php //var_dump($allcompanyquizzes); ?>
 	<?php foreach ($all_quizzes as $all_quizzes_item) : ?>
 	<tr>
-		<td>
+		<td><strong>
 			<?php
 			$group_inf = $this->companies_model->get_group_info($all_quizzes_item['group_id']);
 			if (isset ($group_inf['name_of_group'])){echo $group_inf['name_of_group'];}
 			?>
-		</td>
+			</strong></td>
 		<td>
 			<?php
 			$quizz_inf = $this->companies_model->get_quizz_info($all_quizzes_item['quiz_id']);

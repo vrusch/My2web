@@ -255,8 +255,26 @@ class companies_cont extends CI_Controller
 
 	public function manage_quizzes($company_id, $group_id)
 	{
-		var_dump($_POST);
-		var_dump($company_id);
-		var_dump($group_id);
+		$variables = $_POST;
+
+		if (isset($variables['remove_from'])){
+			foreach ($variables['quizzes_old'] as $item){
+				$this->db->where(array('company_id' => $company_id, 'group_id' => $group_id, 'quiz_id' => $item));
+				$this->db->delete('4m2w_company_quizzes');
+			};
+
+		}
+		if (isset($variables['add_to'])){
+			foreach ($variables['quizzes_new'] as $item){
+				$query = $this->db->get_where('4m2w_company_quizzes', array('company_id' => $company_id, 'group_id' => $group_id, 'quiz_id' => $item));
+				$kontr = $query->row_array();
+				if (count($kontr) > 0) {
+					print_r('UZ EXISTUJE');
+				} else {
+					print_r('ZAPSAT');
+					$this->db->insert('4m2w_company_quizzes',array('company_id' => $company_id, 'group_id' => $group_id, 'quiz_id' => $item));
+				}
+			}
+		}
 	}
 }

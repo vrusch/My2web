@@ -438,6 +438,7 @@ class companies_model extends CI_Model
 	}
 
 	function get_all_quizzes_by_company($company_id){
+		$this->db->order_by('group_id', 'ASC');
 		$query = $this->db->get_where('4m2w_company_quizzes', array('company_id' => $company_id));
 		return ($query->result_array());
 	}

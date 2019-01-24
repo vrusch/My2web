@@ -36,9 +36,9 @@
 							</thead>
 							<tbody>
 							<tr>
-								<td>
+								<td style="width: 45%">
 									<?php $group_quizzes = $this->companies_model->get_quizzes_by_group($company['id'], $groups_item['id']); ?>
-									<select name="quizzes_old[]" multiple>
+									<select name="quizzes_old[]" multiple style="width: 100%">
 										<?php
 										foreach ($group_quizzes as $group_quizzes_item) {
 											echo '<option value="' . $group_quizzes_item['quiz_id'] . '">' . $group_quizzes_item['name'] . '</option>';
@@ -46,14 +46,14 @@
 										?>
 									</select>
 								</td>
-								<th>
-									<?php echo form_submit('remove_from', '>>', 'class="btn btn-primary"'); ?>
-								</th>
-								<th>
-									<?php echo form_submit('add_to', '<<', 'class="btn btn-primary"'); ?>
-								</th>
-								<td>
-									<select name="quizzes_new[]" multiple>
+								<td style="width: 5%">
+									<?php echo form_submit('remove_from', '>>', 'class="btn btn-primary" style="width: 100%"'); ?>
+								</td>
+								<td style="width: 5%">
+									<?php echo form_submit('add_to', '<<', 'class="btn btn-primary" style="width: 100%"'); ?>
+								</td>
+								<td style="width: 45%">
+									<select name="quizzes_new[]" multiple style="width: 100%">
 										<?php
 										foreach ($quizzes as $quizzes_item) {
 											echo '<option value="' . $quizzes_item['id'] . '">' . $quizzes_item['name'] . '</option>';
@@ -86,9 +86,9 @@
 						</thead>
 						<tbody>
 						<tr>
-							<td>
+							<td style="width: 45%">
 								<?php $group_quizzes = $this->companies_model->get_quizzes_by_group($company['id'], $groups_item['id']); ?>
-								<select name="quizzes_old[]" multiple>
+								<select name="quizzes_old[]" multiple style="width: 100%">
 									<?php
 									foreach ($group_quizzes as $group_quizzes_item) {
 										echo '<option value="' . $group_quizzes_item['quiz_id'] . '">' . $group_quizzes_item['name'] . '</option>';
@@ -96,14 +96,14 @@
 									?>
 								</select>
 							</td>
-							<th>
-								<?php echo form_submit('remove_from', ('>>'), 'class="btn btn-primary"'); ?>
-							</th>
-							<th>
-								<?php echo form_submit('add_to', ('<<'), 'class="btn btn-primary"'); ?>
-							</th>
-							<td>
-								<select name="quizzes_new[]" multiple>
+							<td style="width: 5%">
+								<?php echo form_submit('remove_from', '>>', 'class="btn btn-primary" style="width: 100%"'); ?>
+							</td>
+							<td style="width: 5%">
+								<?php echo form_submit('add_to', '<<', 'class="btn btn-primary" style="width: 100%"'); ?>
+							</td>
+							<td style="width: 45%">
+								<select name="quizzes_new[]" multiple style="width: 100%">
 									<?php
 									foreach ($quizzes as $quizzes_item) {
 										echo '<option value="' . $quizzes_item['id'] . '">' . $quizzes_item['name'] . '</option>';
