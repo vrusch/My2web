@@ -29,12 +29,9 @@
 				</div>
 			</div>
 
-			<div class="control-group">
-				<label class="control-label" for="lecture"><?php echo ('Text'); ?></label>
-				<div class="controls">
+
 					<?php echo form_textarea(array('name' => 'lecture', 'id' => 'lecture')); ?>
-				</div>
-			</div>
+
 
 			<div class="form-actions">
 				<div class="controls">

@@ -299,6 +299,7 @@ class companies_model extends CI_Model
 			$data_student = array(
 				'company_id' => $company_id,
 				'student_id' => $user_id,
+				'group_id' => '0',
 				'attribut' => 'mkb'
 			);
 			if (!$query_mkb = $this->db->insert('4m2w_students', $data_student)) {
@@ -307,11 +308,20 @@ class companies_model extends CI_Model
 				//todo: detekce DB chyby
 			}
 
-			$data_acc_detail = array(
-				'account_id' => $user_id,
-				'firstname' => $this->input->post('mkb_firstname'),
-				'lastname' => $this->input->post('mkb_lastname')
-			);
+			if( $this->input->post('mkb_lastname') == FALSE){
+				$data_acc_detail = array(
+					'account_id' => $user_id,
+					'firstname' => NULL,
+					'lastname' => NULL
+				);
+			}else{
+				$data_acc_detail = array(
+					'account_id' => $user_id,
+					'firstname' => $this->input->post('mkb_firstname'),
+					'lastname' => $this->input->post('mkb_lastname')
+				);
+			}
+
 			if (!$query_mkb = $this->db->insert('a3m_account_details', $data_acc_detail)) {
 				$error = $this->db->error();
 				print_r($error);
@@ -452,5 +462,6 @@ class companies_model extends CI_Model
 		$query = $this->db->get_where('4m2w_indiv_quizzes', array('company_id' => $company_id));
 		return ($query->result_array());
 	}
+
 }
 

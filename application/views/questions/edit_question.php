@@ -16,7 +16,7 @@
 			<h2><?php echo ("Otazka editace"); ?></h2>
 
 			<div class="well">
-				<?php echo "editovani otazky #".$question['id']; ?>
+				<?php echo "editovani otazky #".$question['id'].'pridat konfiguraci, xcete povolit velke zahlavi pro tuto otazku?'; ?>
 			</div>
 			<?php echo form_open('questions/update/'.$question['id'], 'class="form-horizontal"'); ?>
 			<?php echo validation_errors(); ?>

@@ -1,5 +1,21 @@
-vymena MKB za studenta co zo starym mkb (ban?)
-mazanie blokovanie firmy - neexistujuce indexi
-novy mkb - vybrat ze studentu - dodelat jenom z aktivnych
-terminy kvizu
-priradit kviz individualne , jednotlivci, napr. mkb
+Firmy
+zrusit linky po kliknuti na pocet, na hlavnej stranke
+nova firma upravit popis
+pri vytvarani mkb s firmou sa neapisuke v tab studenti attribut mkb
+
+sprava zaku
+v prehlade ikonka mkb
+doplnit delete - funkcnost
+
+zaci -> skupiny
+v prehlade ikonka mkb
+doplnit delete - funkcnost
+
+skupiny
+nefunguje mazanie nemazu sa vsetky tabulky
+
+Nova firma -> po pridani mkb jmeno a prijmeni je '0'
+
+sprava kvizu
+chyba ikonka MKB v prehlade
+dokoncit po priradeni kurzu navrat na stranku

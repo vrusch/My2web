@@ -148,7 +148,6 @@
 						<tr>
 							<td>
 								<?php echo form_checkbox(); ?>
-
 							</td>
 							<td>
 								<em><?php echo $student_info['username']; ?></em>
@@ -168,7 +167,18 @@
 									?></em>
 							</td>
 							<td>
-								<em><?php echo $students_item['group_id']; ?></em>
+								<?php $quiz = $this->companies_model->get_quizzes_by_group($company['id'], $students_item['group_id']); ?>
+								<?php if (count($quiz) > 0) : ?>
+								<table class="table-bordered" style="width: 100%">
+									<?php foreach ($quiz as $quiz_item) : ?>
+									<tr>
+										<td>
+											<em><?php echo $quiz_item['quiz_id'] ;?><?php echo $quiz_item['name'] ;?></em>
+										</td>
+									</tr>
+									<?php endforeach; ?>
+								</table>
+								<?php endif;//todo: doplnit individualne kurzy prehlad?>
 							</td>
 						</tr>
 					<?php endforeach; ?>

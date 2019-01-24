@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php echo $this->load->view('head', array('title' => ('edit company'))); ?>
+	<?php echo $this->load->view('head_js', array('title' => ('edit company'))); ?>
 </head>
 <body>
 
@@ -40,8 +40,8 @@
 			<!-- TABS start -->
 			<?php if (isset($display['current'])) : ?>
 				<div style="width: 100%">
-					<h2>Dynamic Pills</h2>
-					<p>To make the tabs toggleable, add the data-toggle="pill" attribute to each link. Then add a .tab-pane class with a unique ID for every tab and wrap them inside a div element with class .tab-content.</p>
+					<h2><?php echo $quizz['name']; ?></h2>
+					<p>{ poznamka ulozana ke kvizu, strucny popis, mozna cil, urceni unique ID for every tab and wrap them inside a div element with class .tab-content.}</p>
 					<ul class="nav nav-pills">
 						<li class="active"><a data-toggle="pill" href="#sub_menu1">Komponenty kvizu</a></li>
 						<li><a data-toggle="pill" href="#sub_menu2">Konfigurace parametru kvizu</a></li>
@@ -51,13 +51,7 @@
 					<div class="tab-content">
 
 						<div id="sub_menu1" class="tab-pane fade in active">
-							<p>Ke kvizu tahat lekce, prednasky a otazky</p>
-							<?php echo $quizz['name']; ?>
-							<?php echo $quizz['id']; ?>
-							<?php $lestures = $this->quizzes_model->get_lectures_by_quizz( $quizz['id']); ?>
-							<?php var_dump($lestures); ?>
-							<?php $questions = $this->quizzes_model->get_question_by_quizz( $quizz['id']); ?>
-							<?php var_dump($questions); ?>
+							<?php echo $this->load->view('quizzes/sub_component', array('title' => ('edit quizz'))); ?>
 						</div>
 
 						<div id="sub_menu2" class="tab-pane fade">

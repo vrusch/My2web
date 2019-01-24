@@ -269,12 +269,13 @@ class companies_cont extends CI_Controller
 				$query = $this->db->get_where('4m2w_company_quizzes', array('company_id' => $company_id, 'group_id' => $group_id, 'quiz_id' => $item));
 				$kontr = $query->row_array();
 				if (count($kontr) > 0) {
-					print_r('UZ EXISTUJE');
+					//print_r('UZ EXISTUJE');
 				} else {
-					print_r('ZAPSAT');
+					//print_r('ZAPSAT');
 					$this->db->insert('4m2w_company_quizzes',array('company_id' => $company_id, 'group_id' => $group_id, 'quiz_id' => $item));
 				}
 			}
 		}
+		$this->edit($company_id, 'menu3', 'edit');
 	}
 }

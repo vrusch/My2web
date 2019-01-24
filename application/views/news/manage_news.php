@@ -55,9 +55,9 @@
 								<?php
 
 								if ($news_item['active'] === '1'){
-									echo '<span style="background-color: green; color: white; padding: 3px; padding-left: 11px; padding-right: 11px">Aktivní</span>';
+									echo '<span style="background-color: #0981c6; color: white; padding: 3px; padding-left: 11px; padding-right: 11px">Aktivní</span>';
 								} else {
-									echo '<span style="background-color: #a7bacc; padding: 3px">Neaktivní</span>';
+									echo '<span style="background-color: #d7d7d7; padding: 3px">Neaktivní</span>';
 								}
 								?>
 							</label>
@@ -66,9 +66,9 @@
 							<label class="controls">
 								<?php
 								if ($news_item['highlight'] === '1'){
-									echo '<span style="background-color: green; color: white; padding: 3px; padding-left: 11px; padding-right: 11px">Zvýraznená</span>';
+									echo '<span style="background-color: #0981c6; color: white; padding: 3px; padding-left: 11px; padding-right: 11px">Zvýraznená</span>';
 								} else {
-									echo '<span style="background-color: #a7bacc; padding: 3px">Nezvýraznená</span>';
+									echo '<span style="background-color: #d7d7d7; padding: 3px">Nezvýraznená</span>';
 								}
 								?>
 							</label>

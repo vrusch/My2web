@@ -54,9 +54,9 @@
 							<?php
 							$query = $this->db->get_where('4m2w_company_group', array('company_id' => $companies_item['id']));
 							if ($query->num_rows() > 0) {
-								echo '<a href="companies/add_groups/' . $companies_item['id'] . '"><span class="badge badge-info">' . $query->num_rows() . '</span></a>';
+								echo '<span class="badge badge-info">' . $query->num_rows() . '</span>';
 							} else {
-								echo '<span class="badge">' . $query->num_rows() . '</span></a>';
+								echo '<span class="badge">' . $query->num_rows() . '</span>';
 							}
 							?>
 						</td>
@@ -64,7 +64,7 @@
 							<?php
 							$query = $this->db->get_where('4m2w_students', array('company_id' => $companies_item['id']));
 							if ($query->num_rows() > 0) {
-								echo '<a href="companies/addStoG/' . $companies_item['id'] . '"><span class="badge badge-info">' . $query->num_rows() . '</span></a>';
+								echo '<span class="badge badge-info">' . $query->num_rows() . '</span>';
 							} else {
 								echo '<span class="badge">' . $query->num_rows() . '</span></a>';
 							}
@@ -74,9 +74,9 @@
 							<?php
 							$uncharted = $this->db->get_where('4m2w_students', array('company_id' => $companies_item['id'], 'group_id' => '0'));
 							if ($query->num_rows() > 0) {
-								echo '<a href="companies/addStoG/' . $companies_item['id'] . '"><span class="badge badge-info">' . $uncharted->num_rows() . '</span></a>';
+								echo '<span class="badge badge-info">' . $uncharted->num_rows() . '</span>';
 							} else {
-								echo '<span class="badge">' . $query->num_rows() . '</span></a>';
+								echo '<span class="badge">' . $query->num_rows() . '</span>';
 							}
 							?>
 						</td>

@@ -33,8 +33,8 @@
 					<h2>Dynamic Pills</h2>
 					<p>To make the tabs toggleable, add the data-toggle="pill" attribute to each link. Then add a .tab-pane class with a unique ID for every tab and wrap them inside a div element with class .tab-content.</p>
 					<ul class="nav nav-pills">
-						<li class="active"><a data-toggle="pill" href="#sub_students">Studenti</a></li>
-						<li><a data-toggle="pill" href="#sub_groups">Skupiny</a></li>
+						<li class="active"><a data-toggle="pill" href="#sub_students">Firmy</a></li>
+						<li><a data-toggle="pill" href="#sub_groups">Studenti</a></li>
 						<li><a data-toggle="pill" href="#sub_menu3">Ostatni prehledy</a></li>
 
 					</ul>

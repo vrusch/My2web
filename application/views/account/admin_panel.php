@@ -28,19 +28,19 @@
 			<li class="<?php echo ($current == 'manage_companies') ? 'active' : ''; ?>"><?php echo anchor('companies_cont', ('Firmy')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
+			<li class="<?php echo ($current == 'manage_summary') ? 'active' : ''; ?>"><?php echo anchor('summary_cont', ('Přehled')); ?></li>
+		<?php endif; ?>
+		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
+			<li class="<?php echo ($current == 'manage_quizzes') ? 'active' : ''; ?>"><?php echo anchor('quizzes_cont', ('Správa Kvizů')); ?></li>
+		<?php endif; ?>
+		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
 			<li class="<?php echo ($current == 'manage_question') ? 'active' : ''; ?>"><?php echo anchor('questions', ('Otazky')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
 			<li class="<?php echo ($current == 'manage_lecture') ? 'active' : ''; ?>"><?php echo anchor('lecture', ('Přednášky')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_quizzes') ? 'active' : ''; ?>"><?php echo anchor('quizzes_cont', ('Správa Kvizů')); ?></li>
-		<?php endif; ?>
-		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
 			<li class="<?php echo ($current == 'manage_prolongation') ? 'active' : ''; ?>"><?php echo anchor('prolongation_cont', ('Prolongace')); ?></li>
-		<?php endif; ?>
-		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_summary') ? 'active' : ''; ?>"><?php echo anchor('summary_cont', ('Přehled')); ?></li>
 		<?php endif; ?>
 	<?php endif; ?>
 
@@ -48,11 +48,17 @@
 			<?php //if ($this->authorization->is_permitted('retrieve_permissions')) : //todo: doplnit permition mkb moze pozerat iba manager kyberbezpecnosti?>
 				<li class="nav-header">Manazer kyberbezpecnosti</li>
 				<?php //if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-					<li class="<?php echo ($current == 'mkb_manage_companies') ? 'active' : ''; ?>"><?php echo anchor('mkb/company', ('Firma, zaci')); ?></li>
+					<li class="<?php echo ($current == 'mkb_manage_companies') ? 'active' : ''; ?>"><?php echo anchor('mkb/company', ('Sprava studentu')); ?></li>
 				<?php //endif; ?>
 				<?php //if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-				<li class="<?php echo ($current == 'mkb_manage_assignment') ? 'active' : ''; ?>"><?php echo anchor('mkb/assigment', ('Přiřazování')); ?></li>
+				<li class="<?php echo ($current == 'mkb_manage_assignment') ? 'active' : ''; ?>"><?php echo anchor('mkb/assigment', ('Sprava kvizu')); ?></li>
 				<?php //endif; ?>
+					<?php //if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
+				<li class="<?php echo ($current == 'manage_summary') ? 'active' : ''; ?>"><?php echo anchor('summary_cont', ('Přehled')); ?></li>
+				<?php //endif; ?>
+			<?php //if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
+				<li class="<?php echo ($current == 'manage_prolongation') ? 'active' : ''; ?>"><?php echo anchor('prolongation_cont', ('Prolongace')); ?></li>
+			<?php //endif; ?>
 			<?php //endif; ?>
 		<?php endif; ?>
 
