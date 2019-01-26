@@ -116,6 +116,7 @@ class Authorization {
   	$account_id = $this->CI->session->userdata('account_id');
   	return $account_id;
   }
+
 }
 
 

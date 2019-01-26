@@ -22,13 +22,35 @@
 			</table>
 			<!-- END of header page	-->
 			<div class="well">
-				Vam prirazene kvizy ukoncit do
+				Vam prirazene kvizy za spolecnost {firma} v skupine studentu {skupina}:
+				<table class="table table-condensed table-hover">
+					<thead>
+					<tr>
+						<th>Nazev</th>
+						<th>Obtiznost</th>
+						<th>Delka (v min. cca)</th>
+						<th>Dokoncit do</th>
+						<th>Vysledek</th>
+						<th>Opakovat</th>
+					</tr>
+					</thead>
+					<tbody>
+					<?php foreach($quizzes as $quizzes_item) : ;?>
+					<tr>
+						<td><?php echo $quizzes_item['name'] ;?></td>
+						<td>stredni</td>
+						<td>20</td>
+						<td>31-01-2019</td>
+						<td>nespusten</td>
+						<td></td>
+					</tr>
+					<?php endforeach; ?>
+					</tbody>
+				</table>
+
 			</div>
 		</div>
 	</div>
 </div>
 </body>
 </html>
-
-
-

@@ -12,14 +12,19 @@ class play_quizzes_model extends CI_Model
 
 	public function get_no_quizzes_by_user($account_id)
 	{
-		$query = $this->db->get_where('4m2w_students', array('student_id' => $account_id));
-		$student = $query->row_array();
-		$query = $this->db->get_where('4m2w_company_quizzes', array('company_id' => $student['company_id'], 'group_id' => $student['group_id']));
-		$group_quizzes = $query->result_array();
-		$query = $this->db->get_where('4m2w_indiv_quizzes', array('company_id' => $student['company_id'], 'student_id' => $account_id));
-		$indiv_quizzes = $query->result_array();
-		$data = count($group_quizzes) + count($indiv_quizzes);
-		return $data;
+		if ($account_id != '1') {
+			$query = $this->db->get_where('4m2w_students', array('student_id' => $account_id));
+			$student = $query->row_array();
+
+			$query = $this->db->get_where('4m2w_company_quizzes', array('company_id' => $student['company_id'], 'group_id' => $student['group_id']));
+			$group_quizzes = $query->result_array();
+			$query = $this->db->get_where('4m2w_indiv_quizzes', array('company_id' => $student['company_id'], 'student_id' => $account_id));
+			$indiv_quizzes = $query->result_array();
+			$data = count($group_quizzes) + count($indiv_quizzes);
+			return $data;
+		} else {
+			return 0;
+		}
 	}
 
 	public function get_student_info($student_id)
@@ -52,17 +57,9 @@ class play_quizzes_model extends CI_Model
 		return $query->row_array();
 	}
 
-	public function get_group($student_id)
+	public function get_quizz_info($quizz_id)
 	{
-		$query = $this->db->get_where();
+		$query = $this->db->get_where('4m2w_quizzes', array('id' => $quizz_id));
 		return $query->row_array();
 	}
-
-	public function get_individual($student_id)
-	{
-		$query = $this->db->get_where();
-		return $query->result_array();
-	}
-
-
 }

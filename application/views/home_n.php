@@ -57,10 +57,12 @@
 				</a>
 			<?php endif; ?>
 			<?php $user_id = $this->authorization->is_id(); ?>
+			<?php $count = $this->play_quizzes_model->get_no_quizzes_by_user($user_id) ?>
+			<?php if ( $count > 0) :; ?>
 			<a href="play_quizzes_cont/manage/<?php echo $user_id; ?>">
-				<button class="w3-btn linky"><i class="fas fa-graduation-cap"> </i> Vase kvizy</button>
+				<button class="w3-btn linky"><i class="fas fa-graduation-cap"> </i> Vase kvizy <span class="badge badge-info"><?php echo $count; ?></span></button>
 			</a>
-
+			<?php endif;?>
 		<a href="account/account_profile">
 			<button class="w3-btn linky"><i class="fas fa-user-edit"> </i> <?php echo $account->username; ?></button>
 		</a>
