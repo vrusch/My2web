@@ -56,6 +56,10 @@
 					<button class="w3-btn linky"><i class="fas fa-desktop"></i> MKB Menu</button>
 				</a>
 			<?php endif; ?>
+			<?php $user_id = $this->authorization->is_id(); ?>
+			<a href="play_quizzes_cont/manage/<?php echo $user_id; ?>">
+				<button class="w3-btn linky"><i class="fas fa-graduation-cap"> </i> Vase kvizy</button>
+			</a>
 
 		<a href="account/account_profile">
 			<button class="w3-btn linky"><i class="fas fa-user-edit"> </i> <?php echo $account->username; ?></button>

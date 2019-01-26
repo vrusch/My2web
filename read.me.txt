@@ -19,3 +19,16 @@ Nova firma -> po pridani mkb jmeno a prijmeni je '0'
 sprava kvizu
 chyba ikonka MKB v prehlade
 dokoncit po priradeni kurzu navrat na stranku
+
+
+konfigurace kvizu
+nastaveni prametru kvizu:
+							nahodne poradi otazek
+							specificke poradi otazek a lekcii
+							dlouhy formular
+							1 otazka jedna stranka
+							opakovatelny
+
+
+play kviz
+do tab quizzes pridat info co sa zobrazi na play u kvizu

@@ -28,10 +28,10 @@
 			<li class="<?php echo ($current == 'manage_companies') ? 'active' : ''; ?>"><?php echo anchor('companies_cont', ('Firmy')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_summary') ? 'active' : ''; ?>"><?php echo anchor('summary_cont', ('Přehled')); ?></li>
+			<li class="<?php echo ($current == 'manage_quizzes') ? 'active' : ''; ?>"><?php echo anchor('quizzes_cont', ('Správa Kvizů')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
-			<li class="<?php echo ($current == 'manage_quizzes') ? 'active' : ''; ?>"><?php echo anchor('quizzes_cont', ('Správa Kvizů')); ?></li>
+			<li class="<?php echo ($current == 'manage_summary') ? 'active' : ''; ?>"><?php echo anchor('summary_cont', ('Přehled')); ?></li>
 		<?php endif; ?>
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
 			<li class="<?php echo ($current == 'manage_question') ? 'active' : ''; ?>"><?php echo anchor('questions', ('Otazky')); ?></li>

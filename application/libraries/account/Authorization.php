@@ -110,6 +110,12 @@ class Authorization {
 
 		return $this->CI->acl_role_model->has_role('MKB', $account_id); //todo: zmenit na admin na MKB
   }
+
+  function is_id()
+  {
+  	$account_id = $this->CI->session->userdata('account_id');
+  	return $account_id;
+  }
 }
 
 

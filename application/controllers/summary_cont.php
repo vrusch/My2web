@@ -11,9 +11,14 @@ class summary_cont extends CI_Controller
 		$this->load->model(array('account/account_model', 'summary_model'));
 	}
 
-	public function index()
+	public function index($current = NULL, $subpagecontent = NULL, $data = NULL)
 	{
 		$data['students'] = $this->summary_model->get_all_students();
-		$this->load->view('summary', isset($data) ? $data : NULL);
+		if ($current === NULL){
+			$data['display'] = array('page' => 'edit', 'current' => 'home');
+		}else{
+			$data['display'] = array('page' => $subpagecontent, 'current' => $current);
+		}
+		$this->load->view('summary/summary', isset($data) ? $data : NULL);
 	}
 }

@@ -24,6 +24,26 @@
 	textarea {
 		width: 400px;
 	}
+	#sortable-list {
+		padding:0;
+	}
+	#sortable-list li	{
+		padding:4px 8px;
+		color:#000;
+		cursor:move;
+		list-style:none;
+		width:500px;
+		background:#ddd;
+		margin:10px 0;
+		border:1px solid #999;
+	}
+	#message-box {
+		background:#fffea1;
+		border:2px solid #fc0;
+		padding:4px 8px;
+		margin:0 0 14px 0;
+		width:500px;
+	}
 </style>
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->

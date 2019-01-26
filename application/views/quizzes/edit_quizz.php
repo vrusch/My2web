@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php echo $this->load->view('head_js', array('title' => ('edit company'))); ?>
+	<?php echo $this->load->view('head', array('title' => ('edit company'))); ?>
 </head>
 <body>
 
@@ -39,33 +39,28 @@
 			<?php //var_dump($display); ?>
 			<!-- TABS start -->
 			<?php if (isset($display['current'])) : ?>
-				<div style="width: 100%">
-					<h2><?php echo $quizz['name']; ?></h2>
-					<p>{ poznamka ulozana ke kvizu, strucny popis, mozna cil, urceni unique ID for every tab and wrap them inside a div element with class .tab-content.}</p>
-					<ul class="nav nav-pills">
-						<li class="active"><a data-toggle="pill" href="#sub_menu1">Komponenty kvizu</a></li>
-						<li><a data-toggle="pill" href="#sub_menu2">Konfigurace parametru kvizu</a></li>
-						<li><a data-toggle="pill" href="#sub_menu3">if specificke poradi</a></li>
-					</ul>
+				<div class="span4" style="; border: 1px solid blue"></div>
 
+				<div class="span4" style="width: 55%; border: 1px solid blue">
+					<ul class="nav nav-pills">
+						<li class="active"><a data-toggle="pill" href="#sub_menu1">Konfigurace parametru kvizu</a></li>
+						<li><a data-toggle="pill" href="#sub_menu2">Komponenty kvizu</a></li>
+					</ul>
 					<div class="tab-content">
 
 						<div id="sub_menu1" class="tab-pane fade in active">
-							<?php echo $this->load->view('quizzes/sub_component', array('title' => ('edit quizz'))); ?>
-						</div>
-
-						<div id="sub_menu2" class="tab-pane fade">
 							<h3>nastaveni prametru kvizu:</h3>
 							<p>nahodne poradi otazek</p>
 							<p>specificke poradi otazek a lekcii</p>
 							<p>dlouhy formular</p>
 							<p>1 otazka jedna stranka</p>
+
 						</div>
 
-						<div id="sub_menu3" class="tab-pane fade">
-							<h3>Specificke poradi</h3>
-							<p>pretahovanim urcite poradi komponent kvizu.</p>
+						<div id="sub_menu2" class="tab-pane fade">
+							<?php echo $this->load->view('quizzes/sub_component', array('title' => ('edit quizz'))); ?>
 						</div>
+
 					</div>
 				</div>
 			<?php endif ?>
