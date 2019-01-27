@@ -5,6 +5,23 @@
 
 <?php echo $this->load->view('head_n'); ?>
 
+	<style>
+		.badge {
+			display: inline-block;
+			min-width: 10px;
+			padding: 3px 7px;
+			font-size: 12px;
+			font-weight: 700;
+			line-height: 1;
+			color: #337ab7;
+			text-align: center;
+			white-space: nowrap;
+			vertical-align: middle;
+			background-color: #fcf8e3;
+			border-radius: 10px;
+		}
+	</style>
+
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
@@ -60,7 +77,7 @@
 			<?php $count = $this->play_quizzes_model->get_no_quizzes_by_user($user_id) ?>
 			<?php if ( $count > 0) :; ?>
 			<a href="play_quizzes_cont/manage/<?php echo $user_id; ?>">
-				<button class="w3-btn linky"><i class="fas fa-graduation-cap"> </i> Vase kvizy <span class="badge badge-info"><?php echo $count; ?></span></button>
+				<button class="w3-btn linky"><i class="fas fa-graduation-cap"> </i> Vase kvizy <span class="badge"><?php echo $count; ?></span></button>
 			</a>
 			<?php endif;?>
 		<a href="account/account_profile">

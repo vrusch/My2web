@@ -4,7 +4,7 @@
 	<?php echo $this->load->view('head', array('title' => ('Play Quizzes'))); ?>
 </head>
 <body>
-
+<?php $now = time(); $datestring = 'Datum: %d-%m-%Y ';?>
 <div class="container">
 	<div class="row">
 
@@ -16,7 +16,7 @@
 			<table style="width: 100%">
 				<tr>
 					<td style="width: 75%"><h2>  Vase kvizy<span class="badge badge-info"><?php echo $student_info['username'].' - '.$student_info['firstname'].' '.$student_info['lastname'];?></span></h2></td>
-					<td><?php echo 'dnes je: <strong>26-01-2019</strong>';?></td>
+					<td><strong><?php echo mdate($datestring, $now) ;?></strong></td>
 					<td><a href="home_n"><buton class="btn btn-primary btn-small"> Zpátky </buton></a></td>
 				</tr>
 			</table>

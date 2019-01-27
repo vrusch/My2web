@@ -62,4 +62,77 @@ class play_quizzes_model extends CI_Model
 		$query = $this->db->get_where('4m2w_quizzes', array('id' => $quizz_id));
 		return $query->row_array();
 	}
+
+	public function generate_quizz($quizz_id)
+	{
+		$data['quizz_info'] = $this->play_quizzes_model->get_quizz_info($quizz_id);
+
+		$this->db->select('lecture_id');
+		$query = $this->db->get_where('4m2w_rel_quizz_lec', array('quizz_id' => $quizz_id));
+		$data['quizz_lecture'] = $query->result_array();
+
+		$bb['prep_question'] = $this->get_rnd_questions($quizz_id);
+
+		foreach ($bb['prep_question'] as $item){
+
+			$data['questions'][$item['question_id']] = $this->get_rnd_answer($item['question_id']);
+
+		}
+		$datain = array(
+			'sequence' => $serialized_array = serialize($data)
+		);
+
+		$this->db->insert('4m2w_rel_quizz_sequence',$datain);
+		return $this->db->insert_id();
+	}
+
+	public function get_rnd_questions($id)
+	{
+		$this->db->select('question_id');
+		$query = $this->db->get_where('4m2w_rel_quizz_que', array('quizz_id' => $id));
+		$result = $query->result_array();
+		$opt = array();
+		foreach ($result as $query_item => $key){
+			$opt[] = $key;
+		}
+		shuffle($opt);
+		shuffle($opt);
+
+		return $opt;
+	}
+
+	public function get_rnd_answer($id)
+	{
+		$this->db->select('true_id_answer, false1_id_answer, false2_id_answer, false3_id_answer');
+		$this->db->where('id', $id);
+		$query = $this->db->get('4m2w_questions');
+		$result = $query->row_array();
+		$opt = array();
+		foreach ($result as $query_item => $key){
+			$opt[] = $key;
+		}
+		shuffle($opt);
+		shuffle($opt);
+
+		return $opt;
+	}
+
+	public function get_no_question($quizz_id)
+	{
+		$query = $this->db->get_where('4m2w_rel_quizz_que', array('quizz_id' => $quizz_id));
+		return $query->num_rows();
+	}
+
+	public function get_no_lectures($quizz_id)
+	{
+		$query = $this->db->get_where('4m2w_rel_quizz_lec', array('quizz_id' => $quizz_id));
+		return $query->num_rows();
+	}
+		/*
+		$this->db->select('sequence'); //todo: toto je precitanie sequence z 4m2w_rel_quizz_sequence
+		$query = $this->db->get_where('4m2w_rel_quizz_sequence',array('id' => $last_id));
+		$vysledek = $query->row_array();
+		$unserialized_array = unserialize($vysledek['sequence']);
+		var_dump($unserialized_array);
+		*/
 }
