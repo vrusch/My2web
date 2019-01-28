@@ -137,4 +137,15 @@ class play_quizzes_model extends CI_Model
 		$unserialized_array = unserialize($vysledek['sequence']);
 		return $unserialized_array; //todo: zapisat do seqencie satv spusteny a id studenta amozna datum
 	}
+
+	public function load_lecture($lecture_id)
+	{
+		$query = $this->db->get_where('4m2w_lectures', array('id' => $lecture_id));
+		return $query->row_array();
+	}
+
+	public function load_question($question_id)
+	{
+
+	}
 }

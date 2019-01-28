@@ -7,7 +7,7 @@
 <?php $now = time(); $datestring = 'Datum: %d-%m-%Y ';?>
 <div class="container">
 	<div class="row">
-<?php var_dump($sequence); ?>
+<?php //var_dump($sequence); ?>
 		<div class="span2">
 			<?php echo $this->load->view('play_quizzes/run_panel'); ?>
 		</div>
@@ -23,8 +23,31 @@
 				</table>
 			</div>
 				<?php $seq = $this->play_quizzes_model->load_quizz($sequence); ?>
-			<?php var_dump($seq); ?>
+			<?php //var_dump($seq); ?>
 			<div class="well-large">
+				<?php foreach ($seq['quizz_lecture'] as $item) : ?>
+					<?php
+						$lecture = $this->play_quizzes_model->load_lecture($item['lecture_id']);
+						echo '<h2>'. $lecture['name'].'</h2>';
+						echo $lecture['lecture'];
+					?>
+				<?php endforeach; ?>
+
+				<?php
+				foreach($seq['questions'] as $key => $value) {
+					echo $key; // Would output "subkey" in the example array
+					print_r($value);
+				}
+				?>
+
+				<?php foreach ($seq['questions'] as $item) : ?>
+					<?php
+					//var_dump(key($item));
+					//$question = $this->play_quizzes_model->load_question($item['lecture_id']);
+					//echo '<h2>'. $lecture['name'].'</h2>';
+					//echo $lecture['lecture'];
+					?>
+				<?php endforeach; ?>
 
 			</div>
 
