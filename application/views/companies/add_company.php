@@ -20,7 +20,7 @@
 				<?php echo("Pridat firmu a MKB - manazer kyberbezpenosti, kdyz zadate username a email bude zaslan aktivacni email s pokyny jak spravovat skupiny zaku, zaky a kurzy, Jinak jde aktivaci provest pozdeji, ale bez aktivniho MKB nemuze zakaznik spravovat zaky ani kurzy."); ?>
 			</div>
 
-			<?php echo form_open('companies_cont/create', 'class="form-horizontal"'); ?>
+			<?php echo form_open('companies_cont/create', 'class="form-horizontal" style="width: 100%"'); ?>
 			<?php echo validation_errors(); ?>
 
 			<div class="control-group">
@@ -51,6 +51,28 @@
 				<span class="help-inline">
 					<span class="field_error"><?php form_error('mkb_email'); ?></span>
 				</span>
+			</div>
+
+			<div>
+				<label>Vyberte kvizy pro tuto frmu:</label>
+				<table class="table table-condensed table-hover" style="width: 100%;">
+					<thead>
+					<tr>
+						<th style="text-align: center">Pridat</th>
+						<th style="text-align: center">Nazev</th>
+						<th style="text-align: center">Odhadovana doba trvani v min.</th>
+						<th style="text-align: center">Obtiznost</th>
+					</tr>
+					</thead>
+					<?php foreach($quizzes as $quizz_item) : ?>
+					<tr>
+						<td style="text-align: center"><?php echo form_checkbox("quizz[]", $quizz_item['id'], '', 'name="quizz"') ;?></td>
+						<td style="text-align: center"><?php echo $quizz_item['name'];?></td>
+						<td style="text-align: center"><?php echo $quizz_item['estimated_time'];?></td>
+						<td style="text-align: center"><?php echo $quizz_item['difficulty'];?></td>
+					</tr>
+					<?php endforeach; ?>
+				</table>
 			</div>
 
 			<div class="form-actions">

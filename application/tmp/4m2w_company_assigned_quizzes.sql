@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2019 at 04:27 PM
+-- Generation Time: Jan 28, 2019 at 04:28 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -25,39 +25,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `4m2w_quizzes`
+-- Table structure for table `4m2w_company_assigned_quizzes`
 --
 
-DROP TABLE IF EXISTS `4m2w_quizzes`;
-CREATE TABLE `4m2w_quizzes` (
+CREATE TABLE `4m2w_company_assigned_quizzes` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(128) NOT NULL,
-  `estimated_time` text,
-  `difficulty` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
-
---
--- Truncate table before insert `4m2w_quizzes`
---
-
-TRUNCATE TABLE `4m2w_quizzes`;
---
--- Dumping data for table `4m2w_quizzes`
---
-
-INSERT INTO `4m2w_quizzes` (`id`, `name`, `estimated_time`, `difficulty`) VALUES
-(1, 'kviz bezpecnost prace prvy', '25', '3'),
-(2, 'este vetsia bezpecnost prace', '20', '2'),
-(3, 'kviz 1 gdpr', '15', '1');
+  `company_id` bigint(20) UNSIGNED NOT NULL,
+  `quizz_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `4m2w_quizzes`
+-- Indexes for table `4m2w_company_assigned_quizzes`
 --
-ALTER TABLE `4m2w_quizzes`
+ALTER TABLE `4m2w_company_assigned_quizzes`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -65,10 +49,10 @@ ALTER TABLE `4m2w_quizzes`
 --
 
 --
--- AUTO_INCREMENT for table `4m2w_quizzes`
+-- AUTO_INCREMENT for table `4m2w_company_assigned_quizzes`
 --
-ALTER TABLE `4m2w_quizzes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `4m2w_company_assigned_quizzes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

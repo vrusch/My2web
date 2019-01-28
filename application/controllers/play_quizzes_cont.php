@@ -38,4 +38,14 @@ class play_quizzes_cont extends CI_Controller
 		//var_dump($data);
 		$this->load->view('play_quizzes/run', isset($data) ? $data : NULL);
 	}
+
+	public function play_run($quizz_id, $account_id)
+	{
+		$data['student_info'] = $this->play_quizzes_model->get_student_info($account_id);
+		$data['quizz_info'] = $this->play_quizzes_model->get_quizz_info($quizz_id);
+		//vygenerovany kviz vratim id sequence
+		$data['sequence'] = $this->play_quizzes_model->generate_quizz($quizz_id);
+		//var_dump($data);
+		$this->load->view('play_quizzes/run', isset($data) ? $data : NULL);
+	}
 }

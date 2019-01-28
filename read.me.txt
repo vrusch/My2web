@@ -32,3 +32,8 @@ nastaveni prametru kvizu:
 
 play kviz
 do tab quizzes pridat info co sa zobrazi na play u kvizu
+
+OTAZKY zavest rozsirene zahlavy otazky neco jako lekce pred kazdou otazkou
+zavest otazek je 30 ale vybira se jenom nahodne 10 napr.
+
+kvizy pro firmu, omezit mnozinu zaplacenych kvizu ze vsech kvizu

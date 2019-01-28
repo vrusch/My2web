@@ -40,6 +40,7 @@ class companies_cont extends CI_Controller
 
 	public function create()
 	{
+		var_dump($_POST);
 		$this->form_validation->set_rules(
 			'name', 'Název společnosti',
 			'required|min_length[3]|max_length[40]|is_unique[4m2w_companies.name]',
@@ -65,8 +66,10 @@ class companies_cont extends CI_Controller
 		);
 
 		if ($this->form_validation->run() === FALSE) {
+			$data['quizzes'] = $this->companies_model->get_quizzes();
 			$this->load->view('companies/add_company', isset($data) ? $data : NULL);
 		} else {
+
 			$user_id = $this->companies_model->set_company();
 
 			//send activation email ak firma ma mkb

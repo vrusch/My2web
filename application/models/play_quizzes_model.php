@@ -128,11 +128,13 @@ class play_quizzes_model extends CI_Model
 		$query = $this->db->get_where('4m2w_rel_quizz_lec', array('quizz_id' => $quizz_id));
 		return $query->num_rows();
 	}
-		/*
-		$this->db->select('sequence'); //todo: toto je precitanie sequence z 4m2w_rel_quizz_sequence
-		$query = $this->db->get_where('4m2w_rel_quizz_sequence',array('id' => $last_id));
+
+	public function load_quizz($sequence)
+	{
+		$this->db->select('sequence'); //precitanie sequence z 4m2w_rel_quizz_sequence
+		$query = $this->db->get_where('4m2w_rel_quizz_sequence', array('id' => $sequence));
 		$vysledek = $query->row_array();
 		$unserialized_array = unserialize($vysledek['sequence']);
-		var_dump($unserialized_array);
-		*/
+		return $unserialized_array; //todo: zapisat do seqencie satv spusteny a id studenta amozna datum
+	}
 }
