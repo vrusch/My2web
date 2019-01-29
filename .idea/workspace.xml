@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e330f03-98c4-4a09-9eff-84fc180f018e" name="Default Changelist" comment="update">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/question_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/question_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/adm/manage_questions.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/adm/manage_questions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/lecture/manage_lecture.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/lecture/manage_lecture.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,20 +16,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/lecture/manage_lecture.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/play_quizzes/run.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="49" column="25" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+            <state relative-caret-position="612">
+              <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/adm/manage_questions.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/questions/rnd_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="54" column="72" selection-start-line="54" selection-start-column="72" selection-end-line="54" selection-end-column="72" />
+            <state relative-caret-position="323">
+              <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/play_quizzes_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="768">
+              <caret line="146" column="47" lean-forward="true" selection-start-line="146" selection-start-column="47" selection-end-line="146" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -52,6 +59,15 @@
       <find>icon-bl</find>
       <find>w3-animate-fading</find>
       <find>$this-&gt;config-&gt;item</find>
+      <find>password_reset_secret</find>
+      <find>send_reg_mail</find>
+      <find>addStoG</find>
+      <find>get_group</find>
+      <find>add</find>
+      <find>unset</find>
+      <find>ref_country</find>
+      <find>4m2w_company_quizzes</find>
+      <find>theme_id</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -60,67 +76,69 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="C:/_git/zal/index_puv.php" />
-        <option value="$PROJECT_DIR$/colorscheme.css" />
-        <option value="$PROJECT_DIR$/colorscheme.php" />
-        <option value="$PROJECT_DIR$/application/controllers/colors.php" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/application/views/pages/colorscheme.php" />
+        <option value="$PROJECT_DIR$/application/views/companies/edit_company.php" />
+        <option value="$PROJECT_DIR$/application/views/companies/sub_mkb.php" />
+        <option value="$PROJECT_DIR$/application/views/companies/sub_stdtogroup.php" />
+        <option value="$PROJECT_DIR$/application/views/companies/sub_students.php" />
+        <option value="$PROJECT_DIR$/application/controllers/questions.php" />
+        <option value="$PROJECT_DIR$/application/views/questions/rnd_view.php" />
+        <option value="$PROJECT_DIR$/application/views/companies/sub_groups.php" />
+        <option value="$PROJECT_DIR$/application/views/quizzes/manage_quizzes.php" />
+        <option value="$PROJECT_DIR$/application/views/questions/manage_questions.php" />
+        <option value="$PROJECT_DIR$/application/views/lecture/manage_lecture.php" />
+        <option value="$PROJECT_DIR$/application/views/companies/sub_validityto.php" />
+        <option value="$PROJECT_DIR$/application/models/question_model.php" />
+        <option value="$PROJECT_DIR$/application/views/prolongace.php" />
+        <option value="$PROJECT_DIR$/application/controllers/search_cont.php" />
+        <option value="$PROJECT_DIR$/application/controllers/prolongation_cont.php" />
+        <option value="$PROJECT_DIR$/application/views/prolongation.php" />
+        <option value="$PROJECT_DIR$/application/controllers/quizzes_cont.php" />
+        <option value="$PROJECT_DIR$/application/views/search.php" />
+        <option value="$PROJECT_DIR$/application/views/news/manage_news.php" />
+        <option value="$PROJECT_DIR$/application/views/questions/edit_question.php" />
+        <option value="$PROJECT_DIR$/application/views/lecture/create_lecture.php" />
+        <option value="$PROJECT_DIR$/application/views/summary.php" />
+        <option value="$PROJECT_DIR$/application/views/companies/manage_companies.php" />
+        <option value="$PROJECT_DIR$/application/models/quizzes_model.php" />
+        <option value="$PROJECT_DIR$/application/models/companies_model.php" />
+        <option value="$PROJECT_DIR$/application/views/companies/sub_quizzes.php" />
+        <option value="$PROJECT_DIR$/application/views/account/admin_panel.php" />
+        <option value="$PROJECT_DIR$/application/views/quizzes/sub_component.php" />
+        <option value="$PROJECT_DIR$/application/views/head_js.php" />
+        <option value="$PROJECT_DIR$/application/views/head.php" />
+        <option value="$PROJECT_DIR$/application/views/quizzes/edit_quizz.php" />
+        <option value="$PROJECT_DIR$/application/controllers/summary_cont.php" />
+        <option value="$PROJECT_DIR$/application/views/summary/summary.php" />
+        <option value="$PROJECT_DIR$/application/views/summary/sub_sum_company.php" />
+        <option value="$PROJECT_DIR$/application/views/summary/sub_sum_students.php" />
+        <option value="$PROJECT_DIR$/application/controllers/play_quizzes.php" />
+        <option value="$PROJECT_DIR$/application/models/play_quizzess.php" />
+        <option value="$PROJECT_DIR$/application/models/play_quizzess_model.php" />
+        <option value="$PROJECT_DIR$/application/controllers/companies_cont.php" />
+        <option value="$PROJECT_DIR$/read.me.txt" />
+        <option value="$PROJECT_DIR$/application/libraries/account/Authorization.php" />
         <option value="$PROJECT_DIR$/application/controllers/home_n.php" />
         <option value="$PROJECT_DIR$/application/views/home_n.php" />
-        <option value="$PROJECT_DIR$/application/views/sign_in.php" />
-        <option value="$PROJECT_DIR$/application/views/sign_out.php" />
-        <option value="$PROJECT_DIR$/application/views/sign_up.php" />
-        <option value="$PROJECT_DIR$/application/views/account/account_linked.php" />
-        <option value="$PROJECT_DIR$/application/views/account/account_password.php" />
-        <option value="$PROJECT_DIR$/application/views/account/account_profile.php" />
-        <option value="$PROJECT_DIR$/application/views/account/account_settings.php" />
-        <option value="$PROJECT_DIR$/application/views/account/connect_create.php" />
-        <option value="$PROJECT_DIR$/application/views/account/connect_openid.php" />
-        <option value="$PROJECT_DIR$/application/views/account/forgot_password.php" />
-        <option value="$PROJECT_DIR$/application/views/account/manage_permissions.php" />
-        <option value="$PROJECT_DIR$/application/views/account/manage_permissions_save.php" />
-        <option value="$PROJECT_DIR$/application/views/account/manage_roles.php" />
-        <option value="$PROJECT_DIR$/application/views/account/manage_roles_save.php" />
-        <option value="$PROJECT_DIR$/application/views/account/manage_users_save.php" />
-        <option value="$PROJECT_DIR$/application/views/account/redirect_fb.php" />
-        <option value="$PROJECT_DIR$/application/views/account/reset_password_captcha.php" />
-        <option value="$PROJECT_DIR$/application/views/account/reset_password_sent.php" />
-        <option value="$PROJECT_DIR$/application/views/news/index.php" />
-        <option value="$PROJECT_DIR$/application/views/account/manage_users.php" />
-        <option value="$PROJECT_DIR$/application/controllers/manage.php" />
-        <option value="$PROJECT_DIR$/application/views/course/manage_course.php" />
-        <option value="$PROJECT_DIR$/application/models/News_model.php" />
-        <option value="$PROJECT_DIR$/application/views/news/create.php" />
-        <option value="$PROJECT_DIR$/application/views/news/update.php" />
-        <option value="$PROJECT_DIR$/application/controllers/news.php" />
-        <option value="$PROJECT_DIR$/application/views/adm/edit_company.php" />
-        <option value="$PROJECT_DIR$/application/views/adm/add_company.php" />
-        <option value="$PROJECT_DIR$/application/models/companies_model.php" />
-        <option value="$PROJECT_DIR$/application/views/news/manage_news.php" />
-        <option value="$PROJECT_DIR$/application/views/adm/manage_companies.php" />
-        <option value="$PROJECT_DIR$/application/controllers/assigment.php" />
-        <option value="$PROJECT_DIR$/application/views/adm/upload_images.php" />
-        <option value="$PROJECT_DIR$/application/views/adm/images.php" />
-        <option value="$PROJECT_DIR$/application/controllers/img.php" />
-        <option value="$PROJECT_DIR$/application/config/routes.php" />
-        <option value="$PROJECT_DIR$/application/views/account/admin_panel.php" />
-        <option value="$PROJECT_DIR$/application/views/adm/manage_images.php" />
-        <option value="$PROJECT_DIR$/application/views/adm/add_students.php" />
-        <option value="$PROJECT_DIR$/application/controllers/companies.php" />
-        <option value="$PROJECT_DIR$/application/models/question_model.php" />
-        <option value="$PROJECT_DIR$/application/views/lecture/manage_lecture.php" />
-        <option value="$PROJECT_DIR$/application/views/adm/manage_questions.php" />
+        <option value="$PROJECT_DIR$/application/views/play_quizzes/quizzes_panel.php" />
+        <option value="$PROJECT_DIR$/application/views/play_quizzes/manage_quizzes.php" />
+        <option value="$PROJECT_DIR$/application/views/play_quizzes/play_quizz.php" />
+        <option value="$PROJECT_DIR$/application/views/play_quizzes/run_panel.php" />
+        <option value="$PROJECT_DIR$/application/controllers/play_quizzes_cont.php" />
+        <option value="$PROJECT_DIR$/application/views/lecture/view_lecture.php" />
+        <option value="$PROJECT_DIR$/application/models/play_quizzes_model.php" />
+        <option value="$PROJECT_DIR$/application/views/play_quizzes/run.php" />
       </list>
     </option>
+  </component>
+  <component name="PhpServers">
+    <servers />
   </component>
   <component name="PhpWebServerValidation" path_to_validation_script="C:\xampp\htdocs" selected_validation_type="LOCAL" web_path_to_validation_script="http://localhost/" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="256" />
-    <option name="y" value="11" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
+    <option name="x" value="-7" />
+    <option name="width" value="1294" />
+    <option name="height" value="1407" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -145,6 +163,18 @@
               <item name="htdocs" type="b2602c69:ProjectViewProjectNode" />
               <item name="htdocs" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="htdocs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="htdocs" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="htdocs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="htdocs" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -152,7 +182,14 @@
               <item name="htdocs" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="adm" type="462c0819:PsiDirectoryNode" />
+              <item name="play_quizzes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="htdocs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="htdocs" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="questions" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -172,14 +209,16 @@
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\resource\css" />
-      <recent name="C:\xampp\htdocs\application\views" />
-      <recent name="C:\xampp\htdocs\application\views\pages" />
-      <recent name="C:\xampp\htdocs\application\views\course" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\application\views\play_quizzes" />
       <recent name="C:\xampp\htdocs\application\views\pages" />
+      <recent name="C:\xampp\htdocs\application\views" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\application\views\summary" />
+      <recent name="D:\xampp\htdocs\application\views\companies" />
+      <recent name="D:\xampp\htdocs\application\views" />
+      <recent name="C:\xampp\htdocs\resource\css" />
       <recent name="C:\xampp\htdocs\application\views" />
     </key>
   </component>
@@ -247,48 +286,35 @@
       <workItem from="1545328702721" duration="981000" />
       <workItem from="1545814527862" duration="33509000" />
       <workItem from="1546242998678" duration="17637000" />
-    </task>
-    <task id="LOCAL-00001" summary="odmazani nepotrebneho">
-      <created>1544185825521</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1544185825521</updated>
-    </task>
-    <task id="LOCAL-00002" summary="maly update about">
-      <created>1544198668521</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1544198668521</updated>
-    </task>
-    <task id="LOCAL-00003" summary="maly update about">
-      <created>1544199001527</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1544199001527</updated>
-    </task>
-    <task id="LOCAL-00004" summary="maly update about">
-      <created>1544199651607</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1544199651607</updated>
-    </task>
-    <task id="LOCAL-00005" summary="maly update about">
-      <created>1544199932107</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1544199932107</updated>
-    </task>
-    <task id="LOCAL-00006" summary="maly update about">
-      <created>1544207526798</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1544207526798</updated>
+      <workItem from="1546543470760" duration="664000" />
+      <workItem from="1546684361624" duration="13049000" />
+      <workItem from="1546763327518" duration="24476000" />
+      <workItem from="1546803360764" duration="9998000" />
+      <workItem from="1546963806842" duration="18062000" />
+      <workItem from="1547048428088" duration="19157000" />
+      <workItem from="1547134778155" duration="12549000" />
+      <workItem from="1547228517905" duration="17000" />
+      <workItem from="1547228579359" duration="12515000" />
+      <workItem from="1547284592401" duration="30819000" />
+      <workItem from="1547372861535" duration="22348000" />
+      <workItem from="1547491860433" duration="11193000" />
+      <workItem from="1547577013226" duration="9997000" />
+      <workItem from="1547666736719" duration="8044000" />
+      <workItem from="1547750111838" duration="3834000" />
+      <workItem from="1547753966180" duration="9172000" />
+      <workItem from="1547833445063" duration="16519000" />
+      <workItem from="1547888446137" duration="20875000" />
+      <workItem from="1547975628798" duration="12999000" />
+      <workItem from="1548087535236" duration="12889000" />
+      <workItem from="1548172303125" duration="1253000" />
+      <workItem from="1548178883222" duration="11033000" />
+      <workItem from="1548263523836" duration="6779000" />
+      <workItem from="1548322947403" duration="19144000" />
+      <workItem from="1548403570457" duration="3421000" />
+      <workItem from="1548445877997" duration="41115000" />
+      <workItem from="1548578823983" duration="20426000" />
+      <workItem from="1548616897656" duration="6766000" />
+      <workItem from="1548707094525" duration="5813000" />
     </task>
     <task id="LOCAL-00007" summary="maly update about">
       <created>1544208978469</created>
@@ -416,11 +442,228 @@
       <option name="project" value="LOCAL" />
       <updated>1546416983241</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="update">
+      <created>1546466024096</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1546466024097</updated>
+    </task>
+    <task id="LOCAL-00026" summary="update">
+      <created>1546687393414</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1546687393415</updated>
+    </task>
+    <task id="LOCAL-00027" summary="update">
+      <created>1546802107185</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1546802107185</updated>
+    </task>
+    <task id="LOCAL-00028" summary="update">
+      <created>1546813413575</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1546813413575</updated>
+    </task>
+    <task id="LOCAL-00029" summary="update">
+      <created>1546985744069</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1546985744069</updated>
+    </task>
+    <task id="LOCAL-00030" summary="update">
+      <created>1546988686817</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1546988686817</updated>
+    </task>
+    <task id="LOCAL-00031" summary="update">
+      <created>1547074248488</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1547074248488</updated>
+    </task>
+    <task id="LOCAL-00032" summary="update">
+      <created>1547159698392</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1547159698392</updated>
+    </task>
+    <task id="LOCAL-00033" summary="update">
+      <created>1547317640528</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1547317640528</updated>
+    </task>
+    <task id="LOCAL-00034" summary="experiment">
+      <created>1547402510998</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1547402510998</updated>
+    </task>
+    <task id="LOCAL-00035" summary="update">
+      <created>1547419175423</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1547419175423</updated>
+    </task>
+    <task id="LOCAL-00036" summary="update">
+      <created>1547502076594</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1547502076594</updated>
+    </task>
+    <task id="LOCAL-00037" summary="update">
+      <created>1547504505915</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1547504505915</updated>
+    </task>
+    <task id="LOCAL-00038" summary="lekce a otazky prirazeni do kvizu">
+      <created>1547590763076</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1547590763076</updated>
+    </task>
+    <task id="LOCAL-00039" summary="update">
+      <created>1547592374869</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1547592374869</updated>
+    </task>
+    <task id="LOCAL-00040" summary="update">
+      <created>1547677869514</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1547677869514</updated>
+    </task>
+    <task id="LOCAL-00041" summary="update">
+      <created>1547763782875</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1547763782875</updated>
+    </task>
+    <task id="LOCAL-00042" summary="update">
+      <created>1547906768014</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1547906768014</updated>
+    </task>
+    <task id="LOCAL-00043" summary="update">
+      <created>1547936508562</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1547936508562</updated>
+    </task>
+    <task id="LOCAL-00044" summary="update">
+      <created>1547940405100</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1547940405100</updated>
+    </task>
+    <task id="LOCAL-00045" summary="update">
+      <created>1547998668525</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1547998668525</updated>
+    </task>
+    <task id="LOCAL-00046" summary="update">
+      <created>1548024610742</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1548024610742</updated>
+    </task>
+    <task id="LOCAL-00047" summary="update">
+      <created>1548110563778</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1548110563778</updated>
+    </task>
+    <task id="LOCAL-00048" summary="update">
+      <created>1548195382371</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1548195382371</updated>
+    </task>
+    <task id="LOCAL-00049" summary="update">
+      <created>1548280129666</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1548280129666</updated>
+    </task>
+    <task id="LOCAL-00050" summary="update">
+      <created>1548370529718</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1548370529719</updated>
+    </task>
+    <task id="LOCAL-00051" summary="update">
+      <created>1548370892702</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1548370892703</updated>
+    </task>
+    <task id="LOCAL-00052" summary="update">
+      <created>1548527239388</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1548527239389</updated>
+    </task>
+    <task id="LOCAL-00053" summary="update">
+      <created>1548544460235</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1548544460236</updated>
+    </task>
+    <task id="LOCAL-00054" summary="update">
+      <created>1548626229495</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1548626229496</updated>
+    </task>
+    <task id="LOCAL-00055" summary="update">
+      <created>1548712828114</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1548712828114</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="195552000" />
+    <option name="totallyTimeSpent" value="588205000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -432,25 +675,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1716418" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49258474" visible="true" weight="0.17130366" />
+      <window_info id="Structure" order="1" sideWeight="0.50741524" side_tool="true" weight="0.16891892" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3289166" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.26422447" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" visible="true" weight="0.23510292" />
+      <window_info anchor="bottom" id="Version Control" order="9" visible="true" weight="0.23616524" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32936078" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" />
+      <window_info anchor="bottom" id="Duplicates" order="13" weight="0.32969603" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -461,335 +704,352 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="odmazani nepotrebneho" />
     <MESSAGE value="update nova home page" />
     <MESSAGE value="maly update about" />
     <MESSAGE value="update, weby prepinani pomoci route default" />
+    <MESSAGE value="experiment" />
+    <MESSAGE value="lekce a otazky prirazeni do kvizu" />
     <MESSAGE value="update" />
     <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/sign_up.php">
+    <entry file="file://$PROJECT_DIR$/application/views/companies/sub_validityto.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="762">
-          <caret line="111" column="8" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="8" />
+        <state relative-caret-position="442">
+          <caret line="59" column="16" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/account/account_linked.php">
+    <entry file="file://$PROJECT_DIR$/application/views/companies/sub_groups.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="139" column="8" selection-start-line="139" selection-start-column="8" selection-end-line="139" selection-end-column="8" />
+        <state relative-caret-position="221">
+          <caret line="13" column="110" selection-start-line="13" selection-start-column="69" selection-end-line="13" selection-end-column="110" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/account/account_menu.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/account/account_password.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/prolongation_cont.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="762">
-          <caret line="77" column="8" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="8" />
+        <state relative-caret-position="85">
+          <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/account/connect_create.php">
+    <entry file="file://$PROJECT_DIR$/application/views/prolongation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="56" column="8" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="8" />
+        <state relative-caret-position="493">
+          <caret line="29" column="10" lean-forward="true" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/account/connect_openid.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/search_cont.php" />
+    <entry file="file://$PROJECT_DIR$/application/views/search.php" />
+    <entry file="file://$PROJECT_DIR$/application/views/news/manage_news.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="813">
-          <caret line="56" column="8" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="8" />
+        <state relative-caret-position="714">
+          <caret line="78" column="53" lean-forward="true" selection-start-line="78" selection-start-column="53" selection-end-line="78" selection-end-column="53" />
           <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/account/forgot_password.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="762">
-          <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/account/manage_permissions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="762">
-          <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/account/manage_permissions_save.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="112" column="8" selection-start-line="112" selection-start-column="8" selection-end-line="112" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/account/manage_roles.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="762">
-          <caret line="80" column="8" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/account/manage_roles_save.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
-          <caret line="111" column="8" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/account/manage_users_save.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="830">
-          <caret line="178" lean-forward="true" selection-start-line="178" selection-end-line="178" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/account/redirect_fb.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/account/reset_password_captcha.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/account/reset_password_email.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/account/reset_password_sent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/header.php" />
-    <entry file="file://$PROJECT_DIR$/application/views/news/view.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/news/index.php" />
-    <entry file="file://$PROJECT_DIR$/application/views/account/manage_users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="60" selection-end-line="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="45" column="46" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/course/manage_course.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/account/account_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2448" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/account/account_settings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="207" column="24" lean-forward="true" selection-start-line="207" selection-start-column="16" selection-end-line="207" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/account/account_profile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="113" column="6" lean-forward="true" selection-start-line="113" selection-start-column="6" selection-end-line="113" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/news/create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="45" column="12" selection-start-line="45" selection-start-column="12" selection-end-line="52" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/adm/add_company.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="39" column="83" selection-start-line="39" selection-start-column="83" selection-end-line="39" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/News_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="43" column="28" selection-start-line="43" selection-start-column="27" selection-end-line="43" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/companies_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/news/manage_news.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/manage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/news.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/course.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/adm/manage_assignment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/adm/edit_company.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="11" column="100" selection-start-line="11" selection-start-column="84" selection-end-line="11" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/assigment.php">
+    <entry file="file://$PROJECT_DIR$/application/views/questions/edit_question.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+          <caret line="18" column="129" selection-start-line="18" selection-start-column="129" selection-end-line="18" selection-end-column="129" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/adm/images.php" />
-    <entry file="file://$PROJECT_DIR$/application/views/adm/manage_companies.php">
+    <entry file="file://$PROJECT_DIR$/application/views/lecture/create_lecture.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="60" column="65" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="65" />
+        <state relative-caret-position="527">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/adm/upload_images.php">
+    <entry file="file://$PROJECT_DIR$/application/views/companies/sub_stdtogroup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="113" lean-forward="true" selection-start-line="1" selection-start-column="113" selection-end-line="1" selection-end-column="113" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/companies/add_company.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="58" column="20" lean-forward="true" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/companies/sub_quizzes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="861">
+          <caret line="180" column="86" selection-start-line="180" selection-start-column="86" selection-end-line="180" selection-end-column="86" />
+          <folding>
+            <element signature="n#style#0;n#table#0;n#td#5;n#tr#0;n#table#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/quizzes/manage_quizzes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/quizzes_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/head_b.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/quizzes/sub_component.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/adm/manage_images.php">
+    <entry file="file://$PROJECT_DIR$/application/views/head_js.php" />
+    <entry file="file://$PROJECT_DIR$/application/views/quizzes/edit_quizz.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="38" column="50" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="50" />
+        <state relative-caret-position="51">
+          <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/account/admin_panel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="61" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="61" />
+        <state relative-caret-position="476">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="47" column="47" selection-start-line="47" selection-start-column="47" selection-end-line="47" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/img.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/news/update.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/summary_cont.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
-          <caret line="70" column="109" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="109" />
+          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/adm/add_students.php">
+    <entry file="file://$PROJECT_DIR$/application/views/summary/summary.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="89" column="99" selection-start-line="89" selection-start-column="99" selection-end-line="89" selection-end-column="99" />
+        <state relative-caret-position="697">
+          <caret line="41" column="26" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+          <folding>
+            <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/companies.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="106" column="16" selection-start-line="106" selection-start-column="16" selection-end-line="106" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/question_model.php">
+    <entry file="file://$PROJECT_DIR$/application/views/summary/sub_sum_students.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
+          <caret line="33" column="57" lean-forward="true" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/summary/sub_sum_company.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/companies/sub_students.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1037">
+          <caret line="109" column="8" lean-forward="true" selection-start-line="61" selection-end-line="109" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/libraries/account/Authentication.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/head.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/play_quizzes/admin_panel.php" />
+    <entry file="file://$PROJECT_DIR$/application/logs/log-2019-01-26.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45056" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/companies_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="66" column="20" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/read.me.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="56" selection-start-line="33" selection-start-column="56" selection-end-line="33" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/home_n.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/libraries/account/Authorization.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="929">
+          <caret line="115" column="61" lean-forward="true" selection-start-line="115" selection-start-column="4" selection-end-line="115" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/companies/edit_company.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="41" lean-forward="true" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/companies/manage_companies.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="59" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/companies_cont.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4335">
+          <caret line="255" column="20" selection-start-line="255" selection-start-column="20" selection-end-line="255" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/quizzes_cont.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/home_n.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/questions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="28" column="54" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="54" />
+        <state relative-caret-position="742">
+          <caret line="83" column="63" selection-start-line="83" selection-start-column="63" selection-end-line="83" selection-end-column="63" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/adm/add_question.php">
+    <entry file="file://$PROJECT_DIR$/application/models/question_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="48" column="70" selection-start-line="48" selection-start-column="59" selection-end-line="48" selection-end-column="70" />
+        <state relative-caret-position="94">
+          <caret line="58" column="10" lean-forward="true" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/questions/manage_questions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="728">
+          <caret line="88" column="29" selection-start-line="88" selection-start-column="29" selection-end-line="88" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/play_quizzes/manage_quizzes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="80" selection-start-line="18" selection-start-column="80" selection-end-line="18" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/play_quizzes/play_quizz.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="155" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="155" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/play_quizzes/run_panel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/play_quizzes_cont.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="37" column="10" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/play_quizzes/quizzes_panel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="24" selection-start-line="5" selection-end-line="5" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/lecture/manage_lecture.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="49" column="25" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+        <state relative-caret-position="119">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/adm/manage_questions.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/lecture.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="54" column="72" selection-start-line="54" selection-start-column="72" selection-end-line="54" selection-end-column="72" />
+        <state relative-caret-position="-598" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/lecture/view_lecture.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="4" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/questions/rnd_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/play_quizzes_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="768">
+          <caret line="146" column="47" lean-forward="true" selection-start-line="146" selection-start-column="47" selection-end-line="146" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/play_quizzes/run.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
         </state>
       </provider>
     </entry>
