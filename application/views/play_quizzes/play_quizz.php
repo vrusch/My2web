@@ -24,7 +24,7 @@
 			<br>
 			<br>
 			<div class="well">
-			<a href="play_quizzes_cont/play_run/<?php echo $current_quizz['id'] ;?>/<?php echo $student_info['id'] ;?>"><buton class="btn btn-primary btn-block"><?php echo 'Spustit kviz: '.$current_quizz['name'] ;?></buton></a>
+			<a href="play_quizzes_cont/run/<?php echo $current_quizz['id'] ;?>/<?php echo $student_info['id'] ;?>"><buton class="btn btn-primary btn-block"><?php echo 'Spustit kviz: '.$current_quizz['name'] ;?></buton></a>
 			<br>
 				<div style="border: 1px solid grey; padding: 10px; border-radius: 10px">Kviz obsahuje <?php echo $lec_no;?> lekce a potom <?php echo $que_no;?> otazek. Odhadovany cas na dokonceni kvizu je <?php echo $current_quizz['estimated_time'];?> minut. Po stlaceni tlacitka spustit kviz je kviz spusten</div>
 			</div>

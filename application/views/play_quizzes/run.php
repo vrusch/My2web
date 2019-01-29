@@ -7,7 +7,6 @@
 <?php $now = time(); $datestring = 'Datum: %d-%m-%Y ';?>
 <div class="container">
 	<div class="row">
-<?php //var_dump($sequence); ?>
 		<div class="span2">
 			<?php echo $this->load->view('play_quizzes/run_panel'); ?>
 		</div>
@@ -32,26 +31,28 @@
 						echo $lecture['lecture'];
 					?>
 				<?php endforeach; ?>
+<br><hr>
+				<?php foreach($seq['questions'] as $key => $value) : ?>
+					<?php $question = $this->play_quizzes_model->load_question($key); ?>
+					<?php echo $question['question']; ?>
 
-				<?php
-				foreach($seq['questions'] as $key => $value) {
-					echo $key; // Would output "subkey" in the example array
-					print_r($value);
-				}
-				?>
 
-				<?php foreach ($seq['questions'] as $item) : ?>
-					<?php
-					//var_dump(key($item));
-					//$question = $this->play_quizzes_model->load_question($item['lecture_id']);
-					//echo '<h2>'. $lecture['name'].'</h2>';
-					//echo $lecture['lecture'];
-					?>
+					<?php foreach ($value as $item) : ?>
+						<?php $answer = $this->play_quizzes_model->load_answer($item); ?>
+						<?php echo $answer['answer']; ?>
+
+
+					<?php endforeach; ?>
+
 				<?php endforeach; ?>
 
+				<div class="panel panel-info">
+					<div class="panel-heading">Panel with panel-info class</div>
+					<div class="panel-body">Panel Content</div>
+				</div>
+
+
 			</div>
-
-
 		</div>
 	</div>
 </div>

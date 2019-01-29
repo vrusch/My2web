@@ -63,7 +63,7 @@ class play_quizzes_model extends CI_Model
 		return $query->row_array();
 	}
 
-	public function generate_quizz($quizz_id)
+	public function generate_quizz($quizz_id, $account_id)
 	{
 		$data['quizz_info'] = $this->play_quizzes_model->get_quizz_info($quizz_id);
 
@@ -78,7 +78,12 @@ class play_quizzes_model extends CI_Model
 			$data['questions'][$item['question_id']] = $this->get_rnd_answer($item['question_id']);
 
 		}
+		$this->load->helper('date');
 		$datain = array(
+			'account_id' => $account_id,
+			'quizz_id' => $quizz_id,
+			'status' => '1',
+			'date' => mdate('%d-%m-%Y %H:%i:%s', now()),
 			'sequence' => $serialized_array = serialize($data)
 		);
 
@@ -135,7 +140,7 @@ class play_quizzes_model extends CI_Model
 		$query = $this->db->get_where('4m2w_rel_quizz_sequence', array('id' => $sequence));
 		$vysledek = $query->row_array();
 		$unserialized_array = unserialize($vysledek['sequence']);
-		return $unserialized_array; //todo: zapisat do seqencie satv spusteny a id studenta amozna datum
+		return $unserialized_array; //todo: zapisat do seqencie stav spusteny a id studenta a mozna datum
 	}
 
 	public function load_lecture($lecture_id)
@@ -146,6 +151,15 @@ class play_quizzes_model extends CI_Model
 
 	public function load_question($question_id)
 	{
+		$this->db->select('question');
+		$query = $this->db->get_where('4m2w_questions', array('id' => $question_id));
+		return $query->row_array();
+	}
 
+	public function load_answer($answer_id)
+	{
+		$this->db->select('answer');
+		$query = $this->db->get_where('4m2w_answers', array('id' => $answer_id));
+		return $query->row_array();
 	}
 }
