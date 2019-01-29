@@ -23,7 +23,7 @@
 			</div>
 				<?php $seq = $this->play_quizzes_model->load_quizz($sequence); ?>
 			<?php //var_dump($seq); ?>
-			<div class="well-large">
+			<div class="well-large" style="background-color: #e4e0f4">
 				<?php foreach ($seq['quizz_lecture'] as $item) : ?>
 					<?php
 						$lecture = $this->play_quizzes_model->load_lecture($item['lecture_id']);
@@ -31,27 +31,26 @@
 						echo $lecture['lecture'];
 					?>
 				<?php endforeach; ?>
-<br><hr>
+			<br><hr>
+			</div>
+			<div class="well-large" style="background-color: #e4e0f4">
 				<?php foreach($seq['questions'] as $key => $value) : ?>
 					<?php $question = $this->play_quizzes_model->load_question($key); ?>
-					<?php echo $question['question']; ?>
+						<div style="border: 1px solid #1b1b1b; border-radius: 5px">
+							<div> <p><h4>Otazka:</h4> <?php echo $question['question']; ?></p></div>
+
 
 
 					<?php foreach ($value as $item) : ?>
 						<?php $answer = $this->play_quizzes_model->load_answer($item); ?>
-						<?php echo $answer['answer']; ?>
+
+						<div style="background-color: #ffffff; border-radius: 5px"><?php echo $answer['answer']; ?></div>
 
 
 					<?php endforeach; ?>
-
+						</div>
+				<br>
 				<?php endforeach; ?>
-
-				<div class="panel panel-info">
-					<div class="panel-heading">Panel with panel-info class</div>
-					<div class="panel-body">Panel Content</div>
-				</div>
-
-
 			</div>
 		</div>
 	</div>
