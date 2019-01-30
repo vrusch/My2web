@@ -11,7 +11,7 @@
 			<?php echo $this->load->view('play_quizzes/run_panel'); ?>
 		</div>
 		<div class="span10">
-			<div class="well">
+			<div class="well" style="border: 1px solid black">
 				<table style="width: 100%">
 					<tr>
 						<td style="width: 40%"><strong><h3><?php echo $quizz_info['name'] ;?></h3></strong></td>
@@ -22,8 +22,7 @@
 				</table>
 			</div>
 				<?php $seq = $this->play_quizzes_model->load_quizz($sequence); ?>
-			<?php //var_dump($seq); ?>
-			<div class="well-large" style="background-color: #e4e0f4">
+			<div class="well-large" style="background-color: #e4e0f4; border: 1px solid black">
 				<?php foreach ($seq['quizz_lecture'] as $item) : ?>
 					<?php
 						$lecture = $this->play_quizzes_model->load_lecture($item['lecture_id']);
@@ -31,27 +30,33 @@
 						echo $lecture['lecture'];
 					?>
 				<?php endforeach; ?>
-			<br><hr>
+			<br>
 			</div>
-			<div class="well-large" style="background-color: #e4e0f4">
+			<br>
+			<?php echo form_open('', ''); ?>
+			<?php echo validation_errors(); ?>
+
+			<div class="well-large" style="background-color: #e4e0f4; border: 1px solid black">
+
 				<?php foreach($seq['questions'] as $key => $value) : ?>
 					<?php $question = $this->play_quizzes_model->load_question($key); ?>
-						<div style="border: 1px solid #1b1b1b; border-radius: 5px">
-							<div> <p><h4>Otazka:</h4> <?php echo $question['question']; ?></p></div>
-
-
-
+					<div style="width: 100%"><h4 style="margin: 20px">Otazka:</h4><h5 style="margin: 20px;"><?php echo $question['question']; ?></h5></div>
+					<table style="width: 100%; border: 1px solid lightgrey;">
 					<?php foreach ($value as $item) : ?>
 						<?php $answer = $this->play_quizzes_model->load_answer($item); ?>
-
-						<div style="background-color: #ffffff; border-radius: 5px"><?php echo $answer['answer']; ?></div>
-
-
+							<tr>
+								<td style="padding: 10px">
+									<div class="radio">
+										<label><input type="radio" name="question[<?php echo $key; ?>]" value="<?php echo $item; ?>"><?php echo $answer['answer']; ?></label>
+									</div>
+								</td>
+							</tr>
 					<?php endforeach; ?>
-						</div>
+					</table>
 				<br>
 				<?php endforeach; ?>
 			</div>
+			<?php echo form_close(); ?>
 		</div>
 	</div>
 </div>

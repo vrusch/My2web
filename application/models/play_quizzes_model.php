@@ -83,7 +83,7 @@ class play_quizzes_model extends CI_Model
 			'account_id' => $account_id,
 			'quizz_id' => $quizz_id,
 			'status' => '1',
-			'date' => mdate('%d-%m-%Y %H:%i:%s', now()),
+			'date' => mdate('%Y-%m-%d %H:%i:%s', now()),
 			'sequence' => $serialized_array = serialize($data)
 		);
 
@@ -160,6 +160,13 @@ class play_quizzes_model extends CI_Model
 	{
 		$this->db->select('answer');
 		$query = $this->db->get_where('4m2w_answers', array('id' => $answer_id));
+		return $query->row_array();
+	}
+
+	public function get_seq_status($quizz_id, $account_id)
+	{
+		$this->db->select('status');
+		$query = $this->db->get_where('4m2w_rel_quizz_sequence', array('account_id' => $account_id, 'quizz_id' => $quizz_id));
 		return $query->row_array();
 	}
 }

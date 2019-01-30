@@ -38,10 +38,17 @@
 					<?php foreach($quizzes as $quizzes_item) : ;?>
 					<tr>
 						<td><?php echo $quizzes_item['name'] ;?></td>
-						<td>stredni</td>
-						<td>20</td>
+						<td><?php if ($quizzes_item['difficulty'] == '1'){echo 'lehka';} elseif ($quizzes_item['difficulty'] == '2') { echo 'stredni';} else {echo 'tezka';}?></td>
+						<td><?php echo $quizzes_item['estimated_time'] ;?></td>
 						<td>31-01-2019</td>
-						<td>nespusten</td>
+						<?php $status = $this->play_quizzes_model->get_seq_status($quizzes_item['id'], $student_info['id']); ?>
+						<?php if (count($status) > 0 ) : ;?>
+						<td>
+							<?php if ($status['status'] == '1'){echo 'spusten';} elseif ($status['status'] == '2') { echo 'dokoncen';}?>
+						</td>
+						<?php else : ;?>
+							<td>nespusten</td>
+						<?php endif ;?>
 						<td></td>
 					</tr>
 					<?php endforeach; ?>
