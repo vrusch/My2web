@@ -11,7 +11,7 @@
 			<?php endforeach;?>
 		<li class="nav-header">Individualni kvizy</li>
 			<?php if (count($individual_quizzes) > 0) : ?>
-			<?php foreach($quizzes as $quizzes_item) : ;?>
+			<?php foreach($individual_quizzes as $quizzes_item) : ;?>
 				<li class="<?php echo ($current == 'manage_quizzes'.$quizzes_item['id']) ? 'active' : ''; ?>"><?php echo anchor('play_quizzes_cont/manage/'.$student_info['id'].'/'.$quizzes_item['id'], $quizzes_item['name']); ?></li>
 			<?php endforeach;?>
 			<?php else : ?>

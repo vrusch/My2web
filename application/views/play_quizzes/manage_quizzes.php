@@ -21,8 +21,10 @@
 				</tr>
 			</table>
 			<!-- END of header page	-->
+
+			<?php var_dump($student_info);?>
 			<div class="well">
-				Vam prirazene kvizy za spolecnost {firma} v skupine studentu {skupina}:
+				Vam prirazene kvizy a skoleni za spolecnost {firma} v skupine studentu {skupina}:
 				<table class="table table-condensed table-hover">
 					<thead>
 					<tr>
@@ -53,8 +55,42 @@
 					</tr>
 					<?php endforeach; ?>
 					</tbody>
-				</table>
+				</table><br>
 
+				<?php if (count($individual_quizzes) > 0 ) : ?>
+					Vase individuani skoleni:
+					<table class="table table-condensed table-hover">
+						<thead>
+						<tr>
+							<th>Nazev</th>
+							<th>Obtiznost</th>
+							<th>Delka (v min. cca)</th>
+							<th>Dokoncit do</th>
+							<th>Vysledek</th>
+							<th>Opakovat</th>
+						</tr>
+						</thead>
+						<tbody>
+						<?php foreach($individual_quizzes as $quizzes_item) : ;?>
+							<tr>
+								<td><?php echo $quizzes_item['name'] ;?></td>
+								<td><?php if ($quizzes_item['difficulty'] == '1'){echo 'lehka';} elseif ($quizzes_item['difficulty'] == '2') { echo 'stredni';} else {echo 'tezka';}?></td>
+								<td><?php echo $quizzes_item['estimated_time'] ;?></td>
+								<td>31-01-2019</td>
+								<?php $status = $this->play_quizzes_model->get_seq_status($quizzes_item['id'], $student_info['id']); ?>
+								<?php if (count($status) > 0 ) : ;?>
+									<td>
+										<?php if ($status['status'] == '1'){echo 'spusten';} elseif ($status['status'] == '2') { echo 'dokoncen';}?>
+									</td>
+								<?php else : ;?>
+									<td>nespusten</td>
+								<?php endif ;?>
+								<td></td>
+							</tr>
+						<?php endforeach; ?>
+						</tbody>
+					</table>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>
