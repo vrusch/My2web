@@ -66,6 +66,9 @@
 			<?php echo validation_errors(); ?>
 
 			<div class="well-large" style="background-color: #e4e0f4; border: 1px solid black">
+				<?php if (isset($validation)) : ?>
+					<div style="width: 100%; text-align: center; border: 1px solid red"><h4 style="color: red"><?php echo $validation;?></h4></div>
+				<?php endif; ?>
 
 				<?php foreach($seq['questions'] as $key => $value) : ?>
 					<?php $question = $this->play_quizzes_model->load_question($key); ?>
@@ -88,7 +91,7 @@
 
 			<div class="well" style="border: 1px solid black">
 
-			<div style="width: 100%; text-align: center"><?php echo form_submit('', 'Ok na otazky jsem odvedel(a), ukoncit kviz', 'class="btn btn-primary"'); ?></div>
+			<div style="width: 100%; text-align: center"><?php echo form_submit('', 'Ok na otazky jsem odpovedel(a), ukoncit kviz', 'class="btn btn-primary"'); ?></div>
 
 				<?php echo form_close(); ?>
 			</div><br>

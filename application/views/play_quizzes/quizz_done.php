@@ -43,7 +43,8 @@
 						</td>
 					</tr>
 				</table>
-<?php print_r($sqe) ?>
+			</div><br>
+			<div class="well" style="border: 1px solid black">
 			</div>
 		</div>
 	</div>

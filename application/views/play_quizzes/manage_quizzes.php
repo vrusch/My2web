@@ -22,9 +22,9 @@
 			</table>
 			<!-- END of header page	-->
 
-			<?php var_dump($student_info);?>
+			<?php //var_dump($group);?>
 			<div class="well">
-				Vam prirazene kvizy a skoleni za spolecnost {firma} v skupine studentu {skupina}:
+				Vam prirazene kvizy a skoleni za spolecnost <b><?php echo $company['name'] ;?></b> v skupine studentu <b><?php echo $group['name_of_group'] ;?></b>
 				<table class="table table-condensed table-hover">
 					<thead>
 					<tr>
@@ -39,7 +39,7 @@
 					<tbody>
 					<?php foreach($quizzes as $quizzes_item) : ;?>
 					<tr>
-						<td><?php echo $quizzes_item['name'] ;?></td>
+						<td style="width: 30%"><?php echo $quizzes_item['name'] ;?></td>
 						<td><?php if ($quizzes_item['difficulty'] == '1'){echo 'lehka';} elseif ($quizzes_item['difficulty'] == '2') { echo 'stredni';} else {echo 'tezka';}?></td>
 						<td><?php echo $quizzes_item['estimated_time'] ;?></td>
 						<td>31-01-2019</td>
@@ -58,7 +58,7 @@
 				</table><br>
 
 				<?php if (count($individual_quizzes) > 0 ) : ?>
-					Vase individuani skoleni:
+					Vase individuani skoleni
 					<table class="table table-condensed table-hover">
 						<thead>
 						<tr>
@@ -73,7 +73,7 @@
 						<tbody>
 						<?php foreach($individual_quizzes as $quizzes_item) : ;?>
 							<tr>
-								<td><?php echo $quizzes_item['name'] ;?></td>
+								<td style="width: 30%"><?php echo $quizzes_item['name'] ;?></td>
 								<td><?php if ($quizzes_item['difficulty'] == '1'){echo 'lehka';} elseif ($quizzes_item['difficulty'] == '2') { echo 'stredni';} else {echo 'tezka';}?></td>
 								<td><?php echo $quizzes_item['estimated_time'] ;?></td>
 								<td>31-01-2019</td>

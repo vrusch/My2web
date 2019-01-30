@@ -1,7 +1,7 @@
 Firmy
 zrusit linky po kliknuti na pocet, na hlavnej stranke
 nova firma upravit popis
-pri vytvarani mkb s firmou sa neapisuke v tab studenti attribut mkb
+pri vytvarani mkb s firmou sa neapisuje v tab studenti attribut mkb
 
 sprava zaku
 v prehlade ikonka mkb
@@ -23,6 +23,7 @@ dokoncit po priradeni kurzu navrat na stranku
 
 konfigurace kvizu
 nastaveni prametru kvizu:
+							kolko otazok zo vsetkych vybrat -> dopad do prehravania kvizu
 							nahodne poradi otazek
 							specificke poradi otazek a lekcii
 							dlouhy formular
@@ -37,3 +38,8 @@ OTAZKY zavest rozsirene zahlavy otazky neco jako lekce pred kazdou otazkou
 zavest otazek je 30 ale vybira se jenom nahodne 10 napr.
 
 kvizy pro firmu, omezit mnozinu zaplacenych kvizu ze vsech kvizu
+
+play kviz:
+kontrola ze sa da kviz prehrat tzn ma otazky
+neprehravat lecture ak neni v kvize
+dokoncene kvizy nespustat este raz

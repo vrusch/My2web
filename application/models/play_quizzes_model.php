@@ -70,6 +70,7 @@ class play_quizzes_model extends CI_Model
 		$this->db->select('lecture_id');
 		$query = $this->db->get_where('4m2w_rel_quizz_lec', array('quizz_id' => $quizz_id));
 		$data['quizz_lecture'] = $query->result_array();
+		$data['no_of_que'] = $this->get_no_question($quizz_id);
 
 		$bb['prep_question'] = $this->get_rnd_questions($quizz_id);
 
@@ -140,7 +141,7 @@ class play_quizzes_model extends CI_Model
 		$query = $this->db->get_where('4m2w_rel_quizz_sequence', array('id' => $sequence));
 		$vysledek = $query->row_array();
 		$unserialized_array = unserialize($vysledek['sequence']);
-		return $unserialized_array; //todo: zapisat do seqencie stav spusteny a id studenta a mozna datum
+		return $unserialized_array;
 	}
 
 	public function load_lecture($lecture_id)
@@ -167,6 +168,22 @@ class play_quizzes_model extends CI_Model
 	{
 		$this->db->select('status');
 		$query = $this->db->get_where('4m2w_rel_quizz_sequence', array('account_id' => $account_id, 'quizz_id' => $quizz_id));
+		return $query->row_array();
+	}
+
+	public function get_company_info($account_id)
+	{
+		$query = $this->db->get_where('4m2w_students', array('student_id' => $account_id));
+		$cec = $query->row_array();
+		$query = $this->db->get_where('4m2w_companies', array('id' => $cec['company_id']));
+		return $query->row_array();
+	}
+
+	public function get_group_info($account_id)
+	{
+		$query = $this->db->get_where('4m2w_students', array('student_id' => $account_id));
+		$cec = $query->row_array();
+		$query = $this->db->get_where('4m2w_company_group', array('id' => $cec['group_id'], 'company_id' => $cec['company_id']));
 		return $query->row_array();
 	}
 }
