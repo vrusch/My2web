@@ -9,8 +9,8 @@
 	</tr>
 	</thead>
 	<?php foreach ($students as $students_item) : ?>
-		<?php $student_info = $this->companies_model->get_student_info($students_item['student_id']); ?>
-		<?php $acc_info = $this->companies_model->get_account_info($students_item['student_id']); ?>
+		<?php $student_info = $this->summary_model->get_student_info($students_item['student_id']); ?>
+		<?php $acc_info = $this->summary_model->get_account_info($students_item['student_id']); ?>
 		<tr>
 			<td>
 				<em><?php echo $student_info['username']; ?></em>

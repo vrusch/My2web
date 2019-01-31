@@ -18,7 +18,7 @@ class quizzes_cont extends CI_Controller
 		$this->load->view('quizzes/manage_quizzes', isset($data) ? $data : NULL);
 	}
 
-	public function edit($quizz_id)
+	public function edit($quizz_id, $current = NULL, $subpagecontent = NULL)
 	{
 		$this->form_validation->set_rules('quizz_name', 'nazev kvizu', 'required');
 		$this->form_validation->set_message('required', 'Povinne pole');

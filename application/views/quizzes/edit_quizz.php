@@ -36,34 +36,45 @@
 				</div>
 			</div><br>
 			<?php echo form_close(); ?>
-			<?php //var_dump($display); ?>
+
 			<!-- TABS start -->
+
+
 			<?php if (isset($display['current'])) : ?>
-				<div class="span4" style="; border: 1px solid blue"></div>
-
-				<div class="span4" style="width: 55%; border: 1px solid blue">
-					<ul class="nav nav-pills">
-						<li class="active"><a data-toggle="pill" href="#sub_menu1">Konfigurace parametru kvizu</a></li>
-						<li><a data-toggle="pill" href="#sub_menu2">Komponenty kvizu</a></li>
-					</ul>
-					<div class="tab-content">
-
-						<div id="sub_menu1" class="tab-pane fade in active">
-							<h3>nastaveni prametru kvizu:</h3>
-							<p>nahodne poradi otazek</p>
-							<p>specificke poradi otazek a lekcii</p>
-							<p>dlouhy formular</p>
-							<p>1 otazka jedna stranka</p>
-
-						</div>
-
-						<div id="sub_menu2" class="tab-pane fade">
-							<?php echo $this->load->view('quizzes/sub_component', array('title' => ('edit quizz'))); ?>
-						</div>
-
+			<div class="well">
+				<ul class="nav nav-tabs">
+					<?php if($display['current'] == 'home') {echo '<li class="active"><a data-toggle="tab" href="#home">Konfigurace vzhledu</a></li>';} else {echo '<li><a data-toggle="tab" href="#home">Konfigurace vzhledu</a></li>';} ?>
+					<?php if($display['current'] == 'menu1') {echo '<li class="active"><a data-toggle="tab" href="#menu1">Konfigurace kvizu</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu1">Konfigurace kvizu</a></li>';} ?>
+					<?php if($display['current'] == 'menu2') {echo '<li class="active"><a data-toggle="tab" href="#menu2">Komponenty kvizu</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu2">Komponenty kvizu</a></li>';} ?>
+					<?php if($display['current'] == 'menu3') {echo '<li class="active"><a data-toggle="tab" href="#menu3">zatim nic</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu3">zatim nic</a></li>';} ?>
+					<?php if($display['current'] == 'menu4') {echo '<li class="active"><a data-toggle="tab" href="#menu4">zatim nic</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu4">zatim nic</a></li>';} ?>
+					<?php if($display['current'] == 'menu5') {echo '<li class="active"><a data-toggle="tab" href="#menu5">Smazat/Blokovat</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu5">Smazat/Blokovat</a></li>';} ?>
+				</ul>
+				<?php var_dump($display); ?>
+				<div class="tab-content">
+						<?php if($display['current'] == 'home') {echo '<div id="home" class="tab-pane fade in active">';} else {echo '<div id="home" class="tab-pane fade">';} ?>
+						<?php if ($display['page'] == 'students_new')  { echo $this->load->view('companies/sub_students_new', array('title' => ('edit company')));} else { echo $this->load->view('companies/sub_students', array('title' => ('edit company')));}?>
 					</div>
+						<?php if($display['current'] == 'menu1') {echo '<div id="menu1" class="tab-pane fade in active">';} else {echo '<div id="menu1" class="tab-pane fade">';} ?>
+						<?php echo $this->load->view('companies/sub_groups', array('title' => ('edit company'))); ?>
+					</div>
+						<?php if($display['current'] == 'menu2') {echo '<div id="menu2" class="tab-pane fade in active">';} else {echo '<div id="menu2" class="tab-pane fade">';} ?>
+						<?php echo $this->load->view('companies/sub_stdtogroup', array('title' => ('edit company'))); ?>
+					</div>
+						<?php if($display['current'] == 'menu3') {echo '<div id="menu3" class="tab-pane fade in active">';} else {echo '<div id="menu3" class="tab-pane fade">';} ?>
+						<?php echo $this->load->view('companies/sub_quizzes', array('title' => ('edit company'))); ?>
+					</div>
+						<?php if($display['current'] == 'menu4') {echo '<div id="menu4" class="tab-pane fade in active">';} else {echo '<div id="menu4" class="tab-pane fade">';} ?>
+						<?php echo $this->load->view('companies/sub_mkb', array('title' => ('edit company')));?>
+					</div>
+						<?php if($display['current'] == 'menu5') {echo '<div id="menu5" class="tab-pane fade in active">';} else {echo '<div id="menu5" class="tab-pane fade">';} ?>
+						<?php echo $this->load->view('companies/sub_ban_delete', array('title' => ('edit company'))); ?>
+					</div>
+
 				</div>
-			<?php endif ?>
+
+<?php endif ?>
+
 		</div>
 	</div>
 </div>
