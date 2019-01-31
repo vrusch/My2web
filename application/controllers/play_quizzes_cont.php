@@ -38,8 +38,15 @@ class play_quizzes_cont extends CI_Controller
 		$data['student_info'] = $this->play_quizzes_model->get_student_info($account_id);
 		$data['quizz_info'] = $this->play_quizzes_model->get_quizz_info($quizz_id);
 
+		if ($stage == '0'){ //tohle je repete, student opakuje kviz
+			$this->db->where(array('quizz_id' => $quizz_id, 'account_id' => $account_id));
+			$this->db->delete('4m2w_rel_quizz_sequence');
+			$stage = NULL;
+		}
+
 		$query = $this->db->get_where('4m2w_rel_quizz_sequence', array('quizz_id' => $quizz_id, 'account_id' => $account_id));
 		$check =  $query->row_array();
+
 		//kdyz neexistuje tak vygeneruj
 		if ((count($check)) == 0){
 			//vygenerovany kviz vratim id sequence

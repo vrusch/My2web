@@ -170,6 +170,12 @@ class play_quizzes_model extends CI_Model
 		return $query->row_array();
 	}
 
+	public function get_seq_status_col($quizz_id, $account_id)
+	{
+		$query = $this->db->get_where('4m2w_rel_quizz_sequence', array('account_id' => $account_id, 'quizz_id' => $quizz_id));
+		return $query->num_rows();
+	}
+
 	public function get_company_info($account_id)
 	{
 		$query = $this->db->get_where('4m2w_students', array('student_id' => $account_id));

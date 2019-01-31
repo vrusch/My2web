@@ -24,7 +24,7 @@
 
 			<?php //var_dump($group);?>
 			<div class="well">
-				Vam prirazene kvizy a skoleni za spolecnost <b><?php echo $company['name'] ;?></b> v skupine studentu <b><?php echo $group['name_of_group'] ;?></b>
+				<p style="color: #0e90d2">Vam prirazene kvizy a skoleni za spolecnost <b><?php echo $company['name'] ;?></b> v skupine studentu <b><?php echo $group['name_of_group'] ;?></b></p>
 				<table class="table table-condensed table-hover">
 					<thead>
 					<tr>
@@ -39,15 +39,15 @@
 					<tbody>
 					<?php foreach($quizzes as $quizzes_item) : ;?>
 					<tr>
-						<td style="width: 30%"><?php echo $quizzes_item['name'] ;?></td>
-						<td><?php if ($quizzes_item['difficulty'] == '1'){echo 'lehka';} elseif ($quizzes_item['difficulty'] == '2') { echo 'stredni';} else {echo 'tezka';}?></td>
-						<td><?php echo $quizzes_item['estimated_time'] ;?></td>
-						<td>31-01-2019</td>
+						<td style="width: 40%"><?php echo $quizzes_item['name'] ;?></td>
+						<td style="width: 10%"><?php if ($quizzes_item['difficulty'] == '1'){echo 'lehka';} elseif ($quizzes_item['difficulty'] == '2') { echo 'stredni';} else {echo 'tezka';}?></td>
+						<td style="width: 15%"><?php echo $quizzes_item['estimated_time'] ;?></td>
+						<td style="width: 10%">31-01-2019</td>
 						<?php $status = $this->play_quizzes_model->get_seq_status($quizzes_item['id'], $student_info['id']); ?>
 
 						<?php if ($quizzes_item['ready'] != 0) : ?>
 						<?php if (count($status) > 0 ) : ;?>
-						<td>
+						<td style="width: 15%">
 							<?php if ($status['status'] == '1')
 							{echo '<small>spusten</small><br><small>'.$status['date'].'</small>';}
 							elseif ($status['status'] == '2')
@@ -56,10 +56,10 @@
 							{echo '<small style="color: #CC0000">neuspesne dokoncen</small><br><small>'.$status['date'].'</small>';}	?>
 						</td>
 						<?php else : ;?>
-							<td>nespusten</td>
+								<td><small style="color: #00CC00">zatim nespusten</small></td>
 						<?php endif ;?>
 						<?php else : ;?>
-							<td>nepripraven</td>
+							<td><small style="color: #CC0000">Kviz nepripraven</small></td>
 						<?php endif ;?>
 						<td>
 							<?php if (count($status) > 0 ) : ;?>
@@ -72,7 +72,7 @@
 				</table><br>
 
 				<?php if (count($individual_quizzes) > 0 ) : ?>
-					Vase individuani skoleni
+					<p style="color: #0e90d2">Vase individuani skoleni</p>
 					<table class="table table-condensed table-hover">
 						<thead>
 						<tr>
@@ -87,13 +87,13 @@
 						<tbody>
 						<?php foreach($individual_quizzes as $quizzes_item) : ;?>
 							<tr>
-								<td style="width: 30%"><?php echo $quizzes_item['name'] ;?></td>
-								<td><?php if ($quizzes_item['difficulty'] == '1'){echo 'lehka';} elseif ($quizzes_item['difficulty'] == '2') { echo 'stredni';} else {echo 'tezka';}?></td>
-								<td><?php echo $quizzes_item['estimated_time'] ;?></td>
-								<td>31-01-2019</td>
+								<td style="width: 40%"><?php echo $quizzes_item['name'] ;?></td>
+								<td style="width: 10%"><?php if ($quizzes_item['difficulty'] == '1'){echo 'lehka';} elseif ($quizzes_item['difficulty'] == '2') { echo 'stredni';} else {echo 'tezka';}?></td>
+								<td style="width: 15%"><?php echo $quizzes_item['estimated_time'] ;?></td>
+								<td style="width: 10%">31-01-2019</td>
 								<?php $status = $this->play_quizzes_model->get_seq_status($quizzes_item['id'], $student_info['id']); ?>
 								<?php if (count($status) > 0 ) : ;?>
-									<td>
+									<td style="width: 15%">
 										<?php if ($status['status'] == '1')
 										{echo '<small>spusten</small><br><small>'.$status['date'].'</small>';}
 										elseif ($status['status'] == '2')
