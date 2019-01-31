@@ -59,7 +59,7 @@
 						<?php echo $this->load->view('companies/sub_groups', array('title' => ('edit company'))); ?>
 					</div>
 						<?php if($display['current'] == 'menu2') {echo '<div id="menu2" class="tab-pane fade in active">';} else {echo '<div id="menu2" class="tab-pane fade">';} ?>
-						<?php echo $this->load->view('companies/sub_stdtogroup', array('title' => ('edit company'))); ?>
+						<?php echo $this->load->view('quizzes/sub_component', array('title' => ('edit company'))); ?>
 					</div>
 						<?php if($display['current'] == 'menu3') {echo '<div id="menu3" class="tab-pane fade in active">';} else {echo '<div id="menu3" class="tab-pane fade">';} ?>
 						<?php echo $this->load->view('companies/sub_quizzes', array('title' => ('edit company'))); ?>
