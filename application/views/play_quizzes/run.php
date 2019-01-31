@@ -63,7 +63,6 @@
 
 		<?php if ($display['stage'] == '2') : ?>
 			<?php echo form_open('play_quizzes_cont/quizz_done/'.$sequence.'/'.$seq['quizz_info']['id'].'/'.$student_info['id']); ?>
-			<?php echo validation_errors(); ?>
 
 			<div class="well-large" style="background-color: #e4e0f4; border: 1px solid black">
 				<?php if (isset($validation)) : ?>
@@ -74,6 +73,7 @@
 					<?php $question = $this->play_quizzes_model->load_question($key); ?>
 					<div style="width: 100%"><h4 style="margin: 20px">Otazka:</h4><h5 style="margin: 20px;"><?php echo $question['question']; ?></h5></div>
 					<table style="width: 100%; border: 1px solid lightgrey; background-color: white">
+
 					<?php foreach ($value as $item) : ?>
 						<?php $answer = $this->play_quizzes_model->load_answer($item); ?>
 							<tr>

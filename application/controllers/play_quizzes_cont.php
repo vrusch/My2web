@@ -64,8 +64,9 @@ class play_quizzes_cont extends CI_Controller
 		$sequence = $this->play_quizzes_model->load_quizz($seq);
 
 		foreach ($sequence['questions'] as $item => $key){
-			$this->form_validation->set_rules('question['.$item.']', 'Question '.$item, 'required');
+			$this->form_validation->set_rules('question['.$item.']', 'Otazka '.$item, 'required');
 		}
+		//$this->form_validation->set_message('required', '{field} must have at least {param} characters.');
 
 		if ($this->form_validation->run() === FALSE) {
 			$data['student_info'] = $this->play_quizzes_model->get_student_info($account_id);
@@ -76,16 +77,40 @@ class play_quizzes_cont extends CI_Controller
 			$this->load->view('play_quizzes/run', isset($data) ? $data : NULL);
 		}else {
 			$user_answ = $_POST;
-			var_dump($user_answ['question']);
-			foreach ($user_answ['question'] as $ques => $answ){
-				echo $ques;
-				echo $answ;
+			foreach ($user_answ['question'] as $ques => $answ){ //zjistuji spravne odpovedi
+				$true_answ = $this->play_quizzes_model->get_true_answ($ques);
+				$result[] = array('question' => $ques, 'user_answ' => $answ, 'true_answ' => $true_answ['true_id_answer']);
 			}
+			foreach ($result as $item) {
+
+				if ($item['user_answ'] != $item['true_answ']){$bad[] = $item;}
+			}
+			if (isset($bad)){ //kdyz je neuspesny
+				$data['bad'] = $bad;
+				$datain = array(
+					'status' => '3',
+					'date' => mdate('%Y-%m-%d %H:%i:%s', now()),
+					'bad_answers' => serialize($bad),
+					'result' => serialize($result)
+				);
+				$this->db->where('id', $seq);
+				$this->db->where('account_id', $account_id);
+				$this->db->update('4m2w_rel_quizz_sequence', $datain);
+			} else { //kdyz je uspesny
+				$datain = array(
+					'status' => '2',
+					'date' => mdate('%Y-%m-%d %H:%i:%s', now()),
+					'result' => serialize($result)
+				);
+				$this->db->where('id', $seq);
+				$this->db->where('account_id', $account_id);
+				$this->db->update('4m2w_rel_quizz_sequence', $datain);
+			}
+			$data['result'] = $result;
 			$data['student_info'] = $this->play_quizzes_model->get_student_info($account_id);
 			$data['quizz_info'] = $this->play_quizzes_model->get_quizz_info($quizz_id);
 			$query = $this->db->get_where('4m2w_rel_quizz_sequence', array('quizz_id' => $quizz_id, 'account_id' => $account_id));
 			$data['sqe'] = $query->row_array();
-
 			$this->load->view('play_quizzes/quizz_done', isset($data) ? $data : NULL);
 		}
 	}

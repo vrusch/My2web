@@ -166,7 +166,6 @@ class play_quizzes_model extends CI_Model
 
 	public function get_seq_status($quizz_id, $account_id)
 	{
-		$this->db->select('status');
 		$query = $this->db->get_where('4m2w_rel_quizz_sequence', array('account_id' => $account_id, 'quizz_id' => $quizz_id));
 		return $query->row_array();
 	}
@@ -184,6 +183,25 @@ class play_quizzes_model extends CI_Model
 		$query = $this->db->get_where('4m2w_students', array('student_id' => $account_id));
 		$cec = $query->row_array();
 		$query = $this->db->get_where('4m2w_company_group', array('id' => $cec['group_id'], 'company_id' => $cec['company_id']));
+		return $query->row_array();
+	}
+
+	public function get_true_answ($question_id)
+	{
+		$this->db->select('true_id_answer');
+		$query = $this->db->get_where('4m2w_questions', array('id' => $question_id));
+		return $query->row_array();
+	}
+
+	public function get_question($question_id)
+	{
+		$query = $this->db->get_where('4m2w_questions', array('id' => $question_id));
+		return $query->row_array();
+	}
+
+	public function get_answer($answer_id)
+	{
+		$query = $this->db->get_where('4m2w_answers', array('id' => $answer_id));
 		return $query->row_array();
 	}
 }

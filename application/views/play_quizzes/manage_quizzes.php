@@ -32,7 +32,7 @@
 						<th>Obtiznost</th>
 						<th>Delka (v min. cca)</th>
 						<th>Dokoncit do</th>
-						<th>Vysledek</th>
+						<th>Stav</th>
 						<th>Opakovat</th>
 					</tr>
 					</thead>
@@ -44,14 +44,28 @@
 						<td><?php echo $quizzes_item['estimated_time'] ;?></td>
 						<td>31-01-2019</td>
 						<?php $status = $this->play_quizzes_model->get_seq_status($quizzes_item['id'], $student_info['id']); ?>
+
+						<?php if ($quizzes_item['ready'] != 0) : ?>
 						<?php if (count($status) > 0 ) : ;?>
 						<td>
-							<?php if ($status['status'] == '1'){echo 'spusten';} elseif ($status['status'] == '2') { echo 'dokoncen';}?>
+							<?php if ($status['status'] == '1')
+							{echo '<small>spusten</small><br><small>'.$status['date'].'</small>';}
+							elseif ($status['status'] == '2')
+							{echo '<small style="color: #00CC00">uspesne dokoncen</small><br><small>'.$status['date'].'</small>';}
+							elseif ($status['status'] == '3')
+							{echo '<small style="color: #CC0000">neuspesne dokoncen</small><br><small>'.$status['date'].'</small>';}	?>
 						</td>
 						<?php else : ;?>
 							<td>nespusten</td>
 						<?php endif ;?>
-						<td></td>
+						<?php else : ;?>
+							<td>nepripraven</td>
+						<?php endif ;?>
+						<td>
+							<?php if (count($status) > 0 ) : ;?>
+							<?php if ($status['status'] == '3') {echo 'opakovat';} ?>
+							<?php endif; ?>
+						</td>
 					</tr>
 					<?php endforeach; ?>
 					</tbody>
@@ -66,7 +80,7 @@
 							<th>Obtiznost</th>
 							<th>Delka (v min. cca)</th>
 							<th>Dokoncit do</th>
-							<th>Vysledek</th>
+							<th>Stav</th>
 							<th>Opakovat</th>
 						</tr>
 						</thead>
@@ -80,12 +94,21 @@
 								<?php $status = $this->play_quizzes_model->get_seq_status($quizzes_item['id'], $student_info['id']); ?>
 								<?php if (count($status) > 0 ) : ;?>
 									<td>
-										<?php if ($status['status'] == '1'){echo 'spusten';} elseif ($status['status'] == '2') { echo 'dokoncen';}?>
+										<?php if ($status['status'] == '1')
+										{echo '<small>spusten</small><br><small>'.$status['date'].'</small>';}
+										elseif ($status['status'] == '2')
+										{echo '<small style="color: #00CC00">uspesne dokoncen</small><br><small>'.$status['date'].'</small>';}
+										elseif ($status['status'] == '3')
+										{echo '<small style="color: #CC0000">neuspesne dokoncen</small><br><small>'.$status['date'].'</small>';}	?>
 									</td>
 								<?php else : ;?>
 									<td>nespusten</td>
 								<?php endif ;?>
-								<td></td>
+								<td>
+									<?php if (count($status) > 0 ) : ;?>
+										<?php if ($status['status'] == '3') {echo 'opakovat';} ?>
+									<?php endif; ?>
+								</td>
 							</tr>
 						<?php endforeach; ?>
 						</tbody>

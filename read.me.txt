@@ -43,3 +43,10 @@ play kviz:
 kontrola ze sa da kviz prehrat tzn ma otazky
 neprehravat lecture ak neni v kvize
 dokoncene kvizy nespustat este raz
+
+
+KVIZ: musi mat priznak ready 0 nepripraveny (neobsahuje nic) 1 (pripraveny ma aspon jednu otazku alebo lekciu)
+
+
+KVIZ otazky budu mat bodovu vahu a kviz je po dosiahnuti urciteho poctu bodov uspesny
+KVIZ ak je neuspesny tak zmazat SEQ a vygenerovat novy

@@ -26,7 +26,15 @@
 			<div class="well">
 			<a href="play_quizzes_cont/run/<?php echo $current_quizz['id'] ;?>/<?php echo $student_info['id'] ;?>"><buton class="btn btn-primary btn-block"><?php echo 'Spustit kviz: '.$current_quizz['name'] ;?></buton></a>
 			<br>
+				<?php $status = $this->play_quizzes_model->get_seq_status($current_quizz['id'], $student_info['id']) ?>
+				<?php if (!isset($status)) : ?>
 				<div style="border: 1px solid grey; padding: 10px; border-radius: 10px">Kviz obsahuje <?php echo $lec_no;?> lekce a potom <?php echo $que_no;?> otazek. Odhadovany cas na dokonceni kvizu je <?php echo $current_quizz['estimated_time'];?> minut. Po stlaceni tlacitka spustit kviz je kviz spusten</div>
+				<?php elseif ($status['status'] == '2') : ?>
+
+				<?php elseif () : ?>
+
+				<?php endif ?>
+				<?php var_dump($status)?>
 			</div>
 
 		</div>
