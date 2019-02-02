@@ -19,30 +19,34 @@
 				<?php echo ("vytváření kvizu"); ?>
 			</div>
 
-			<?php
-			foreach ($themes as $themes_item){
-				$opt[$themes_item['id']] = $themes_item['theme'];
-			}
-			if (count($themes)){
-				$opt += ['0' => 'Žádna tema'];
-			} else {
-				$opt = ['0' => 'Žádna tema'];
-			}
-			?>
 			<?php echo form_open('quizzes_cont/new', 'class="form-horizontal"'); ?>
 			<?php echo validation_errors();?>
 
 			<div class="control-group">
-				<label class="control-label" for="theme"><?php echo ('Tema'); ?></label>
+				<label class="control-label" for="quizz"><?php echo ('Kviz - nazev'); ?></label>
 				<div class="controls">
-					<?php echo form_dropdown('theme_old', $opt, '0'); ?> nebo nova tema <?php echo form_input(array('name' => 'theme_new')); ?>
+					<input type="text" name="quizz" placeholder="Nazev kvizu" style="width:50%"  />
 				</div>
 			</div>
 
 			<div class="control-group">
-				<label class="control-label" for="quizz"><?php echo ('Kviz - nazev'); ?></label>
+				<label class="control-label" for="difficulty"><?php echo ('Narocnost'); ?></label>
 				<div class="controls">
-					<?php echo form_input(array('name' => 'quizz')); ?>
+					<input type="text" name="difficulty" placeholder="Narocnost kvizu 1:nejlehci - 3:nejtezsi" style="width:50%"  />
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="estimated_time"><?php echo ('Delka kvizu'); ?></label>
+				<div class="controls">
+					<input type="text" name="estimated_time" placeholder="Odhadovana delka kvizu v min." style="width:50%"  />
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="note"><?php echo ('Poznamka/Popis'); ?></label>
+				<div class="controls">
+					<?php echo form_textarea(array('name' => 'note'), '','placeholder="poznamka, urceni, cile o cem to bude atd."'); ?>
 				</div>
 			</div>
 

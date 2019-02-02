@@ -21,11 +21,11 @@
 			</table>
 
 			<div class="well">
-				<?php echo("Experiment popis."); ?>
+				<p>Prave editujete kviz - <b><?php echo $quizz['name']; ?></b>. Nejprve kviz nakonfigurujte a potom pridejte komponety, tzn. otazky a lekce.</p>
 			</div>
 			<!-- END of header page	-->
 
-			<?php echo form_open('quizzes_cont/edit/'.$quizz['id'], 'class="form-horizontal"'); ?>
+			<?php echo form_open('quizzes_cont/rename_quizz/'.$quizz['id'], 'class="form-horizontal"'); ?>
 			<?php echo validation_errors(); ?>
 
 			<div class="control-group">
@@ -34,47 +34,35 @@
 					<?php echo form_input(array('name' => 'quizz_name'), $quizz['name']); ?>
 					<?php echo form_submit('', ('Uložit'), 'class="btn btn-primary"'); ?>
 				</div>
+				<?php echo form_close(); ?>
 			</div><br>
-			<?php echo form_close(); ?>
 
 			<!-- TABS start -->
-
 
 			<?php if (isset($display['current'])) : ?>
 			<div class="well">
 				<ul class="nav nav-tabs">
-					<?php if($display['current'] == 'home') {echo '<li class="active"><a data-toggle="tab" href="#home">Konfigurace vzhledu</a></li>';} else {echo '<li><a data-toggle="tab" href="#home">Konfigurace vzhledu</a></li>';} ?>
-					<?php if($display['current'] == 'menu1') {echo '<li class="active"><a data-toggle="tab" href="#menu1">Konfigurace kvizu</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu1">Konfigurace kvizu</a></li>';} ?>
-					<?php if($display['current'] == 'menu2') {echo '<li class="active"><a data-toggle="tab" href="#menu2">Komponenty kvizu</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu2">Komponenty kvizu</a></li>';} ?>
-					<?php if($display['current'] == 'menu3') {echo '<li class="active"><a data-toggle="tab" href="#menu3">zatim nic</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu3">zatim nic</a></li>';} ?>
-					<?php if($display['current'] == 'menu4') {echo '<li class="active"><a data-toggle="tab" href="#menu4">zatim nic</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu4">zatim nic</a></li>';} ?>
-					<?php if($display['current'] == 'menu5') {echo '<li class="active"><a data-toggle="tab" href="#menu5">Smazat/Blokovat</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu5">Smazat/Blokovat</a></li>';} ?>
+					<?php if($display['current'] == 'home') {echo '<li class="active"><a data-toggle="tab" href="#home">Konfigurace kvizu</a></li>';} else {echo '<li><a data-toggle="tab" href="#home">Konfigurace vzhledu</a></li>';} ?>
+					<?php if($display['current'] == 'menu1') {echo '<li class="active"><a data-toggle="tab" href="#menu1">Komponenty kvizu</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu1">Komponenty kvizu</a></li>';} ?>
+					<?php if($display['current'] == 'menu2') {echo '<li class="active"><a data-toggle="tab" href="#menu2">Popis/Poznamka</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu2">Popis/Poznamka</a></li>';} ?>
+					<?php if($display['current'] == 'menu6') {echo '<li class="active"><a data-toggle="tab" href="#menu6">Smazat/Blokovat</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu6">Smazat/Blokovat</a></li>';} ?>
 				</ul>
-				<?php var_dump($display); ?>
+				<?php //var_dump($display); ?>
 				<div class="tab-content">
 						<?php if($display['current'] == 'home') {echo '<div id="home" class="tab-pane fade in active">';} else {echo '<div id="home" class="tab-pane fade">';} ?>
-						<?php if ($display['page'] == 'students_new')  { echo $this->load->view('companies/sub_students_new', array('title' => ('edit company')));} else { echo $this->load->view('companies/sub_students', array('title' => ('edit company')));}?>
+						<?php echo $this->load->view('quizzes/sub_config', array('title' => ('manage quizzes'))); ?>
 					</div>
 						<?php if($display['current'] == 'menu1') {echo '<div id="menu1" class="tab-pane fade in active">';} else {echo '<div id="menu1" class="tab-pane fade">';} ?>
-						<?php echo $this->load->view('companies/sub_groups', array('title' => ('edit company'))); ?>
+						<?php echo $this->load->view('quizzes/sub_component', array('title' => ('manage quizzes'))); ?>
 					</div>
 						<?php if($display['current'] == 'menu2') {echo '<div id="menu2" class="tab-pane fade in active">';} else {echo '<div id="menu2" class="tab-pane fade">';} ?>
-						<?php echo $this->load->view('quizzes/sub_component', array('title' => ('edit company'))); ?>
+						<?php echo $this->load->view('quizzes/sub_note', array('title' => ('manage quizzes'))); ?>
 					</div>
-						<?php if($display['current'] == 'menu3') {echo '<div id="menu3" class="tab-pane fade in active">';} else {echo '<div id="menu3" class="tab-pane fade">';} ?>
-						<?php echo $this->load->view('companies/sub_quizzes', array('title' => ('edit company'))); ?>
+						<?php if($display['current'] == 'menu6') {echo '<div id="menu6" class="tab-pane fade in active">';} else {echo '<div id="menu6" class="tab-pane fade">';} ?>
+						<?php echo $this->load->view('quizzes/sub_delete', array('title' => ('manage quizzes'))); ?>
 					</div>
-						<?php if($display['current'] == 'menu4') {echo '<div id="menu4" class="tab-pane fade in active">';} else {echo '<div id="menu4" class="tab-pane fade">';} ?>
-						<?php echo $this->load->view('companies/sub_mkb', array('title' => ('edit company')));?>
-					</div>
-						<?php if($display['current'] == 'menu5') {echo '<div id="menu5" class="tab-pane fade in active">';} else {echo '<div id="menu5" class="tab-pane fade">';} ?>
-						<?php echo $this->load->view('companies/sub_ban_delete', array('title' => ('edit company'))); ?>
-					</div>
-
 				</div>
-
-<?php endif ?>
-
+			<?php endif ?>
 		</div>
 	</div>
 </div>

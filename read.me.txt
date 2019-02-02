@@ -1,7 +1,7 @@
 Firmy
 zrusit linky po kliknuti na pocet, na hlavnej stranke
 nova firma upravit popis
-pri vytvarani mkb s firmou sa neapisuje v tab studenti attribut mkb
+pri vytvarani mkb s firmou sa nezapisuje v tab studenti attribut mkb
 
 sprava zaku
 v prehlade ikonka mkb

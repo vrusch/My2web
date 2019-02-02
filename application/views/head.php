@@ -32,7 +32,7 @@
 		color:#000;
 		cursor:move;
 		list-style:none;
-		width:500px;
+		width:300px;
 		background:#ddd;
 		margin:10px 0;
 		border:1px solid #999;

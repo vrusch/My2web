@@ -20,41 +20,52 @@ class quizzes_cont extends CI_Controller
 
 	public function edit($quizz_id, $current = NULL, $subpagecontent = NULL)
 	{
-		$this->form_validation->set_rules('quizz_name', 'nazev kvizu', 'required');
-		$this->form_validation->set_message('required', 'Povinne pole');
-
-		if ($this->form_validation->run() === FALSE) {
-			$data['quizz'] = $this->quizzes_model->get_quizzes($quizz_id);
+		$data['quizz'] = $this->quizzes_model->get_quizzes($quizz_id);
+		$data['questions'] = $this->quizzes_model->get_question_by_quizz($quizz_id);
+		if ($current == NULL) { //kdyz neni def. $current tak jdi na sub Home jinak na $current
 			$data['display'] = array('page' => 'edit', 'current' => 'home');
-			$this->load->view('quizzes/edit_quizz', isset($data) ? $data : NULL);
-		}else{
-			$this->quizzes_model->upd_quizz_name($this->input->post('quizz_name'), $quizz_id);
-			$data['quizz'] = $this->quizzes_model->get_quizzes($quizz_id);
-			$data['display'] = array('page' => 'edit', 'current' => 'home');
-			$this->load->view('quizzes/edit_quizz', isset($data) ? $data : NULL);
+		} else {
+			$data['display'] = array('page' => 'edit', 'current' => $current);
 		}
+		$this->load->view('quizzes/edit_quizz', isset($data) ? $data : NULL);
+	}
+
+	public function rename_quizz($quizz_id)
+	{
+		$this->quizzes_model->upd_quizz_name($quizz_id);
+		$this->edit($quizz_id);
 	}
 
 	public function new()
 	{
 		$this->form_validation->set_rules('quizz', 'Text', 'required');
-		$this->form_validation->set_message('required', 'Povinne pole');
+		$this->form_validation->set_rules('difficulty', 'Text', 'required');
+		$this->form_validation->set_rules('estimated_time', 'Text', 'required');
+
 
 		if ($this->form_validation->run() === FALSE) {
-			$data['themes'] = $this->quizzes_model->get_themes();
 			$this->load->view('quizzes/add_quizz', isset($data) ? $data : NULL);
 		} else {
-			if ($this->input->post('theme_new')){
-				$theme_id = $this->quizzes_model->set_theme($this->input->post('theme_new'));
-				$this->quizzes_model->set_quizz($this->input->post('quizz'), $theme_id);
-			} else {
-				$this->quizzes_model->set_theme($this->input->post('theme_old'));
-				$this->quizzes_model->set_quizz($this->input->post('quizz'), $this->input->post('theme_old'));
-			}
-
+			$this->quizzes_model->set_quizz($this->input->post('quizz'));
 			$data['quizzes'] = $this->quizzes_model->get_quizzes();
 			$data['display'] = array('page' => 'edit');
 			$this->load->view('quizzes/manage_quizzes', isset($data) ? $data : NULL);;
 		}
+	}
+
+	public function config($quizz_id){
+		$this->quizzes_model->set_quizz_config($quizz_id);
+		$this->edit($quizz_id);
+	}
+
+	public function delete($quizz_id){
+		$this->db->where('id', $quizz_id);
+		$this->db->delete('4m2w_quizzes');
+		$this->index();
+	}
+
+	public function update_note($quizz_id){
+		$this->quizzes_model-> upd_quizz_note($quizz_id);
+		$this->edit($quizz_id, 'menu2');
 	}
 }
