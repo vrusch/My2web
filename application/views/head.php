@@ -16,6 +16,7 @@
 <link href="<?php echo base_url().RES_DIR; ?>/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 <script src="<?php echo base_url().RES_DIR; ?>/bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style>
 	body {
@@ -30,19 +31,13 @@
 	#sortable-list li	{
 		padding:4px 8px;
 		color:#000;
-		cursor:move;
+
 		list-style:none;
 		width:300px;
-		background:#ddd;
+		background: #e9e5f9;
 		margin:10px 0;
 		border:1px solid #999;
-	}
-	#message-box {
-		background:#fffea1;
-		border:2px solid #fc0;
-		padding:4px 8px;
-		margin:0 0 14px 0;
-		width:500px;
+		border-radius: 4px;
 	}
 </style>
 

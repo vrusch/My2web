@@ -63,7 +63,7 @@
 					</div>
 				</div>
 			<?php endif ?>
-		</div>
+			</div>
 	</div>
 </div>
 </body>

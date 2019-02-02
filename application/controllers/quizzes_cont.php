@@ -25,7 +25,7 @@ class quizzes_cont extends CI_Controller
 		if ($current == NULL) { //kdyz neni def. $current tak jdi na sub Home jinak na $current
 			$data['display'] = array('page' => 'edit', 'current' => 'home');
 		} else {
-			$data['display'] = array('page' => 'edit', 'current' => $current);
+			$data['display'] = array('page' => 'edit', 'current' => $current, 'sub' => $subpagecontent);
 		}
 		$this->load->view('quizzes/edit_quizz', isset($data) ? $data : NULL);
 	}
@@ -67,5 +67,13 @@ class quizzes_cont extends CI_Controller
 	public function update_note($quizz_id){
 		$this->quizzes_model-> upd_quizz_note($quizz_id);
 		$this->edit($quizz_id, 'menu2');
+	}
+
+	public function component($quizz_id, $action, $component_id){
+		if ($action == 'add_l'){}
+		if ($action == 'add_q'){$this->quizzes_model->add_question($quizz_id, $component_id);}
+		if ($action == 'del_l'){}
+		if ($action == 'del_q'){}
+		$this->edit($quizz_id, 'menu1');
 	}
 }

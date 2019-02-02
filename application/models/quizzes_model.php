@@ -81,4 +81,19 @@ class quizzes_model extends CI_Model
 		$this->db->where('id', $quizz_id);
 		$this->db->update('4m2w_quizzes', $data);
 	}
+
+	public function get_questions()
+	{
+		$query = $this->db->get('4m2w_questions');
+		return $query->result_array();
+	}
+
+	public function add_question($quizz_id, $component_id)
+	{
+		$query = $this->db->get_where('4m2w_rel_quizz_que', array('quizz_id' => $quizz_id, 'question_id' => $component_id));
+		if (($query->num_rows()) == 0){
+			$this->db->insert('4m2w_rel_quizz_que', array('quizz_id' => $quizz_id, 'question_id' => $component_id));
+			return 0;
+		}
+	}
 }
