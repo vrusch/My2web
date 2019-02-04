@@ -38,11 +38,13 @@
 					</thead>
 					<tbody>
 					<?php foreach($quizzes as $quizzes_item) : ;?>
+					<?php //var_dump($quizzes_item); ?>
 					<tr>
 						<td style="width: 40%"><?php echo $quizzes_item['name'] ;?></td>
 						<td style="width: 10%"><?php if ($quizzes_item['difficulty'] == '1'){echo 'lehka';} elseif ($quizzes_item['difficulty'] == '2') { echo 'stredni';} else {echo 'tezka';}?></td>
 						<td style="width: 15%"><?php echo $quizzes_item['estimated_time'] ;?></td>
-						<td style="width: 10%">31-01-2019</td>
+						<?php if ($quizzes_item['valid_to'] == NULL){$date = 'neomezeno';}else{$this->play_quizzes_model->date_validate($quizzes_item['valid_to']);}?>
+						<td style="width: 10%"><?php echo $date; ?></td>
 						<?php $status = $this->play_quizzes_model->get_seq_status($quizzes_item['id'], $student_info['id']); ?>
 
 						<?php if ($quizzes_item['ready'] != 0) : ?>
@@ -56,7 +58,7 @@
 							{echo '<small style="color: #CC0000">neuspesne dokoncen</small><br><small>'.$status['date'].'</small>';}	?>
 						</td>
 						<?php else : ;?>
-								<td><small style="color: #00CC00">zatim nespusten</small></td>
+								<td><small style="color: #7684ff">zatim nespusten</small></td>
 						<?php endif ;?>
 						<?php else : ;?>
 							<td><small style="color: #CC0000">Kviz nepripraven</small></td>
@@ -90,7 +92,9 @@
 								<td style="width: 40%"><?php echo $quizzes_item['name'] ;?></td>
 								<td style="width: 10%"><?php if ($quizzes_item['difficulty'] == '1'){echo 'lehka';} elseif ($quizzes_item['difficulty'] == '2') { echo 'stredni';} else {echo 'tezka';}?></td>
 								<td style="width: 15%"><?php echo $quizzes_item['estimated_time'] ;?></td>
-								<td style="width: 10%">31-01-2019</td>
+								<?php //var_dump($quizzes_item['valid_to']);?>
+								<?php if ($quizzes_item['valid_to'] == NULL){$date = 'neomezeno';}else{$date = $this->play_quizzes_model->date_validate($quizzes_item['valid_to']);}?>
+								<td style="width: 10%"><?php echo $date; ?></td>
 								<?php $status = $this->play_quizzes_model->get_seq_status($quizzes_item['id'], $student_info['id']); ?>
 								<?php if (count($status) > 0 ) : ;?>
 									<td style="width: 15%">
@@ -102,7 +106,7 @@
 										{echo '<small style="color: #CC0000">neuspesne dokoncen</small><br><small>'.$status['date'].'</small>';}	?>
 									</td>
 								<?php else : ;?>
-									<td>nespusten</td>
+									<td><small style="color: #7684ff">zatim nespusten</small></td>
 								<?php endif ;?>
 								<td>
 									<?php if (count($status) > 0 ) : ;?>

@@ -88,11 +88,54 @@ class quizzes_model extends CI_Model
 		return $query->result_array();
 	}
 
+	public function get_lectures()
+	{
+		$query = $this->db->get('4m2w_lectures');
+		return $query->result_array();
+	}
+
 	public function add_question($quizz_id, $component_id)
 	{
 		$query = $this->db->get_where('4m2w_rel_quizz_que', array('quizz_id' => $quizz_id, 'question_id' => $component_id));
 		if (($query->num_rows()) == 0){
 			$this->db->insert('4m2w_rel_quizz_que', array('quizz_id' => $quizz_id, 'question_id' => $component_id));
+			$this->db->where('id', $quizz_id);
+			$this->db->update('4m2w_quizzes', array('ready' => 1));
+			return 0;
+		} else {
+			return 1;
+		}
+	}
+
+	public function add_lecture($quizz_id, $component_id)
+	{
+		$query = $this->db->get_where('4m2w_rel_quizz_lec', array('quizz_id' => $quizz_id, 'lecture_id' => $component_id));
+		if (($query->num_rows()) == 0){
+			$this->db->insert('4m2w_rel_quizz_lec', array('quizz_id' => $quizz_id, 'lecture_id' => $component_id));
+			return 0;
+		} else {
+			return 1;
+		}
+	}
+
+	public function del_lecture($quizz_id, $component_id)
+	{
+		$query = $this->db->get_where('4m2w_rel_quizz_lec', array('quizz_id' => $quizz_id, 'lecture_id' => $component_id));
+		if (($query->num_rows()) > 0){
+			$this->db->delete('4m2w_rel_quizz_lec', array('quizz_id' => $quizz_id, 'lecture_id' => $component_id));
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+
+	public function del_question($quizz_id, $component_id)
+	{
+		$query = $this->db->get_where('4m2w_rel_quizz_que', array('quizz_id' => $quizz_id, 'question_id' => $component_id));
+		if (($query->num_rows()) > 0){
+			$this->db->delete('4m2w_rel_quizz_que', array('quizz_id' => $quizz_id, 'question_id' => $component_id));
+			return 1;
+		} else {
 			return 0;
 		}
 	}

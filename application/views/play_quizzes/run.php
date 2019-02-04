@@ -48,17 +48,17 @@
 			</div>
 			<?php $seq = $this->play_quizzes_model->load_quizz($sequence); ?>
 			<?php if ($display['stage'] == '1') : ?>
-			<div class="well-large" style="background-color: #e4e0f4; border: 1px solid black">
-				<?php foreach ($seq['quizz_lecture'] as $item) : ?>
-					<?php
-						$lecture = $this->play_quizzes_model->load_lecture($item['lecture_id']);
-						echo '<h2>'. $lecture['name'].'</h2>';
-						echo $lecture['lecture'];
-					?>
-				<?php endforeach; ?>
-			<br>
-				<div style="width: 100%; text-align: center"><a href="play_quizzes_cont/run/<?php echo $seq['quizz_info']['id'] ?>/<?php echo $student_info['id'] ;?>/2"><button type="button" class="btn btn-warning">Ok rozumim, chci prejit na kotrolni otazky</button></a></div>
-			</div>
+				<div class="well-large" style="background-color: #e4e0f4; border: 1px solid black">
+					<?php foreach ($seq['quizz_lecture'] as $item) : ?>
+						<?php
+							$lecture = $this->play_quizzes_model->load_lecture($item['lecture_id']);
+							echo '<h2>'. $lecture['name'].'</h2>';
+							echo $lecture['lecture'];
+						?>
+					<?php endforeach; ?>
+				<br>
+					<div style="width: 100%; text-align: center"><a href="play_quizzes_cont/run/<?php echo $seq['quizz_info']['id'] ?>/<?php echo $student_info['id'] ;?>/2"><button type="button" class="btn btn-warning">Ok rozumim, chci prejit na kotrolni otazky</button></a></div>
+				</div>
 		<?php endif ?>
 
 		<?php if ($display['stage'] == '2') : ?>

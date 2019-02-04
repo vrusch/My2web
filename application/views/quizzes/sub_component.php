@@ -28,7 +28,7 @@
 					};
 				} else {echo 'zadne lekce';}
 				echo '<hr>';
-				if ($count_lectures > 0){
+				if ($count_questions > 0){
 					foreach ($questions as $questions_item) {
 						//var_dump($questions_item);
 						echo '<a href="quizzes_cont/component/'.$quizz['id'].'/del_q/'.$questions_item['question_id'].'"><li><i class="fa fa-remove" style="font-size:16px;color:red"></i> '.$questions_item['question'].'</li></a>';
@@ -51,7 +51,7 @@
 					<?php echo $this->load->view('quizzes/sub_subquestions', array('title' => ('manage quizzes'))); ?>
 				</div>
 				<div id="lec" class="tab-pane fade">
-					<?php// echo $this->load->view('quizzes/sub_sublectures', array('title' => ('manage quizzes'))); ?>
+					<?php echo $this->load->view('quizzes/sub_sublectures', array('title' => ('manage quizzes'))); ?>
 				</div>
 			</div>
 			<!-- END SUBMENU -->

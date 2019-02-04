@@ -22,25 +22,28 @@
 			</table>
 			<!-- END of header page	-->
 			<br>
+			<div class="well">
+				<?php echo $current_quizz['note'];?>
+			</div>
 			<br>
 			<?php $status_col = $this->play_quizzes_model->get_seq_status_col($current_quizz['id'], $student_info['id']) ?>
 			<?php $status = $this->play_quizzes_model->get_seq_status($current_quizz['id'], $student_info['id']) ?>
 			<div class="well">
-
+				<?php //var_dump($current_quizz) ?>
 			<?php if ($status_col == 0) : ?>
-				<a href="play_quizzes_cont/run/<?php echo $current_quizz['id'] ;?>/<?php echo $student_info['id'] ;?>"><buton class="btn btn-primary btn-block"><?php echo 'Spustit kviz: '.$current_quizz['name'] ;?></buton></a>
+					<a href="play_quizzes_cont/run/<?php echo $current_quizz['id'] ;?>/<?php echo $student_info['id'] ;?>"><buton class="btn btn-primary btn-block"><?php echo 'Spustit kviz: '.$current_quizz['name'] ;?></buton></a>
 			<?php else : ?>
-				<a href="play_quizzes_cont/run/<?php echo $current_quizz['id'] ;?>/<?php echo $student_info['id'] ;?>/0"><buton class="btn btn-primary btn-block"><?php echo 'Spustit kviz: '.$current_quizz['name'] ;?></buton></a>
+					<a href="play_quizzes_cont/run/<?php echo $current_quizz['id'] ;?>/<?php echo $student_info['id'] ;?>"><buton class="btn btn-primary btn-block"><?php echo 'Spustit kviz: '.$current_quizz['name'] ;?></buton></a>
 			<?php endif ?>
 			<br>
 				<?php if ($status_col == 0) : ?>
-					<div style="border: 1px solid grey; padding: 10px; border-radius: 10px">Kviz obsahuje <?php echo $lec_no;?> lekce a potom <?php echo $que_no;?> otazek. Odhadovany cas na dokonceni kvizu je <?php echo $current_quizz['estimated_time'];?> minut. Po stlaceni tlacitka spustit kviz je kviz spusten</div>
+					<div style="border: 1px solid grey; padding: 10px; border-radius: 10px; width: 98%">Kviz obsahuje <?php echo $lec_no;?> lekce a <?php echo $que_no['question_num'];?> otazek. Odhadovany cas na dokonceni kvizu je <?php echo $current_quizz['estimated_time'];?> minut. Po stlaceni tlacitka spustit kviz je kviz spusten</div>
 				<?php else : ?>
 					<?php if ($status['status'] == '2') : ?>
-						<div style="border: 1px solid grey; padding: 10px; border-radius: 10px; width: 100%; text-align: center"><b>tento kurz uz byl uspesne ukoncen, opravdu ho xcete pustit znovu? Vazne?</b></div>
+						<div style="border: 1px solid grey; padding: 10px; border-radius: 10px; width: 98%; text-align: center"><b>tento kurz uz byl uspesne ukoncen, opravdu ho xcete pustit znovu? Vazne?</b></div>
 					<?php endif ?>
 					<?php if ($status['status'] == '3') : ?>
-						<div style="border: 1px solid grey; padding: 10px; border-radius: 10px; width: 100%; text-align: center"><b>Tento kviz jste uz jednou posral tak davej pozor at to ted udelas!</b><br>Kviz obsahuje <?php echo $lec_no;?> lekce a potom <?php echo $que_no;?> otazek. Odhadovany cas na dokonceni kvizu je <?php echo $current_quizz['estimated_time'];?> minut. Po stlaceni tlacitka spustit kviz je kviz spusten</div>
+						<div style="border: 1px solid grey; padding: 10px; border-radius: 10px; width: 98%; text-align: center"><b>Tento kviz jste uz jednou posral tak davej pozor at to ted udelas!</b><br>Kviz obsahuje <?php echo $lec_no;?> lekce a potom <?php echo $que_no['question_num'];?> otazek. Odhadovany cas na dokonceni kvizu je <?php echo $current_quizz['estimated_time'];?> minut. Po stlaceni tlacitka spustit kviz je kviz spusten</div>
 					<?php endif ?>
 				<?php endif ?>
 			</div>

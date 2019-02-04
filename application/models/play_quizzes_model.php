@@ -92,11 +92,27 @@ class play_quizzes_model extends CI_Model
 		return $this->db->insert_id();
 	}
 
-	public function get_rnd_questions($id)
+	public function get_rnd_questions($quizz_id)
 	{
 		$this->db->select('question_id');
-		$query = $this->db->get_where('4m2w_rel_quizz_que', array('quizz_id' => $id));
-		$result = $query->result_array();
+		$query = $this->db->get_where('4m2w_rel_quizz_que', array('quizz_id' => $quizz_id));
+		$result = $query->result_array(); //todo: tu vybrat iba pocet otazok z 4m2w_quizzes question_num
+		$query = $this->db->get_where('4m2w_quizzes', array('id' => $quizz_id));
+		$res = $query->row_array();
+
+		if (count($result) > $res['question_num']){
+			$num = (count($result)) - $res['question_num'];
+
+			$rand_keys = array_rand($result, $num);
+
+			if ($num > 1) {
+				foreach ($rand_keys as $item){
+					unset($result[$item]);
+				}
+			}else {
+				unset($result[$rand_keys]);
+			}
+		}
 		$opt = array();
 		foreach ($result as $query_item => $key){
 			$opt[] = $key;
@@ -125,8 +141,9 @@ class play_quizzes_model extends CI_Model
 
 	public function get_no_question($quizz_id)
 	{
-		$query = $this->db->get_where('4m2w_rel_quizz_que', array('quizz_id' => $quizz_id));
-		return $query->num_rows();
+		$this->db->select('question_num');
+		$query = $this->db->get_where('4m2w_quizzes', array('id' => $quizz_id));
+		return $query->row_array();
 	}
 
 	public function get_no_lectures($quizz_id)
@@ -209,5 +226,18 @@ class play_quizzes_model extends CI_Model
 	{
 		$query = $this->db->get_where('4m2w_answers', array('id' => $answer_id));
 		return $query->row_array();
+	}
+
+	public function date_validate($date)
+	{
+		$given_date = date("d-m-Y", strtotime($date));
+		$now   = date("d-m-Y") ;
+		if ($given_date > $now) {
+			return $given_date;
+		} else{
+			return 'Expirovano';
+		}
+
+
 	}
 }

@@ -70,10 +70,10 @@ class quizzes_cont extends CI_Controller
 	}
 
 	public function component($quizz_id, $action, $component_id){
-		if ($action == 'add_l'){}
+		if ($action == 'add_l'){$this->quizzes_model->add_lecture($quizz_id, $component_id);}
 		if ($action == 'add_q'){$this->quizzes_model->add_question($quizz_id, $component_id);}
-		if ($action == 'del_l'){}
-		if ($action == 'del_q'){}
+		if ($action == 'del_l'){$this->quizzes_model->del_lecture($quizz_id, $component_id);}
+		if ($action == 'del_q'){$this->quizzes_model->del_question($quizz_id, $component_id);}
 		$this->edit($quizz_id, 'menu1');
 	}
 }

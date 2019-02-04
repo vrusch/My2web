@@ -46,7 +46,8 @@ class play_quizzes_cont extends CI_Controller
 
 		$query = $this->db->get_where('4m2w_rel_quizz_sequence', array('quizz_id' => $quizz_id, 'account_id' => $account_id));
 		$check =  $query->row_array();
-
+		//var_dump($data['quizz_info']);
+		var_dump($data['quizz_info']['quizz_type']);
 		//kdyz neexistuje tak vygeneruj
 		if ((count($check)) == 0){
 			//vygenerovany kviz vratim id sequence
@@ -57,14 +58,23 @@ class play_quizzes_cont extends CI_Controller
 			} else {
 				$data['display'] = array('stage' => '2');
 			}
-			$this->load->view('play_quizzes/run', isset($data) ? $data : NULL);
+			if ($data['quizz_info']['quizz_type'] == 'long') {
+				$this->load->view('play_quizzes/run', isset($data) ? $data : NULL);
+			} elseif ($data['quizz_info']['quizz_type'] == 'one'){
+				$this->load->view('play_quizzes/run_one_by_one', isset($data) ? $data : NULL);
+			}
 		} else {
 			//nastavit ze vidi jenom lekci nebo otazky
 			$data['display'] = array('stage' => '2');
 			$data['sequence'] = $check['id'];
-			$this->load->view('play_quizzes/run', isset($data) ? $data : NULL);
+			if ($data['quizz_info']['quizz_type'] == 'long') {
+				$this->load->view('play_quizzes/run', isset($data) ? $data : NULL);
+			} elseif ($data['quizz_info']['quizz_type'] == 'one'){
+				$this->load->view('play_quizzes/run_one_by_one', isset($data) ? $data : NULL);
+			}
 		}
 	}
+
 
 	public function quizz_done($seq, $quizz_id, $account_id)
 	{
