@@ -43,7 +43,8 @@
 						<td style="width: 40%"><?php echo $quizzes_item['name'] ;?></td>
 						<td style="width: 10%"><?php if ($quizzes_item['difficulty'] == '1'){echo 'lehka';} elseif ($quizzes_item['difficulty'] == '2') { echo 'stredni';} else {echo 'tezka';}?></td>
 						<td style="width: 15%"><?php echo $quizzes_item['estimated_time'] ;?></td>
-						<?php if ($quizzes_item['valid_to'] == NULL){$date = 'neomezeno';}else{$this->play_quizzes_model->date_validate($quizzes_item['valid_to']);}?>
+						<?php //var_dump($quizzes_item); ?>
+						<?php if ($quizzes_item['valid_to'] == NULL){$date = 'neomezeno';}else{$date = $this->play_quizzes_model->date_validate($quizzes_item['valid_to']);}?>
 						<td style="width: 10%"><?php echo $date; ?></td>
 						<?php $status = $this->play_quizzes_model->get_seq_status($quizzes_item['id'], $student_info['id']); ?>
 

@@ -76,7 +76,7 @@
 							<?php if($display['current'] == 'menu5') {echo '<div id="menu5" class="tab-pane fade in active">';} else {echo '<div id="menu5" class="tab-pane fade">';} ?>
 							<?php echo $this->load->view('companies/sub_ban_delete', array('title' => ('edit company'))); ?>
 						</div>
-						<?php if($display['current'] == 'menu6') {echo '<div id="menu5" class="tab-pane fade in active">';} else {echo '<div id="menu6" class="tab-pane fade">';} ?>
+						<?php if($display['current'] == 'menu6') {echo '<div id="menu6" class="tab-pane fade in active">';} else {echo '<div id="menu6" class="tab-pane fade">';} ?>
 							<?php echo $this->load->view('companies/sub_validityto', array('title' => ('edit company'))); ?>
 						</div>
 					</div>

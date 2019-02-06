@@ -94,6 +94,7 @@ class play_quizzes_cont extends CI_Controller
 			$this->load->view('play_quizzes/run', isset($data) ? $data : NULL);
 		}else {
 			$user_answ = $_POST;
+			//var_dump($sequence);
 			foreach ($user_answ['question'] as $ques => $answ){ //zjistuji spravne odpovedi
 				$true_answ = $this->play_quizzes_model->get_true_answ($ques);
 				$result[] = array('question' => $ques, 'user_answ' => $answ, 'true_answ' => $true_answ['true_id_answer']);
@@ -102,13 +103,15 @@ class play_quizzes_cont extends CI_Controller
 
 				if ($item['user_answ'] != $item['true_answ']){$bad[] = $item;}
 			}
+			$itt = $this->play_quizzes_model->get_itt($seq);
 			if (isset($bad)){ //kdyz je neuspesny
 				$data['bad'] = $bad;
 				$datain = array(
 					'status' => '3',
 					'date' => mdate('%Y-%m-%d %H:%i:%s', now()),
 					'bad_answers' => serialize($bad),
-					'result' => serialize($result)
+					'result' => serialize($result),
+					'iteration' => $itt['iteration'] + 1
 				);
 				$this->db->where('id', $seq);
 				$this->db->where('account_id', $account_id);
@@ -117,7 +120,8 @@ class play_quizzes_cont extends CI_Controller
 				$datain = array(
 					'status' => '2',
 					'date' => mdate('%Y-%m-%d %H:%i:%s', now()),
-					'result' => serialize($result)
+					'result' => serialize($result),
+					'iteration' => $itt['iteration'] + 1
 				);
 				$this->db->where('id', $seq);
 				$this->db->where('account_id', $account_id);

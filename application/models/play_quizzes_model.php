@@ -237,7 +237,12 @@ class play_quizzes_model extends CI_Model
 		} else{
 			return 'Expirovano';
 		}
+	}
 
-
+	public function get_itt($seq)
+	{
+		$this->db->select('iteration');
+		$query = $this->db->get_where('4m2w_rel_quizz_sequence', array('id' => $seq));
+		return $query->row_array();
 	}
 }

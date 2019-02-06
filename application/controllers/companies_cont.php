@@ -309,4 +309,24 @@ class companies_cont extends CI_Controller
 		}
 		$this->edit($company_id, 'menu3', 'edit');
 	}
+
+	function set_validity($company_id, $group_id, $quizz_id) {
+		$data = array(
+			'valid_to' => $this->input->post('platnostdo')
+		);
+		//var_dump($data);
+		$this->db->where(array('company_id' => $company_id, 'group_id' => $group_id, 'quiz_id' => $quizz_id));
+		$this->db->update('4m2w_company_quizzes', $data);
+		$this->edit($company_id, 'menu6', 'edit');
+	}
+
+	function set_validity_indiv($company_id, $student_id, $quizz_id) {
+		$data = array(
+			'valid_to' => $this->input->post('platnostdo')
+		);
+		//var_dump($data);
+		$this->db->where(array('company_id' => $company_id, 'student_id' => $student_id, 'quizz_id' => $quizz_id));
+		$this->db->update('4m2w_indiv_quizzes', $data);
+		$this->edit($company_id, 'menu6', 'edit');
+	}
 }
