@@ -458,9 +458,14 @@ class companies_model extends CI_Model
 		return ($query->row_array());
 	}
 
-	function get_std_indiv($company_id){
-		$query = $this->db->get_where('4m2w_indiv_quizzes', array('company_id' => $company_id));
-		return ($query->result_array());
+	function get_std_indiv($company_id, $student_id = NULL){
+		if ($student_id == NULL){
+			$query = $this->db->get_where('4m2w_indiv_quizzes', array('company_id' => $company_id));
+			return ($query->result_array());
+		} else {
+			$query = $this->db->get_where('4m2w_indiv_quizzes', array('company_id' => $company_id, 'student_id' => $student_id));
+			return ($query->result_array());
+		}
 	}
 
 }

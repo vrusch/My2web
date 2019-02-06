@@ -130,24 +130,26 @@
 						<th><?php echo 'Jméno' ;?></th>
 						<th><?php echo 'Příjmení' ;?></th>
 						<th><?php echo 'Skupina' ;?></th>
-						<th><?php echo 'Kvizy' ;?></th>
+						<th><?php echo 'Kvizy uz prir. skupine' ;?></th>
 					</tr>
 					</thead>
-					<?php echo form_open('companies_cont/addquizindstudent/' . $company['id'], 'class="form-horizontal"'); ?>
+					<?php echo form_open('companies_cont/add_ind_quizz_to_student/' . $company['id'], 'class="form-horizontal"'); ?>
 					<?php echo validation_errors(); ?>
 					<?php
 					foreach ($quizzes as $quizzes_item) {
 					$optQ[$quizzes_item['id']] = $quizzes_item['name'];
 					}
 					?>
-					<?php echo form_dropdown('quizz_id', $optQ, '0'); ?>
+					<div class="span3"><?php echo form_dropdown('quizz_id', $optQ, '0'); ?></div>
+					<div class="span1"><?php echo form_submit('', ('Přidat'), 'class="btn btn-primary"'); ?></div>
+
 
 					<?php foreach ($students as $students_item) : ?>
 						<?php $student_info = $this->companies_model->get_student_info($students_item['student_id']); ?>
 						<?php $acc_info = $this->companies_model->get_account_info($students_item['student_id']); ?>
 						<tr>
 							<td>
-								<?php echo form_checkbox(); ?>
+								<?php echo form_checkbox("std[]", $students_item['student_id'], '', 'name="std[]"'); ?>
 							</td>
 							<td>
 								<em><?php echo $student_info['username']; ?></em>
@@ -169,27 +171,33 @@
 							<td>
 								<?php $quiz = $this->companies_model->get_quizzes_by_group($company['id'], $students_item['group_id']); ?>
 								<?php if (count($quiz) > 0) : ?>
-								<table class="table-bordered" style="width: 100%">
-									<?php foreach ($quiz as $quiz_item) : ?>
-									<tr>
-										<td>
-											<em><?php echo $quiz_item['quiz_id'] ;?><?php echo $quiz_item['name'] ;?></em>
-										</td>
-									</tr>
+								<ul>
+									<?php foreach ($quiz as $quiz_item) : //todo: doplnit este individalne kvizy toto su kvizy zo skupiny?>
+											<li><em><?php echo $quiz_item['name'] ;?></em></li>
 									<?php endforeach; ?>
-								</table>
-								<?php endif;//todo: doplnit individualne kurzy prehlad?>
+									<?php endif;?>
+
+									<?php $i_quizz = $this->companies_model->get_std_indiv($company['id'], $students_item['student_id']); ?>
+									<?php if (count($i_quizz) > 0) : ?>
+									<?php foreach ($i_quizz as $quizz_item) : ?>
+										<?php $info = $this->companies_model->get_quizz_info($quizz_item['quizz_id']) ?>
+										<li style="color: #0e90d2"><em>individual - <?php echo $info['name'] ;?></em></li>
+									<?php endforeach; ?>
+									<?php endif;?>
+								</ul>
+
 							</td>
 						</tr>
 					<?php endforeach; ?>
 					</tbody>
 				</table>
+				<?php echo form_close(); ?>
 			</div>
 
 		</div>
 	</div>
 <?php else :  ?>
-	<p>Zadne kvizi protoze nejsou skupiny</p>
+	<p>Zadne kvizy protoze nejsou skupiny</p>
 <?php endif ?>
 
 

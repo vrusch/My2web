@@ -1,5 +1,5 @@
 
-nastavit platnost pro skupiny:
+Nastavit platnost pro skupiny:
 
 <table class="table table-condensed table-hover">
 	<thead>
@@ -27,10 +27,10 @@ nastavit platnost pro skupiny:
 			?>
 		</td>
 		<td>
-			<?php echo '<input name="platnostdo" type="date">'; ?>
+			<?php echo '<input name="platnostdo" type="date" value="2019-02-22">'; ?>
 		</td>
 		<td>
-			<?php echo anchor('companies_cont/blabla/'. $company['id'], 'Nastavit datum', 'class="btn btn-info btn-small"'); ?>
+			<?php echo anchor('companies_cont/blabla/'. $company['id'].'/'.$group_inf['id'].'/'.$quizz_inf['id'], 'Nastavit datum', 'class="btn btn-info btn-small"'); ?>
 		</td>
 	</tr>
 	<?php endforeach; ?>
@@ -39,7 +39,7 @@ nastavit platnost pro skupiny:
 
 <hr>
 
-vypsat individualne prirazene kvizi pro studenty firmy
+Individualne prirazene kvizi pro studenty firmy:
 <table class="table table-condensed table-hover">
 	<thead>
 	<tr>
@@ -57,6 +57,7 @@ vypsat individualne prirazene kvizi pro studenty firmy
 	<?php foreach ($std_indiv as $std_indiv_item) : ?>
 		<?php //$student_info = $this->companies_model->get_student_info($students_item['student_id']); ?>
 		<?php //$acc_info = $this->companies_model->get_account_info($students_item['student_id']); ?>
+	<?php var_dump($std_indiv_item);?>
 	<tr>
 		<td>
 			Username
@@ -74,7 +75,7 @@ vypsat individualne prirazene kvizi pro studenty firmy
 			Kvizy
 		</td>
 		<td>
-			<?php echo '<input name="platnostdo" type="date">'; ?>
+			<?php echo '<input name="platnostdo" type="date" value="2019-02-22">'; ?>
 		</td>
 		<td>
 			<?php echo anchor('companies_cont/blabla/'. $company['id'], 'Nastavit datum', 'class="btn btn-info btn-small"'); ?>

@@ -49,4 +49,4 @@ KVIZ: musi mat priznak ready 0 nepripraveny (neobsahuje nic) 1 (pripraveny ma as
 
 
 KVIZ otazky budu mat bodovu vahu a kviz je po dosiahnuti urciteho poctu bodov uspesny
-KVIZ ak je neuspesny tak zmazat SEQ a vygenerovat novy
+po dokonceni kvizu ukladat pocet behou do noveho pola v tab; poprve je to 1 a potom nieco ako I++

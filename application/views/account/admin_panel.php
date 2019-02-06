@@ -42,6 +42,10 @@
 		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
 			<li class="<?php echo ($current == 'manage_prolongation') ? 'active' : ''; ?>"><?php echo anchor('prolongation_cont', ('Prolongace')); ?></li>
 		<?php endif; ?>
+		<li class="nav-header">Dotazniky</li>
+		<?php if ($this->authorization->is_permitted('retrieve_permissions')) : ?>
+			<li class="<?php echo ($current == 'manage_questionnaire') ? 'active' : ''; ?>"><?php echo anchor('questionnaire_cont', ('Dotazniky')); ?></li>
+		<?php endif; ?>
 	<?php endif; ?>
 
 		<?php if ($this->authorization->is_role_mkb()) : ?>

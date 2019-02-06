@@ -40,7 +40,7 @@ class companies_cont extends CI_Controller
 
 	public function create()
 	{
-		var_dump($_POST);
+		//var_dump($_POST);
 		$this->form_validation->set_rules(
 			'name', 'Název společnosti',
 			'required|min_length[3]|max_length[40]|is_unique[4m2w_companies.name]',
@@ -277,6 +277,34 @@ class companies_cont extends CI_Controller
 					//print_r('ZAPSAT');
 					$this->db->insert('4m2w_company_quizzes',array('company_id' => $company_id, 'group_id' => $group_id, 'quiz_id' => $item));
 				}
+			}
+		}
+		$this->edit($company_id, 'menu3', 'edit');
+	}
+
+	function add_ind_quizz_to_student($company_id) {
+		$post = $_POST;
+		$add_quizz_id = $post['quizz_id']; //toto se pridava: id kvizu
+		$students = $post['std']; //pole studentu kterim se pridava
+		// do tab. 4m2w_indiv_quizzes, pridat student_id, company_id, quizz_id
+		foreach ($students as $item){
+			//kotrola jesli neexistuje mezi group kvizy
+			$query_group= $this->db->get_where('4m2w_students', array('student_id' => $item));
+			$group = $query_group->row_array();
+			$query = $this->db->get_where('4m2w_company_quizzes', array('company_id' => $company_id, 'group_id' => $group['group_id'], 'quiz_id' => $add_quizz_id));
+			$gr_quizzes = $query->num_rows();
+			//kotrola jestli uz neexistuje v invividual
+			$query = $this->db->get_where('4m2w_indiv_quizzes', array('student_id' => $item, 'quizz_id' => $add_quizz_id));
+			$indiv = $query->num_rows();
+			if (($gr_quizzes + $indiv) == 0){
+				$data = array(
+					'student_id' => $item,
+					'quizz_id' => $add_quizz_id,
+					'company_id' => $company_id
+				);
+				$this->db->insert('4m2w_indiv_quizzes', $data);
+			} else {
+				//print_r($item.'UZ EXISTUJE');
 			}
 		}
 		$this->edit($company_id, 'menu3', 'edit');
