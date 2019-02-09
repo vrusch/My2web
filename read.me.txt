@@ -50,3 +50,6 @@ KVIZ: musi mat priznak ready 0 nepripraveny (neobsahuje nic) 1 (pripraveny ma as
 
 KVIZ otazky budu mat bodovu vahu a kviz je po dosiahnuti urciteho poctu bodov uspesny
 po dokonceni kvizu ukladat pocet behou do noveho pola v tab; poprve je to 1 a potom nieco ako I++
+
+
+import PPT do lekcie

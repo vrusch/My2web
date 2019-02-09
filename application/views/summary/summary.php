@@ -31,7 +31,8 @@
 			<ul class="nav nav-tabs">
 				<?php if($display['current'] == 'home') {echo '<li class="active"><a data-toggle="tab" href="#home">Prehled firmy</a></li>';} else {echo '<li><a data-toggle="tab" href="#home">Prehled firmy</a></li>';} ?>
 				<?php if($display['current'] == 'menu1') {echo '<li class="active"><a data-toggle="tab" href="#menu1">Prehled žáků</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu1">Prehled žáků</a></li>';} ?>
-				<?php if($display['current'] == 'menu2') {echo '<li class="active"><a data-toggle="tab" href="#menu2">Jine prehledy</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu2">Jine prehledy</a></li>';} ?>
+				<?php if($display['current'] == 'menu2') {echo '<li class="active"><a data-toggle="tab" href="#menu2">Prolongace</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu2">Prolongace</a></li>';} ?>
+				<?php if($display['current'] == 'menu3') {echo '<li class="active"><a data-toggle="tab" href="#menu3">Jine prehledy</a></li>';} else {echo '<li><a data-toggle="tab" href="#menu3">Jine prehledy</a></li>';} ?>
 			</ul>
 			<?php //var_dump($display); ?>
 				<div class="tab-content">
